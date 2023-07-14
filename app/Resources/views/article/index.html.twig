@@ -1,0 +1,24 @@
+{#
+
+Шаблон страницы 'Live'
+
+#}
+
+{% extends 'main/main.html.twig' %}
+
+{% block body %}
+<div class="text-center">
+    <div class="h1 first">{{ pageName }}<span class="site-circle yellow"></span></div>
+</div>
+{{ pageInfo.textFormatted|raw }}
+<section class="site-flex site-flow flex-wrap site-designers mt-60 mb-20">
+    {% for key, value in articles %}
+        {% include "includes/article-minicard.html.twig" with {'article': value} %}
+    {% endfor %}
+    <section class="catalog-pagination">
+        <section class="content">
+            {{ pagerfanta(articles, 'default', {'omitFirstPage': true, 'prev_message': '←','next_message': '→', 'css_current_class': 'active', 'page_template': '<a class="pagination-item" href="%href%"%rel%>%text%</a>', 'span_template': '<span class="pagination-item active">%text%</span>'}) }}
+        </section>
+    </section>
+</section>
+{% endblock %}

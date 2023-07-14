@@ -1,0 +1,23 @@
+{#
+
+Шаблон баннера 2 в ряд
+
+#}
+<section class="site-flex site-flow site-blocks site-flow-bottom">
+    {% for banner in banners %}
+        {% if banner.image %}
+            {% set img %}{% path banner.image, 'page_551' %}{% endset %}
+        {% else %}
+            {% set img = webpack_asset('@web/images/notfound.svg') %}
+        {% endif %}
+        <section class="site-flex-column x2 site-block" style="background-image: url({{ img }});">
+            <div class="wrapper">
+                <div class="dib title black">{{ banner.name }}</div>
+                {% if banner.text.raw %}
+                    <a href="{{ banner.link }}" {{ banner.isNewWin == 1 ? ' target="_blank" ' : '' }} class="site-button yellow dib">{{ banner.text.raw|raw }}</a>
+                {% endif %}
+            </div>
+            <a href="{{ banner.link }}" {{ banner.isNewWin == 1 ? ' target="_blank" ' : '' }} class="block-link"></a>
+        </section>
+    {% endfor %}
+</section>

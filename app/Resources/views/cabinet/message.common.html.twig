@@ -1,0 +1,22 @@
+{% if message.eventtype == 6 %}
+    {% if (message.order.formType == 3 and message.from == app.user) %}
+        <p>{{ ('ask_discount')|trans ~ (message.order.item ? message.order.item.name : '')}}</p>
+        <p>{{ message.description }}</p>
+    {% elseif message.order.formType == 3 %}
+        <p>{{ ('user_ask_discount')|trans ~ (message.order.item ? message.order.item.name : '')}}</p>
+        <p>{{ message.description }}</p>
+        <a href="{{ path('cabinet_designer_order_item', {'id': message.order.id}) }}" class="site-button yellow"><span class="text">ПОДТВЕРДИТЬ СКИДКУ</span></a>
+     {% else %}
+        <p>{{ ('add_order')|trans ~ (message.order.item ? message.order.item.name : '')}}</p>
+        <p>{{ message.description }}</p>
+    {% endif %}
+{% elseif message.eventtype == 8 %}
+    <p>{{ ('add_to_favorite')|trans ~ (message.order.item ? message.order.item.name : '')}}</p>
+    <a href="{{ path('cabinet_designer_order_item', {'id': message.order.id}) }}" class="site-button yellow"><span class="text">ПРЕДЛОЖИТЬ СКИДКУ</span></a>
+{#% elseif message.eventtype == 9 %}
+    {{ (message.order.formType == 3 ? 'designer_confirm_discount' : 'designer_offer_discount')|trans ~ message.order.discount ~ ('new_price')|trans ~ message.order.price*(1-message.order.discount/100) ~ ' р'}#}
+{% elseif message.description %}
+    {{ message.description }}
+{% else %}
+    {{ ('message_event_type_' ~ message.eventtype)|trans }}
+{% endif %}

@@ -1,0 +1,401 @@
+{# app/Resources/views/form/fields.html.twig #}
+{% include 'formatter.twig.html' %}
+
+{% macro tree(context, value, items, form_id) %}
+    {% import _self as macros %}
+    {% for item in items %}
+        <li>
+            <input type="checkbox" id="{{ context.id }}_{{ item.id }}" name="{{ context.full_name }}[]" value="{{ item.id }}" {% if value[item.id] is defined %}checked="checked"{% endif %}/> {{ item.name }}
+            {% if item['sub_items'] is defined %}
+                <ul>
+                    {{ macros.tree(context, value, item['sub_items']) }}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+{% endmacro %}
+
+{# Этот блок создаёт дерево с чекбоксами, обеспечивая возможность выбрать какие из элементов дерева нужно сохранить куда-либо. Идёт вызов макроса, написанного выше, который вызывает сам себя создавая рекурсию. #}
+{% block multiple_tree_widget %}
+    <ul>
+{% import _self as macros %}
+    {{ macros.tree(_context, value, tree, id) }}
+    </ul>
+{% endblock %}
+
+{# Блок для таблицы прав, в которой можно отметить, какие права и какой группе доступны #}
+{% block privilege_widget %}
+    <table class="table table-bordered table-striped sonata-ba-list">
+        <thead>
+            <tr>
+                <th class="sonata-ba-list-field-header-text">Модуль</th>
+                <th class="sonata-ba-list-field-header-text">Чтение</th>
+                <th class="sonata-ba-list-field-header-text">Запись</th>
+                <th class="sonata-ba-list-field-header-text">Добавление</th>
+                <th class="sonata-ba-list-field-header-text">Удаление</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for privileges_row in privileges_rows %}
+                <tr>
+                    {% for key,row in privileges_row %}
+                        {% if key == 'name' %}
+                            <td>{{ row }}</td>
+                        {% elseif key == 'is_read' or key == 'is_write' or key == 'is_insert' or key == 'is_delete' %}
+                            <td><input type="checkbox" name="{{ full_name }}[{{ key }}][]" value="{{ privileges_row.role_id }}" {% if row == 1 %}checked="checked"{% endif %}/></td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+
+{# Компонент для зависимых select #}
+
+{% block ajax_cascade_select_widget %}
+{% if value %}
+    <div id="{{ unique_block_prefix }}_txt">{{ value.name }}</div>
+    <input type="hidden" id="{{ unique_block_prefix }}_f" name="{{ full_name }}" value="{{ value.id }}">
+{% else %}
+    <div id="{{ unique_block_prefix }}_txt"> -- Не задан -- </div>
+    <input type="hidden" id="{{ unique_block_prefix }}_f" name="{{ full_name }}" value="0">
+{% endif %}
+<div class="btn-group">
+    <a href="{{ path('multiselect', {'adminClass': binding, 'params' : ''}) }}" onclick="return start_field_dialog_form_add{{ unique_block_prefix }}(this);" class="btn btn-success btn-sm sonata-ba-action" title="Изменить">
+    <i class="fa fa-plus-circle"></i> Изменить</a>
+</div>
+
+<div class="modal fade" id="field_dialog{{ unique_block_prefix }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <span class="h4 modal-title"></span>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+
+ var start_field_dialog_form_add{{ unique_block_prefix }} = function(obj) {
+        initialize_popup{{ unique_block_prefix }}();
+
+        var a = jQuery(obj);
+
+        field_dialog_content{{ unique_block_prefix }}.html('');
+
+        // retrieve the form element from the related admin generator
+        jQuery.ajax({
+            url: a.attr('href'),
+            dataType: 'json',
+            success: function(json) {
+                selects = json.selects;
+                html='';
+                position=0;
+                $.each(selects,function(i,item){
+                   html += '<p>'+item.label+'</p>';
+                   html += '<select id="sel{{ unique_block_prefix }}_'+position+'" onchange="resend{{ unique_block_prefix }}(this,'+(position++)+')"><option value="0"> - Не выбрано - </option>';
+                        $.each(item.data,function(j,item1){
+                            html += '<option value="'+item1[0]+'"'+(item1[0]==item.current?"selected":"")+'>'+  item1[1] +'</option>';
+                        });
+                    html += '</select>';
+                });
+
+                // populate the popup container
+                field_dialog_content{{ unique_block_prefix }}.html(html);
+                field_dialog_title{{ unique_block_prefix }}.html('{{ label }}');
+
+                Admin.shared_setup(field_dialog{{ unique_block_prefix }});
+
+                // open the dialog in modal mode
+                field_dialog{{ unique_block_prefix }}.modal();
+                Admin.setup_list_modal(field_dialog{{ unique_block_prefix }});
+            }
+        });
+        return false;
+    };
+
+    var field_dialog{{ unique_block_prefix }}         = false;
+    var field_dialog_content{{ unique_block_prefix }} = false;
+    var field_dialog_title{{ unique_block_prefix }}   = false;
+
+    function initialize_popup{{ unique_block_prefix }}() {
+        // initialize component
+        if (!field_dialog{{ unique_block_prefix }}) {
+            field_dialog{{ unique_block_prefix }}         = jQuery("#field_dialog{{ unique_block_prefix }}");
+            field_dialog_content{{ unique_block_prefix }} = jQuery(".modal-body", "#field_dialog{{ unique_block_prefix }}");
+            field_dialog_title{{ unique_block_prefix }}   = jQuery(".modal-title", "#field_dialog{{ unique_block_prefix }}");
+
+            // move the dialog as a child of the root element, nested form breaks html ...
+            jQuery(document.body).append(field_dialog{{ unique_block_prefix }});
+        }
+    }
+
+    function resend{{ unique_block_prefix }}(obj,cur) {
+        params='';
+        for( i=0; i<(cur+1); i++){
+            if(params !='') params+=';';
+            params+=$('#sel{{ unique_block_prefix }}_'+i).val();
+        }
+        jQuery.ajax({
+            url: "{{ path('multiselect', {'adminClass': binding, 'params' : ''}) }}"+params,
+            dataType: 'json',
+            success: function(json) {
+                selects = json.selects;
+                html='';
+                position=0;
+                $.each(selects,function(i,item){
+                   html += '<p>'+item.label+'</p>';
+                   html += '<select id="sel{{ unique_block_prefix }}_'+position+'" onchange="resend{{ unique_block_prefix }}(this,'+(position++)+')"><option value="0"> - Не выбрано - </option>';
+                       if(item.data){
+                            $.each(item.data,function(j,item1){
+                                html += '<option value="'+item1[0]+'"'+(item1[0]==item.current?"selected":"")+'>'+  item1[1] +'</option>';
+                            });
+                       }
+                    html += '</select>';
+                });
+                if(json.full){
+                    html+='<button onclick="save{{ unique_block_prefix }}(position)">Save</button>';
+                }
+
+                // populate the popup container
+                field_dialog_content{{ unique_block_prefix }}.html(html);
+               
+                Admin.shared_setup(field_dialog{{ unique_block_prefix }});
+        }
+    });
+    }
+
+    function save{{ unique_block_prefix }}(count) {
+        count=count-1;
+        $('#{{ unique_block_prefix }}_f').val($('#sel{{ unique_block_prefix }}_'+count).val());
+        $('#{{ unique_block_prefix }}_txt').html($('#sel{{ unique_block_prefix }}_'+count+' option:selected').html());
+        field_dialog{{ unique_block_prefix }}.modal('hide')
+    }
+</script>
+{% endblock %}
+
+{% block clinic_attribute_type_widget %}
+    {% for group in attributs %}
+        <dl>{{ group.name }}
+            {% if group.attrs is defined %}
+                <ul>
+                {% for attributId,attribut in group.attrs %}
+                    <dl>{% if attribut.values is defined %}
+                            {{ attribut.name }}
+                            <ul>
+                            {% for valId,val in attribut.values %}
+                               <dl><input type='checkbox' name="{{ full_name }}[{{ attributId }}][]" value='{{ valId }}' {% if value[attributId][valId] is defined %}checked{% endif %}> {{ val }}</dl>
+                            {% endfor %}
+                            </ul>
+                        {% else %}
+                            <input type='checkbox' name="{{ full_name }}[{{ attributId }}][]" value='1' {% if value[attributId][1] is defined %}checked{% endif %}> {{ attribut.name }}
+                        {% endif %}
+                    </dl>
+                {% endfor %}
+                </ul>
+            {% endif %}
+       </dl>
+    {% endfor %}
+{% endblock %}
+
+{% block clinic_disease_type_widget %}
+<link rel="stylesheet" href="{{ asset('bundles/sonataformatter/markitup/skins/sonata/style.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/sonataformatter/markitup/sets/markdown/style.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/sonataformatter/markitup/sets/html/style.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/sonataformatter/markitup/sets/textile/style.css') }}" type="text/css" media="all" />
+
+<script src="{{ asset('bundles/ivoryckeditor/ckeditor.js') }}" type="text/javascript"></script>
+<script src="{{ asset('bundles/sonataformatter/vendor/markitup-markitup/markitup/jquery.markitup.js') }}" type="text/javascript"></script>
+<script src="{{ asset('bundles/sonataformatter/markitup/sets/markdown/set.js') }}" type="text/javascript"></script>
+<script src="{{ asset('bundles/sonataformatter/markitup/sets/html/set.js') }}" type="text/javascript"></script>
+<script src="{{ asset('bundles/sonataformatter/markitup/sets/textile/set.js') }}" type="text/javascript"></script>
+    {% for medDirection in attributs %}
+        <dl><span class="med_direction" style="text-decoration:underline; cursor:pointer;">{{ medDirection.params.name }}</span></br></br>
+            <table width="100%" class="diseases_checkboxes" style="display:none;">
+                <tr>
+                    <td colspan="3">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" id="clinic_med_direction_{{ medDirection.params.id }}_favourite" name="{{ full_name }}[med_favourite][{{ medDirection.params.id }}]" class="" value="1" {% if medDirection.params.favourite is defined and medDirection.params.favourite == true %}checked{% endif %} />
+                                <span class="control-label__text">Избранное направление</span>
+                            </label>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="3">
+                        <textarea id="clinic_med_direction_{{ medDirection.params.id }}" name="{{ full_name }}[text_raw][{{ medDirection.params.id }}]" class="span10 form-control" rows="12">{{ medDirection.params.textRaw }}</textarea></br></br>
+                    </td>
+                </tr>  
+                {% if medDirection.diseases is defined %}
+                    <tr>
+                        <td width="200px"><strong>Заболевание</strong></td>
+                        <td width="200px"><input type='checkbox' class="enabled_checker"> <strong>Вкл</strong></td>
+                        <td width="200px"><input type='checkbox' class="favourite_checker"> <strong>Избранное</strong></td>
+                    </tr>
+                    {% for diseaseId,disease in medDirection.diseases %}
+                        <tr>
+                            <td width="200px">{{ disease.name }}</td>
+                            <td width="200px"><input type='checkbox' name="{{ full_name }}[{{ diseaseId }}][enabled]" class="enabled_check" value='1' {% if value[diseaseId]['enabled'] is defined and value[diseaseId]['enabled'] == true %}checked{% endif %}></td>
+                            <td width="200px"><input type='checkbox' name="{{ full_name }}[{{ diseaseId }}][favourite]" class="favourite_check" value='1' {% if value[diseaseId]['favourite'] is defined and value[diseaseId]['favourite'] == true %}checked{% endif %}></td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
+            </table>
+       </dl>
+    {% endfor %}
+    <script>
+        $(document).ready(function() {
+            $(".enabled_check").each(function( index ) {
+                var this_check = this;
+                var countChecks = $(this_check).parents('.diseases_checkboxes').find(".enabled_check").length;
+                var countChecksChecked = $(this_check).parents('.diseases_checkboxes').find(".enabled_check:checked").length;
+                if(countChecks != countChecksChecked) {
+                    $(this_check).parents('.diseases_checkboxes').find(".enabled_checker").prop("checked", false);
+                } else {
+                    $(this_check).parents('.diseases_checkboxes').find(".enabled_checker").prop("checked", true);
+                }
+                $(this_check).parents('.diseases_checkboxes').find("input").iCheck('update');
+            });
+            
+            $(".favourite_check").each(function( index ) {
+                var this_check = this;
+                var countChecks = $(this_check).parents('.diseases_checkboxes').find(".favourite_check").length;
+                var countChecksChecked = $(this_check).parents('.diseases_checkboxes').find(".favourite_check:checked").length;
+                if(countChecks != countChecksChecked) {
+                    $(this_check).parents('.diseases_checkboxes').find(".favourite_checker").prop("checked", false);
+                } else {
+                    $(this_check).parents('.diseases_checkboxes').find(".favourite_checker").prop("checked", true);
+                }
+                $(this_check).parents('.diseases_checkboxes').find("input").iCheck('update');
+            });
+            
+            $(".enabled_checker").on('ifChecked ifUnchecked',function () {
+                $(this).parents('.diseases_checkboxes').find(".enabled_check").prop("checked", $(this).is(":checked")).iCheck('update');
+            });
+            
+            $(".favourite_checker").on('ifChecked ifUnchecked',function () {
+                $(this).parents('.diseases_checkboxes').find(".favourite_check").prop("checked", $(this).is(":checked")).iCheck('update');
+            });
+            
+            $(".enabled_check").on('ifChecked ifUnchecked',function () {
+                var this_check = this;
+                var countChecks = $(this_check).parents('.diseases_checkboxes').find(".enabled_check").length;
+                var countChecksChecked = $(this_check).parents('.diseases_checkboxes').find(".enabled_check:checked").length;
+                if(countChecks != countChecksChecked) {
+                    $(this_check).parents('.diseases_checkboxes').find(".enabled_checker").prop("checked", false);
+                } else {
+                    $(this_check).parents('.diseases_checkboxes').find(".enabled_checker").prop("checked", true);
+                }
+                $(this_check).parents('.diseases_checkboxes').find("input").iCheck('update');
+            });
+            
+            $(".favourite_check").on('ifChecked ifUnchecked',function () {
+                var this_check = this;
+                var countChecks = $(this_check).parents('.diseases_checkboxes').find(".favourite_check").length;
+                var countChecksChecked = $(this_check).parents('.diseases_checkboxes').find(".favourite_check:checked").length;
+                if(countChecks != countChecksChecked) {
+                    $(this_check).parents('.diseases_checkboxes').find(".favourite_checker").prop("checked", false);
+                } else {
+                    $(this_check).parents('.diseases_checkboxes').find(".favourite_checker").prop("checked", true);
+                }
+                $(this_check).parents('.diseases_checkboxes').find("input").iCheck('update');
+            });
+            
+            $(".med_direction").on('click',function () {
+                $(this).parents('dl').find(".diseases_checkboxes").toggle();
+                $('input').iCheck('update');
+            });
+            {% for medDirection in attributs %}
+                var ivory_ckeditor_clinic_med_direction_{{ medDirection.params.id }} = CKEDITOR.replace("clinic_med_direction_{{ medDirection.params.id }}", {"toolbar":[["Bold","Italic","Underline","-","Cut","Copy","Paste","PasteText","PasteFromWord","-","Undo","Redo","-","NumberedList","BulletedList","-","Outdent","Indent","-","Blockquote","-","Image","Link","Unlink","Table"],["Format","Maximize","Source"]],"language":"ru","filebrowserBrowseUrl":"\/admin\/sonata\/media\/media\/ckeditor_browser","filebrowserImageBrowseUrl":"\/admin\/sonata\/media\/media\/ckeditor_browser?provider=sonata.media.provider.image","filebrowserUploadUrl":"\/admin\/sonata\/media\/media\/ckeditor_upload?provider=sonata.media.provider.file","filebrowserImageUploadUrl":"\/admin\/sonata\/media\/media\/ckeditor_upload?provider=sonata.media.provider.image&context=default"});
+                ivory_ckeditor_clinic_med_direction_{{ medDirection.params.id }}.on('change', function() { ivory_ckeditor_clinic_med_direction_{{ medDirection.params.id }}.updateElement(); });
+            {% endfor %}
+        });
+    </script>
+{% endblock %}
+
+{% block clinic_param_type_widget %}
+    {% for param in params %}
+        <dl>{{ param.name }}
+            {% if param.paramType == 1 %}
+                <input type='text' name="{{ full_name }}[{{ param.id }}][strVal]" value='{% if value[param.id]['strVal'] is defined %}{{ value[param.id]['strVal'] }}{% endif %}'>
+            {% endif %}
+            {% if param.paramType == 2 %}
+                <input type='text' name="{{ full_name }}[{{ param.id }}][intVal]" value='{% if value[param.id]['intVal'] is defined %}{{ value[param.id]['intVal'] }}{% endif %}'>
+            {% endif %}
+            {% if param.paramType == 3 and param.values is defined %}
+                <select name="{{ full_name }}[{{ param.id }}][val]">
+                    {% for valueId,valueVal in param.values %}
+                        <option value="{{ valueId }}" {% if value[param.id]['val'] is defined and value[param.id]['val'] == valueId %}selected{% endif %}>{{ valueVal }}</option>
+                    {% endfor %}
+                </select>
+            {% endif %}
+       </dl>
+    {% endfor %}
+{% endblock %}
+
+{% block disease_country_type_widget %}
+<link rel="stylesheet" href="{{ asset('bundles/sonataformatter/markitup/skins/sonata/style.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/sonataformatter/markitup/sets/markdown/style.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/sonataformatter/markitup/sets/html/style.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/sonataformatter/markitup/sets/textile/style.css') }}" type="text/css" media="all" />
+
+<script src="{{ asset('bundles/ivoryckeditor/ckeditor.js') }}" type="text/javascript"></script>
+<script src="{{ asset('bundles/sonataformatter/vendor/markitup-markitup/markitup/jquery.markitup.js') }}" type="text/javascript"></script>
+<script src="{{ asset('bundles/sonataformatter/markitup/sets/markdown/set.js') }}" type="text/javascript"></script>
+<script src="{{ asset('bundles/sonataformatter/markitup/sets/html/set.js') }}" type="text/javascript"></script>
+<script src="{{ asset('bundles/sonataformatter/markitup/sets/textile/set.js') }}" type="text/javascript"></script>
+    {% for country in attributs %}
+        <dl><span class="custom_toggle_block" style="text-decoration:underline; cursor:pointer;">{{ country.name }}</span></br></br>
+            <table with="100%" class="custom_inner_block" style="display:none;">
+                <tr>
+                    <td colspan="3">
+                        <textarea id="disease_clinic_text_{{ country.id }}" name="{{ full_name }}[{{ country.id }}][text]" class="span10 form-control" rows="12">{{ country.textRaw }}</textarea></br></br>
+                    </td>
+                </tr>
+                <tr>
+                    <td width="200px"><strong>Вкл </strong><input type='checkbox' name="{{ full_name }}[{{ country.id }}][enabled]" value='1' {% if country.enabled is defined and country.enabled == true %}checked{% endif %}></td>
+                    <td width="200px"><strong>Избранное </strong><input type='checkbox' name="{{ full_name }}[{{ country.id }}][favourite]" value='1' {% if country.favourite is defined and country.favourite == true %}checked{% endif %}></td>
+                </tr>
+            </table>
+       </dl>
+    {% endfor %}
+    <script>
+        $(document).ready(function() {
+            $(".custom_toggle_block").on('click',function () {
+                $(this).parents('dl').find(".custom_inner_block").toggle();
+                $('input').iCheck('update');
+            });
+            {% for country in attributs %}
+                var ivory_ckeditor_disease_clinic_text_{{ country.id }} = CKEDITOR.replace("disease_clinic_text_{{ country.id }}", {"toolbar":[["Bold","Italic","Underline","-","Cut","Copy","Paste","PasteText","PasteFromWord","-","Undo","Redo","-","NumberedList","BulletedList","-","Outdent","Indent","-","Blockquote","-","Image","Link","Unlink","Table"],["Format","Maximize","Source"]],"language":"ru","filebrowserBrowseUrl":"\/admin\/sonata\/media\/media\/ckeditor_browser","filebrowserImageBrowseUrl":"\/admin\/sonata\/media\/media\/ckeditor_browser?provider=sonata.media.provider.image","filebrowserUploadUrl":"\/admin\/sonata\/media\/media\/ckeditor_upload?provider=sonata.media.provider.file","filebrowserImageUploadUrl":"\/admin\/sonata\/media\/media\/ckeditor_upload?provider=sonata.media.provider.image&context=default"});
+                ivory_ckeditor_disease_clinic_text_{{ country.id }}.on('change', function() { ivory_ckeditor_disease_clinic_text_{{ country.id }}.updateElement(); });
+            {% endfor %}
+        });
+    </script>
+{% endblock %}
+
+{% block generation_cases_type_widget %}
+    <button type="button" class="btn btn-default js-generation-cases" data-url="{{ path('generationCases') }}">Сгенерировать падежи</button>
+    <div class="js-cases-errors" style="color:red;"></div>
+    <div class="js-cases-done" style="color:green;"></div>
+    <script type="text/javascript" src="{{ asset('/admin/js/nprogress.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('/admin/css/nprogress.css') }}" type="text/css" media="all" />
+{% endblock %}
+
+{% block text_to_link_type_widget %}
+    <a href="{{ value }}" target="_blank">{{ value }}</a>
+    <input type="hidden" id="{{ unique_block_prefix }}_f" name="{{ full_name }}" value="{{ value }}">
+{% endblock %}
+
+{% block clinic_to_link_type_widget %}
+    {% for clinic in value %}
+        <a href="/hospital/{{ clinic.getLink() }}" target="_blank" title="{{ 'action_show_site'|trans({}, 'SonataAdminBundle') }}">
+            {{ clinic.getName() }}
+        </a><br/>
+    {% endfor %}
+{% endblock %}

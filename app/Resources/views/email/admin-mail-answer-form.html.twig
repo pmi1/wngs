@@ -1,0 +1,22 @@
+Получен новый <a href="{{ url('admin_app_formanswer_edit', {'id': formAnswer.id})}}">ответ</a> на форму.
+<table>
+    <tr><th style="text-align:right">{% trans %}Id{% endtrans %}:</th><td>{{ formAnswer.id }}</td></tr>
+    <tr><th style="text-align:right">{% trans %}formType{% endtrans %}:</th><td>{{ FormAnswerType[formAnswer.formType]|trans }}</td></tr>
+    <tr><th style="text-align:right">{% trans %}Name{% endtrans %}:</th><td>{{ formAnswer.name }}</td></tr>
+    <tr><th style="text-align:right">{% trans %}Phone{% endtrans %}:</th><td>{{ formAnswer.phone }}</td></tr>
+    <tr><th style="text-align:right">{% trans %}City{% endtrans %}:</th><td>{{ formAnswer.city }}</td></tr>
+    <tr><th style="text-align:right">{% trans %}Email{% endtrans %}:</th><td>{{ formAnswer.email }}</td></tr>
+    <tr><th style="text-align:right">{% trans %}Question{% endtrans %}:</th><td>{{ formAnswer.question }}</td></tr>
+    <tr><th style="text-align:right">{% trans %}Answered At{% endtrans %}:</th><td>{{ formAnswer.answeredAt.date }}</td></tr>
+    <tr><th style="text-align:right">{% trans %}Answer File{% endtrans %}:</th><td>{{ formAnswer.answerFile }}</td></tr>
+    <tr><th style="text-align:right">{% trans %}Referer Link{% endtrans %}:</th><td>{{ formAnswer.refererLink }}</td></tr>
+    <tr><th style="text-align:right">{% trans %}Clinic{% endtrans %}:</th><td>
+        <ul>
+        {% for key, value in formAnswer.clinic %}
+            <li>
+                <a href="{{ path('hospital_show', {'slug': value.link}) |url }}">{{ value.name }}</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </td></tr>
+</table>

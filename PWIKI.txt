@@ -1,0 +1,77 @@
+ПОЛЕЗНЫЕ КОНСОЛЬНЫЕ КОМАНДЫ
+
+1. Сброс кэша
+    Дев: php app/console cache:clear
+    Продакшн: php app/console cache:clear --env=prod
+    
+2. Композер
+    composer install
+    composer update
+    
+3. Миграции
+    Создать php app/console doctrine:migrations:diff
+    Накатить php app/console doctrine:migrations:migrate
+    Откатить конкретную миграцию php app/console doctrine:migrations:execute 20170505104217 --down
+    
+4. Генерация Entity
+    php app/console doctrine:generate:entities AppBundle:News
+    
+    Принудительно обновить базу на основе инфы из Entity:
+    php app/console doctrine:schema:update --force
+    
+5. Фейкер
+    php app/console vernal:faker
+    
+6. Превьюшки
+    Удалить превьюшки конкретного типа
+    php app/console sonata:media:remove-thumbnails -n sonata.media.provider.image media_context_clinic_image small
+
+    Апдейт превьюшек, при изменении размеров, например, или качества
+    php app/console sonata:media:sync-thumbnails -n sonata.media.provider.image media_context_clinic_image
+    
+7. Elastic Search
+    Полная переиндексация php app/console fos:elastica:populate
+
+ГЛОБАЛЬНЫЕ МЕТОДЫ ПРОЕКТА
+
+1. Хлебные крошки
+
+    Все манипуляции осуществляются в контроллере
+    1.1 Наследуемся от базового контроллера
+        use AppBundle\Controller\BaseClientController;
+        class CountryController extends BaseClientController
+    
+    1.2 Связываем нужный экшн с эквивалентным разделом в дереве сайта через поле article
+        $this->setArticle('countryIndex');
+    
+    1.3 Крошки подтянутся автоматически. Если нужно добавить в конец кастомные крошки, то вызываем в экшне 
+        $this->addBreadCrumb($this->generateUrl('country_show', array('slug' => trim($link,'/'))), $country->getName());
+    
+2. Мета-теги
+    
+    Связываем экшн по примеру п1.1 и п1.2
+    
+    1.3 Автоматически подтянутся мета-теги раздела. Если нужно вывести кастомные мета-теги, то при вызове return $this->render в качестве значений нужно передать заполненные
+        "metaTitle" => "",
+        "metaKeywords" => "",
+        "metaDescription" => "",
+    
+3. Вывод изображений и svg-файлов в TWIG-шаблоне
+
+    Если работа ведётся исключительно с изображениями
+    {% media clinic.city.country.flag, 'country_flag16' with {'alt': clinic.city.country.name, 'title': clinic.city.country.name, 'class': 'mr-1'} %}
+    
+    Если в качестве изображения может попасться svg, то задаём ему явно ширину:
+    {% media clinic.city.country.flag, 'country_flag16' with {'alt': clinic.city.country.name, 'title': clinic.city.country.name, 'class': 'mr-1', 'width': 16} %}
+    
+    В админском скрипте svg подключаются так опцией 'providers' => ['sonata.media.provider.image', 'sonata.media.provider.svg']
+    Пример:
+    
+    ->add('flag', 'sonata_type_model_list', array(), array(
+        'edit' => 'inline',
+        'inline' => 'standard',
+        'link_parameters' => array(
+            'context' => 'media_context_country_flag',
+            'providers' => ['sonata.media.provider.image', 'sonata.media.provider.svg'],
+        )
+    ))

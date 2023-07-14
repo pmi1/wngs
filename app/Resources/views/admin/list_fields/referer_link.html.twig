@@ -1,0 +1,11 @@
+{#
+
+Часть шаблона админки для ссылок
+
+#}
+
+<td class="sonata-ba-list-field sonata-ba-list-field-url" objectid="1">
+    <a href="{{ object.getRefererLink() }}" target="_blank" title="{{ 'action_show_site'|trans({}, 'SonataAdminBundle') }}">
+        {{ object.getRefererLink() }}
+    </a>
+</td>

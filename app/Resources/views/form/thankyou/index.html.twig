@@ -1,0 +1,45 @@
+{#
+
+Шаблон успешного заполнения формы обратной связи
+
+#}
+
+{% extends 'main/main.html.twig' %}
+
+{% block body %}
+    <div class="container-fluid pb-5">
+        <div class="heading-container pt-4 pb-4">
+            {% if formAnswer.id is defined %}
+                {% if formAnswer.formType == 1 %}
+                    <h1>Заявка на обратный звонок успешно принята!</h1>
+                    <p>
+                        Медицинский консультант сервиса Hospitals-travel свяжется с Вами в течение ближайшее время.<br/>
+                    </p>
+                {% elseif formAnswer.formType == 2 %}
+                    <h1>Заявка на получение вариантов лечения №{{ formAnswer.id }} успешно принята!</h1>
+                    <p>
+                        В ближайшее время с Вами свяжется медицинский консультант сервиса Hospitals-travel, чтобы задать уточняющие вопросы.
+                    </p>
+                {% elseif formAnswer.formType == 3 %}
+                    <p>
+                        В ближайшее время с Вами свяжется медицинский консультант сервиса Hospitals-travel, чтобы задать уточняющие вопросы.
+                    </p>
+                {% elseif formAnswer.formType == 4 %}
+                    <h1>Обращение в {{ 'translation.clinics.dat'|transchoice(formAnswer.clinic|length) }} успешно принято! (№{{ formAnswer.id }})</h1>
+                    <p>
+                        В ближайшее время с Вами свяжется куратор сервиса Hospitals-travel, чтобы задать уточняющие вопросы и завершить оформление обращения в {{ 'translation.clinics.chosen'|transchoice(formAnswer.clinic|length) }}.
+                    </p>
+                {% endif %}
+                <p>А пока присоединяйтесь к нашим группам в социальных сетях и узнавайте первыми о скидках, акциях и программах благотворительного лечения в зарубежных клиниках.</p>
+                <div class="social-holder">
+                    <ul class="d-inline-block list-unstyled mb-0 ml-2 social-networks">
+                        <li class="mx-1"><a class="icon-youtube text-success" href="#"></a></li>
+                        <li class="mx-1"><a class="icon-twitter text-success" href="#"></a></li>
+                        <li class="mx-1"><a class="icon-facebook text-success" href="#"></a></li>
+                        <li class="mx-1"><a class="icon-vkontakte text-success" href="#"></a></li>
+                    </ul>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,38 @@
+imports:
+    - { resource: ../parameters.yml }
+
+    - { resource: ../vendor/framework.yml }
+    - { resource: ../vendor/doctrine.yml }
+    - { resource: ../vendor/twig.yml }
+    - { resource: ../vendor/swiftmailer.yml }
+    - { resource: ../vendor/maba_webpack.yml }
+    - { resource: ../vendor/monolog.yml }
+    - { resource: ../vendor/ivory_ckeditor.yml }
+    - { resource: ../vendor/elasticsearch.yml }
+    - { resource: ../vendor/stof_doctrine_extensions.yml }
+
+    - { resource: ../vendor/sonata_admin.yml }
+    - { resource: ../vendor/sonata_formatter.yml }
+    - { resource: ../vendor/sonata_classification.yml }
+    - { resource: ../vendor/sonata_block.yml }
+    - { resource: ../vendor/sonata_media.yml }
+
+    - { resource: ../services/admin.yml }
+    - { resource: ../services/services.yml }
+    - { resource: ../services/managers.yml }
+    - { resource: ../services/helpers.yml }
+    - { resource: ../services/twigs.yml }
+    - { resource: ../services/listeners.yml }
+    - { resource: ../services/forms.yml }
+    - { resource: ../services/menus.yml }
+    - { resource: ../services/repositories.yml }
+    - { resource: ../services/hwi.yml }
+
+    - { resource: ../security/security.yml }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    locale: ru
+    app.cnst_user_discount: 7
+    app.feedbacks_per_page: 5

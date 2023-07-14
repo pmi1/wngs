@@ -1,0 +1,16 @@
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+
+    globals:
+        cnst_user_discount: '%app.cnst_user_discount%'
+        elastic_helper: '@app.elastic_helper'
+        sale_id: '%sale_id%'
+        flash_sale_id: '%flash_sale_id%'
+        sale_predictor_id: '%sale_predictor_id%'
+        promo_id: '%promo_id%'
+    #sonata
+    form_themes:
+        - 'SonataFormatterBundle:Form:formatter.html.twig'
+        - 'SonataCoreBundle:Form:datepicker.html.twig'
+        - 'form/media_widgets.html.twig'

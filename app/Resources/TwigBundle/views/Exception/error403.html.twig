@@ -1,0 +1,16 @@
+{#
+
+Шаблон станицы с 403-й ошибкой
+
+#}
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>{{ 'security.access_denied'|trans({}, 'SonataAdminBundle') }}</h1>
+
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+        <p>{{ 'security.access_denied_auth'|trans({}, 'SonataAdminBundle') }}</p>
+    {% endif %}
+
+{% endblock %}

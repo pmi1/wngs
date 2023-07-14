@@ -1,0 +1,2963 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="SonataAdminBundle.en.xliff">
+        <body>
+            <trans-unit id="Action">
+                <source>Action</source>
+                <target>Действие</target>
+            </trans-unit>
+            <trans-unit id="CmfScript">
+                <source>CmfScript</source>
+                <target>Структура сайта</target>
+            </trans-unit>
+            <trans-unit id="Script">
+                <source>Script</source>
+                <target>Страницы сайта</target>
+            </trans-unit>
+            <trans-unit id="ID">
+                <source>ID</source>
+                <target>id</target>
+            </trans-unit>
+            <trans-unit id="id">
+                <source>id</source>
+                <target>id</target>
+            </trans-unit>
+            <trans-unit id="Id">
+                <source>Id</source>
+                <target>id</target>
+            </trans-unit>
+            <trans-unit id="H1">
+                <source>H1</source>
+                <target>H1</target>
+            </trans-unit>
+            <trans-unit id="h1">
+                <source>h1</source>
+                <target>H1</target>
+            </trans-unit>
+            <trans-unit id="status">
+                <source>status</source>
+                <target>Вкл</target>
+            </trans-unit>
+            <trans-unit id="Cmf Script List">
+                <source>Cmf Script List</source>
+                <target>Структура сайта</target>
+            </trans-unit>
+            <trans-unit id="cmfscript_name">
+                <source>cmfscript_name</source>
+                <target>Название</target>
+            </trans-unit>
+            <trans-unit id="cmfscript_url">
+                <source>cmfscript_url</source>
+                <target>Урл</target>
+            </trans-unit>
+            <trans-unit id="cmfscript_catname">
+                <source>cmfscript_catname</source>
+                <target>Путь к каталогу</target>
+            </trans-unit>
+            <trans-unit id="cmfscript_realcatname">
+                <source>cmfscript_realcatname</source>
+                <target>Путь к странице</target>
+            </trans-unit>
+            <trans-unit id="cmfscript_preview">
+                <source>cmfscript_preview</source>
+                <target>Краткое описание</target>
+            </trans-unit>
+            <trans-unit id="cmfscript_text">
+                <source>cmfscript_text</source>
+                <target>Подробное описание</target>
+            </trans-unit>
+            <trans-unit id="cmf_script_url_help">
+                <source>cmf_script_url_help</source>
+                <target>Ссылка на контроллер, экшн или внешний ресурс</target>
+            </trans-unit>
+            <trans-unit id="cmf_script_catname_help">
+                <source>cmf_script_catname_help</source>
+                <target>Символьный код текстового раздела. Учитывается при автогенерации путей к текстовым разделам.</target>
+            </trans-unit>
+            <trans-unit id="cmf_script_is_group_node_help">
+                <source>cmf_script_is_group_node_help</source>
+                <target>Раздел, не имеющий собственного контента. Служит только для группировки дочерних элементов.</target>
+            </trans-unit>
+            <trans-unit id="cmf_script_is_exclude_path_help">
+                <source>cmf_script_is_exclude_path_help</source>
+                <target>Не учитывать символьный код данного раздела при автогенерации пути к текстовому разделу.</target>
+            </trans-unit>
+            <trans-unit id="cmf_script_is_search_help">
+                <source>cmf_script_is_search_help</source>
+                <target>Поле в данный момент не используется </target>
+            </trans-unit>
+            <trans-unit id="Preview Type">
+                <source>Preview Type</source>
+                <target>Краткое описание</target>
+            </trans-unit>
+            <trans-unit id="Preview  Type">
+                <source>Preview  Type</source>
+                <target>Краткое описание</target>
+            </trans-unit>
+            <trans-unit id="preview.type">
+                <source>preview.type</source>
+                <target>Краткое описание</target>
+            </trans-unit>
+            <trans-unit id="Text Type">
+                <source>Text Type</source>
+                <target>Подробное описание</target>
+            </trans-unit>
+            <trans-unit id="Text  Type">
+                <source>Text  Type</source>
+                <target>Подробное описание</target>
+            </trans-unit>
+            <trans-unit id="text.type">
+                <source>text.type</source>
+                <target>Подробное описание</target>
+            </trans-unit>
+            <trans-unit id="Text Top Type">
+                <source>Text Top Type</source>
+                <target>Подробное описание сверху</target>
+            </trans-unit>
+            <trans-unit id="Text Top  Type">
+                <source>Text Top  Type</source>
+                <target>Подробное описание сверху</target>
+            </trans-unit>
+            <trans-unit id="textTop.type">
+                <source>Text Top Type</source>
+                <target>Подробное описание сверху</target>
+            </trans-unit>
+            <trans-unit id="markdown">
+                <source>markdown</source>
+                <target>markdown</target>
+            </trans-unit>
+            <trans-unit id="text">
+                <source>text</source>
+                <target>text</target>
+            </trans-unit>
+            <trans-unit id="ordering">
+                <source>ordering</source>
+                <target>Сортировка</target>
+            </trans-unit>
+            <trans-unit id="cmfscript_is_group_node">
+                <source>cmfscript_is_group_node</source>
+                <target>Группообразующий узел</target>
+            </trans-unit>
+            <trans-unit id="cmfscript_is_new_win">
+                <source>cmfscript_is_new_win</source>
+                <target>В новом окне</target>
+            </trans-unit>
+            <trans-unit id="cmfscript_is_exclude_path">
+                <source>cmfscript_is_exclude_path</source>
+                <target>Не учитывать при составлении пути</target>
+            </trans-unit>
+            <trans-unit id="cmfscript_is_search">
+                <source>cmfscript_is_search</source>
+                <target>Участвует в поиске</target>
+            </trans-unit>
+            <trans-unit id="Country">
+                <source>Country</source>
+                <target>Страна</target>
+            </trans-unit>
+            <trans-unit id="Country List">
+                <source>Country List</source>
+                <target>Страны</target>
+            </trans-unit>
+            <trans-unit id="Country Name">
+                <source>Country Name</source>
+                <target>Название</target>
+            </trans-unit>
+            <trans-unit id="countryName">
+                <source>countryName</source>
+                <target>Название</target>
+            </trans-unit>
+            <trans-unit id="Country Create">
+                <source>Country Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Form Answer Create">
+                <source>Form Answer Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="City">
+                <source>City</source>
+                <target>Город</target>
+            </trans-unit>
+            <trans-unit id="city">
+                <source>city</source>
+                <target>Город</target>
+            </trans-unit>
+            <trans-unit id="City List">
+                <source>City List</source>
+                <target>Города</target>
+            </trans-unit>
+            <trans-unit id="City Create">
+                <source>City Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Clinic">
+                <source>Clinic</source>
+                <target>Клиники</target>
+            </trans-unit>
+            <trans-unit id="Clinic List">
+                <source>Clinic List</source>
+                <target>Клиники</target>
+            </trans-unit>
+            <trans-unit id="Clinic Create">
+                <source>Clinic Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Disease">
+                <source>Disease</source>
+                <target>Заболевание</target>
+            </trans-unit>
+            <trans-unit id="Disease List">
+                <source>Disease List</source>
+                <target>Заболевания</target>
+            </trans-unit>
+            <trans-unit id="Disease Create">
+                <source>Disease Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Manipulation">
+                <source>Manipulation</source>
+                <target>Манипуляции</target>
+            </trans-unit>
+            <trans-unit id="Manipulations">
+                <source>Manipulations</source>
+                <target>Манипуляции</target>
+            </trans-unit>
+            <trans-unit id="Manipulation List">
+                <source>Manipulation List</source>
+                <target>Манипуляции</target>
+            </trans-unit>
+            <trans-unit id="Manipulation Create">
+                <source>Manipulation Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Med Directions">
+                <source>Med Directions</source>
+                <target>Направления медицины</target>
+            </trans-unit>
+            <trans-unit id="Med Direction">
+                <source>Med Direction</source>
+                <target>Направления медицины</target>
+            </trans-unit>
+            <trans-unit id="Med Direction List">
+                <source>Med Direction List</source>
+                <target>Направления медицины</target>
+            </trans-unit>
+            <trans-unit id="Med Direction Create">
+                <source>Med Direction Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Opinion">
+                <source>Opinion</source>
+                <target>Отзывы</target>
+            </trans-unit>
+            <trans-unit id="Opinion List">
+                <source>Opinion List</source>
+                <target>Отзывы</target>
+            </trans-unit>
+            <trans-unit id="Opinion Create">
+                <source>Opinion Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Name">
+                <source>Name</source>
+                <target>Название</target>
+            </trans-unit>
+            <trans-unit id="Name Eng">
+                <source>Name Eng</source>
+                <target>Название на английском</target>
+            </trans-unit>
+            <trans-unit id="nameEng">
+                <source>nameEng</source>
+                <target>Название на английском</target>
+            </trans-unit>
+            <trans-unit id="Name Rd">
+                <source>Name Rd</source>
+                <target>Название в родительном падеже</target>
+            </trans-unit>
+            <trans-unit id="Name Dt">
+                <source>Name Dt</source>
+                <target>Название в дательном падеже</target>
+            </trans-unit>
+            <trans-unit id="Name Tv">
+                <source>Name Tv</source>
+                <target>Название в творительном падеже</target>
+            </trans-unit>
+            <trans-unit id="Name Pr">
+                <source>Name Pr</source>
+                <target>Название в предложном падеже</target>
+			</trans-unit>
+            <trans-unit id="nameRd">
+                <source>nameRd</source>
+                <target>Название в родительном падеже</target>
+            </trans-unit>
+            <trans-unit id="nameDt">
+                <source>nameDt</source>
+                <target>Название в дательном падеже</target>
+            </trans-unit>
+            <trans-unit id="nameTv">
+                <source>nameTv</source>
+                <target>Название в творительном падеже</target>
+            </trans-unit>
+            <trans-unit id="namePr">
+                <source>namePr</source>
+                <target>Название в предложном падеже</target>
+			</trans-unit>
+            <trans-unit id="name_rd_help">
+                <source>name_rd_help</source>
+                <target>Кого? Чего? Пример: города</target>
+			</trans-unit>
+            <trans-unit id="name_dt_help">
+                <source>name_dt_help</source>
+                <target>Кому? Чему? Пример: городу</target>
+			</trans-unit>
+            <trans-unit id="name_tv_help">
+                <source>name_tv_help</source>
+                <target>Кем? Чем? Пример: городом</target>
+			</trans-unit>
+            <trans-unit id="name_pr_help">
+                <source>name_pr_help</source>
+                <target>О ком? О чём? В ком? В чём? Пример: городе</target>
+			</trans-unit>
+            <trans-unit id="airportDistance">
+                <source>airportDistance</source>
+                <target>Удаленность от аэропорта (в километрах)</target>
+			</trans-unit>
+            <trans-unit id="airport_distance_help">
+                <source>airport_distance_help</source>
+                <target>Если в поле пусто, то расстояние неизвестно. Если в поле 0, то аэропорт находится в городе</target>
+			</trans-unit>
+            <trans-unit id="name">
+                <source>name</source>
+                <target>Название</target>
+            </trans-unit>
+            <trans-unit id="Link">
+                <source>Link</source>
+                <target>Url</target>
+            </trans-unit>
+            <trans-unit id="link">
+                <source>link</source>
+                <target>Url</target>
+            </trans-unit>
+            <trans-unit id="Preview Formatted">
+                <source>Preview Formatted</source>
+                <target>Краткое описание</target>
+            </trans-unit>
+            <trans-unit id="Text Formatted">
+                <source>Text Formatted</source>
+                <target>Подробное описание</target>
+            </trans-unit>
+            <trans-unit id="previewFormatted">
+                <source>previewFormatted</source>
+                <target>Краткое описание</target>
+            </trans-unit>
+            <trans-unit id="preview.formatted">
+                <source>preview.formatted</source>
+                <target>Краткое описание</target>
+            </trans-unit>
+            <trans-unit id="textFormatted">
+                <source>textFormatted</source>
+                <target>Подробное описание</target>
+            </trans-unit>
+            <trans-unit id="text.formatted">
+                <source>text.formatted</source>
+                <target>Подробное описание</target>
+            </trans-unit>
+            <trans-unit id="Country Configure">
+                <source>Country Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Country Med Direction Configure">
+                <source>Country Med Direction Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Last Request Configure">
+                <source>Last Request Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="City Configure">
+                <source>City Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Clinic Configure">
+                <source>Clinic Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Disease Configure">
+                <source>Disease Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Form Answer Configure">
+                <source>Form Answer Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Manipulation Configure">
+                <source>Manipulation Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Med Direction Configure">
+                <source>Med Direction Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Opinion Configure">
+                <source>Opinion Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Country Disease Configure">
+                <source>Country Disease Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="City Price Configure">
+                <source>City Price Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Cost Example Configure">
+                <source>Cost Example Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Doctor Configure">
+                <source>Doctor Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Promo Configure">
+                <source>Promo Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Promo Main Configure">
+                <source>Promo Main Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Page Configure">
+                <source>Page Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Clinic Attr Group Configure">
+                <source>Clinic Attr Group Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Clinic Attr Configure">
+                <source>Clinic Attr Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Clinic Param Configure">
+                <source>Clinic Param Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Lang Support Configure">
+                <source>Lang Support Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Curator Configure">
+                <source>Curator Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Certificate Configure">
+                <source>Certificate Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Price Segment Configure">
+                <source>Price Segment Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Service Clinic Type Configure">
+                <source>Service Clinic Type Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Doctor Degree Configure">
+                <source>Doctor Degree Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Doctor Specialisation Configure">
+                <source>Doctor Specialisation Configure</source>
+                <target>Настройки отображения полей</target>
+            </trans-unit>
+            <trans-unit id="Status">
+                <source>Status</source>
+                <target>Вкл</target>
+            </trans-unit>
+            <trans-unit id="favourite">
+                <source>favourite</source>
+                <target>Избранное</target>
+            </trans-unit>
+            <trans-unit id="Favourite">
+                <source>Favourite</source>
+                <target>Избранное</target>
+            </trans-unit>
+            <trans-unit id="Fav">
+                <source>Fav</source>
+                <target>Избранное для направления</target>
+            </trans-unit>
+            <trans-unit id="fav">
+                <source>fav</source>
+                <target>Избранное для направления</target>
+            </trans-unit>
+            <trans-unit id="Fav Main">
+                <source>Fav Main</source>
+                <target>Избранное на главной</target>
+            </trans-unit>
+            <trans-unit id="Ordering">
+                <source>Ordering</source>
+                <target>Сортировка</target>
+            </trans-unit>
+            <trans-unit id="Configure Fields">
+                <source>Configure Fields</source>
+                <target>Отображать в списке</target>
+            </trans-unit>
+            <trans-unit id="Save">
+                <source>Save</source>
+                <target>Сохранить</target>
+            </trans-unit>
+            <trans-unit id="cmfscript_modules">
+                <source>cmfscript_modules</source>
+                <target>Права на разделы</target>
+            </trans-unit>
+            <trans-unit id="User List">
+                <source>User List</source>
+                <target>Пользователи</target>
+            </trans-unit>
+            <trans-unit id="User Create">
+                <source>User Create</source>
+                <target>Новый пользователь</target>
+            </trans-unit>
+            <trans-unit id="Role Group List">
+                <source>Role Group List</source>
+                <target>Группы ролей</target>
+            </trans-unit>
+            <trans-unit id="Role Group Create">
+                <source>Role Group Create</source>
+                <target>Новая группа ролей</target>
+            </trans-unit>
+            <trans-unit id="Role List">
+                <source>Role List</source>
+                <target>Роли</target>
+            </trans-unit>
+            <trans-unit id="Role Create">
+                <source>Role Create</source>
+                <target>Новая роль</target>
+            </trans-unit>
+            <trans-unit id="user.password">
+                <source>user.password</source>
+                <target>Пароль</target>
+            </trans-unit>
+            <trans-unit id="user.password_confirmation">
+                <source>user.password_confirmation</source>
+                <target>Подтверждение пароля</target>
+            </trans-unit>
+            <trans-unit id="user.name">
+                <source>user.name</source>
+                <target>Имя</target>
+            </trans-unit>
+            <trans-unit id="user.login">
+                <source>user.login</source>
+                <target>Логин</target>
+            </trans-unit>
+            <trans-unit id="tab.explore">
+                <source>tab.explore</source>
+                <target>Обзор</target>
+            </trans-unit>
+            <trans-unit id="tab.content">
+                <source>tab.content</source>
+                <target>Контент</target>
+            </trans-unit>
+            <trans-unit id="tab.roles_group">
+                <source>tab.roles_group</source>
+                <target>Группы ролей</target>
+            </trans-unit>
+            <trans-unit id="user.roles_group">
+                <source>user.roles_group</source>
+                <target>Группы ролей</target>
+            </trans-unit>
+            <trans-unit id="Overview">
+                <source>Overview</source>
+                <target>Обзор</target>
+            </trans-unit>
+            <trans-unit id="Content">
+                <source>Content</source>
+                <target>Контент</target>
+            </trans-unit>
+            <trans-unit id="Title">
+                <source>Title</source>
+                <target>Title</target>
+            </trans-unit>
+            <trans-unit id="metaTitle">
+                <source>metaTitle</source>
+                <target>Title</target>
+            </trans-unit>
+            <trans-unit id="Meta Title">
+                <source>Meta Title</source>
+                <target>Title</target>
+            </trans-unit>
+            <trans-unit id="Description">
+                <source>Description</source>
+                <target>Description</target>
+            </trans-unit>
+            <trans-unit id="Meta Description">
+                <source>Meta Description</source>
+                <target>Description</target>
+            </trans-unit>
+            <trans-unit id="metaDescription">
+                <source>metaDescription</source>
+                <target>Description</target>
+            </trans-unit>
+            <trans-unit id="meta.title">
+                <source>meta.title</source>
+                <target>Title</target>
+            </trans-unit>
+            <trans-unit id="meta.description">
+                <source>meta.description</source>
+                <target>Description</target>
+            </trans-unit>
+            <trans-unit id="Keywords">
+                <source>Keywords</source>
+                <target>Keywords</target>
+            </trans-unit>
+            <trans-unit id="metaKeywords">
+                <source>metaKeywords</source>
+                <target>Keywords</target>
+            </trans-unit>
+            <trans-unit id="Meta Keywords">
+                <source>Meta Keywords</source>
+                <target>Keywords</target>
+            </trans-unit>
+            <trans-unit id="meta.keywords">
+                <source>meta.keywords</source>
+                <target>Keywords</target>
+            </trans-unit>
+            <trans-unit id="Meta Tags">
+                <source>Meta Tags</source>
+                <target>Мета-теги</target>
+            </trans-unit>
+            <trans-unit id="Tags">
+                <source>Tags</source>
+                <target>Теги</target>
+            </trans-unit>
+            <trans-unit id="Discount for our clients">
+                <source>Discount for our clients</source>
+                <target>Скидка клиентам сервиса в %</target>
+            </trans-unit>
+            <trans-unit id="Discount_for_our_clients">
+                <source>Discount_for_our_clients</source>
+                <target>Скидка нашим клиентам</target>
+            </trans-unit>
+            <trans-unit id="Discount_for_users">
+                <source>Discount_for_users</source>
+                <target>Скидка пользователям сервиса</target>
+            </trans-unit>
+            <trans-unit id="Opinions count">
+                <source>Opinions count</source>
+                <target>Количество отзывов</target>
+            </trans-unit>
+            <trans-unit id="Discount blank comment">
+                <source>Discount blank comment</source>
+                <target>Экономьте на лечении с Hospitals-travel. Hospitals-travel - первый сервис для поиска лечения за рубежом по лучшим ценам. Он аккумулирует скидочные и акционные предложения с клиник по всему миру, принимающих на лечение иностранных пациентов. Обращаясь в клинику через сервис, Вы бронируете для себя максимальную скидку.</target>
+            </trans-unit>
+            <trans-unit id="discount">
+                <source>discount</source>
+                <target>Скидка нашим клиентам в %</target>
+            </trans-unit>
+            <trans-unit id="Discount Comment">
+                <source>Discount Comment</source>
+                <target>Комментарий к скидке</target>
+            </trans-unit>
+            <trans-unit id="discountComment">
+                <source>discountComment</source>
+                <target>Комментарий к скидке</target>
+            </trans-unit>
+            <trans-unit id="Curator">
+                <source>Curator</source>
+                <target>Координатор</target>
+            </trans-unit>
+            <trans-unit id="Curator List">
+                <source>Curator List</source>
+                <target>Координаторы</target>
+            </trans-unit>
+            <trans-unit id="Price Segment">
+                <source>Price Segment</source>
+                <target>Ценовой сегмент</target>
+            </trans-unit>
+            <trans-unit id="priceSegment">
+                <source>priceSegment</source>
+                <target>Ценовой сегмент</target>
+            </trans-unit>
+            <trans-unit id="Count abroad patients per year">
+                <source>Count abroad patients per year</source>
+                <target>Кол-во иностранных пациентов в год</target>
+            </trans-unit>
+            <trans-unit id="quantityPatients">
+                <source>quantityPatients</source>
+                <target>Кол-во иностранных пациентов в год</target>
+            </trans-unit>
+            <trans-unit id="Quantity Patients">
+                <source>Quantity Patients</source>
+                <target>Кол-во иностранных пациентов в год</target>
+            </trans-unit>
+            <trans-unit id="Address">
+                <source>Address</source>
+                <target>Адрес</target>
+            </trans-unit>
+            <trans-unit id="address">
+                <source>address</source>
+                <target>Адрес</target>
+            </trans-unit>
+            <trans-unit id="latitude">
+                <source>latitude</source>
+                <target>Широта</target>
+            </trans-unit>
+            <trans-unit id="Latitude">
+                <source>Latitude</source>
+                <target>Широта</target>
+            </trans-unit>
+            <trans-unit id="longitude">
+                <source>longitude</source>
+                <target>Долгота</target>
+            </trans-unit>
+            <trans-unit id="Longitude">
+                <source>Longitude</source>
+                <target>Долгота</target>
+            </trans-unit>
+            <trans-unit id="Video and Images">
+                <source>Video and Images</source>
+                <target>Изображения и видео</target>
+            </trans-unit>
+            <trans-unit id="Images">
+                <source>Images</source>
+                <target>Изображения</target>
+            </trans-unit>
+            <trans-unit id="Image">
+                <source>Image</source>
+                <target>Изображение</target>
+            </trans-unit>
+            <trans-unit id="Video">
+                <source>Video</source>
+                <target>Видео</target>
+            </trans-unit>
+            <trans-unit id="Videos">
+                <source>Videos</source>
+                <target>Видео</target>
+            </trans-unit>
+            <trans-unit id="Video Code">
+                <source>Video Code</source>
+                <target>Код видео</target>
+            </trans-unit>
+            <trans-unit id="Similar Clinics">
+                <source>Similar Clinics</source>
+                <target>Похожие клиники</target>
+            </trans-unit>
+            <trans-unit id="Related Clinics">
+                <source>Related Clinics</source>
+                <target>Привязанные клиники</target>
+            </trans-unit>
+            <trans-unit id="Related Clinic">
+                <source>Related Clinic</source>
+                <target>Привязанная клиника</target>
+            </trans-unit>
+            <trans-unit id="Lang Support">
+                <source>Lang Support</source>
+                <target>Языковая поддержка</target>
+            </trans-unit>
+            <trans-unit id="Url">
+                <source>Url</source>
+                <target>Url</target>
+            </trans-unit>
+            <trans-unit id="Opinion Date">
+                <source>Opinion Date</source>
+                <target>Дата предоставления отзыва</target>
+            </trans-unit>
+            <trans-unit id="opinionDate">
+                <source>opinionDate</source>
+                <target>Дата предоставления отзыва</target>
+            </trans-unit>
+            <trans-unit id="Start Treatment">
+                <source>Start Treatment</source>
+                <target>Дата начала лечения</target>
+            </trans-unit>
+            <trans-unit id="startTreatment">
+                <source>startTreatment</source>
+                <target>Дата начала лечения</target>
+            </trans-unit>
+            <trans-unit id="stopTreatment">
+                <source>stopTreatment</source>
+                <target>Дата окончания лечения</target>
+            </trans-unit>
+            <trans-unit id="Stop Treatment">
+                <source>Stop Treatment</source>
+                <target>Дата окончания лечения</target>
+            </trans-unit>
+            <trans-unit id="rating">
+                <source>rating</source>
+                <target>Оценка</target>
+            </trans-unit>
+            <trans-unit id="Rating">
+                <source>Rating</source>
+                <target>Оценка</target>
+            </trans-unit>
+            <trans-unit id="Clinic Image">
+                <source>Clinic Image</source>
+                <target>Изображения клиники</target>
+            </trans-unit>
+            <trans-unit id="Clinic Image List">
+                <source>Clinic Image List</source>
+                <target>Изображения клиник</target>
+            </trans-unit>
+            <trans-unit id="Clinic Image Create">
+                <source>Clinic Image Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Clinic Video">
+                <source>Clinic Video</source>
+                <target>Видео клиники</target>
+            </trans-unit>
+            <trans-unit id="Clinic Video List">
+                <source>Clinic Video List</source>
+                <target>Видео клиник</target>
+            </trans-unit>
+            <trans-unit id="Clinic Video Create">
+                <source>Clinic Video Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Lang Support List">
+                <source>Lang Support List</source>
+                <target>Языковая поддержка</target>
+            </trans-unit>
+            <trans-unit id="Lang Support Create">
+                <source>Lang Support Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Curator Create">
+                <source>Curator Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Price Segment List">
+                <source>Price Segment List</source>
+                <target>Ценовые сегменты</target>
+            </trans-unit>
+            <trans-unit id="Price Segment Create">
+                <source>Price Segment Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Certificate List">
+                <source>Certificate List</source>
+                <target>Сертификаты</target>
+            </trans-unit>
+            <trans-unit id="Certificate Create">
+                <source>Certificate Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Certificate">
+                <source>Certificate</source>
+                <target>Сертификаты</target>
+            </trans-unit>
+            <trans-unit id="Service Clinic Type List">
+                <source>Service Clinic Type List</source>
+                <target>Типы услуг клиники</target>
+            </trans-unit>
+            <trans-unit id="Service Clinic Type Create">
+                <source>Service Clinic Type Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Doctor Specialisation List">
+                <source>Doctor Specialisation List</source>
+                <target>Специализации врачей</target>
+            </trans-unit>
+            <trans-unit id="Doctor Specialisation Create">
+                <source>Doctor Specialisation Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Doctor Degree List">
+                <source>Doctor Degree List</source>
+                <target>Ученые степени врачей</target>
+            </trans-unit>
+            <trans-unit id="Doctor Degree Create">
+                <source>Doctor Degree Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Cost ExampleList">
+                <source>Cost Example List</source>
+                <target>Примеры затрат</target>
+            </trans-unit>
+            <trans-unit id="Cost Example Create">
+                <source>Cost Example Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Diagnosis">
+                <source>Diagnosis</source>
+                <target>Диагноз</target>
+            </trans-unit>
+            <trans-unit id="diagnosis">
+                <source>diagnosis</source>
+                <target>Диагноз</target>
+            </trans-unit>
+            <trans-unit id="costDiagnosis">
+                <source>costDiagnosis</source>
+                <target>Диагностика</target>
+            </trans-unit>
+            <trans-unit id="Cost Diagnosis">
+                <source>Cost Diagnosis</source>
+                <target>Диагностика (цена в долларах)</target>
+            </trans-unit>
+            <trans-unit id="costTreatment">
+                <source>costTreatment</source>
+                <target>Лечение</target>
+            </trans-unit>
+            <trans-unit id="Cost Treatment">
+                <source>Cost Treatment</source>
+                <target>Лечение (цена в долларах)</target>
+            </trans-unit>
+            <trans-unit id="costPill">
+                <source>costPill</source>
+                <target>Медикаменты</target>
+            </trans-unit>
+            <trans-unit id="Cost Pill">
+                <source>Cost Pill</source>
+                <target>Медикаменты (цена в долларах)</target>
+            </trans-unit>
+            <trans-unit id="costVisa">
+                <source>costVisa</source>
+                <target>Виза</target>
+            </trans-unit>
+            <trans-unit id="Cost Visa">
+                <source>Cost Visa</source>
+                <target>Виза (цена в долларах)</target>
+            </trans-unit>
+            <trans-unit id="costLive">
+                <source>costLive</source>
+                <target>Стоимость проживания</target>
+            </trans-unit>
+            <trans-unit id="Cost Live">
+                <source>Cost Live</source>
+                <target>Стоимость проживания (цена в долларах)</target>
+            </trans-unit>
+            <trans-unit id="costTransfer">
+                <source>costTransfer</source>
+                <target>Трансфер</target>
+            </trans-unit>
+            <trans-unit id="Cost Transfer">
+                <source>Cost Transfer</source>
+                <target>Трансфер (цена в долларах)</target>
+            </trans-unit>
+            <trans-unit id="comment">
+                <source>comment</source>
+                <target>Комментарий</target>
+            </trans-unit>
+            <trans-unit id="Comment">
+                <source>Comment</source>
+                <target>Комментарий</target>
+            </trans-unit>
+            <trans-unit id="Fio">
+                <source>Fio</source>
+                <target>Ф.И.О.</target>
+            </trans-unit>
+            <trans-unit id="fio">
+                <source>fio</source>
+                <target>Ф.И.О.</target>
+            </trans-unit>
+            <trans-unit id="fullPrice">
+                <source>fullPrice</source>
+                <target>Общая стоимость</target>
+            </trans-unit>
+            <trans-unit id="Full Price">
+                <source>Full Price</source>
+                <target>Общая стоимость</target>
+            </trans-unit>
+            <trans-unit id="Total Cost">
+                <source>Total Cost</source>
+                <target>Общая стоимость (стоимость в долларах)</target>
+            </trans-unit>
+            <trans-unit id="experience">
+                <source>experience</source>
+                <target>Стаж</target>
+            </trans-unit>
+            <trans-unit id="Experience">
+                <source>Experience</source>
+                <target>Стаж</target>
+            </trans-unit>
+            <trans-unit id="Doctor List">
+                <source>Doctor List</source>
+                <target>Врачи</target>
+            </trans-unit>
+            <trans-unit id="Doctor Create">
+                <source>Doctor Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Promo List">
+                <source>Promo List</source>
+                <target>Акции</target>
+            </trans-unit>
+            <trans-unit id="Promo Create">
+                <source>Promo Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Country Disease List">
+                <source>Country Disease List</source>
+                <target>Страна-заболевание</target>
+            </trans-unit>
+            <trans-unit id="Country Disease Create">
+                <source>Country Disease Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="City Price List">
+                <source>City Price List</source>
+                <target>Город-Цена</target>
+            </trans-unit>
+            <trans-unit id="City Price Create">
+                <source>City Price Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Doctor Specialisations">
+                <source>Doctor Specialisations</source>
+                <target>Специализация врача</target>
+            </trans-unit>
+            <trans-unit id="Doctor Specialisation">
+                <source>Doctor Specialisation</source>
+                <target>Специализация врача</target>
+            </trans-unit>
+            <trans-unit id="Service Clinic Types">
+                <source>Service Clinic Types</source>
+                <target>Типы услуг клиники</target>
+            </trans-unit>
+            <trans-unit id="Clinic Param Val List">
+                <source>Clinic Param Val List</source>
+                <target>Значения параметров клиники</target>
+            </trans-unit>
+            <trans-unit id="Clinic Param Val Create">
+                <source>Clinic Param Val Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Clinic Attr List">
+                <source>Clinic Attr List</source>
+                <target>Дополнительные услуги клиники</target>
+            </trans-unit>
+            <trans-unit id="Clinic Attr Create">
+                <source>Clinic Attr Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Clinic Attr Group List">
+                <source>Clinic Attr Group List</source>
+                <target>Группы дополнительных услуг клиники</target>
+            </trans-unit>
+            <trans-unit id="Clinic Attr Group Create">
+                <source>Clinic Attr Group Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Clinic Attr Group">
+                <source>Clinic Attr Group</source>
+                <target>Группы дополнительных услуг клиники</target>
+            </trans-unit>
+            <trans-unit id="Multi Var">
+                <source>Multi Var</source>
+                <target>Множество значений</target>
+            </trans-unit>
+            <trans-unit id="multiVar">
+                <source>multiVar</source>
+                <target>Множество значений</target>
+            </trans-unit>
+            <trans-unit id="Clinic Attr Val List">
+                <source>Clinic Attr Val List</source>
+                <target>Значения дополнительных услуг клиники</target>
+            </trans-unit>
+            <trans-unit id="Clinic Attr Val Create">
+                <source>Clinic Attr Val Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Clinic Attr Values">
+                <source>Clinic Attr Values</source>
+                <target>Значения дополнительных услуг клиники</target>
+            </trans-unit>
+            <trans-unit id="Clinic Attr Val">
+                <source>Clinic Attr Val</source>
+                <target>Значения дополнительных услуг клиники</target>
+            </trans-unit>
+            <trans-unit id="Doctor Degree">
+                <source>Doctor Degree</source>
+                <target>Учёные степени врачей</target>
+            </trans-unit>
+            <trans-unit id="Average Response Time">
+                <source>Average Response Time</source>
+                <target>среднее время ответа</target>
+            </trans-unit>
+            <trans-unit id="Response Time">
+                <source>Response Time</source>
+                <target>среднее время ответа</target>
+            </trans-unit>
+            <trans-unit id="Department">
+                <source>Department</source>
+                <target>Отделение</target>
+            </trans-unit>
+            <trans-unit id="responseTime">
+                <source>responseTime</source>
+                <target>Среднее время ответа в днях</target>
+            </trans-unit>
+            <trans-unit id="Created At">
+                <source>Created At</source>
+                <target>Дата создания</target>
+            </trans-unit>
+            <trans-unit id="createdAt">
+                <source>createdAt</source>
+                <target>Дата создания</target>
+            </trans-unit>
+            <trans-unit id="Updated At">
+                <source>Updated At</source>
+                <target>Дата обновления</target>
+            </trans-unit>
+            <trans-unit id="updatedAt">
+                <source>updatedAt</source>
+                <target>Дата обновления</target>
+            </trans-unit>
+            <trans-unit id="Average Response Time In Days">
+                <source>Average Response Time In Days</source>
+                <target>Среднее время ответа в днях</target>
+            </trans-unit>
+            <trans-unit id="Attributes">
+                <source>Attributes</source>
+                <target>Дополнительные услуги</target>
+            </trans-unit>
+            <trans-unit id="V Clinic Attr Links">
+                <source>V Clinic Attr Links</source>
+                <target>Дополнительные услуги</target>
+            </trans-unit>
+            <trans-unit id="Diseases">
+                <source>Diseases</source>
+                <target>Заболевания</target>
+            </trans-unit>
+            <trans-unit id="V Clinic Disease">
+                <source>V Clinic Disease</source>
+                <target>Заболевания</target>
+            </trans-unit>
+            <trans-unit id="Clinic Manipulations">
+                <source>Clinic Manipulations</source>
+                <target>Манипуляции клиник</target>
+            </trans-unit>
+            <trans-unit id="Clinic Manipulation">
+                <source>Clinic Manipulation</source>
+                <target>Манипуляции клиник</target>
+            </trans-unit>
+            <trans-unit id="Min Price">
+                <source>Min Price</source>
+                <target>Минимальная цена</target>
+            </trans-unit>
+            <trans-unit id="Max Price">
+                <source>Max Price</source>
+                <target>Максимальная цена</target>
+            </trans-unit>
+            <trans-unit id="Quantity patient">
+                <source>Quantity patient</source>
+                <target>Иностранных пациентов в год</target>
+            </trans-unit>
+            <trans-unit id="day">
+                <source>day</source>
+                <target>день</target>
+            </trans-unit>
+            <trans-unit id="2days">
+                <source>2days</source>
+                <target>дня</target>
+            </trans-unit>
+            <trans-unit id="1,Inf[ days">
+                <source>1,Inf[ days</source>
+                <target>дней</target>
+            </trans-unit>
+            <trans-unit id="Compare">
+                <source>Compare</source>
+                <target>Сравнить</target>
+            </trans-unit>
+            <trans-unit id="Add to compare">
+                <source>Add to compare</source>
+                <target>Добавить к сравнению</target>
+            </trans-unit>
+            <trans-unit id="Common information">
+                <source>Common information</source>
+                <target>Общая информация</target>
+            </trans-unit>
+            <trans-unit id="About hospital">
+                <source>About hospital</source>
+                <target>О клинике</target>
+            </trans-unit>
+            <trans-unit id="Details">
+                <source>Details</source>
+                <target>Подробнее</target>
+            </trans-unit>
+            <trans-unit id="read more">
+                <source>read more</source>
+                <target>Подробнее</target>
+            </trans-unit>
+            <trans-unit id="collapse">
+                <source>collapse</source>
+                <target>Cвернуть</target>
+            </trans-unit>
+            <trans-unit id="Full price">
+                <source>Full price</source>
+                <target>Общая стоимость</target>
+            </trans-unit>
+            <trans-unit id="translation.days">
+                <source>translation.days</source>
+                <target>%count% день|%count% дня|%count% дней</target>
+            </trans-unit>
+            <trans-unit id="translation.years">
+                <source>translation.years</source>
+                <target>%count% год|%count% года|%count% лет</target>
+            </trans-unit>
+            <trans-unit id="Clinic Param List">
+                <source>Clinic Param List</source>
+                <target>Параметры клиники</target>
+            </trans-unit>
+            <trans-unit id="Clinic Param Create">
+                <source>Clinic Param Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Param Type">
+                <source>Param Type</source>
+                <target>Тип параметра</target>
+            </trans-unit>
+            <trans-unit id="Str Val">
+                <source>Str Val</source>
+                <target>Строковое значение</target>
+            </trans-unit>
+            <trans-unit id="Int Val">
+                <source>Int Val</source>
+                <target>Числовое значение</target>
+            </trans-unit>
+            <trans-unit id="Clinic Param Values">
+                <source>Clinic Param Values</source>
+                <target>Значения параметра клиники</target>
+            </trans-unit>
+            <trans-unit id="Clinic Param Val">
+                <source>Clinic Param Val</source>
+                <target>Значения параметра клиники</target>
+            </trans-unit>
+            <trans-unit id="String">
+                <source>String</source>
+                <target>Строка</target>
+            </trans-unit>
+            <trans-unit id="Numeric">
+                <source>Numeric</source>
+                <target>Число</target>
+            </trans-unit>
+            <trans-unit id="Variants">
+                <source>Variants</source>
+                <target>Выбор из списка</target>
+            </trans-unit>
+            <trans-unit id="Params">
+                <source>Params</source>
+                <target>Параметры</target>
+            </trans-unit>
+            <trans-unit id="V Clinic Param Links">
+                <source>V Clinic Param Links</source>
+                <target>Параметры</target>
+            </trans-unit>
+            <trans-unit id="media_context_default">
+                <source>media_context_default</source>
+                <target>Визуальный редактор</target>
+            </trans-unit>
+            <trans-unit id="media_context_brand_image">
+                <source>media_context_brand_image</source>
+                <target>Бренды</target>
+            </trans-unit>
+            <trans-unit id="media_context_page_image">
+                <source>media_context_page_image</source>
+                <target>Статика / Баннеры</target>
+            </trans-unit>
+            <trans-unit id="media_context_selection_image">
+                <source>media_context_selection_image</source>
+                <target>Выборки / Коллекции</target>
+            </trans-unit>
+            <trans-unit id="media_context_catalogue_image">
+                <source>media_context_catalogue_image</source>
+                <target>Разделы каталога</target>
+            </trans-unit>
+            <trans-unit id="media_context_item_image">
+                <source>media_context_item_image</source>
+                <target>Товары</target>
+            </trans-unit>
+            <trans-unit id="media_context_article_image">
+                <source>media_context_article_image</source>
+                <target>Статьи</target>
+            </trans-unit>
+            <trans-unit id="media_context_user_image">
+                <source>media_context_user_image</source>
+                <target>Пользователь</target>
+            </trans-unit>
+            <trans-unit id="media_context_answer_file">
+                <source>media_context_answer_file</source>
+                <target>Формы обратной связи: прикрепленные файлы</target>
+            </trans-unit>
+            <trans-unit id="media_context_clinic_image">
+                <source>media_context_clinic_image</source>
+                <target>Изображения клиники</target>
+            </trans-unit>
+            <trans-unit id="media_context_certificate">
+                <source>media_context_certificate</source>
+                <target>Сертификаты</target>
+            </trans-unit>
+            <trans-unit id="media_context_curator">
+                <source>media_context_curator</source>
+                <target>Координаторы</target>
+            </trans-unit>
+            <trans-unit id="media_context_doctor">
+                <source>media_context_doctor</source>
+                <target>Врачи</target>
+            </trans-unit>
+            <trans-unit id="media_context_doctor_degree">
+                <source>media_context_doctor_degree</source>
+                <target>Ученые степени врачей</target>
+            </trans-unit>
+            <trans-unit id="media_context_doctor_specialisation">
+                <source>media_context_doctor_specialisation</source>
+                <target>Специализации врачей</target>
+            </trans-unit>
+            <trans-unit id="media_context_lang_support">
+                <source>media_context_lang_support</source>
+                <target>Языковая поддержка</target>
+            </trans-unit>
+            <trans-unit id="media_context_price_segment">
+                <source>media_context_price_segment</source>
+                <target>Ценовые сегменты</target>
+            </trans-unit>
+            <trans-unit id="media_context_service_clinic_type">
+                <source>media_context_service_clinic_type</source>
+                <target>Типы услуг клиники</target>
+            </trans-unit>
+            <trans-unit id="media_context_med_direction">
+                <source>media_context_med_direction</source>
+                <target>Направления медицины: изображение</target>
+            </trans-unit>
+            <trans-unit id="media_context_disease_image">
+                <source>media_context_disease_image</source>
+                <target>Заболевания</target>
+            </trans-unit>
+            <trans-unit id="media_context_clinic_attr">
+                <source>media_context_clinic_attr</source>
+                <target>Группы услуг клиники</target>
+            </trans-unit>
+            <trans-unit id="media_context_med_direction_icon">
+                <source>media_context_med_direction_icon</source>
+                <target>Направления медицины: иконка</target>
+            </trans-unit>
+            <trans-unit id="media_context_med_direction_icon_inverse">
+                <source>media_context_med_direction_icon_inverse</source>
+                <target>Направления медицины: иконка инверсионная</target>
+            </trans-unit>
+            <trans-unit id="media_context_country_image">
+                <source>media_context_country_image</source>
+                <target>Страны: изображения</target>
+            </trans-unit>
+            <trans-unit id="media_context_country_flag">
+                <source>media_context_country_flag</source>
+                <target>Страны: флаги</target>
+            </trans-unit>
+            <trans-unit id="media_context_city_image">
+                <source>media_context_city_image</source>
+                <target>Города</target>
+            </trans-unit>
+            <trans-unit id="media_context_cost_example_image">
+                <source>media_context_cost_example_image</source>
+                <target>Примеры затрат</target>
+            </trans-unit>
+            <trans-unit id="media_context_opinion_image">
+                <source>media_context_opinion_image</source>
+                <target>Отзыв</target>
+            </trans-unit>
+            <trans-unit id="yes">
+                <source>yes</source>
+                <target>да</target>
+            </trans-unit>
+            <trans-unit id="mapZoom">
+                <source>mapZoom</source>
+                <target>Масштаб карты</target>
+            </trans-unit>
+            <trans-unit id="Map Zoom">
+                <source>Map Zoom</source>
+                <target>Масштаб карты</target>
+            </trans-unit>
+            <trans-unit id="Action Promo">
+                <source>Action Promo</source>
+                <target>Акция</target>
+            </trans-unit>
+            <trans-unit id="action">
+                <source>action</source>
+                <target>Акция</target>
+            </trans-unit>
+            <trans-unit id="Countries">
+                <source>Countries</source>
+                <target>Страны</target>
+            </trans-unit>
+            <trans-unit id="Flag">
+                <source>Flag</source>
+                <target>Флаг</target>
+            </trans-unit>
+            <trans-unit id="flag">
+                <source>flag</source>
+                <target>Флаг</target>
+            </trans-unit>
+            <trans-unit id="V Disease Country">
+                <source>V Disease Country</source>
+                <target>Страны заболевания</target>
+            </trans-unit>
+            <trans-unit id="translation.clinics">
+                <source>translation.clinics</source>
+                <target>%count% клиника|%count% клиники|%count% клиник</target>
+            </trans-unit>
+            <trans-unit id="translation.clinics.dat">
+                <source>translation.clinics.dat</source>
+                <target>клинику|клиники|клиники</target>
+            </trans-unit>
+            <trans-unit id="translation.clinics.chosen">
+                <source>translation.clinics.chosen</source>
+                <target>выбранную Вами клинику|выбранные Вами клиники|выбранные Вами клиники</target>
+            </trans-unit>
+            <trans-unit id="search_short_title">
+                <source>search_short_title</source>
+                <target>Поиск клиники</target>
+            </trans-unit>
+            <trans-unit id="search_short_cure_title">
+                <source>search_short_cure_title</source>
+                <target>Поиск лечения</target>
+            </trans-unit>
+            <trans-unit id="search_placeholder">
+                <source>search_placeholder</source>
+                <target>Введите заболевание, процедуру или название клиники</target>
+            </trans-unit>
+            <trans-unit id="search_string_title">
+                <source>search_string_title</source>
+                <target>Вы искали:</target>
+            </trans-unit>
+            <trans-unit id="search_string_country">
+                <source>search_string_country</source>
+                <target>страна</target>
+            </trans-unit>
+            <trans-unit id="search_string_medDirection">
+                <source>search_string_medDirection</source>
+                <target>направление</target>
+            </trans-unit>
+            <trans-unit id="search_string_disease">
+                <source>search_string_disease</source>
+                <target>заболевание</target>
+            </trans-unit>
+            <trans-unit id="search_string_priceSegment">
+                <source>search_string_priceSegment</source>
+                <target>сегмент</target>
+            </trans-unit>
+            <trans-unit id="search_group_country">
+                <source>search_group_country</source>
+                <target>Страна</target>
+            </trans-unit>
+            <trans-unit id="search_group_disease">
+                <source>search_group_disease</source>
+                <target>Заболевание</target>
+            </trans-unit>
+            <trans-unit id="search_group_med_direction">
+                <source>search_group_med_direction</source>
+                <target>Медицинское направление</target>
+            </trans-unit>
+            <trans-unit id="search_group_clinic">
+                <source>search_group_clinic</source>
+                <target>Клиника</target>
+            </trans-unit>
+            <trans-unit id="search_results_not_found">
+                <source>search_results_not_found</source>
+                <target>По вашему запросу ничего не найдено</target>
+            </trans-unit>
+            <trans-unit id="search_results_count">
+                <source>search_results_count</source>
+                <target>Найдена %count% клиника|Найдено %count% клиники|Найдено %count% клиник</target>
+            </trans-unit>
+            <trans-unit id="opinions_count">
+                <source>opinions_count</source>
+                <target>%count% отзыв|%count% отзыва|%count% отзывов</target>
+            </trans-unit>
+            <trans-unit id="more_countries_count">
+                <source>more_countries_count</source>
+                <target>Еще %count% страна|Еще %count% страны|Еще %count% стран</target>
+            </trans-unit>
+            <trans-unit id="search_btn">
+                <source>search_btn</source>
+                <target>Найти</target>
+            </trans-unit>
+            <trans-unit id="search_select_medDirection">
+                <source>search_select_medDirection</source>
+                <target>Медицинское направление</target>
+            </trans-unit>
+            <trans-unit id="search_select_disease">
+                <source>search_select_disease</source>
+                <target>Заболевание</target>
+            </trans-unit>
+            <trans-unit id="search_select_country">
+                <source>search_select_country</source>
+                <target>Страна</target>
+            </trans-unit>
+            <trans-unit id="search_checkbox_children">
+                <source>search_checkbox_children</source>
+                <target>Лечение детей</target>
+            </trans-unit>
+            <trans-unit id="search_show_params">
+                <source>search_show_params</source>
+                <target>расширенный поиск</target>
+            </trans-unit>
+            <trans-unit id="search_hide_params">
+                <source>search_hide_params</source>
+                <target>скрыть расширенный поиск</target>
+            </trans-unit>
+            <trans-unit id="search_other_results">
+                <source>search_other_results</source>
+                <target>Другие рекомендованные клиники</target>
+            </trans-unit>
+            <trans-unit id="Clinics">
+                <source>Clinics</source>
+                <target>Клиники</target>
+            </trans-unit>
+            <trans-unit id="Cities">
+                <source>Cities</source>
+                <target>Города</target>
+            </trans-unit>
+            <trans-unit id="shown_clinics">
+                <source>shown_clinics</source>
+                <target>Просмотренные клиники</target>
+            </trans-unit>
+            <trans-unit id="search_top_clinics_title">
+                <source>search_top_clinics_title</source>
+                <target>Ведущие клиники</target>
+            </trans-unit>
+            <trans-unit id="search_related_clinics_title">
+                <source>search_related_clinics_title</source>
+                <target>похожие клиники</target>
+            </trans-unit>
+            <trans-unit id="search_top_clinics_disease">
+                <source>search_top_clinics_disease</source>
+                <target>по лечению %disease%</target>
+            </trans-unit>
+            <trans-unit id="search_top_clinics_country">
+                <source>search_top_clinics_country</source>
+                <target>%country%</target>
+            </trans-unit>
+            <trans-unit id="clinic_manipulation_dyn_title">
+                <source>clinic_manipulation_dyn_title</source>
+                <target>Стоимость диагностики и лечения %direction%. %clinic%</target>
+            </trans-unit>
+            <trans-unit id="clinic_costs_dyn_title">
+                <source>clinic_costs_dyn_title</source>
+                <target>Примеры затрат пациентов на диагностику и лечение %direction%</target>
+            </trans-unit>
+            <trans-unit id="similar_clinic_dyn_title">
+                <source>similar_clinic_dyn_title</source>
+                <target>Похожие клиники (%direction%)</target>
+            </trans-unit>
+            <trans-unit id="all_related_clinics_dyn_title">
+                <source>all_related_clinics_dyn_title</source>
+                <target>Смотреть все клиники по %direction% (%count%)</target>
+            </trans-unit>
+            <trans-unit id="show_all_clinics">
+                <source>show_all_clinics</source>
+                <target>Смотреть все клиники</target>
+            </trans-unit>
+            <trans-unit id="by_treatment">
+                <source>by_treatment</source>
+                <target>по лечению</target>
+            </trans-unit>
+            <trans-unit id="clinic_opinions_dyn_title">
+                <source>clinic_opinions_dyn_title</source>
+                <target>Отзывы о лечении. %clinic%</target>
+            </trans-unit>
+            <trans-unit id="clinic_doctors_dyn_title">
+                <source>clinic_doctors_dyn_title</source>
+                <target>Доктора отделения %direction%. %clinic%</target>
+            </trans-unit>
+            <trans-unit id="clinic_services_dyn_title">
+                <source>clinic_services_dyn_title</source>
+                <target>Услуги в клинике</target>
+            </trans-unit>
+            <trans-unit id="med_direction_h1">
+                <source>med_direction_h1</source>
+                <target>Заболевания по %medDirection%</target>
+            </trans-unit>
+            <trans-unit id="disease_h1">
+                <source>disease_h1</source>
+                <target>Лечение и диагностика %disease% за рубежом</target>
+            </trans-unit>
+            <trans-unit id="disease_h1_country">
+                <source>disease_h1_country</source>
+                <target>Лечение и диагностика %disease% в %country%</target>
+            </trans-unit>
+            <trans-unit id="disease_cost_example_dyn_title">
+                <source>disease_cost_example_dyn_title</source>
+                <target>Затраты пациентов на лечение %disease% за рубежом</target>
+            </trans-unit>
+            <trans-unit id="disease_cost_example_country_dyn_title">
+                <source>disease_cost_example_country_dyn_title</source>
+                <target>Затраты пациентов на лечение %disease% в %country%</target>
+            </trans-unit>
+            <trans-unit id="disease_manipulation_cost_dyn_title">
+                <source>disease_manipulation_cost_dyn_title</source>
+                <target>Стоимость лечения %disease% за рубежом</target>
+            </trans-unit>
+            <trans-unit id="disease_manipulation_cost_country_dyn_title">
+                <source>disease_manipulation_cost_country_dyn_title</source>
+                <target>Стоимость лечения %disease% в %country%</target>
+            </trans-unit>
+            <trans-unit id="disease_opinions_dyn_title">
+                <source>disease_opinions_dyn_title</source>
+                <target> Отзывы о лечении %disease% за рубежом</target>
+            </trans-unit>
+            <trans-unit id="disease_opinions_country_dyn_title">
+                <source>disease_opinions_country_dyn_title</source>
+                <target> Отзывы о лечении %disease% в %country%</target>
+            </trans-unit>
+            <trans-unit id="disease_clinic_count">
+                <source>disease_clinic_count</source>
+                <target>Количество клиник по лечению %disease%</target>
+            </trans-unit>
+            <trans-unit id="Technologies">
+                <source>Technologies</source>
+                <target>Передовых технологий лечения</target>
+            </trans-unit>
+            <trans-unit id="technologies">
+                <source>technologies</source>
+                <target>Передовых технологий лечения</target>
+            </trans-unit>
+            <trans-unit id="Treatment Success">
+                <source>Treatment Success</source>
+                <target>Успешность лечения</target>
+            </trans-unit>
+            <trans-unit id="Country Articles">
+                <source>Country Articles</source>
+                <target>Статьи</target>
+            </trans-unit>
+            <trans-unit id="City Articles">
+                <source>City Articles</source>
+                <target>Статьи</target>
+            </trans-unit>
+            <trans-unit id="Country Med Direction List">
+                <source>Country Med Direction List</source>
+                <target>Страна-направление</target>
+            </trans-unit>
+            <trans-unit id="Country Med Direction Create">
+                <source>Country Med Direction Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Gallery">
+                <source>Gallery</source>
+                <target>Галерея</target>
+            </trans-unit>
+            <trans-unit id="Advantage">
+                <source>Advantage</source>
+                <target>Преимущество</target>
+            </trans-unit>
+            <trans-unit id="advantage">
+                <source>advantage</source>
+                <target>Преимущество</target>
+            </trans-unit>
+            <trans-unit id="total_diseases">
+                <source>total_diseases</source>
+                <target>всего</target>
+            </trans-unit>
+            <trans-unit id="City Living">
+                <source>City Living</source>
+                <target>Город проживания</target>
+            </trans-unit>
+            <trans-unit id="cityLiving">
+                <source>cityLiving</source>
+                <target>Город проживания</target>
+            </trans-unit>
+            <trans-unit id="Treatment period">
+                <source>Treatment period</source>
+                <target>Период лечения</target>
+            </trans-unit>
+            <trans-unit id="Price_diag">
+                <source>Price_diag</source>
+                <target>Диагностика</target>
+            </trans-unit>
+            <trans-unit id="Price_treatment">
+                <source>Price_treatment</source>
+                <target>Лечение</target>
+            </trans-unit>
+            <trans-unit id="Price_meds">
+                <source>Price_meds</source>
+                <target>Медикаменты</target>
+            </trans-unit>
+            <trans-unit id="Price_visa">
+                <source>Price_visa</source>
+                <target>Виза</target>
+            </trans-unit>
+            <trans-unit id="Price_transfer">
+                <source>Price_transfer</source>
+                <target>Трансфер</target>
+            </trans-unit>
+            <trans-unit id="Price_living">
+                <source>Price_living</source>
+                <target>Проживание</target>
+            </trans-unit>
+            <trans-unit id="Rating Doctor">
+                <source>Rating Doctor</source>
+                <target>Оценка врача</target>
+            </trans-unit>
+            <trans-unit id="Rating Translator">
+                <source>Rating Translator</source>
+                <target>Оценка переводчика</target>
+            </trans-unit>
+            <trans-unit id="Rating Services">
+                <source>Rating Services</source>
+                <target>Оценка услуг сервиса</target>
+            </trans-unit>
+            <trans-unit id="ratingDoctor">
+                <source>ratingDoctor</source>
+                <target>Оценка врача</target>
+            </trans-unit>
+            <trans-unit id="ratingTranslator">
+                <source>ratingTranslator</source>
+                <target>Оценка переводчика</target>
+            </trans-unit>
+            <trans-unit id="ratingServices">
+                <source>ratingServices</source>
+                <target>Оценка услуг сервиса</target>
+            </trans-unit>
+            <trans-unit id="Sex">
+                <source>Sex</source>
+                <target>Пол</target>
+            </trans-unit>
+            <trans-unit id="sex">
+                <source>sex</source>
+                <target>Пол</target>
+            </trans-unit>
+            <trans-unit id="Answer Type">
+                <source>Answer Type</source>
+                <target>Ответ координатора</target>
+            </trans-unit>
+            <trans-unit id="Answer Formatted">
+                <source>Answer Formatted</source>
+                <target>Ответ координатора</target>
+            </trans-unit>
+            <trans-unit id="answerFormatted">
+                <source>answerFormatted</source>
+                <target>Ответ координатора</target>
+            </trans-unit>
+            <trans-unit id="Priority">
+                <source>Priority</source>
+                <target>Приоритетность</target>
+            </trans-unit>
+            <trans-unit id="priority">
+                <source>priority</source>
+                <target>Приоритетность</target>
+            </trans-unit>
+            <trans-unit id="male">
+                <source>male</source>
+                <target>мужской</target>
+            </trans-unit>
+            <trans-unit id="female">
+                <source>female</source>
+                <target>женский</target>
+            </trans-unit>
+            <trans-unit id="Common Rating">
+                <source>Common Rating</source>
+                <target>Общая оценка</target>
+            </trans-unit>
+            <trans-unit id="0 - Very Bad">
+                <source>0 - Very Bad</source>
+                <target>0 - Очень плохо</target>
+            </trans-unit>
+            <trans-unit id="1 - Very Bad">
+                <source>1 - Very Bad</source>
+                <target>1 - Очень плохо</target>
+            </trans-unit>
+            <trans-unit id="2 - Very Bad">
+                <source>2 - Very Bad</source>
+                <target>2 - Очень плохо</target>
+            </trans-unit>
+            <trans-unit id="3 - Bad">
+                <source>3 - Bad</source>
+                <target>3 - Плохо</target>
+            </trans-unit>
+            <trans-unit id="4 - Bad">
+                <source>4 - Bad</source>
+                <target>4 - Плохо</target>
+            </trans-unit>
+            <trans-unit id="5 - Normal">
+                <source>5 - Normal</source>
+                <target>5 - Удовлетворительно</target>
+            </trans-unit>
+            <trans-unit id="6 - Normal">
+                <source>6 - Normal</source>
+                <target>6 - Удовлетворительно</target>
+            </trans-unit>
+            <trans-unit id="7 - Good">
+                <source>7 - Good</source>
+                <target>7 - Хорошо</target>
+            </trans-unit>
+            <trans-unit id="8 - Good">
+                <source>8 - Good</source>
+                <target>8 - Хорошо</target>
+            </trans-unit>
+            <trans-unit id="9 - Excellent">
+                <source>9 - Excellent</source>
+                <target>9 - Отлично</target>
+            </trans-unit>
+            <trans-unit id="10 - Excellent">
+                <source>10 - Excellent</source>
+                <target>10 - Отлично</target>
+            </trans-unit>
+            <trans-unit id="rating_0">
+                <source>rating_0</source>
+                <target>Очень плохо</target>
+            </trans-unit>
+            <trans-unit id="rating_1">
+                <source>rating_1</source>
+                <target>Очень плохо</target>
+            </trans-unit>
+            <trans-unit id="rating_2">
+                <source>rating_2</source>
+                <target>Очень плохо</target>
+            </trans-unit>
+            <trans-unit id="rating_3">
+                <source>rating_3</source>
+                <target>Плохо</target>
+            </trans-unit>
+            <trans-unit id="rating_4">
+                <source>rating_4</source>
+                <target>Плохо</target>
+            </trans-unit>
+            <trans-unit id="rating_5">
+                <source>rating_5</source>
+                <target>Удовлетворительно</target>
+            </trans-unit>
+            <trans-unit id="rating_6">
+                <source>rating_6</source>
+                <target>Удовлетворительно</target>
+            </trans-unit>
+            <trans-unit id="rating_7">
+                <source>rating_7</source>
+                <target>Хорошо</target>
+            </trans-unit>
+            <trans-unit id="rating_8">
+                <source>rating_8</source>
+                <target>Хорошо</target>
+            </trans-unit>
+            <trans-unit id="rating_9">
+                <source>rating_9</source>
+                <target>Отлично</target>
+            </trans-unit>
+            <trans-unit id="rating_10">
+                <source>rating_10</source>
+                <target>Отлично</target>
+            </trans-unit>
+            <trans-unit id="opinion_rating_doctor">
+                <source>opinion_rating_doctor</source>
+                <target>Лечащий врач</target>
+            </trans-unit>
+            <trans-unit id="opinion_rating_translator">
+                <source>opinion_rating_translator</source>
+                <target>Переводчик</target>
+            </trans-unit>
+            <trans-unit id="opinion_rating_services">
+                <source>opinion_rating_services</source>
+                <target>Услуги сервиса</target>
+            </trans-unit>
+            <trans-unit id="opinion_country_treatment">
+                <source>opinion_country_treatment</source>
+                <target>Страна лечения</target>
+            </trans-unit>
+            <trans-unit id="opinion_direction">
+                <source>opinion_direction</source>
+                <target>Направление</target>
+            </trans-unit>
+            <trans-unit id="curator_answer_to_opinion">
+                <source>curator_answer_to_opinion</source>
+                <target>Ответ координатора по работе с клиникой “%clinic%”</target>
+            </trans-unit>
+            <trans-unit id="Doctor Avg Response Time">
+                <source>Doctor Avg Response Time</source>
+                <target>Скорость ответа от докторов</target>
+            </trans-unit>
+            <trans-unit id="disease_h3_dyn_title">
+                <source>disease_h3_dyn_title</source>
+                <target>Лечение %disease% за рубежом</target>
+            </trans-unit>
+            <trans-unit id="disease_h4_dyn_title">
+                <source>disease_h4_dyn_title</source>
+                <target>Лечение и диагностика %disease% за рубежом</target>
+            </trans-unit>
+            <trans-unit id="disease_h4_country_dyn_title">
+                <source>disease_h4_country_dyn_title</source>
+                <target>Лечение и диагностика %disease% в %country%</target>
+            </trans-unit>
+            <trans-unit id="Prices">
+                <source>Prices</source>
+                <target>Цены</target>
+            </trans-unit>
+            <trans-unit id="leading_clinics">
+                <source>leading_clinics</source>
+                <target>Ведущие клиники</target>
+            </trans-unit>
+            <trans-unit id="diagnostics">
+                <source>diagnostics</source>
+                <target>Диагностика</target>
+            </trans-unit>
+            <trans-unit id="go_to_section">
+                <source>go_to_section</source>
+                <target>Перейти к разделу</target>
+            </trans-unit>
+            <trans-unit id="generationCases">
+                <source>generationCases</source>
+                <target>Сгенерировать падежи</target>
+            </trans-unit>
+            <trans-unit id="Generation Cases">
+                <source>Generation Cases</source>
+                <target>Сгенерировать падежи</target>
+            </trans-unit>
+            <trans-unit id="Old Price">
+                <source>Old Price</source>
+                <target>Старая цена</target>
+            </trans-unit>
+            <trans-unit id="oldPrice">
+                <source>oldPrice</source>
+                <target>Старая цена</target>
+            </trans-unit>
+            <trans-unit id="New Price">
+                <source>New Price</source>
+                <target>Новая цена</target>
+            </trans-unit>
+            <trans-unit id="newPrice">
+                <source>newPrice</source>
+                <target>Новая цена</target>
+            </trans-unit>
+            <trans-unit id="Promo Main List">
+                <source>Promo Main List</source>
+                <target>Акции для главной</target>
+            </trans-unit>
+            <trans-unit id="main_actions">
+                <source>main_actions</source>
+                <target>Акции</target>
+            </trans-unit>
+            <trans-unit id="main_action_old_price">
+                <source>main_action_old_price</source>
+                <target>Стандартная цена</target>
+            </trans-unit>
+            <trans-unit id="main_action_new_price">
+                <source>main_action_new_price</source>
+                <target>Цена по акции</target>
+            </trans-unit>
+            <trans-unit id="Last Request List">
+                <source>Last Request List</source>
+                <target>Последние обращения</target>
+            </trans-unit>
+            <trans-unit id="Last Request Create">
+                <source>Last Request Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Promo Main Create">
+                <source>Promo Main Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Request Time">
+                <source>Request Time</source>
+                <target>Время обращения</target>
+            </trans-unit>
+            <trans-unit id="Icon">
+                <source>Icon</source>
+                <target>Иконка</target>
+            </trans-unit>
+            <trans-unit id="Icon Inverse">
+                <source>Icon Inverse</source>
+                <target>Иконка инверсионная</target>
+            </trans-unit>
+            <trans-unit id="Favourite Etc">
+                <source>Favourite Etc</source>
+                <target>Избранное для блока "а также"</target>
+            </trans-unit>
+            <trans-unit id="favouriteEtc">
+                <source>favouriteEtc</source>
+                <target>Избранное для блока "а также"</target>
+            </trans-unit>
+            <trans-unit id="main_opinions">
+                <source>main_opinions</source>
+                <target>Отзывы клиентов сервиса</target>
+            </trans-unit>
+            <trans-unit id="main_second_opinion">
+                <source>main_second_opinion</source>
+                <target>Получите второе мнение от зарубежных докторов</target>
+            </trans-unit>
+            <trans-unit id="main_directions">
+                <source>main_directions</source>
+                <target>Направления лечения</target>
+            </trans-unit>
+            <trans-unit id="main_etc">
+                <source>main_etc</source>
+                <target>a также</target>
+            </trans-unit>
+            <trans-unit id="main_last_requests">
+                <source>main_last_requests</source>
+                <target>Последние обращения</target>
+            </trans-unit>
+            <trans-unit id="main_cure_leading">
+                <source>main_cure_leading</source>
+                <target>Лечение за рубежом по лучшим ценам</target>
+            </trans-unit>
+            <trans-unit id="main_search_step">
+                <source>main_search_step</source>
+                <target>Подберите варианты лечения ниже прайса клиник</target>
+            </trans-unit>
+            <trans-unit id="Show all">
+                <source>Show all</source>
+                <target>Показать все</target>
+            </trans-unit>
+            <trans-unit id="Page List">
+                <source>Page List</source>
+                <target>Статичный контент</target>
+            </trans-unit>
+            <trans-unit id="Page Create">
+                <source>Page Create</source>
+                <target>Добавить</target>
+            </trans-unit>
+            <trans-unit id="City Price">
+                <source>City Price</source>
+                <target>Город-Цена</target>
+            </trans-unit>
+            <trans-unit id="Country Price">
+                <source>Country Price</source>
+                <target>Страна-Цена</target>
+            </trans-unit>
+            <trans-unit id="Country Disease Price">
+                <source>Country Disease Price</source>
+                <target>Страна-Заболевание-Цена</target>
+            </trans-unit>
+            <trans-unit id="Airport Distance">
+                <source>Airport Distance</source>
+                <target>Удаленность от аэропорта</target>
+            </trans-unit>
+            <trans-unit id="translation.in_city">
+                <source>translation.in_city</source>
+                <target>аэропорт находится в городе</target>
+            </trans-unit>
+            <trans-unit id="translation.km">
+                <source>translation.km</source>
+                <target> км</target>
+            </trans-unit>
+            <trans-unit id="Other countries">
+                <source>Other countries</source>
+                <target>Другие страны</target>
+            </trans-unit>
+            <trans-unit id="Opinions">
+                <source>Opinions</source>
+                <target>Отзывы</target>
+            </trans-unit>
+            <trans-unit id="opinion_h1">
+                <source>opinion_h1</source>
+                <target>Отзывы о лечении</target>
+            </trans-unit>
+            <trans-unit id="opinion_h1_country">
+                <source>opinion_h1_country</source>
+                <target>в %country%</target>
+            </trans-unit>
+            <trans-unit id="opinion_h1_border">
+                <source>opinion_h1_border</source>
+                <target>за рубежом</target>
+            </trans-unit>
+            <trans-unit id="opinion_filter_directions">
+                <source>opinion_filter_directions</source>
+                <target>Направления (все)</target>
+            </trans-unit>
+            <trans-unit id="opinion_filter_diseases">
+                <source>opinion_filter_diseases</source>
+                <target>Заболевания (все)</target>
+            </trans-unit>
+            <trans-unit id="opinion_filter_countries">
+                <source>opinion_filter_countries</source>
+                <target>Страна (все)</target>
+            </trans-unit>
+            <trans-unit id="opinion_filter_clinics">
+                <source>opinion_filter_clinics</source>
+                <target>Клиники (все)</target>
+            </trans-unit>
+            <trans-unit id="opinion_filter_btn">
+                <source>opinion_filter_btn</source>
+                <target>Поиск</target>
+            </trans-unit>
+            <trans-unit id="Phone">
+                <source>Phone</source>
+                <target>Телефон</target>
+            </trans-unit>
+            <trans-unit id="phone">
+                <source>phone</source>
+                <target>Телефон</target>
+            </trans-unit>
+            <trans-unit id="CallTime">
+                <source>CallTime</source>
+                <target>Предпочтительное время звонка</target>
+            </trans-unit>
+            <trans-unit id="Call Time">
+                <source>Call Time</source>
+                <target>Предпочтительное время звонка</target>
+            </trans-unit>
+            <trans-unit id="callTime">
+                <source>callTime</source>
+                <target>Предпочтительное время звонка</target>
+            </trans-unit>
+            <trans-unit id="Form Answer List">
+                <source>Form Answer List</source>
+                <target>Ответы на формы</target>
+            </trans-unit>
+            <trans-unit id="Callback Order">
+                <source>Callback Order</source>
+                <target>Перезвоните мне</target>
+            </trans-unit>
+            <trans-unit id="Required Star Fields">
+                <source>Required Star Fields</source>
+                <target>Поля отмеченные знаком * обязательные к заполнению</target>
+            </trans-unit>
+            <trans-unit id="email">
+                <source>email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="Email">
+                <source>Email</source>
+                <target>Email</target>
+            </trans-unit>
+            <trans-unit id="Your Question">
+                <source>Your Question</source>
+                <target>Ваш вопрос</target>
+            </trans-unit>
+            <trans-unit id="Question">
+                <source>Question</source>
+                <target>Вопрос</target>
+            </trans-unit>
+            <trans-unit id="question">
+                <source>question</source>
+                <target>Вопрос</target>
+            </trans-unit>
+            <trans-unit id="Answer Date">
+                <source>Answer Date</source>
+                <target>Дата и время ответа</target>
+            </trans-unit>
+            <trans-unit id="answeredAt">
+                <source>answeredAt</source>
+                <target>Дата и время ответа</target>
+            </trans-unit>
+            <trans-unit id="Answered At">
+                <source>Answered At</source>
+                <target>Дата и время ответа</target>
+            </trans-unit>
+            <trans-unit id="AnswerFile">
+                <source>AnswerFile</source>
+                <target>Файл</target>
+            </trans-unit>
+            <trans-unit id="Answer File">
+                <source>Answer File</source>
+                <target>Файл</target>
+            </trans-unit>
+            <trans-unit id="Referer Link">
+                <source>Referer Link</source>
+                <target>Где была заполнена форма</target>
+            </trans-unit>
+            <trans-unit id="refererLink">
+                <source>refererLink</source>
+                <target>Где была заполнена форма</target>
+            </trans-unit>
+            <trans-unit id="show_all_opinions">
+                <source>show_all_opinions</source>
+                <target>Смотреть все отзывы (%opinionsCount%)</target>
+            </trans-unit>
+            <trans-unit id="countries_h1">
+                <source>countries_h1</source>
+                <target>Лечение за рубежом</target>
+            </trans-unit>
+            <trans-unit id="go_to">
+                <source>go_to</source>
+                <target>Перейти</target>
+            </trans-unit>
+            <trans-unit id="treatment_in_country">
+                <source>treatment_in_country</source>
+                <target>Лечение в %country%</target>
+            </trans-unit>
+            <trans-unit id="treatment_in_city">
+                <source>treatment_in_city</source>
+                <target>Лечение в %city%, %country%</target>
+            </trans-unit>
+            <trans-unit id="country_filter_all_directions">
+                <source>country_filter_all_directions</source>
+                <target>Все направления</target>
+            </trans-unit>
+            <trans-unit id="country_filter_all_diseases">
+                <source>country_filter_all_diseases</source>
+                <target>Все заболевания</target>
+            </trans-unit>
+            <trans-unit id="up_to">
+                <source>up_to</source>
+                <target>до</target>
+            </trans-unit>
+            <trans-unit id="clinic_count">
+                <source>clinic_count</source>
+                <target>Количество клиник</target>
+            </trans-unit>
+            <trans-unit id="diseases_in_country">
+                <source>diseases_in_country</source>
+                <target>Заболевания в %country%</target>
+            </trans-unit>
+            <trans-unit id="meddirections_in_country">
+                <source>meddirections_in_country</source>
+                <target>Направления лечения в %country%</target>
+            </trans-unit>
+            <trans-unit id="cost_examples_in_country">
+                <source>cost_examples_in_country</source>
+                <target>Затраты пациентов на лечение в %country%</target>
+            </trans-unit>
+            <trans-unit id="opinions_in_country">
+                <source>opinions_in_country</source>
+                <target>Отзывы о лечении в %country%</target>
+            </trans-unit>
+            <trans-unit id="treatment_in_country_and_meddirection">
+                <source>treatment_in_country_and_meddirection</source>
+                <target>Лечение %direction% в %country%</target>
+            </trans-unit>
+            <trans-unit id="cost_example_in_country_and_meddirection">
+                <source>cost_example_in_country_and_meddirection</source>
+                <target>Затраты пациентов на лечение в %country% по %direction%</target>
+            </trans-unit>
+            <trans-unit id="opinions_in_country_and_meddirection">
+                <source>opinions_in_country_and_meddirection</source>
+                <target>Отзывы о лечении в %country% по %direction%</target>
+            </trans-unit>
+            <trans-unit id="js_clinics">
+                <source>js_clinics</source>
+                <target>"клиника","клиники","клиник"</target>
+            </trans-unit>
+            <trans-unit id="Discount">
+                <source>Discount</source>
+                <target>Скидка</target>
+            </trans-unit>
+            <trans-unit id="Certificates">
+                <source>Certificates</source>
+                <target>Сертификаты</target>
+            </trans-unit>
+            <trans-unit id="Email is subscribed">
+                <source>Email is subscribed</source>
+                <target>Поздравляем, Ваша подписка оформлена</target>
+            </trans-unit>
+            <trans-unit id="Subscribe error">
+                <source>Subscribe error</source>
+                <target>Ошибка подписки, свяжитесь с администратором сайта</target>
+            </trans-unit>
+            <trans-unit id="Email is already a list member">
+                <source>Email is already a list member</source>
+                <target>Вы уже подписаны</target>
+            </trans-unit>
+            <trans-unit id="Med Directions Fake">
+                <source>Med Directions Fake</source>
+                <target>Фековые направления медицины</target>
+            </trans-unit>
+            <trans-unit id="Convertation error">
+                <source>Convertation error</source>
+                <target>Не удалось сконвертировать</target>
+            </trans-unit>
+            <trans-unit id="Convertation is done">
+                <source>Convertation is done</source>
+                <target>Конвертация прошла успешно</target>
+            </trans-unit>
+            <trans-unit id="Convertation impossible">
+                <source>Convertation impossible</source>
+                <target>Невозможно сконвертировать пустую строку</target>
+            </trans-unit>
+            <trans-unit id="mail_notify_success">
+                <source>mail_notify_success</source>
+                <target>Форма успешно отправлена</target>
+            </trans-unit>
+            <trans-unit id="time_interval_up_to_hours_1">
+                <source>time_interval_up_to_hours_1</source>
+                <target>до 1 часа</target>
+            </trans-unit>
+            <trans-unit id="time_interval_up_to_hours_3">
+                <source>time_interval_up_to_hours_3</source>
+                <target>до 3 часов</target>
+            </trans-unit>
+            <trans-unit id="time_interval_up_to_hours_6">
+                <source>time_interval_up_to_hours_6</source>
+                <target>до 6 часов</target>
+            </trans-unit>
+            <trans-unit id="time_interval_up_to_hours_12">
+                <source>time_interval_up_to_hours_12</source>
+                <target>до 12 часов</target>
+            </trans-unit>
+            <trans-unit id="time_interval_hours_24">
+                <source>time_interval_hours_24</source>
+                <target>24 часа</target>
+            </trans-unit>
+            <trans-unit id="time_interval_up_to_days_2">
+                <source>time_interval_up_to_days_2</source>
+                <target>2 дня</target>
+            </trans-unit>
+            <trans-unit id="time_interval_up_to_days_3">
+                <source>time_interval_up_to_days_3</source>
+                <target>3 дня</target>
+            </trans-unit>
+            <trans-unit id="time_interval_up_to_days_4">
+                <source>time_interval_up_to_days_4</source>
+                <target>4 дня</target>
+            </trans-unit>
+            <trans-unit id="time_interval_greater_days_4">
+                <source>time_interval_greater_days_4</source>
+                <target>более 4 дней</target>
+            </trans-unit>
+            <trans-unit id="Show On Main">
+                <source>Show On Main</source>
+                <target>Показывать на главной</target>
+            </trans-unit>
+            <trans-unit id="showOnMain">
+                <source>showOnMain</source>
+                <target>Показывать на главной</target>
+            </trans-unit>
+            <trans-unit id="main_second_opinion_free">
+                <source>main_second_opinion_free</source>
+                <target>бесплатно</target>
+            </trans-unit>
+            <trans-unit id="main_second_opinion_desription">
+                <source>main_second_opinion_desription</source>
+                <target>Ведущие профессора зарубежных клиник рассмотрят Вашу ситуацию и составят план лечения с расчетом стоимости.</target>
+            </trans-unit>
+            <trans-unit id="manipulations_head_procedures">
+                <source>manipulations_head_procedures</source>
+                <target>Процедуры</target>
+            </trans-unit>
+            <trans-unit id="manipulations_head_common_price">
+                <source>manipulations_head_common_price</source>
+                <target>Обычная цена</target>
+            </trans-unit>
+            <trans-unit id="manipulations_head_service_price">
+                <source>manipulations_head_service_price</source>
+                <target>Цена от сервиса</target>
+            </trans-unit>
+            <trans-unit id="buy_form">
+                <source>buy_form</source>
+                <target>форма "Купить"</target>
+            </trans-unit>
+            <trans-unit id="message_form">
+                <source>message_form</source>
+                <target>форма "Сообщение дизайнеру"</target>
+            </trans-unit>
+            <trans-unit id="discount_form">
+                <source>discount_form</source>
+                <target>форма "Запросить скидку"</target>
+            </trans-unit>
+            <trans-unit id="formType">
+                <source>formType</source>
+                <target>Тип заявки</target>
+            </trans-unit>
+            <trans-unit id="File">
+                <source>File</source>
+                <target>Файл</target>
+            </trans-unit>
+            <trans-unit id="Is Manipulation">
+                <source>Is Manipulation</source>
+                <target>Является манипуляцией</target>
+            </trans-unit>
+            <trans-unit id="isManipulation">
+                <source>isManipulation</source>
+                <target>Является манипуляцией</target>
+            </trans-unit>
+            <trans-unit id=" abroad">
+                <source> abroad</source>
+                <target> за рубежом</target>
+            </trans-unit>
+            <trans-unit id=" in ">
+                <source> in </source>
+                <target> в </target>
+            </trans-unit>
+            <trans-unit id="Opinions about ">
+                <source>Opinions about </source>
+                <target>Отзывы о </target>
+            </trans-unit>
+            <trans-unit id="Opinions about treatment ">
+                <source>Opinions about treatment </source>
+                <target>Отзывы о лечении </target>
+            </trans-unit>
+            <trans-unit id="Cost on ">
+                <source>Cost on </source>
+                <target>Затраты пациентов на </target>
+            </trans-unit>
+            <trans-unit id="Cost on treatment ">
+                <source>Cost on treatment </source>
+                <target>Затраты пациентов на лечение </target>
+            </trans-unit>
+            <trans-unit id="Price on ">
+                <source>Price on </source>
+                <target>Стоимость </target>
+            </trans-unit>
+            <trans-unit id="Price on treatment ">
+                <source>Price on treatment </source>
+                <target>Стоимость лечения </target>
+            </trans-unit>
+            <trans-unit id="Treatment ">
+                <source>Treatment </source>
+                <target>Лечение и диагностика </target>
+            </trans-unit>
+            <trans-unit id="catalogue_name">
+                <source>catalogue_name</source>
+                <target>Название</target>
+            </trans-unit>
+            <trans-unit id="catalogue_url">
+                <source>catalogue_url</source>
+                <target>Урл</target>
+            </trans-unit>
+            <trans-unit id="catalogue_catname">
+                <source>catalogue_catname</source>
+                <target>Путь к каталогу</target>
+            </trans-unit>
+            <trans-unit id="catalogue_realcatname">
+                <source>catalogue_realcatname</source>
+                <target>Путь к странице</target>
+            </trans-unit>
+            <trans-unit id="catalogue_preview">
+                <source>catalogue_preview</source>
+                <target>Краткое описание</target>
+            </trans-unit>
+            <trans-unit id="catalogue_text">
+                <source>catalogue_text</source>
+                <target>Подробное описание</target>
+            </trans-unit>
+            <trans-unit id="Catalogue List">
+                <source>Catalogue List</source>
+                <target>Рубрикатор</target>
+            </trans-unit>
+            <trans-unit id="live_h1">
+                <source>live_h1</source>
+                <target>Live</target>
+            </trans-unit>
+            <trans-unit id="Cdate">
+                <source>Cdate</source>
+                <target>Дата и время добавления</target>
+            </trans-unit>
+            <trans-unit id="User">
+                <source>User</source>
+                <target>Пользователь</target>
+            </trans-unit>
+            <trans-unit id="Article List">
+                <source>Article List</source>
+                <target>Статьи</target>
+            </trans-unit>
+            <trans-unit id="Price">
+                <source>Price</source>
+                <target>Цена</target>
+            </trans-unit>
+            <trans-unit id="Item List">
+                <source>Item List</source>
+                <target>Товары</target>
+            </trans-unit>
+            <trans-unit id="Item Create">
+                <source>Item Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Selection Create">
+                <source>Selection Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Selection List">
+                <source>Selection List</source>
+                <target>Выборки</target>
+            </trans-unit>
+            <trans-unit id="Selection">
+                <source>Selection</source>
+                <target>Выборка</target>
+            </trans-unit>
+            <trans-unit id="Item">
+                <source>Item</source>
+                <target>Товар</target>
+            </trans-unit>
+            <trans-unit id="Attribute List">
+                <source>Attribute List</source>
+                <target>Атрибуты</target>
+            </trans-unit>
+            <trans-unit id="Attribute Create">
+                <source>Attribute Create</source>
+                <target>Добавление</target>
+            </trans-unit>
+            <trans-unit id="Item Attributes">
+                <source>Item Attributes</source>
+                <target>Атрибуты товара</target>
+            </trans-unit>
+            <trans-unit id="Item Selections">
+                <source>Item Selections</source>
+                <target>Товарные выборки</target>
+            </trans-unit>
+            <trans-unit id="Selections">
+                <source>Selections</source>
+                <target>Коллекции</target>
+            </trans-unit>
+            <trans-unit id="Catalogue">
+                <source>Catalogue</source>
+                <target>Раздел</target>
+            </trans-unit>
+            <trans-unit id="user.brand">
+                <source>user.brand</source>
+                <target>Бренд</target>
+            </trans-unit>
+            <trans-unit id="Brand Image">
+                <source>Brand Image</source>
+                <target>Изображение бренда</target>
+            </trans-unit>
+            <trans-unit id="designer">
+                <source>designer</source>
+                <target>Дизайнер</target>
+            </trans-unit>
+            <trans-unit id="tab.designer">
+                <source>tab.designer</source>
+                <target>Дизайнер</target>
+            </trans-unit>
+            <trans-unit id="Promo Type">
+                <source>Promo Type</source>
+                <target>Промо на  странице дизайнера</target>
+            </trans-unit>
+            <trans-unit id="User Type">
+                <source>User Type</source>
+                <target>Тип аккаунта</target>
+            </trans-unit>
+            <trans-unit id="Delivery Type">
+                <source>Delivery Type</source>
+                <target>Способ доставки</target>
+            </trans-unit>
+            <trans-unit id="Payment Type">
+                <source>Payment Type</source>
+                <target>Оплата</target>
+            </trans-unit>
+            <trans-unit id="Condition Type">
+                <source>Condition Type</source>
+                <target>Условия</target>
+            </trans-unit>
+            <trans-unit id="Cmf Script Selections">
+                <source>Cmf Script Selections</source>
+                <target>Связь Страница - Выборка</target>
+            </trans-unit>
+            <trans-unit id="Pages">
+                <source>Pages</source>
+                <target>Статика</target>
+            </trans-unit>
+            <trans-unit id="Banner Place List">
+                <source>Banner Place List</source>
+                <target>Баннерные места</target>
+            </trans-unit>
+            <trans-unit id="Name:">
+                <source>Name:</source>
+                <target>Фамилия, Имя, Отчество:</target>
+            </trans-unit>
+            <trans-unit id="Comment:">
+                <source>Comment:</source>
+                <target>Комментарий:</target>
+            </trans-unit>
+            <trans-unit id="Address:">
+                <source>Address:</source>
+                <target>Адрес:</target>
+            </trans-unit>
+            <trans-unit id="Message:">
+                <source>Message:</source>
+                <target>Сообщение:</target>
+            </trans-unit>
+            <trans-unit id="Theme:">
+                <source>Theme:</source>
+                <target>Тема:</target>
+            </trans-unit>
+            <trans-unit id="Phone:">
+                <source>Phone:</source>
+                <target>Телефон:</target>
+            </trans-unit>
+            <trans-unit id="City:">
+                <source>City:</source>
+                <target>Ваш город:</target>
+            </trans-unit>
+            <trans-unit id="Password:">
+                <source>Password:</source>
+                <target>Пароль:</target>
+            </trans-unit>
+            <trans-unit id="Repeat Password:">
+                <source>Repeat Password:</source>
+                <target>Повторите пароль:</target>
+            </trans-unit>
+            <trans-unit id="I agree">
+                <source>I agree</source>
+                <target>Я согласен на обработку данных</target>
+            </trans-unit>
+            <trans-unit id="Email already taken">
+                <source>Email already taken</source>
+                <target>Email уже используется</target>
+            </trans-unit>
+            <trans-unit id="tab.user_favorite">
+                <source>tab.user_favorite</source>
+                <target>Избранное</target>
+            </trans-unit>
+            <trans-unit id="Favorites">
+                <source>Favorites</source>
+                <target>Избранное</target>
+            </trans-unit>
+            <trans-unit id="Cloned successfully">
+                <source>Cloned successfully</source>
+                <target>Скопировано успешно</target>
+            </trans-unit>
+            <trans-unit id="Show on Main Page">
+                <source>Show on Main Page</source>
+                <target>Показывать на главной странице</target>
+            </trans-unit>
+            <trans-unit id="Catalogues">
+                <source>Catalogues</source>
+                <target>Разделы</target>
+            </trans-unit>
+            <trans-unit id="catalogues">
+                <source>catalogues</source>
+                <target>pазделы</target>
+            </trans-unit>
+            <trans-unit id="Subject">
+                <source>Subject</source>
+                <target>Тема</target>
+            </trans-unit>
+            <trans-unit id="From Name">
+                <source>From Name</source>
+                <target>От (имя)</target>
+            </trans-unit>
+            <trans-unit id="From Email">
+                <source>From Email</source>
+                <target>От (e-mail)</target>
+            </trans-unit>
+            <trans-unit id="To Name">
+                <source>To Name</source>
+                <target>Кому (имя)</target>
+            </trans-unit>
+            <trans-unit id="To Email">
+                <source>To Email</source>
+                <target>Кому (e-mail)</target>
+            </trans-unit>
+            <trans-unit id="Mail list Template">
+                <source>Mail list Template</source>
+                <target>Шаблоны почтовых уведомлений</target>
+            </trans-unit>
+            <trans-unit id="Maillist Template List">
+                <source>Maillist Template List</source>
+                <target>Шаблоны почтовых уведомлений</target>
+            </trans-unit>
+            <trans-unit id="Popularity">
+                <source>Popularity</source>
+                <target>Популярность</target>
+            </trans-unit>
+            <trans-unit id="You cannot delete this record.">
+                <source>You cannot delete this record.</source>
+                <target>Вы не можете удалить эту запись.</target>
+            </trans-unit>
+            <trans-unit id="Delivery">
+                <source>Delivery</source>
+                <target>Доставка</target>
+            </trans-unit>
+            <trans-unit id="Order">
+                <source>Order</source>
+                <target>Заказ</target>
+            </trans-unit>
+            <trans-unit id="Order List">
+                <source>Order List</source>
+                <target>Заказы</target>
+            </trans-unit>
+            <trans-unit id="new_order">
+                <source>new_order</source>
+                <target>Новый</target>
+            </trans-unit>
+            <trans-unit id="progress_order">
+                <source>progress_order</source>
+                <target>В работе</target>
+            </trans-unit>
+            <trans-unit id="wait_order">
+                <source>wait_order</source>
+                <target>Ожидает подтверждения</target>
+            </trans-unit>
+            <trans-unit id="cancel_order">
+                <source>cancel_order</source>
+                <target>Отменён</target>
+            </trans-unit>
+            <trans-unit id="done_order">
+                <source>done_order</source>
+                <target>Выполнен</target>
+            </trans-unit>
+            <trans-unit id="Order status">
+                <source>Order status</source>
+                <target>Статус заказа</target>
+            </trans-unit>
+            <trans-unit id="order-status-1">
+                <source>order-status-1</source>
+                <target>Новый</target>
+            </trans-unit>
+            <trans-unit id="order-status-2">
+                <source>order-status-2</source>
+                <target>В работе</target>
+            </trans-unit>
+            <trans-unit id="order-status-3">
+                <source>order-status-3</source>
+                <target>Отменен</target>
+            </trans-unit>
+            <trans-unit id="order-status-4">
+                <source>order-status-4</source>
+                <target>Выполнен</target>
+            </trans-unit>
+            <trans-unit id="Messages">
+                <source>Messages</source>
+                <target>Сообщения</target>
+            </trans-unit>
+            <trans-unit id="Birth Date">
+                <source>Birth Date</source>
+                <target>Дата рождения</target>
+            </trans-unit>
+            <trans-unit id="order_type_1">
+                <source>order_type_1</source>
+                <target>заказ с формы "Купить"</target>
+            </trans-unit>
+            <trans-unit id="order_type_2">
+                <source>order_type_2</source>
+                <target>заказ с формы "Сообщение дизайнеру"</target>
+            </trans-unit>
+            <trans-unit id="order_type_3">
+                <source>order_type_3</source>
+                <target>заказ с формы "Запросить скидку"</target>
+            </trans-unit>
+            <trans-unit id="order_type_4">
+                <source>order_type_4</source>
+                <target>заказ через избранное</target>
+            </trans-unit>
+            <trans-unit id="admin_message_id">
+                <source>admin_message_id</source>
+                <target>ID</target>
+            </trans-unit>
+            <trans-unit id="admin_message_name">
+                <source>admin_message_name</source>
+                <target>Название</target>
+            </trans-unit>
+            <trans-unit id="admin_message_date">
+                <source>admin_message_date</source>
+                <target>Дата</target>
+            </trans-unit>
+            <trans-unit id="admin_message_event_type">
+                <source>admin_message_event_type</source>
+                <target>Тип события</target>
+            </trans-unit>
+            <trans-unit id="admin_message_is_new_status">
+                <source>admin_message_is_new_status</source>
+                <target>Новое сообщение</target>
+            </trans-unit>
+            <trans-unit id="message_event_type_1">
+                <source>message_event_type_1</source>
+                <target>Смена статуса заказа: Новый</target>
+            </trans-unit>
+            <trans-unit id="message_event_type_2">
+                <source>message_event_type_2</source>
+                <target>Смена статуса заказа: В работе</target>
+            </trans-unit>
+            <trans-unit id="message_event_type_3">
+                <source>message_event_type_3</source>
+                <target>Смена статуса заказа: Отменен</target>
+            </trans-unit>
+            <trans-unit id="message_event_type_4">
+                <source>message_event_type_4</source>
+                <target>Смена статуса заказа: Выполнен</target>
+            </trans-unit>
+            <trans-unit id="message_event_type_5">
+                <source>message_event_type_5</source>
+                <target>Изменен адрес доставки</target>
+            </trans-unit>
+            <trans-unit id="message_event_type_6">
+                <source>message_event_type_6</source>
+                <target>Поступил новый заказ</target>
+            </trans-unit>
+            <trans-unit id="message_event_type_7">
+                <source>message_event_type_7</source>
+                <target>Новое сообщение</target>
+            </trans-unit>
+            <trans-unit id="message_event_type_8">
+                <source>message_event_type_8</source>
+                <target>Добавление в избранное</target>
+            </trans-unit>
+            <trans-unit id="message_event_type_9">
+                <source>message_event_type_9</source>
+                <target>Изменена скидка</target>
+            </trans-unit>
+            <trans-unit id="message_event_type_10">
+                <source>message_event_type_10</source>
+                <target>Изменена стоимость доставки</target>
+            </trans-unit>
+            <trans-unit id="message_event_type_11">
+                <source>message_event_type_11</source>
+                <target>Добавлен новый отзыв</target>
+            </trans-unit>
+            <trans-unit id="Event Type">
+                <source>Event Type</source>
+                <target>Тип события</target>
+            </trans-unit>
+            <trans-unit id="Is New">
+                <source>Is New</source>
+                <target>Новое</target>
+            </trans-unit>
+            <trans-unit id="add_new_order">
+                <source>add_new_order</source>
+                <target>Добавлен новый заказ</target>
+            </trans-unit>
+            <trans-unit id="add_new_message">
+                <source>add_new_message</source>
+                <target>Добавлено новое сообщение</target>
+            </trans-unit>
+            <trans-unit id="add_review">
+                <source>add_review</source>
+                <target>Добавлен новый отзыв</target>
+            </trans-unit>
+            <trans-unit id="add_item_to_favorite">
+                <source>add_item_to_favorite</source>
+                <target>Добавлено в избранное</target>
+            </trans-unit>
+            <trans-unit id="change_order_status_new">
+                <source>change_order_status_new</source>
+                <target>Заказ установлен в статус "Новый"</target>
+            </trans-unit>
+            <trans-unit id="change_order_status_progress">
+                <source>change_order_status_progress</source>
+                <target>Заказ установлен в статус "В работе"</target>
+            </trans-unit>
+            <trans-unit id="change_order_status_cancel">
+                <source>change_order_status_cancel</source>
+                <target>Заказ установлен в статус "Отменен"</target>
+            </trans-unit>
+            <trans-unit id="change_order_status_done">
+                <source>change_order_status_done</source>
+                <target>Заказ установлен в статус "Выполнен"</target>
+            </trans-unit>
+            <trans-unit id="change_order_delivery_addr">
+                <source>change_order_delivery_addr</source>
+                <target>Изменен адрес доставки</target>
+            </trans-unit>
+            <trans-unit id="change_order_discount">
+                <source>change_order_discount</source>
+                <target>Изменена скидка</target>
+            </trans-unit>
+            <trans-unit id="change_order_delivery">
+                <source>change_order_delivery</source>
+                <target>Изменена стоимость доставки</target>
+            </trans-unit>
+            <trans-unit id="Is Availabile">
+                <source>Is Availabile</source>
+                <target>В наличии</target>
+            </trans-unit>
+            <trans-unit id="Payment">
+                <source>Payment</source>
+                <target>Оплата</target>
+            </trans-unit>
+            <trans-unit id="Condition">
+                <source>Condition</source>
+                <target>Условия</target>
+            </trans-unit>
+            <trans-unit id="Color">
+                <source>Color</source>
+                <target>Цвет</target>
+            </trans-unit>
+            <trans-unit id="Colors">
+                <source>Colors</source>
+                <target>Цвета</target>
+            </trans-unit>
+            <trans-unit id="None">
+                <source>None</source>
+                <target>Не задан</target>
+            </trans-unit>
+            <trans-unit id="Can Ask Discount">
+                <source>Can Ask Discount</source>
+                <target>Запросить скидку</target>
+            </trans-unit>
+            <trans-unit id="Profile saved">
+                <source>Profile saved</source>
+                <target>Профиль сохранен</target>
+            </trans-unit>
+            <trans-unit id="Required fields">
+                <source>Required fields</source>
+                <target>Ошибка сохранения - не заполнены обязательные поля</target>
+            </trans-unit>
+            <trans-unit id="Active Catalogue">
+                <source>Active Catalogue</source>
+                <target>Активен каталог</target>
+            </trans-unit>
+            <trans-unit id="Zip">
+                <source>Zip</source>
+                <target>Индекс</target>
+            </trans-unit>
+            <trans-unit id="Street">
+                <source>Street</source>
+                <target>Улица</target>
+            </trans-unit>
+            <trans-unit id="Building">
+                <source>Building</source>
+                <target>Дом</target>
+            </trans-unit>
+            <trans-unit id="Apartment">
+                <source>Apartment</source>
+                <target>Квартира</target>
+            </trans-unit>
+            <trans-unit id="Changes saved">
+                <source>Changes saved</source>
+                <target>Изменения сохранены</target>
+            </trans-unit>
+            <trans-unit id="This field is required">
+                <source>This field is required</source>
+                <target>Заполните это поле</target>
+            </trans-unit>
+            <trans-unit id="Delivery List">
+                <source>Delivery List</source>
+                <target>Способы доставки</target>
+            </trans-unit>
+            <trans-unit id="Address is empty">
+                <source>Address is empty</source>
+                <target>Адрес доставки не заполнен покупателем</target>
+            </trans-unit>
+            <trans-unit id="add_to_favorite">
+                <source>add_to_favorite</source>
+                <target>добавил(а) в избранное ваше изделие: </target>
+            </trans-unit>
+            <trans-unit id="add_order">
+                <source>add_order</source>
+                <target>добавил(а) новый заказ на ваше изделие: </target>
+            </trans-unit>
+            <trans-unit id="designer_offer_discount">
+                <source>designer_offer_discount</source>
+                <target>дизайнер предложил скидку </target>
+            </trans-unit>
+            <trans-unit id="designer_confirm_discount">
+                <source>designer_confirm_discount</source>
+                <target>подтверждена скидка </target>
+            </trans-unit>
+            <trans-unit id="new_price">
+                <source>new_price</source>
+                <target>%, новая цена составит </target>
+            </trans-unit>
+            <trans-unit id="Review">
+                <source>Review</source>
+                <target>Отзыв</target>
+            </trans-unit>
+            <trans-unit id="Review List">
+                <source>Review List</source>
+                <target>Отзывы</target>
+            </trans-unit>
+            <trans-unit id="Thank you for review">
+                <source>Thank you for review</source>
+                <target>Спасибо за отзыв.</target>
+            </trans-unit>
+            <trans-unit id="user_ask_discount">
+                <source>user_ask_discount</source>
+                <target>пользователь запросил скидку на </target>
+            </trans-unit>
+            <trans-unit id="Sale-">
+                <source>Sale-</source>
+                <target>Скидка</target>
+            </trans-unit>
+            <trans-unit id="Sale predictor-">
+                <source>Sale predictor-</source>
+                <target>Ожидается скидка</target>
+            </trans-unit>
+            <trans-unit id="Flash-sale-">
+                <source>Flash-sale-</source>
+                <target>Cкидка 3 дня</target>
+            </trans-unit>
+            <trans-unit id="Tarif">
+                <source>Tarif</source>
+                <target>Тариф</target>
+            </trans-unit>
+            <trans-unit id="ask_discount">
+                <source>ask_discount</source>
+                <target>запрошена скидка на </target>
+            </trans-unit>
+            <trans-unit id="discount-29">
+                <source>discount-29</source>
+                <target>Cкидка действует 3 дня с %date% по %edate%</target>
+            </trans-unit>
+            <trans-unit id="discount-30">
+                <source>discount-30</source>
+                <target>На данный товар ожидается скидка с %date% по %edate%</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

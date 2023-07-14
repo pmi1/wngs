@@ -1,0 +1,31 @@
+{#
+
+Шаблон баннера слайдера
+
+#}
+<section class="site-slider">
+    <div class="site-slider-items js--site-slider">
+    {% for banner in banners %}
+        <div class="site-slider-item">
+            <div class="slider-item-image">
+                    {% if banner.image %}
+                        <picture>
+                            <source srcset="{% path banner.image, 'page_692' %}" alt="" media="(max-width: 800px)">
+                            <source srcset="{% path banner.image, 'page_1120' %}" alt="" media="(min-width: 800px)">
+                            <img src="{% path banner.image, 'page_1120' %}" alt="">
+                        </picture>
+                    {% else %}
+                        <img src="{{ webpack_asset('@web/images/notfound.svg') }}" alt=""/>
+                    {% endif %}
+                <a href="{{ banner.link }}" {{ banner.isNewWin == 1 ? ' target="_blank" ' : '' }}></a>
+            </div>
+            <a href="{{ banner.link }}" class="slider-item-image-link" {{ banner.isNewWin == 1 ? ' target="_blank" ' : '' }}>
+                <div class="slider-item-content">
+                    <div class="title">{{ banner.text.raw|raw }}</div>
+                    <div class="more">{{ banner.name }}</div>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+</section>

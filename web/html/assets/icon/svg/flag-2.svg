@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="18px" viewBox="0 0 24 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>CD22ED98-E01A-4D68-AB02-3C2D895BFBCB</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <polygon id="path-1" points="0 17.9964 24 17.9964 24 0 0 0"></polygon>
+    </defs>
+    <g id="Final-Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="0.-Style" transform="translate(-701.000000, -1787.000000)">
+            <g id="Icon/Flag/GB" transform="translate(701.000000, 1787.000000)">
+                <g>
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <g id="Clip-2"></g>
+                    <polygon id="Fill-1" fill="#FFFFFF" mask="url(#mask-2)" points="0 17.9964 24 17.9964 24 0 0 0"></polygon>
+                    <polyline id="Fill-3" fill="#D7290F" mask="url(#mask-2)" points="9.58848 10.79334 9.58848 17.99796 14.38648 17.99796 14.38648 10.79334 35.97496 10.79334 35.97496 7.19526 14.38648 7.19526 14.38648 0 9.58848 0 9.58848 7.19526 -12 7.19526 -12 10.79334 9.58848 10.79334"></polyline>
+                    <polyline id="Fill-4" fill="#272E60" mask="url(#mask-2)" points="15.9864 5.82594 15.9864 0 31.5192 0 15.9864 5.82594"></polyline>
+                    <polyline id="Fill-5" fill="#272E60" mask="url(#mask-2)" points="15.9864 12.17202 15.9864 17.99796 31.5192 17.99796 15.9864 12.17202"></polyline>
+                    <polyline id="Fill-6" fill="#272E60" mask="url(#mask-2)" points="7.98848 12.17202 7.98848 17.99796 -7.54424 17.99796 7.98848 12.17202"></polyline>
+                    <polyline id="Fill-7" fill="#272E60" mask="url(#mask-2)" points="7.98848 5.82594 7.98848 0 -7.54424 0 7.98848 5.82594"></polyline>
+                    <polyline id="Fill-8" fill="#BD242F" mask="url(#mask-2)" points="35.97488 0 33.31024 0 17.344 5.99916 20.00864 5.99916 36 0"></polyline>
+                    <polyline id="Fill-9" fill="#BD242F" mask="url(#mask-2)" points="6.6308 11.9985 3.96624 11.9985 -12 17.99766 -9.33536 17.99766 6.656 11.9985"></polyline>
+                    <polyline id="Fill-10" fill="#BD242F" mask="url(#mask-2)" points="1.32272 6.00384 3.98736 6.00384 -11.99992 0 -12 1.0062 1.32272 6.00384"></polyline>
+                    <polyline id="Fill-11" fill="#BD242F" mask="url(#mask-2)" points="22.6436 11.99616 19.97896 11.99616 35.96632 18 35.9664 16.9938 22.6436 11.99616"></polyline>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

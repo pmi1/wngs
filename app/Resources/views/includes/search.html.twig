@@ -1,0 +1,19 @@
+<form method="get" name="search-form" action="{{ path('search') }}">
+<div class="form-field search">
+    <input type="text" name="q" value="{{ filter.value.q is defined ? filter.value.q : '' }}" placeholder="Поиск среди 3000 дизайнеров">
+    <button type="submit" class="site-search-oval"><span class="svg"><!-- svg `icon-search-black.svg` begin -->
+
+<svg  version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+width="14" height="15" viewBox="-0.955 -0.607 14 15" enable-background="new -0.955 -0.607 14 15" xml:space="preserve">
+
+<path id="path69-4_1_" d="M6.025,0C2.697,0,0,2.697,0,6.025c0,3.327,2.697,6.024,6.025,6.024
+c3.328,0.001,6.025-2.696,6.025-6.024l0,0C12.051,2.697,9.354,0,6.025,0L6.025,0z M6.045,1.529c2.479,0,4.486,2.009,4.486,4.486
+c0,0,0,0,0,0.001c0,2.478-2.008,4.486-4.486,4.486l0,0c-2.478,0-4.486-2.008-4.486-4.486l0,0C1.559,3.539,3.566,1.529,6.045,1.529
+L6.045,1.529z M10.629,10.989c-0.191,0-0.383,0.073-0.531,0.22c-0.293,0.294-0.293,0.767,0,1.061l1.592,1.591
+c0.293,0.294,0.768,0.294,1.063,0c0.293-0.294,0.293-0.767,0-1.061l-1.594-1.591C11.012,11.063,10.82,10.989,10.629,10.989
+L10.629,10.989z"/>
+<circle id="circle40_1_" fill="none" cx="6.485" cy="7.041" r="6"/>
+</svg>
+<!-- svg `icon-search-black.svg` end --></span></button>
+</div>
+</form>

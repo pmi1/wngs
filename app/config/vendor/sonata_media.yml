@@ -1,0 +1,123 @@
+doctrine:
+    orm:
+        entity_managers:
+            default:
+                mappings:
+                    ApplicationSonataMediaBundle: ~
+                    SonataMediaBundle: ~
+
+sonata_media:
+    buzz:
+        connector:  sonata.media.buzz.connector.curl
+    # if you don't use default namespace configuration
+    #class:
+    #    media: MyVendor\MediaBundle\Entity\Media
+    #    gallery: MyVendor\MediaBundle\Entity\Gallery
+    #    gallery_has_media: Application\Sonata\MediaBundle\Entity\GalleryHasMedia
+    db_driver: doctrine_orm
+    # or doctrine_mongodb, doctrine_phpcr it is mandatory to choose one here
+    default_context: media_context_default
+    # you need to set a context
+    force_disable_category: true
+    category_manager: null
+    contexts:
+        media_context_default:  # the default context is mandatory
+            download:
+                strategy: sonata.media.security.public_strategy
+                mode: http
+            providers:
+                - sonata.media.provider.dailymotion
+                - sonata.media.provider.youtube
+                - sonata.media.provider.image
+                - sonata.media.provider.file
+                - sonata.media.provider.vimeo
+            #formats:
+                #small: { width: 100 , quality: 70}
+                #big:   { width: 500 , quality: 70}
+        media_context_user_image:
+            download:
+                strategy: sonata.media.security.public_strategy
+                mode: http
+            providers:
+                - sonata.media.provider.image
+            formats:
+                user_120: { width: 160, height: 160,quality: 80}
+        media_context_brand_image:
+            download:
+                strategy: sonata.media.security.public_strategy
+                mode: http
+            providers:
+                - sonata.media.provider.image
+            formats:
+                brand_256: { width: 300, height: 300, quality: 80}
+                brand_680: { width: 1200 , quality: 70}
+        media_context_article_image:
+            download:
+                strategy: sonata.media.security.public_strategy
+                mode: http
+            providers:
+                - sonata.media.provider.image
+            formats:
+                article_256: { width: 300, height: 300,  quality: 80}
+                article_740: { width: 740, quality: 80}
+        media_context_item_image:
+            download:
+                strategy: sonata.media.security.public_strategy
+                mode: http
+            providers:
+                - sonata.media.provider.image
+            formats:
+                item_246: { width: 300, height: 300, quality: 80}
+                item_100: { width: 120, height: 300, quality: 80}
+                item_440: { width: 440 , quality: 80}
+        media_context_catalogue_image:
+            download:
+                strategy: sonata.media.security.public_strategy
+                mode: http
+            providers:
+                - sonata.media.provider.image
+            formats:
+                catalogue_360: { width: 360 , quality: 80}
+        media_context_page_image:
+            download:
+                strategy: sonata.media.security.public_strategy
+                mode: http
+            providers:
+                - sonata.media.provider.image
+            formats:
+                page_1120: { width: 1200 , quality: 80}
+                page_692: { width: 692 , quality: 80}
+                page_551: { width: 600 , quality: 80}
+                page_360: { width: 500 , quality: 80}
+                page_214: { width: 250 , quality: 80}
+        media_context_selection_image:
+            download:
+                strategy: sonata.media.security.public_strategy
+                mode: http
+            providers:
+                - sonata.media.provider.image
+            formats:
+                selection_217: { width: 217 , quality: 80}
+        media_context_color_image:
+            download:
+                strategy: sonata.media.security.public_strategy
+                mode: http
+            providers:
+                - sonata.media.provider.image
+            formats:
+                color_16: { width: 16 , quality: 16}
+    cdn:
+        server:
+            path: /uploads/media # http://media.sonata-project.org/
+
+    filesystem:
+        local:
+            directory:  "%kernel.root_dir%/../web/uploads/media"
+            create:     true
+    providers:
+        youtube:
+            html5: true
+        image:
+            resizer: sonata.media.resizer.custom
+            #resizer: sonata.media.resizer.square
+            #thumbnail:  sonata.media.thumbnail.liip_imagine

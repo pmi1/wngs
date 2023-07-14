@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="35px" height="28px" viewBox="0 0 35 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>C64A5FEA-2F61-49DA-8985-BABC04F86DEC</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <rect id="path-1" x="3" y="12" width="32" height="22" rx="2"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="32" height="22" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <rect id="path-3" x="27" y="18" width="11" height="10" rx="2"></rect>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="11" height="10" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="Final-Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2.-Clinic" transform="translate(-425.000000, -4272.000000)" stroke="#00B9CD">
+            <g id="Icon/Service/i_cash" transform="translate(422.000000, 4266.000000)">
+                <use id="Rectangle-4" mask="url(#mask-2)" stroke-width="2" xlink:href="#path-1"></use>
+                <use id="Rectangle-5" mask="url(#mask-4)" stroke-width="2" fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-3"></use>
+                <path d="M10,12.3925781 L24.6292859,7.61859728 C25.676206,7.27695544 27.3676613,7.33027576 28.3879247,7.73011515 L28.8264308,7.90196493 C29.8553496,8.30519639 30.6894531,9.52216375 30.6894531,10.6325429 L30.6894531,12.2328722" id="Path-42" stroke-width="1"></path>
+            </g>
+        </g>
+    </g>
+</svg>

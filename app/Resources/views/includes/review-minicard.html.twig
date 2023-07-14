@@ -1,0 +1,17 @@
+<section class="{{ mode is defined ? mode : 'site-flex-column site-designer x4 m10' }}">
+    <div class="wrapper">
+        {% if review.order.user.image %}
+            {% set img %}{% path review.order.user.image, 'user_120' %}{% endset %}
+        {% else %}
+            {% set img = webpack_asset('@web/images/no-avatar.png') %}
+        {% endif %}
+        <div class="author">
+            <div class="avatar" style="background-image: url({{ img }});"></div>
+            <div class="text">
+                <span class="fullname big">{{ review.order.user.name }}</span>
+                <span class="date">{{review.createdAt|date("d.m.y")}}</span>
+            </div>
+        </div>
+        <div class="text small">{{ review.text.raw|raw }}</div>
+    </div>
+</section>

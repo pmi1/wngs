@@ -1,0 +1,49 @@
+# This file is a "template" of what your parameters.yml file should look like
+# Set parameters here that may be different on each deployment target of the app, e.g. development, staging, production.
+# http://symfony.com/doc/current/best_practices/configuration.html#infrastructure-related-configuration
+parameters:
+    database_host:     127.0.0.1
+    database_port:     ~
+    database_name:     symfony
+    database_user:     root
+    database_password: ~
+    database_server_version: ~
+    # You should uncomment this if you want use pdo_sqlite
+    # database_path: "%kernel.root_dir%/data.db3"
+
+    mailer_transport:  smtp
+    mailer_host:       127.0.0.1
+    mailer_user:       ~
+    mailer_password:   ~
+
+    # A secret key that's used to generate certain security-related tokens
+    secret: ThisTokenIsNotSoSecretChangeIt
+
+    elastic_index_titles: vernal_titles
+
+    # Ключ можно найти тут http://kb.mailchimp.com/integrations/api-integrations/about-api-keys?utm_source=mc-api&utm_medium=docs&utm_campaign=apidocs&_ga=2.151448185.1760120721.1497592357-1722814028.1492072363
+    mailchimp_api_key: ~
+    mailchimp_list_id: ~
+
+    # Email администратора
+    admin_mail: admin@hospitals-travel.ru
+
+    # Email с которого будут отправляться письма
+    sender_mail: info@hospitals-travel.ru
+
+    #google
+    google_client_id: ~
+    google_client_secret: ~
+
+    #facebook
+    facebook_client_id: ~
+    facebook_client_secret: ~
+
+    #id selection for sale and promo
+    sale_id: ~
+    flash_sale_id: ~
+    sale_predictor_id: ~
+    promo_id: ~
+
+    #watermark file path
+    watermark: "%kernel.root_dir%/../web/watermark.png"

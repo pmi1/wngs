@@ -1,0 +1,21 @@
+services:
+    app.cases_helper:
+        class: AppBundle\Helper\CasesHelper
+        calls:
+            - [setContainer, ["@service_container"]]
+
+    app.elastic_helper:
+        class: AppBundle\Helper\ElasticHelper
+        calls:
+            - [setContainer, ["@service_container"]]
+
+    app.mailchimp_helper:
+        class: AppBundle\Helper\MailchimpHelper
+        calls:
+            - [setContainer, ["@service_container"]]
+
+    app.swiftmailer_notify_helper:
+        class: AppBundle\Helper\SwiftMailerNotifyHelper
+        calls:
+            - [setContainer, ["@service_container"]]
+        arguments: ["@mailer", "%admin_mail%", "%sender_mail%"]

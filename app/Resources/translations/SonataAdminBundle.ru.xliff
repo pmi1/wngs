@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="SonataAdminBundle.en.xliff">
+        <body>
+            <trans-unit id="Dashboard">
+                <source>Dashboard</source>
+                <target>Панель администрирования</target>
+            </trans-unit>
+            <trans-unit id="Content">
+                <source>Content</source>
+                <target>Контент</target>
+            </trans-unit>
+            <trans-unit id="Access Control">
+                <source>Access Control</source>
+                <target>Управление доступом</target>
+            </trans-unit>
+            <trans-unit id="action_create_child">
+                <source>action_create_child</source>
+                <target>Добавить подраздел</target>
+            </trans-unit>
+            <trans-unit id="link_action_create_child">
+                <source>link_action_create_child</source>
+                <target>Добавить новый</target>
+            </trans-unit>
+            <trans-unit id="link_action_configure">
+                <source>link_action_configure</source>
+                <target>Настройка отображения</target>
+            </trans-unit>
+            <trans-unit id="action_show_site">
+                <source>action_show_site</source>
+                <target>Показать на сайте</target>
+            </trans-unit>
+            <trans-unit id="user_logout_link">
+                <source>user_logout_link</source>
+                <target>выход</target>
+            </trans-unit>
+            <trans-unit id="title_user_authentication">
+                <source>title_user_authentication</source>
+                <target>Вход</target>
+            </trans-unit>
+            <trans-unit id="security.login.username">
+                <source>security.login.username</source>
+                <target>Имя пользователя</target>
+            </trans-unit>
+            <trans-unit id="security.login.password">
+                <source>security.login.password</source>
+                <target>Пароль</target>
+            </trans-unit>
+            <trans-unit id="security.login.remember_me">
+                <source>security.login.remember_me</source>
+                <target>Запомнить меня</target>
+            </trans-unit>
+            <trans-unit id="security.login.submit">
+                <source>security.login.submit</source>
+                <target>Войти</target>
+            </trans-unit>
+            <trans-unit id="security.access_denied">
+                <source>security.access_denied</source>
+                <target>Доступ запрещен</target>
+            </trans-unit>
+            <trans-unit id="security.access_denied_auth">
+                <source>security.access_denied_auth</source>
+                <target>У вашей учетной записи недостаточно прав для доступа к данному разделу</target>
+            </trans-unit>
+            <trans-unit id="link_countries_front">
+                <source>link_countries_front</source>
+                <target>Страны на публичной части</target>
+            </trans-unit>
+            <trans-unit id="clone_action">
+                <source>clone_action</source>
+                <target>Скопировать</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

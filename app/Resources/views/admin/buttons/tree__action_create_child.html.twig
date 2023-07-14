@@ -1,0 +1,11 @@
+{#
+
+Часть шаблона админки для древовидных сущностей: вывод кнопки создания потомка для записи
+
+#}
+
+{% if admin.hasAccess('create') and admin.hasRoute('create_child') %}
+    <a class="btn btn-sm btn-default" href="{{ admin.generateUrl('create_child', {'pid': admin.id(object)}) }}" title="{{ 'action_create_child'|trans({}, 'SonataAdminBundle') }}">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+    </a>
+{% endif %}

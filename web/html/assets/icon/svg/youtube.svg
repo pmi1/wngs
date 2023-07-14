@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 41.2 (35397) - http://www.bohemiancoding.com/sketch -->
+    <title>B95A46D2-FF1F-45AD-A2A1-2E186FE5340E</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <circle id="path-1" cx="16" cy="16" r="16"></circle>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="32" height="32" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+    </defs>
+    <g id="Final-Design" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2.-Clinic" transform="translate(-1372.000000, -5335.000000)">
+            <g id="Icon/Social/i_youtube" transform="translate(1372.000000, 5335.000000)">
+                <g>
+                    <use id="Oval-4-Copy-3" stroke="#FFFFFF" mask="url(#mask-2)" stroke-width="3" xlink:href="#path-1"></use>
+                    <path d="M21.3728194,17.531672 L14.5377318,21.1039138 C14.3849255,21.183785 14.2178264,21.2234054 14.0509375,21.2234054 C13.861979,21.2234054 13.6734408,21.17254 13.5064468,21.0714398 C13.1920063,20.8809048 13,20.5400858 13,20.1724678 L13,13.0508947 C13,12.6839073 13.1914808,12.3434035 13.5052908,12.1527635 C13.8192058,11.9621234 14.2096291,11.9490918 14.5353146,12.1182927 L21.3704022,15.667519 C21.7181574,15.84807 21.9365423,16.2070703 21.9370677,16.5987547 C21.9374881,16.9907544 21.7200491,17.3502802 21.3728194,17.531672 Z" id="XMLID_823_-path" fill="#FFFFFF"></path>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

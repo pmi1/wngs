@@ -1,0 +1,26 @@
+{#
+
+Шаблон индексной страницы кабинета
+
+#}
+
+{% extends 'cabinet/main.html.twig' %}
+
+{% block cabinetbody %}
+<!-- catalog-product-list begin -->
+<section class="site-flex flex-wrap catalog-product-list">
+    {% for key, value in items %}
+        {% include "includes/item-minicard.html.twig" with {'item': value} %}
+    {% endfor %}
+</section>
+<!-- catalog-product-list end -->
+{% if items.count() %}
+    <!-- catalog-pagination begin -->
+    <section class="catalog-pagination">
+        <section class="content">
+            {{ pagerfanta(items, 'default', {'omitFirstPage': true, 'prev_message': '←','next_message': '→', 'css_current_class': 'active', 'page_template': '<a class="pagination-item" href="%href%"%rel%>%text%</a>', 'span_template': '<span class="pagination-item active">%text%</span>'}) }}
+        </section>
+    </section>
+    <!-- catalog-pagination end -->
+{% endif %}
+{% endblock %}

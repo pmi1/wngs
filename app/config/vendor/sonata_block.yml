@@ -1,0 +1,9 @@
+sonata_block:
+    default_contexts: [cms]
+    blocks:
+        # enable the SonataAdminBundle block
+        sonata.admin.block.admin_list:
+            contexts: [admin]
+        sonata.admin.block.search_result:
+            contexts:   [admin]
+        sonata.block.service.text: # used to if you plan to use Sonata user routes

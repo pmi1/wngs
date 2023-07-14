@@ -1,0 +1,144 @@
+{#
+
+Шаблон страницы рубрики
+
+#}
+
+{% extends 'main/main.html.twig' %}
+
+{% block meta %}
+    <title>{{ catalogue.metaTitle ? catalogue.metaTitle : catalogue.name }}</title>
+    <meta name="Keywords" content="{{ catalogue.metaKeywords }}"/>
+    <meta name="Description" content="{{ catalogue.metaDescription }}"/>
+{% endblock %}
+
+{% block body %}
+<div class="text-center">
+    <h1>{{ catalogue.name }}</h1>
+</div>
+{{ catalogue.textTop is defined ? catalogue.textTop.raw|raw : '' }}
+<!-- site-catalog begin -->
+<section class="site-flex site-flow site-flow-bottom site-catalog">
+    <section class="site-flex-column site-flex-main x4 m10">
+        <!-- site-filters begin -->
+        <section class="site-filters">
+            <form method="get">
+                {% block itemFilter %}
+                <section class="site-filter js--site-filter active">
+                    <div class="title"><span class="svg arrow-icon"><!-- svg `arrow-down.svg` begin --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.051 5.159"><path d="M102.112,4.973,98.22,8.865a.634.634,0,0,1-.9-.9l3.444-3.444L97.324,1.082a.634.634,0,0,1,.9-.9l3.892,3.892a.634.634,0,0,1,0,.9Z" transform="translate(9.051 -97.138) rotate(90)"/></svg><!-- svg `arrow-down.svg` end --></span> ЦЕНА</div>
+                    <div class="content">
+
+                        <div class="form-field range">
+                            <input type="text" name="minPrice" value="{{ filter.value.minPrice is defined ? filter.value.minPrice : 0 }}" placeholder="{{ filter.price.minPrice }} руб." data-min>
+                            <input type="text" name="maxPrice" value="{{ filter.value.maxPrice is defined ? filter.value.maxPrice : filter.price.maxPrice}}" placeholder="{{ filter.price.maxPrice }} руб." data-max>
+                            <div class="js--slider site-ui-slider" data-min="0" data-max="{{ filter.price.maxPrice }}"></div>
+                        </div>
+
+                    </div>
+                </section>
+
+                <section class="site-filter js--site-filter active">
+                    <div class="title"><span class="svg arrow-icon"><!-- svg `arrow-down.svg` begin --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.051 5.159"><path d="M102.112,4.973,98.22,8.865a.634.634,0,0,1-.9-.9l3.444-3.444L97.324,1.082a.634.634,0,0,1,.9-.9l3.892,3.892a.634.634,0,0,1,0,.9Z" transform="translate(9.051 -97.138) rotate(90)"/></svg><!-- svg `arrow-down.svg` end --></span> ДИЗАЙНЕРЫ</div>
+                    <div class="content">
+                        {% for key, value in filter.designers %}
+                            <div class="form-field checkbox form-flow-vertical box-to-right f12">
+                                <label for="chck_{{ key }}">
+                                    <input type="checkbox" name="designers[]" value="{{ value.id }}" id="chck_{{ key }}" {{ value.id in filter.value.designers ? 'checked' :'' }}>
+                                    <span class="icon"></span>
+                                    <span class="text">{{ value.name }}</span>
+                                </label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </section>
+                {% if filter.cats is defined %}
+                    {% for v in filter.cats %}
+                        {% if v.depth == 1 %}
+                            <section class="site-filter js--site-filter active">
+                                <div class="title"><span class="svg arrow-icon"><!-- svg `arrow-down.svg` begin --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9.051 5.159"><path d="M102.112,4.973,98.22,8.865a.634.634,0,0,1-.9-.9l3.444-3.444L97.324,1.082a.634.634,0,0,1,.9-.9l3.892,3.892a.634.634,0,0,1,0,.9Z" transform="translate(9.051 -97.138) rotate(90)"/></svg><!-- svg `arrow-down.svg` end --></span> {{ v.name }}</div>
+                                <div class="content">
+                                    {% for value in filter.cats %}
+                                        {% if value.parentId == v.id %}
+                                            <div class="form-field checkbox form-flow-vertical box-to-right f12">
+                                                <label for="chck2_{{ value.id }}">
+                                                    <input type="checkbox" name="cats[]" value="{{ value.id }}" id="chck2_{{ value.id }}" {{ value.id in filter.value.cats ? 'checked' :'' }}>
+                                                    <span class="icon"></span>
+                                                    <span class="text">{{ value.name }}</span>
+                                                </label>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </section>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+                {% endblock %}
+
+                <section class="site-filter">
+                    <button class="site-button yellow w-150 small"><span class="text">ОБНОВИТЬ</span></button>
+                </section>
+            </form>
+        </section>
+        <!-- site-filters end -->
+
+
+    </section>
+    {% block itemList %}
+    {% set slug = catalogue is defined ? (catalogue.realcatname is defined ? catalogue.realcatname : catalogue.link) : null %}
+
+    <section class="site-flex-column x3-4 m10">
+        <!-- catalog-top begin -->
+        <section class="catalog-navigation">
+            <div class="catalog-navigation-item left">
+                Показано: <span class="pages">{{ items.currentPageOffsetStart() ~ '-' ~ items.currentPageOffsetEnd() ~ ' из ' ~ items.count() }}</span>
+            </div>
+            <div class="catalog-navigation-item">
+                <nobr>Сортировать по:</nobr>
+                <div class="form-field select form-flow-horizontal dev-w-std h-small std-black">
+                    <select class="selectpicker js-sort" name="sort">
+                        <option value="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'slug': slug, 'sortDir': null, 'page' : null})) }}">ПО ВОЗРАСТАНИЮ ЦЕНЫ </option>
+                        <option value="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'slug': slug, 'sortDir': 'desc', 'sort': 'price', 'page' : null})) }}" {{ filter.value.sort is defined and filter.value.sort == 'price' and filter.value.sortDir is defined and filter.value.sortDir == 'desc' ? ' selected' : '' }}>ПО УБЫВАНИЮ ЦЕНЫ </option>
+                        <option value="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'slug': slug, 'sort': 'popularity', 'sortDir': null, 'page' : null})) }}" {{ filter.value.sort is defined and filter.value.sort == 'popularity' and filter.value.sortDir is defined and filter.value.sortDir != 'desc' ? ' selected' : '' }}>ПО ВОЗРАСТАНИЮ ПОПУЛЯРНОСТИ </option>
+                        <option value="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'slug': slug, 'sort': 'popularity', 'sortDir': 'desc', 'page' : null})) }}" {{ filter.value.sort is defined and filter.value.sort == 'popularity' and filter.value.sortDir is defined and filter.value.sortDir == 'desc' ? ' selected' : '' }}>ПО УБЫВАНИЮ ПОПУЛЯРНОСТИ </option>
+                    </select>
+                </div>
+            </div>
+            {% if items.count() > 12 %}
+                <div class="catalog-navigation-item page-counter">
+                    Показать:
+                    {% set ps = items.count() > 29 ? [12, 30, 5000] : [12, 5000] %}
+                    {% for item in ps %}
+                        <a href="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'slug': catalogue is defined ? catalogue.realcatname : null, 'pagesize': item, 'page' : null})) }}" class="pages{{ items.getMaxPerPage() == item ? ' active' : ''}}">{{item == 5000 ? 'Все' : item}}</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </section>
+        <!-- catalog-top end -->
+        <!-- catalog-product-list begin -->
+        <section class="site-flex flex-wrap catalog-product-list">
+            {% for key, value in items %}
+                {% include "includes/item-minicard.html.twig" with {'item': value} %}
+            {% endfor %}
+        </section>
+        <!-- catalog-product-list end -->
+
+        <!-- catalog-pagination begin -->
+        <section class="catalog-pagination">
+            <section class="content">
+                {{ pagerfanta(items, 'default', {'omitFirstPage': true, 'prev_message': '←','next_message': '→', 'css_current_class': 'active', 'page_template': '<a class="pagination-item" href="%href%"%rel%>%text%</a>', 'span_template': '<span class="pagination-item active">%text%</span>'}) }}
+            </section>
+        </section>
+        <!-- catalog-pagination end -->
+    </section>
+    {% endblock %}
+</section>
+<!-- site-catalog end -->
+{% if items.getCurrentPage() == 1 %}
+    <!-- seo-text begin -->
+    <section class="seo-text">
+        {{ catalogue.textFormatted|raw }}
+    </section>
+    <!-- seo-text end -->
+{% endif %}
+{% endblock %}

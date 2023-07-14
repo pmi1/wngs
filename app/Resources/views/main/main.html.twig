@@ -1,0 +1,223 @@
+{#
+
+Базовый шаблон клиентской части
+
+#}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" id="site-viewport">
+    {% block meta %}
+        <title>{{ metaTitle }}</title>
+        <meta name="Keywords" content="{{ metaKeywords }}"/>
+        <meta name="Description" content="{{ metaDescription }}"/>
+    {% endblock %}
+    {% webpack css '@web/js/dev.js' %}
+        <link rel="stylesheet" href="{{ asset_url }}"/>
+    {% end_webpack %}
+</head>
+<body  class="site-body">
+    <header class="site-main js--header-main">
+        <div class="site-w">
+            <header class="top">
+                <div class="left">
+                    {% set menu = knp_menu_get('client_menu', [], {menu_type: 'top'}) %}
+                    {{ knp_menu_render(menu, {'template': 'menu/top_menu.html.twig'}) }}
+                </div>
+                <div class="right">
+                    <section class="dib ml-10">
+                        <form name="search" action="{{ path('search') }}">
+                            <div class="site-search-oval-form hide-form js--site-search-oval-form">
+                                <div class="site-search-oval-form-close js--site-search-oval-form-close">Свернуть поиск</div>
+                                <div class="site-search-oval-form-input">
+                                    <input type="text" name="q" value="" placeholder="Поиск">
+                                </div>
+                            </div>
+                            <button class="site-search-oval site-search-oval-button js--site-search-oval-button"><span class="svg"><!-- svg `icon-search-black.svg` begin -->
+
+    <svg  version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+         width="14" height="15" viewBox="-0.955 -0.607 14 15" enable-background="new -0.955 -0.607 14 15" xml:space="preserve">
+
+    <path id="path69-4_1_" d="M6.025,0C2.697,0,0,2.697,0,6.025c0,3.327,2.697,6.024,6.025,6.024
+        c3.328,0.001,6.025-2.696,6.025-6.024l0,0C12.051,2.697,9.354,0,6.025,0L6.025,0z M6.045,1.529c2.479,0,4.486,2.009,4.486,4.486
+        c0,0,0,0,0,0.001c0,2.478-2.008,4.486-4.486,4.486l0,0c-2.478,0-4.486-2.008-4.486-4.486l0,0C1.559,3.539,3.566,1.529,6.045,1.529
+        L6.045,1.529z M10.629,10.989c-0.191,0-0.383,0.073-0.531,0.22c-0.293,0.294-0.293,0.767,0,1.061l1.592,1.591
+        c0.293,0.294,0.768,0.294,1.063,0c0.293-0.294,0.293-0.767,0-1.061l-1.594-1.591C11.012,11.063,10.82,10.989,10.629,10.989
+        L10.629,10.989z"/>
+    <circle id="circle40_1_" fill="none" cx="6.485" cy="7.041" r="6"/>
+    </svg>
+    <!-- svg `icon-search-black.svg` end --></span></button>
+                        </form>
+                    </section>
+                    {% include "includes/auth.html.twig" with {'mode': 'small'} %}
+                </div>
+            </header>
+            <header class="bottom">
+                <section class="site-logo">
+                    <div class="logo">
+                        <a href="{{ path('homepage') }}"><img src="{{ webpack_asset('@web/images/logo.png') }}" alt=""></a>
+                    </div>
+                    <div class="motto">
+                        <div class="motto-line">
+                            {{ banners[0].name }}
+                        </div>
+                    </div>
+                </section>
+                {% spaceless %}
+                {% block сatalogueMenu %}
+                <nav class="main-menu">
+                    {% for row in catalogues %}
+                        <a class="main-menu-item{{ catalogueParents[1] is defined and row.id == catalogueParents[1].id ? ' active' : '' }}" href="{{ path('cat_show', {'slug': row.realcatname|trim('/')}) }}">{{ row.name }}</a>
+                    {% endfor %}
+                </nav>
+                {% endblock %}
+                <section class="header-left-content">
+                    {% block menu %}
+                    <nav class="tumbler">
+                        {% for row in top_catalogues %}
+                            <a {{ (catalogueParents[0] is defined and row.id == catalogueParents[0].id) or (catalogueParents[0] is not defined and catalogue is not defined and loop.index == 1) or (catalogue is defined and row.id == catalogue.id) ? ' class="active"' : '' }} href="{{ path('cat_show', {'slug': row.realcatname|trim('/')}) }}">{{ row.name }}</a>
+                        {% endfor %}
+                    </nav>
+                    {% endblock %}
+                </section>
+                {% endspaceless %}
+                <section class="header-right-content desktop">
+                    {% include "includes/favorites.html.twig"%}
+                </section>
+                {% if banners[1] is defined %}
+                    {{ banners[1].text.raw|raw }}
+                {% endif %}
+            </header>
+
+        </div>
+    </header>
+    {% block content %}
+    <section class="site-content site-default-text">
+        <section class="site-w">
+            {% include "includes/breadcrumbs.html.twig" with {'breadcrumbs': breadcrumbs} %}
+            {% block body %}{% endblock %}
+        </section>
+        {% block bodygray %}{% endblock %}
+    </section>
+    {% endblock %}
+    <footer class="site-main">
+        <div class="site-w">
+            <section class="footer-row">
+                {% set menu = knp_menu_get('client_menu', [], {menu_type: 'bottom'}) %}
+                {{ knp_menu_render(menu, {'template': 'menu/bottom_menu.html.twig'}) }}
+            </section>
+        </div>
+    </footer>
+    <!-- modal windows begin -->
+        <!-- float-header begin -->
+<section class="site-float-header" id="float-header-id">
+    <div class="site-w float-header-wrapper">
+
+        <div class="fh-logo-new">
+            <a href="{{ path('homepage') }}"><img src="{{ webpack_asset('@web/images/float-logo@2x.png') }}" alt=""></a>
+        </div>
+        <div class="fh-other-new">
+            <section class="fh-other-top">
+                <section class="fho-column">
+                    <section class="dib">
+                        {% include "includes/search.html.twig"%}
+                    </section>
+                    <section class="dib">
+                        {% include "includes/favorites.html.twig" with {'mode': 'ml-30'} %}
+                    </section>
+                    {% include "includes/auth.html.twig" with {'fh': '1'} %}
+                </section>
+
+            </section>
+
+        </div>
+
+    </div>
+</section>
+<!-- float-header end -->    
+    
+<section class="site-popup-back js--site-popup-back" data-no-effect id="site-popup-back-id"></section>
+
+
+<!-- header-mobile-float begin -->
+<section class="header-mobile-float" data-no-effect>
+    <div class="site-w">
+
+        <section class="mobile-header mobile js--mobile-header" data-no-effect>
+            <a href="#site-popup-main-menu-id" class="site-mobile-menu-lines js--open-popup">
+                <span></span>
+            </a>
+            <section class="search-mobile-form">
+                 {% include "includes/search.html.twig"%}
+            </section>
+
+        </section>
+        {% include "includes/favorites.html.twig" with {'mode': 'js--hide-when-popup-open'} %}
+    </div>
+</section>
+<!-- header-mobile-float end -->
+
+    {% block modal %}{% endblock %}
+
+    <!-- popup-main-menu begin -->
+    <section class="site-popup-window popup-main-menu js--site-popup-window" data-no-effect id="site-popup-main-menu-id">
+        <div class="site-w">
+
+            <div class="popup-logo"><a href="{{ path('homepage') }}"><img src="{{ webpack_asset('@web/images/logo.png') }}" alt=""></a></div>
+
+            <div class="popup-line">
+                {% include "includes/auth.html.twig" %}
+            </div>
+
+            <nav class="popup-menu">
+                {% set menu = knp_menu_get('client_menu', [], {menu_type: 'top'}) %}
+                {{ knp_menu_render(menu, {'template': 'menu/mobile_menu.html.twig'}) }}
+            </nav>
+
+            <hr>
+
+            <nav class="popup-menu">
+                {% for row in catalogues %}
+                    <div class="menu-item"><a href="{{ path('cat_show', {'slug': row.realcatname|trim('/')}) }}">{{ row.name }}</a></div>
+                {% endfor %}
+            </nav>
+
+        </div>
+    </section>
+    <!-- popup-main-menu end -->
+    <!-- float-header begin -->
+    <section class="site-float-header" id="float-header-id">
+        <div class="site-w">
+            <div class="fh-logo">
+                <a href="{{ path('homepage') }}"><img src="{{ webpack_asset('@web/images/logo.png') }}" alt=""></a>
+            </div>
+            <div class="fh-other">
+                <section class="fh-other-top">
+                    <section class="fho-column">
+                        {{ block('menu') }}
+                    </section>
+                    <section class="fho-column">
+                        <section class="dib ml-20">
+                            {% include "includes/search.html.twig"%}
+                        </section>
+                        <section class="dib ml-20">
+                            {% include "includes/favorites.html.twig"%}
+                        </section>
+                        {% include "includes/auth.html.twig" %}
+                    </section>
+                </section>
+                <section class="fh-other-bottom">
+                    {{ block('сatalogueMenu') }}
+                </section>
+            </div>
+        </div>
+    </section>
+    <!-- float-header end -->
+    <script type="text/javascript" src="{{ webpack_asset('@web/js/dev.js') }}"></script>
+</body>
+</html>
+
+

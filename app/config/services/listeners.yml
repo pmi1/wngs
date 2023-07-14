@@ -1,0 +1,31 @@
+services:
+    app.tokens.action_listener:
+        class: AppBundle\EventListener\TokenListener
+        arguments: ['@security.token_storage', '@doctrine.orm.entity_manager']
+        tags:
+            - { name: kernel.event_listener, event: kernel.controller, method: onKernelController }
+
+    app.listener.elastic.custom_properties:
+        class: AppBundle\EventListener\ElasticPropertyListener
+        arguments: ['@service_container']
+        tags:
+            - { name: kernel.event_subscriber }
+
+    app.doctrine.hash_password_listener:
+        class: AppBundle\Doctrine\HashPasswordListener
+        autowire: true
+        tags:
+            - { name: doctrine.event_subscriber }
+
+    app.doctrine.security_generator_listener:
+        class: AppBundle\Doctrine\SecurityGeneratorListener
+        arguments: ['@security.token_storage', '@doctrine.orm.entity_manager']
+        tags:
+            - { name: doctrine.event_subscriber }
+
+    app.doctrine.listener.order:
+        class: AppBundle\EventListener\ItemListener
+        public: false
+        arguments: ['@service_container']
+        tags:
+            - { name: "doctrine.orm.entity_listener" }

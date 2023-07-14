@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        HospitalsTravel title
+    </title>
+    <meta name="description" content="HospitalsTravel title">
+    
+<link href="main.css" rel="stylesheet"></head>
+
+<body>
+    <div id="wrapper">
+        <div class="w1">
+            <div class="w2">
+                <header id="header">
+                    <div class="header-holder pt-3 pb-3">
+                        <div class="container-fluid d-flex justify-content-between align-items-center">
+                            <a href="#" class="menu-opener"><span></span> Меню</a>
+                            <div class="logo">
+                                <a href="#"><img src="assets/img/logo.svg" width="179" height="28" alt="hospitalstravel"></a>
+                            </div>
+                            <div class="dropdown hidden-md-down">
+                                <a href="#" class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon-mark"></i> Москва</a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                    <a class="dropdown-item" href="#">Город</a>
+                                    <a class="dropdown-item" href="#">Город с длинным названием</a>
+                                </div>
+                            </div>
+                            <div class="contacts-holder">
+                                <a href="#" id="contacts-dropdown" class="contacts-opener hidden-lg-up" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="icon-skype"></i></a>
+                                <div class="dropdown-menu" aria-labelledby="contacts-dropdown">
+                                    <ul class="contact-list list-unstyled m-0">
+                                        <li class="d-inline-block align-middle px-xl-3 px-lg-2 mb-sm-1">
+                                            <a class="lead" href="tel:080025000475">0-800-25000-475</a>
+                                            <p>бесплатная горячая линия</p>
+                                        </li>
+                                        <li class="d-inline-block align-middle px-xl-3 px-lg-2">
+                                            <a data-toggle="modal" data-target="#modalFeedback" class="dashed" href="#">Обратный звонок</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="header-area d-flex justify-content-between">
+                                <button class="btn btn-danger ml-5 py-1 px-2 hidden-lg-up">
+                                    <img class="my-1" src="assets/icon/svg/icon-note.svg" alt="image description">
+                                </button>
+                                <button data-toggle="modal" data-target="#modal-choose" class="btn btn-lg btn-danger px-3 hidden-md-down">Получить программу лечения</button>
+                                <a data-toggle="modal" data-target="#modalLogin" href="#" class="login hidden-md-down d-inline-block align-top align-self-center ml-xl-4 ml-lg-3 ml-2"><i class="icon-arrow-inside align-self-center mr-1"></i> Вход</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="header-frame hidden-md-down pt-3 pb-3">
+                        <div class="container-fluid d-flex justify-content-between align-items-center">
+                            <nav id="nav">
+                                <ul class="list-unstyled">
+                                    <li><a href="#">О компании</a></li>
+                                    <li><a href="#">Клиники</a></li>
+                                    <li><a href="#">Страны</a></li>
+                                    <li><a href="#">Заболевания</a></li>
+                                    <li><a href="#">Информация</a></li>
+                                    <li><a href="#">Отзывы</a></li>
+                                    <li><a href="#">Контакты</a></li>
+                                </ul>
+                            </nav>
+                            <div class="search d-inline-block align-top ml-lg-8 ml-md-4">
+                                <form action="#">
+                                    <a href="#" class="search-opener"><i class="icon-search"></i></a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </header>
+                <section class="visual">
+                    <div class="container-fluid">
+                        <div class="text-center">
+                            <h1>Лечение в ведущих клиниках мира</h1>
+                            <span class="slogan mb-4">сделайте первый шаг на пути к здоровью</span>
+                        </div>
+                        <div class="collapse-holder">
+                            <div class="container-fluid">
+                                <form class="search-form mb-2">
+                                    <div class="d-flex mb-2">
+                                        <div class="form-group mb-0 input-wrap">
+                                            <input type="text" class="form-control form-autocomplete form-control-lg" placeholder="Введите название клиники, заболевания или процедуры">
+                                        </div>
+                                        <button type="submit" class="btn btn-success hidden-xs-down btn-lg">Поиск</button>
+                                    </div>
+                                    <div class="collapse-frame">
+                                        <div class="row no-gutters">
+                                            <div class="col-md-4">
+                                                <select class="custom-select brand-default w-100 align-self-center mb-2">
+                                                    <option selected>Медицинское направление</option>
+                                                    <option value="1">Отоларингология</option>
+                                                    <option value="2">Офтальмология</option>
+                                                    <option value="3">Педиатрия</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <select class="custom-select brand-default w-100 align-self-center mb-2">
+                                                    <option selected>Заболевание</option>
+                                                    <option value="1">Отоларингология</option>
+                                                    <option value="2">Офтальмология</option>
+                                                    <option value="3">Педиатрия</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <select class="custom-select brand-default w-100 align-self-center mb-2">
+                                                    <option selected>Страна</option>
+                                                    <option value="1">Китай</option>
+                                                    <option value="2">Южная Корея</option>
+                                                    <option value="3">Индия</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form-check mb-0 form-check-inline">
+                                            <label class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description">детская</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-0 form-check-inline">
+                                            <label class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description">рядом со мной</span>
+                                            </label>
+                                        </div>
+                                        <div class="form-check mb-0 form-check-inline">
+                                            <label class="custom-control custom-radio">
+                                                <input name="radio" type="radio" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description">премиум</span>
+                                            </label>
+                                            <label class="custom-control custom-radio">
+                                                <input name="radio" type="radio" class="custom-control-input">
+                                                <span class="custom-control-indicator"></span>
+                                                <span class="custom-control-description">эконом</span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-success hidden-sm-up">поиск</button>
+                                </form>
+                                <div class="search-info text-muted justify-content-between">
+                                    <p></p>
+                                    <div class="text-right">
+                                        <a class="more-opener dashed" href="#">
+                                            <span>показать расширенные настройки</span>
+                                            <span>cкрыть расширенные настройки</span>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-stretch">
+                        <span data-srcset="assets/img/bg-visual.jpg, assets/img/bg-visual@2x.jpg 2x, assets/img/bg-visual@3x.jpg 3x"></span>
+                    </div>
+                </section>
+                <main id="main">
+                    <div class="container-primary py-3">
+                        <div class="container-fluid">
+                            <ul class="numbers">
+                                <li class="px-6">
+                                    <div class="wrap">
+                                        <div class="number align-self-center">124</div>
+                                        <div class="text-holder align-self-center">месяца работы в<br> медицинском туризме</div>
+                                    </div>
+                                </li>
+                                <li class="px-6">
+                                    <div class="wrap">
+                                        <div class="number align-self-center">4712</div>
+                                        <div class="text-holder align-self-center">обработанных<br> запросов на лечение</div>
+                                    </div>
+                                </li>
+                                <li class="px-6">
+                                    <div class="wrap">
+                                        <div class="number align-self-center">123</div>
+                                        <div class="text-holder align-self-center">клиник<br> партнеров в базе</div>
+                                    </div>
+                                </li>
+                                <li class="px-6">
+                                    <div class="wrap">
+                                        <div class="number align-self-center">245</div>
+                                        <div class="text-holder align-self-center">отзывов<br> от клиентов</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <section class="area py-4 py-lg-9 py-md-9 py-sm-9">
+                        <div class="container-fluid">
+                            <div class="tabs-horisontal">
+                                <nav class="tabset mt-2">
+                                    <ul class="tabset-list">
+                                        <li class="tabset-list-item tabset-item active">
+                                            <a href="#" class="link-opener">
+                                                <span class="ico-wrap mr-3"><i class="icon-navigator"></i></span>
+                                                <span class="text-wrap">Ваш навигатор по лечению за рубежом</span>
+                                            </a>
+                                            <div class="tab-horisontal-content">
+                                                <div class="video-holder"><img src="assets/img/img-video.jpg" height="707" width="1166" alt="video placeholder"></div>
+                                            </div>
+                                        </li>
+                                        <li class="tabset-list-item tabset-item">
+                                            <a href="#" class="link-opener">
+                                                <span class="ico-wrap mr-3"><i class="icon-search"></i></span>
+                                                <span class="text-wrap">«Умный» поиск клиник по заболеваниям</span>
+                                            </a>
+                                            <div class="tab-horisontal-content">
+                                                <div class="search-steps">
+                                                    <div class="step">
+                                                        <div class="heading-row pb-3">
+                                                            <div class="number">1</div>
+                                                            <div class="strong">Введите в поисковую строку свое заболевание</div>
+                                                        </div>
+                                                        <div class="area p-2 mb-4">
+                                                            <form class="search-form">
+                                                                <div class="d-flex">
+                                                                    <div class="form-group mb-0 input-wrap">
+                                                                        <input type="text" class="form-control form-autocomplete form-control-sm" placeholder="Введите название заболевания">
+                                                                    </div>
+                                                                    <button type="submit" class="btn btn-success btn-sm">поиск</button>
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                    <div class="step">
+                                                        <div class="heading-row pb-3">
+                                                            <div class="number">2</div>
+                                                            <div class="strong">Подберите лучшую клинику </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-sm-4 col-xs-12">
+                                                                <div class="card mb-4">
+                                                                  <img src="assets/img/thomson-medical-hospital-s.jpg" height="240" width="360" srcset="assets/img/thomson-medical-hospital-s@2x.jpg 2x, assets/img/thomson-medical-hospital-s@3x.jpg 3x" alt="thomson_medical_hospital_s">
+                                                                  <div class="card-block p-2">
+                                                                    <div class="rate-holder">
+                                                                        <ul class="star-rate mb-1 list-unstyled list-inline">
+                                                                            <li class="icon-star list-inline-item"></li>
+                                                                            <li class="icon-star list-inline-item"></li>
+                                                                            <li class="icon-star list-inline-item"></li>
+                                                                            <li class="icon-star list-inline-item"></li>
+                                                                            <li class="icon-star-half list-inline-item"></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <span class="heading mb-1 text-darkblue d-block">Клиника Томсон</span>
+                                                                    <span class="location text-muted d-block">
+                                                                        Германия, Франкфурт на майне
+                                                                    </span>
+                                                                  </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4 col-xs-12">
+                                                                <div class="card mb-4">
+                                                                  <img src="assets/img/mayo-clinic-01.jpg" height="240" width="360" srcset="assets/img/mayo-clinic-01@2x.jpg 2x, assets/img/mayo-clinic-01@3x.jpg 3x" alt="thomson_medical_hospital_s">
+                                                                  <div class="card-block p-2">
+                                                                    <div class="rate-holder">
+                                                                        <ul class="star-rate mb-1 list-unstyled list-inline">
+                                                                            <li class="icon-star list-inline-item"></li>
+                                                                            <li class="icon-star list-inline-item"></li>
+                                                                            <li class="icon-star list-inline-item"></li>
+                                                                            <li class="icon-star list-inline-item"></li>
+                                                                            <li class="icon-star-half list-inline-item"></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <span class="heading mb-1 text-darkblue d-block">Клиника Мейо </span>
+                                                                    <span class="location text-muted d-block">
+                                                                        Германия, Франкфурт на майне
+                                                                    </span>
+                                                                  </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-sm-4 col-xs-12">
+                                                                <div class="card mb-4">
+                                                                  <img src="assets/img/university-hospital-leuven-06.jpg" height="240" width="360" srcset="assets/img/university-hospital-leuven-06@2x.jpg 2x, assets/img/university-hospital-leuven-06@3x.jpg 3x" alt="thomson_medical_hospital_s">
+                                                                  <div class="card-block p-2">
+                                                                    <div class="rate-holder">
+                                                                        <ul class="star-rate mb-1 list-unstyled list-inline">
+                                                                            <li class="icon-star list-inline-item"></li>
+                                                                            <li class="icon-star list-inline-item"></li>
+                                                                            <li class="icon-star list-inline-item"></li>
+                                                                            <li class="icon-star list-inline-item"></li>
+                                                                            <li class="icon-star-half list-inline-item"></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <span class="heading mb-1 text-darkblue d-block">Госпиталь Лёвенский</span>
+                                                                    <span class="location text-muted d-block">
+                                                                        Германия, Франкфурт на майне
+                                                                    </span>
+                                                                  </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="tabset-list-item tabset-item">
+                                            <a href="#" class="link-opener">
+                                                <span class="ico-wrap mr-3"><i class="icon-money"></i></span>
+                                                <span class="text-wrap">Без посредников и переплат</span>
+                                            </a>
+                                            <div class="tab-horisontal-content">
+                                                <div class="img-holder">
+                                                    <img src="assets/img/img-13.jpg" srcset="assets/img/bitmap@2x.jpg 2x, assets/img/bitmap@3x.jpg 3x" height="356" width="589" alt="video placeholder">
+                                                    <div class="rows-angle-holder">
+                                                        <div class="row-angle-right">
+                                                            <img src="assets/img/logo-white.svg" width="168" height="25" alt="hospitalstravel">
+                                                        </div>
+                                                        <div class="row-angle-left pt-2">
+                                                            <span class="d-block pl-8">площадка, где клиники напрямую</span>
+                                                            <span class="d-block pl-4">предлагают пациенту индивидуальные</span>
+                                                            <span class="d-block pl-0"> программы лечения</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="tabset-list-item tabset-item">
+                                            <a href="#" class="link-opener">
+                                                <span class="ico-wrap mr-3"><i class="icon-guarantee"></i></span>
+                                                <span class="text-wrap">Гарантия самой низкой цены</span>
+                                            </a>
+                                            <div class="tab-horisontal-content">
+                                                <div class="tab-content-holder">
+                                                    <div class="tree-boxes">
+                                                        <div class="box-col">
+                                                            <img width="81" height="142" src="assets/img/discount-7.svg" alt="-7%">
+                                                        </div>
+                                                        <div class="box-col">
+                                                            <img width="115" height="177" src="assets/img/discount-15.svg" alt="-15%">
+                                                        </div>
+                                                        <div class="box-col">
+                                                            <img width="81" height="142" src="assets/img/discount-10.svg" alt="-10%">
+                                                        </div>
+                                                    </div>
+                                                    <div class="strong text-darkblue text-center lead">Лучшие финансовые условия только для клиентов сервиса hospitalstravel</div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="tabset-list-item tabset-item">
+                                            <a href="#" class="link-opener">
+                                                <span class="ico-wrap mr-3"><i class="icon-phone"></i></span>
+                                                <span class="text-wrap">Круглосуточная поддержка в любой точке мира</span>
+                                            </a>
+                                            <div class="tab-horisontal-content">
+                                                <div class="tab-content-frame">
+                                                    <img width="428" height="219" src="assets/img/group.svg" alt="image description">
+                                                    <div class="strong text-darkblue text-center lead">Мы позаботимся о вас до, во время и после поездки на лечение</div>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <div class="slide-holder">
+                                    </div>
+                                </nav>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="main py-6">
+                        <div class="container-fluid">
+                            <div class="mb-5">
+                                <h2>Направления лечения</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mb-5">
+                                   <div class="card-box card bordered">
+                                        <div class="img-block">
+                                            <div class="heading-block">
+                                                <h3>Онкология</h3>
+                                            </div>
+                                            <img class="card-img-top" src="assets/img/img-07.jpg" srcset="assets/img/img-07@2x.jpg 2x, assets/img/img-07@3x.jpg 3x" height="168" width="360" alt="Card image cap">
+                                        </div>
+                                        <div class="card-block">
+                                            <ul class="list-unstyled mb-3">
+                                                <li>лечение лейкимии</li>
+                                                <li>химиотерапия</li>
+                                                <li>хирургическа биопсия</li>
+                                                <li>лучевая терапия</li>
+                                            </ul>
+                                            <a class="more-default" href="#">(всего 5)</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-5">
+                                   <div class="card-box card bordered">
+                                        <div class="img-block">
+                                            <div class="heading-block">
+                                                <h3>Ортопедия</h3>
+                                            </div>
+                                            <img class="card-img-top" src="assets/img/img-08.jpg" srcset="assets/img/img-08@2x.jpg 2x, assets/img/img-08@3x.jpg 3x" height="168" width="360" alt="Card image cap">
+                                        </div>
+                                        <div class="card-block">
+                                            <ul class="list-unstyled mb-3">
+                                                <li>лечение суставов</li>
+                                                <li>лечение болей в спине</li>
+                                                <li>пункция внутрисуставная</li>
+                                                <li>периартикулярные манипуляции</li>
+                                            </ul>
+                                            <a class="more-default" href="#">(всего 14)</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-5">
+                                   <div class="card-box card bordered">
+                                        <div class="img-block">
+                                            <div class="heading-block">
+                                                <h3>Нейрохирургия</h3>
+                                            </div>
+                                            <img class="card-img-top" src="assets/img/img-09.jpg" srcset="assets/img/img-09@2x.jpg 2x, assets/img/img-09@3x.jpg 3x" height="168" width="360" alt="Card image cap">
+                                        </div>
+                                        <div class="card-block">
+                                            <ul class="list-unstyled mb-3">
+                                                <li>краниотомия в сознании</li>
+                                                <li>стереотаксическая хирургия</li>
+                                                <li>операция на плечевом сплетении</li>
+                                                <li>операция по устранению аневризмы</li>
+                                            </ul>
+                                            <a class="more-default" href="#">(всего 32)</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <article class="post">
+                                <h5 class="mb-3">a так же:</h5>
+                                <ul class="list-inline tags">
+                                    <li class="px-3 py-2 mr-3 mb-3">
+                                        <a href="#" class="d-flex">
+                                            <img class="mr-2" src="assets/icon/svg/sperm.svg" alt="">
+                                            <span>Бесплодие</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-3 py-2 mr-3 mb-3">
+                                        <a href="#" class="d-flex">
+                                            <img class="mr-2" src="assets/icon/svg/sign.svg" alt="">
+                                            <span>Восточная медицина</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-3 py-2 mr-3 mb-3">
+                                        <a href="#" class="d-flex">
+                                            <img class="mr-2" src="assets/icon/svg/organ2.svg" alt="">
+                                            <span>Гинекология</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-3 py-2 mr-3 mb-3">
+                                        <a href="#" class="d-flex">
+                                            <img class="mr-2" src="assets/icon/svg/heart.svg" alt="">
+                                            <span>Кардиохирургия</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-3 py-2 mr-3 mb-3">
+                                        <a href="#" class="d-flex">
+                                            <img class="mr-2" src="assets/icon/svg/tits.svg" alt="">
+                                            <span>Маммология</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-3 py-2 mr-3 mb-3">
+                                        <a href="#" class="d-flex">
+                                            <img class="mr-2" src="assets/icon/svg/brain.svg" alt="">
+                                            <span>Нейрохирургия</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-3 py-2 mr-3 mb-3">
+                                        <a href="#" class="d-flex">
+                                            <img class="mr-2" src="assets/icon/svg/knife.svg" alt="">
+                                            <span>Общая хирургия</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-3 py-2 mr-3 mb-3">
+                                        <a href="#" class="d-flex">
+                                            <img class="mr-2" src="assets/icon/svg/leg.svg" alt="">
+                                            <span>Ортопедия</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-3 py-2 mr-3 mb-3">
+                                        <a href="#" class="d-flex">
+                                            <img class="mr-2" src="assets/icon/svg/bone.svg" alt="">
+                                            <span>Ортопеция</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-3 py-2 mr-3 mb-3">
+                                        <a href="#" class="d-flex">
+                                            <img class="mr-2" src="assets/icon/svg/head.svg" alt="">
+                                            <span>Отоларингология</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-3 py-2 mr-3 mb-3">
+                                        <a href="#" class="d-flex">
+                                            <img class="mr-2" src="assets/icon/svg/eye.svg" alt="">
+                                            <span>Офтальмология</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-3 py-2 mr-3 mb-3">
+                                        <a href="#" class="d-flex">
+                                            <img class="mr-2" src="assets/icon/svg/hair.svg" alt="">
+                                            <span>Педиатрия</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-3 py-2 mr-3 mb-3">
+                                        <a href="#" class="d-flex">
+                                            <img class="mr-2" src="assets/icon/svg/figure.svg" alt="">
+                                            <span>Пластическая хирургия</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-3 py-2 mr-3 mb-3">
+                                        <a href="#" class="d-flex">
+                                            <img class="mr-2" src="assets/icon/svg/circles.svg" alt="">
+                                            <span>Стволовые клетки</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-3 py-2 mr-3 mb-3">
+                                        <a href="#" class="d-flex">
+                                            <img class="mr-2" src="assets/icon/svg/tooth.svg" alt="">
+                                            <span>Стоматология</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-3 py-2 mr-3 mb-3">
+                                        <a href="#" class="d-flex">
+                                            <img class="mr-2" src="assets/icon/svg/sign2.svg" alt="">
+                                            <span>Трансплантология</span>
+                                        </a>
+                                    </li>
+                                    <li class="px-3 py-2 mr-3 mb-3">
+                                        <a href="#" class="d-flex">
+                                            <img class="mr-2" src="assets/icon/svg/organ3.svg" alt="">
+                                            <span>Урология</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </article>
+                        </div>
+                    </section>
+                    <div class="visual-container pt-8 pb-9">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-lg-6 mb-4 mb-xl-0 mb-lg-0 mb-md-4">
+                                    <div class="mb-5">
+                                        <h2>Акции</h2>
+                                    </div>
+                                    <a href="#" class="card mb-3">
+                                        <div class="card-block py-3 py-lg-1 py-md-2 py-sm-3 px-4">
+                                            <div class="row-frame py-3">
+                                                <div class="d-flex">
+                                                    <div class="media w-75 p-0 mb-3">
+                                                        <img class="d-flex mr-3" src="assets/img/img-10.jpg" srcset="assets/img/img-10@2x.jpg 2x, assets/img/img-10@3x.jpg 3x" height="56" width="84" alt="Generic placeholder image">
+                                                        <div class="media-body align-self-center">
+                                                            <span class="heading">Клиника Инха</span>
+                                                            <span class="location text-muted d-block">
+                                                                <img class="mr-1" src="assets/icon/svg/flag-6.svg" width="16" height="12" alt="image description">
+                                                                Южная Корея, Сеул
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ml-auto discount-box bg-success text-white lead">-50%</div>
+                                                </div>
+                                                <p class="mb-2">50%-я скидка на VIP-палаты для онкологических пациентов, которым показана операция.</p>
+                                                <div class="row">
+                                                    <div class="col-sm-8">
+                                                        Стоимость палаты без акции в сутки:
+                                                    </div>
+                                                    <div class="col-sm-4 text-right">
+                                                        <s>240.000 воны</s>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row-frame py-3">
+                                                <div class="row">
+                                                    <div class="col-sm-8">
+                                                        Стоимость палаты по акции в сутки:
+                                                    </div>
+                                                    <div class="col-sm-4 text-right text-success lead">
+                                                        <span class="strong">120.000 воны</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="card mb-3">
+                                        <div class="card-block py-3 py-lg-1 py-md-2 py-sm-3 px-4">
+                                            <div class="row-frame py-3">
+                                                <div class="d-flex">
+                                                    <div class="media w-75 p-0 mb-3">
+                                                        <img class="d-flex mr-3" src="assets/img/img-11.jpg" srcset="assets/img/img-11@2x.jpg 2x, assets/img/img-11@3x.jpg 3x" height="56" width="84" alt="Generic placeholder image">
+                                                        <div class="media-body align-self-center">
+                                                            <span class="heading">Клиника Фуда</span>
+                                                            <span class="location text-muted d-block">
+                                                                <img class="mr-1" src="assets/icon/svg/flag-8.svg" width="16" height="12" alt="image description">
+                                                                Южная Корея, Сеул
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ml-auto discount-box bg-success text-white lead">-30%</div>
+                                                </div>
+                                                <p class="mb-2">30%-я скидка на VIP-палаты для онкологических пациентов, которые проходят химиотерапию и обследования (госпитализированно).</p>
+                                                <div class="row">
+                                                    <div class="col-sm-8">
+                                                        Стоимость палаты без акции в сутки:
+                                                    </div>
+                                                    <div class="col-sm-4 text-right">
+                                                        <s>240.000 воны</s>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row-frame py-3">
+                                                <div class="row">
+                                                    <div class="col-sm-8">
+                                                        Стоимость палаты по акции в сутки:
+                                                    </div>
+                                                    <div class="col-sm-4 text-right text-success lead">
+                                                        <span class="strong">120.000 воны</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="card mb-3">
+                                        <div class="card-block py-3 py-lg-1 py-md-2 py-sm-3 px-4">
+                                            <div class="row-frame py-3">
+                                                <div class="d-flex">
+                                                    <div class="media w-75 p-0 mb-2">
+                                                        <img class="d-flex mr-3" src="assets/img/img-10.jpg" srcset="assets/img/img-10@2x.jpg 2x, assets/img/img-10@3x.jpg 3x" height="56" width="84" alt="Generic placeholder image">
+                                                        <div class="media-body align-self-center">
+                                                            <span class="heading">Клиника Мэйо</span>
+                                                            <span class="location text-muted d-block">
+                                                                <img class="mr-1" src="assets/icon/svg/flag-9.svg" width="16" height="12" alt="image description">
+                                                                CША, Рочестер
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="ml-auto discount-box bg-success text-white lead">-20%</div>
+                                                </div>
+                                                <p class="mb-0">20% скидка на все диагностические пакеты.</p>
+                                                <p class="mb-0">Для начала акция будет длиться с 1-го марта по 30 апреля.</p>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="mb-5">
+                                        <h2>Последние обращения</h2>
+                                    </div>
+                                    <a href="#" class="card px-4 py-5 mb-3">
+                                        <div class="request">
+                                            <div class="holder">
+                                                <img class="mr-3" src="assets/icon/svg/flag-5.svg" width="16" height="12" alt="ru">
+                                                <div class="text-wrap">
+                                                    <span class="strong">Павел:</span>
+                                                    Мне необходима диагностика всего мне необходима диагностика всегда
+                                                </div>
+                                            </div>
+                                            <em class="text-muted ml-2">3 мин. назад</em>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="card px-4 py-5 mb-3">
+                                        <div class="request">
+                                            <div class="holder">
+                                                <img class="mr-3" src="assets/icon/svg/flag-5.svg" width="16" height="12" alt="ru">
+                                                <div class="text-wrap">
+                                                    <span class="strong">Дмитрий:</span>
+                                                    Хотел бы узнать цены на лечние  бы узнать цены на лечние  бы узнать цены на лечние
+                                                </div>
+                                            </div>
+                                            <em class="text-muted ml-2">1 час назад</em>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="card px-4 py-5 mb-3">
+                                        <div class="request">
+                                            <div class="holder">
+                                                <img class="mr-3" src="assets/icon/svg/flag-7.svg" width="16" height="12" alt="ru">
+                                                <div class="text-wrap">
+                                                    <span class="strong">Сергей:</span>
+                                                    Подскажите стоимость диагности стоимость диагности стоимость диагности стоимость диагности
+                                                </div>
+                                            </div>
+                                            <em class="text-muted ml-2">1 час назад</em>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="card px-4 py-5 mb-3">
+                                        <div class="request">
+                                            <div class="holder">
+                                                <img class="mr-3" src="assets/icon/svg/flag-5.svg" width="16" height="12" alt="ru">
+                                                <div class="text-wrap">
+                                                    <span class="strong">Нина:</span>
+                                                    Меня интересует уровень цена на ли интересует уровень цена на ли интересует уровень цена на ли интересует уровень цена на ли
+                                                </div>
+                                            </div>
+                                            <em class="text-muted ml-2">1 час назад</em>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="card px-4 py-5 mb-3">
+                                        <div class="request">
+                                            <div class="holder">
+                                                <img class="mr-3" src="assets/icon/svg/flag-5.svg" width="16" height="12" alt="ru">
+                                                <div class="text-wrap">
+                                                    <span class="strong">Павел:</span>
+                                                    Мне необходима диагностика всег необходима диагностика всег необходима диагностика всег необходима диагностика всег
+                                                </div>
+                                            </div>
+                                            <em class="text-muted ml-2">3 мин. назад</em>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="card px-4 py-5 mb-3">
+                                        <div class="request">
+                                            <div class="holder">
+                                                <img class="mr-3" src="assets/icon/svg/flag-5.svg" width="16" height="12" alt="ru">
+                                                <div class="text-wrap">
+                                                    <span class="strong">Дмитрий:</span>
+                                                    Хотел бы узнать цены на лечние бы узнать цены на лечние бы узнать цены на лечние бы узнать цены на лечние
+                                                </div>
+                                            </div>
+                                            <em class="text-muted ml-2">1 час назад</em>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="card px-4 py-5 mb-3">
+                                        <div class="request">
+                                            <div class="holder">
+                                                <img class="mr-3" src="assets/icon/svg/flag-7.svg" width="16" height="12" alt="ru">
+                                                <div class="text-wrap">
+                                                    <span class="strong">Сергей:</span>
+                                                    Подскажите стоимость диагности стоимость диагности стоимость диагности стоимость диагности
+                                                </div>
+                                            </div>
+                                            <em class="text-muted ml-2">1 час назад</em>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="card px-4 py-5 mb-3">
+                                        <div class="request">
+                                            <div class="holder">
+                                                <img class="mr-3" src="assets/icon/svg/flag-5.svg" width="16" height="12" alt="ru">
+                                                <div class="text-wrap">
+                                                    <span class="strong">Сергей:</span>
+                                                    Подскажите стоимость диагности стоимость диагности стоимость диагности стоимость диагности стоимость диагности
+                                                </div>
+                                            </div>
+                                            <em class="text-muted ml-2">1 час назад</em>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-cover">
+                            <span data-srcset="assets/img/bg-visual-container.svg"></span>
+                        </div>
+                    </div>
+                    <section class="main pt-9 pb-6">
+                        <div class="container-fluid">
+                            <article class="post">
+                                <div class="mb-5">
+                                    <h2>Отзывы наших клиентов</h2>
+                                </div>
+                                <div class="card mb-6 bordered">
+                                    <div class="carousel-default px-3 px-sm-5 px-md-5 px-lg-5">
+                                        <div class="slide">
+                                            <div class="row m-0">
+                                                <div class="col-lg-auto col-md-12 col-sm-12 col-xs-12 mx-auto pt-5 pl-md-5 pl-sm-2 slide-info">
+                                                    <div class="row h-100">
+                                                        <div class="col-md-auto col-sm-12 col-xs-12  align-self-center">
+                                                            <div class="img-holder d-inline-block mb-2">
+                                                                <img class="rounded-circle" src="assets/img/avatar2.jpg" srcset="assets/img/avatar2@2x.jpg 2x, assets/img/avatar2@3x.jpg 3x" height="120" width="120" alt="image description">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-auto col-sm-12 col-xs-12  align-self-center rate-container">
+                                                            <div class="rate-holder pt-1 pb-3 hidden-sm-down">
+                                                                <p class="mb-1">Общая оценка:</p>
+                                                                <ul class="star-rate m-0 list-unstyled list-inline">
+                                                                    <li class="icon-star list-inline-item"></li>
+                                                                    <li class="icon-star list-inline-item"></li>
+                                                                    <li class="icon-star list-inline-item"></li>
+                                                                    <li class="icon-star list-inline-item"></li>
+                                                                    <li class="icon-star list-inline-item"></li>
+                                                                </ul>
+                                                            </div>
+                                                            <ul class="reviews-list list-unstyled hidden-sm-down">
+                                                                <li class="mb-3">
+                                                                    Лечащий врач:
+                                                                    <span class="strong text-primary d-block">Отлично</span>
+                                                                </li>
+                                                                <li class="mb-3">
+                                                                    Переводчик:
+                                                                    <span class="strong text-primary d-block">Хорошо</span>
+                                                                </li>
+                                                                <li class="mb-3">
+                                                                    Организация:
+                                                                    <span class="strong text-primary d-block">Отлично</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col pb-5 pt-lg-5 pt-md-0 px-3 px-sm-5 px-md-5 pr-lg-5 pl-lg-2">
+                                                    <span class="h4 d-block my-2 text-darkblue">Игорь, Владивосток</span>
+                                                    <div class="row pt-1">
+                                                        <div class="col-sm-6 col-xs-12">
+                                                            <dl class="item-description">
+                                                                <div class="d-flex flex-row m-0 mb-2">
+                                                                    <dt class="text-primary mr-1">Страна лечения:</dt>
+                                                                    <dd class="m-0">Клиника Инха, Южная кореая</dd>
+                                                                </div>
+                                                                <div class="d-flex flex-row m-0 mb-2">
+                                                                    <dt class="text-primary mr-1">Направление:</dt>
+                                                                    <dd class="m-0">Онкология</dd>
+                                                                </div>
+                                                            </dl>
+                                                        </div>
+                                                        <div class="col-sm-6 col-xs-12">
+                                                            <div class="item-description">
+                                                                <div class="d-flex flex-row m-0 mb-2">
+                                                                    <div class="text-primary mr-1">Период лечения:</div>
+                                                                    <div class="m-0">Сент.–окт. 2016 <span class="text-muted">(21 день)</span></div>
+                                                                </div>
+                                                                <div class="rate-holder mb-2 hidden-sm-up">
+                                                                    <div class="text-primary">Оценка:</div>
+                                                                    <ul class="star-rate m-0 list-unstyled list-inline">
+                                                                        <li class="icon-star list-inline-item"></li>
+                                                                        <li class="icon-star list-inline-item"></li>
+                                                                        <li class="icon-star list-inline-item"></li>
+                                                                        <li class="icon-star list-inline-item"></li>
+                                                                        <li class="icon-star list-inline-item"></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="d-flex flex-row m-0 mb-2">
+                                                                    <div class="text-primary mr-1">Общая стоимость:</div>
+                                                                    <div class="m-0-auto">25 000$</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div data-height="100" class="post-flexible mb-4">
+                                                        <div class="post-slide mb-2">
+                                                            <div class="post-content">
+                                                                <p class="mb-4"><em>«Хотим выразить огромную благодарность, директору отдела прямых продаж компании медицинского туризма «Верналь», Нине Худяковой, которая работала с нами на протяжении всего времени. Мы обратились, по вопросу медицинского туризма и необходимой для нас консультации в Южной Кореи. На наше письмо очень быстро откликнулись, объяснили, что от нас необходимо. По приезду в Корею нас встретили, разместили в гостинице, показали все необходимое (банк, больницу, продуктовый магазин), сопроводили до переводчика в больнице. В больнице с нами работала Алена, которая так же подробно все объясняла. На обследовании были неделю, все прошло благоприятно. Всегда стараются пойти на встречу. Отношение хорошее, главное все понятно. С хорошим результатом и соответственно впечатлением приехали обратно. В материальном отношении все приемлемо. Для поездки с маленькими детьми можно заказать номер с кухней в гостинице, что бы самим готовить».</em></p>
+                                                            </div>
+                                                        </div>
+                                                        <a href="#" class="post-opener">
+                                                            <span class="text-active">Читать далее</span>
+                                                            <span class="text-hidden">Cвернуть</span>
+                                                        </a>
+                                                    </div>
+                                                    <span class="d-block text-muted mb-2">Ответ координатора по работе с клиникой “Медицинский центр им. Сураски (Ихилов)” :</span>
+                                                    <div class="media pt-1 mb-3">
+                                                        <img class="d-flex mr-3 rounded-circle" width="60" height="60" src="assets/img/doctor-big.jpg" srcset="assets/img/doctor-big@2x.jpg 2x, assets/img/doctor-big@3x.jpg 3x" alt="Generic placeholder image">
+                                                        <div class="media-body align-self-center">
+                                                            <span class="heading d-block text-darkblue">Длиннаяфамилия Апполинарий Абдурахмангаджиевич</span>
+                                                            <em>«Спасибо большое за отзыв! Мы были рады Вам помочь. Желаем здоровья и всего наилучшего!»</em>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slide">
+                                            <div class="row m-0">
+                                                <div class="col-lg-auto col-md-12 col-sm-12 col-xs-12 mx-auto pt-5 pl-md-5 pl-sm-2 slide-info">
+                                                    <div class="row h-100">
+                                                        <div class="col-md-auto col-sm-12 col-xs-12  align-self-center">
+                                                            <div class="img-holder d-inline-block mb-2">
+                                                                <img class="rounded-circle" src="assets/img/avatar2.jpg" srcset="assets/img/avatar2@2x.jpg 2x, assets/img/avatar2@3x.jpg 3x" height="120" width="120" alt="image description">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-auto col-sm-12 col-xs-12  align-self-center rate-container">
+                                                            <div class="rate-holder pt-1 pb-3 hidden-sm-down">
+                                                                <p class="mb-1">Общая оценка:</p>
+                                                                <ul class="star-rate m-0 list-unstyled list-inline">
+                                                                    <li class="icon-star list-inline-item"></li>
+                                                                    <li class="icon-star list-inline-item"></li>
+                                                                    <li class="icon-star list-inline-item"></li>
+                                                                    <li class="icon-star list-inline-item"></li>
+                                                                    <li class="icon-star list-inline-item"></li>
+                                                                </ul>
+                                                            </div>
+                                                            <ul class="reviews-list list-unstyled hidden-sm-down">
+                                                                <li class="mb-3">
+                                                                    Лечащий врач:
+                                                                    <span class="strong text-primary d-block">Отлично</span>
+                                                                </li>
+                                                                <li class="mb-3">
+                                                                    Переводчик:
+                                                                    <span class="strong text-primary d-block">Хорошо</span>
+                                                                </li>
+                                                                <li class="mb-3">
+                                                                    Организация:
+                                                                    <span class="strong text-primary d-block">Отлично</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col pb-5 pt-lg-5 pt-md-0 px-3 px-sm-5 px-md-5 pr-lg-5 pl-lg-2">
+                                                    <span class="h4 d-block my-2 text-darkblue">Игорь, Владивосток</span>
+                                                    <div class="row pt-1">
+                                                        <div class="col-sm-6 col-xs-12">
+                                                            <dl class="item-description">
+                                                                <div class="d-flex flex-row m-0 mb-2">
+                                                                    <dt class="text-primary mr-1">Страна лечения:</dt>
+                                                                    <dd class="m-0">Клиника Инха, Южная кореая</dd>
+                                                                </div>
+                                                                <div class="d-flex flex-row m-0 mb-2">
+                                                                    <dt class="text-primary mr-1">Направление:</dt>
+                                                                    <dd class="m-0">Онкология</dd>
+                                                                </div>
+                                                            </dl>
+                                                        </div>
+                                                        <div class="col-sm-6 col-xs-12">
+                                                            <div class="item-description">
+                                                                <div class="d-flex flex-row m-0 mb-2">
+                                                                    <div class="text-primary mr-1">Период лечения:</div>
+                                                                    <div class="m-0">Сент.–окт. 2016 <span class="text-muted">(21 день)</span></div>
+                                                                </div>
+                                                                <div class="rate-holder mb-2 hidden-sm-up">
+                                                                    <div class="text-primary">Оценка:</div>
+                                                                    <ul class="star-rate m-0 list-unstyled list-inline">
+                                                                        <li class="icon-star list-inline-item"></li>
+                                                                        <li class="icon-star list-inline-item"></li>
+                                                                        <li class="icon-star list-inline-item"></li>
+                                                                        <li class="icon-star list-inline-item"></li>
+                                                                        <li class="icon-star list-inline-item"></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="d-flex flex-row m-0 mb-2">
+                                                                    <div class="text-primary mr-1">Общая стоимость:</div>
+                                                                    <div class="m-0-auto">25 000$</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div data-height="100" class="post-flexible mb-4">
+                                                        <div class="post-slide mb-2">
+                                                            <div class="post-content">
+                                                                <p class="mb-4"><em>«Хотим выразить огромную благодарность, директору отдела прямых продаж компании медицинского туризма «Верналь», Нине Худяковой, которая работала с нами на протяжении всего времени. Мы обратились, по вопросу медицинского туризма и необходимой для нас консультации в Южной Кореи. На наше письмо очень быстро откликнулись, объяснили, что от нас необходимо. По приезду в Корею нас встретили, разместили в гостинице, показали все необходимое (банк, больницу, продуктовый магазин), сопроводили до переводчика в больнице. В больнице с нами работала Алена, которая так же подробно все объясняла. На обследовании были неделю, все прошло благоприятно. Всегда стараются пойти на встречу. Отношение хорошее, главное все понятно. С хорошим результатом и соответственно впечатлением приехали обратно. В материальном отношении все приемлемо. Для поездки с маленькими детьми можно заказать номер с кухней в гостинице, что бы самим готовить».</em></p>
+                                                            </div>
+                                                        </div>
+                                                        <a href="#" class="post-opener">Читать далее</a>
+                                                    </div>
+                                                    <span class="d-block text-muted mb-2">Ответ координатора по работе с клиникой “Медицинский центр им. Сураски (Ихилов)” :</span>
+                                                    <div class="media pt-1 mb-3">
+                                                        <img class="d-flex mr-3 rounded-circle" width="60" height="60" src="assets/img/doctor-big.jpg" srcset="assets/img/doctor-big@2x.jpg 2x, assets/img/doctor-big@3x.jpg 3x" alt="Generic placeholder image">
+                                                        <div class="media-body align-self-center">
+                                                            <span class="heading d-block text-darkblue">Длиннаяфамилия Апполинарий Абдурахмангаджиевич</span>
+                                                            <em>«Спасибо большое за отзыв! Мы были рады Вам помочь. Желаем здоровья и всего наилучшего!»</em>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="slide">
+                                            <div class="row m-0">
+                                                <div class="col-lg-auto col-md-12 col-sm-12 col-xs-12 mx-auto pt-5 pl-md-5 pl-sm-2 slide-info">
+                                                    <div class="row h-100">
+                                                        <div class="col-md-auto col-sm-12 col-xs-12  align-self-center">
+                                                            <div class="img-holder d-inline-block mb-2">
+                                                                <img class="rounded-circle" src="assets/img/avatar2.jpg" srcset="assets/img/avatar2@2x.jpg 2x, assets/img/avatar2@3x.jpg 3x" height="120" width="120" alt="image description">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-auto col-sm-12 col-xs-12  align-self-center rate-container">
+                                                            <div class="rate-holder pt-1 pb-3 hidden-sm-down">
+                                                                <p class="mb-1">Общая оценка:</p>
+                                                                <ul class="star-rate m-0 list-unstyled list-inline">
+                                                                    <li class="icon-star list-inline-item"></li>
+                                                                    <li class="icon-star list-inline-item"></li>
+                                                                    <li class="icon-star list-inline-item"></li>
+                                                                    <li class="icon-star list-inline-item"></li>
+                                                                    <li class="icon-star list-inline-item"></li>
+                                                                </ul>
+                                                            </div>
+                                                            <ul class="reviews-list list-unstyled hidden-sm-down">
+                                                                <li class="mb-3">
+                                                                    Лечащий врач:
+                                                                    <span class="strong text-primary d-block">Отлично</span>
+                                                                </li>
+                                                                <li class="mb-3">
+                                                                    Переводчик:
+                                                                    <span class="strong text-primary d-block">Хорошо</span>
+                                                                </li>
+                                                                <li class="mb-3">
+                                                                    Организация:
+                                                                    <span class="strong text-primary d-block">Отлично</span>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col pb-5 pt-lg-5 pt-md-0 px-3 px-sm-5 px-md-5 pr-lg-5 pl-lg-2">
+                                                    <span class="h4 d-block my-2 text-darkblue">Игорь, Владивосток</span>
+                                                    <div class="row pt-1">
+                                                        <div class="col-sm-6 col-xs-12">
+                                                            <dl class="item-description">
+                                                                <div class="d-flex flex-row m-0 mb-2">
+                                                                    <dt class="text-primary mr-1">Страна лечения:</dt>
+                                                                    <dd class="m-0">Клиника Инха, Южная кореая</dd>
+                                                                </div>
+                                                                <div class="d-flex flex-row m-0 mb-2">
+                                                                    <dt class="text-primary mr-1">Направление:</dt>
+                                                                    <dd class="m-0">Онкология</dd>
+                                                                </div>
+                                                            </dl>
+                                                        </div>
+                                                        <div class="col-sm-6 col-xs-12">
+                                                            <div class="item-description">
+                                                                <div class="d-flex flex-row m-0 mb-2">
+                                                                    <div class="text-primary mr-1">Период лечения:</div>
+                                                                    <div class="m-0">Сент.–окт. 2016 <span class="text-muted">(21 день)</span></div>
+                                                                </div>
+                                                                <div class="rate-holder mb-2 hidden-sm-up">
+                                                                    <div class="text-primary">Оценка:</div>
+                                                                    <ul class="star-rate m-0 list-unstyled list-inline">
+                                                                        <li class="icon-star list-inline-item"></li>
+                                                                        <li class="icon-star list-inline-item"></li>
+                                                                        <li class="icon-star list-inline-item"></li>
+                                                                        <li class="icon-star list-inline-item"></li>
+                                                                        <li class="icon-star list-inline-item"></li>
+                                                                    </ul>
+                                                                </div>
+                                                                <div class="d-flex flex-row m-0 mb-2">
+                                                                    <div class="text-primary mr-1">Общая стоимость:</div>
+                                                                    <div class="m-0-auto">25 000$</div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div data-height="100" class="post-flexible mb-4">
+                                                        <div class="post-slide mb-2">
+                                                            <div class="post-content">
+                                                                <p class="mb-4"><em>«Хотим выразить огромную благодарность, директору отдела прямых продаж компании медицинского туризма «Верналь», Нине Худяковой, которая работала с нами на протяжении всего времени. Мы обратились, по вопросу медицинского туризма и необходимой для нас консультации в Южной Кореи. На наше письмо очень быстро откликнулись, объяснили, что от нас необходимо. По приезду в Корею нас встретили, разместили в гостинице, показали все необходимое (банк, больницу, продуктовый магазин), сопроводили до переводчика в больнице. В больнице с нами работала Алена, которая так же подробно все объясняла. На обследовании были неделю, все прошло благоприятно. Всегда стараются пойти на встречу. Отношение хорошее, главное все понятно. С хорошим результатом и соответственно впечатлением приехали обратно. В материальном отношении все приемлемо. Для поездки с маленькими детьми можно заказать номер с кухней в гостинице, что бы самим готовить».</em></p>
+                                                            </div>
+                                                        </div>
+                                                        <a href="#" class="post-opener">Читать далее</a>
+                                                    </div>
+                                                    <span class="d-block text-muted mb-2">Ответ координатора по работе с клиникой “Медицинский центр им. Сураски (Ихилов)” :</span>
+                                                    <div class="media pt-1 mb-3">
+                                                        <img class="d-flex mr-3 rounded-circle" width="60" height="60" src="assets/img/doctor-big.jpg" srcset="assets/img/doctor-big@2x.jpg 2x, assets/img/doctor-big@3x.jpg 3x" alt="Generic placeholder image">
+                                                        <div class="media-body align-self-center">
+                                                            <span class="heading d-block text-darkblue">Длиннаяфамилия Апполинарий Абдурахмангаджиевич</span>
+                                                            <em>«Спасибо большое за отзыв! Мы были рады Вам помочь. Желаем здоровья и всего наилучшего!»</em>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="px-3 px-sm-3 px-md-5 px-lg-5">
+                                    <a class="more" href="#">Посмотреть все отзывы (46)</a>
+                                </div>
+                            </article>
+                        </div>
+                    </section>
+                    <section class="visual-container pt-8 pb-4">
+                        <div class="container-fluid">
+                            <div class="pb-9 text-center">
+                                <h3>Получите второе мнение от зарубежных докторов</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-5 mb-4">
+                                    <div class="images-row">
+                                        <div class="px-2 mb-3"><img src="assets/img/pic-5.jpg" srcset="assets/img/pic-5@2x.jpg 2x, assets/img/pic-5@3x.jpg 3x" height="80" width="126" alt="image description"></div>
+                                        <div class="px-2 mb-3"><img src="assets/img/pic-6.jpg" srcset="assets/img/pic-6@2x.jpg 2x, assets/img/pic-6@3x.jpg 3x" height="80" width="126" alt="image description"></div>
+                                        <div class="px-2 mb-3"><img src="assets/img/pic-7.jpg" srcset="assets/img/pic-7@2x.jpg 2x, assets/img/pic-7@3x.jpg 3x" height="80" width="126" alt="image description"></div>
+                                    </div>
+                                    <div class="images-row">
+                                        <div class="px-2 mb-3"><img src="assets/img/pic-8.jpg" srcset="assets/img/pic-8@2x.jpg 2x, assets/img/pic-8@3x.jpg 3x" height="80" width="126" alt="image description"></div>
+                                        <div class="px-2 mb-3"><img src="assets/img/pic-9.jpg" srcset="assets/img/pic-9@2x.jpg 2x, assets/img/pic-9@3x.jpg 3x" height="80" width="126" alt="image description"></div>
+                                        <div class="px-2 mb-3"><img src="assets/img/pic-10.jpg" srcset="assets/img/pic-10@2x.jpg 2x, assets/img/pic-10@3x.jpg 3x" height="80" width="126" alt="image description"></div>
+                                    </div>
+                                    <div class="images-row">
+                                        <div class="px-2 mb-3"><img src="assets/img/pic-11.jpg" srcset="assets/img/pic-11@2x.jpg 2x, assets/img/pic-11@3x.jpg 3x" height="80" width="126" alt="image description"></div>
+                                        <div class="px-2 mb-3"><img src="assets/img/pic-12.jpg" srcset="assets/img/pic-12@2x.jpg 2x, assets/img/pic-12@3x.jpg 3x" height="80" width="126" alt="image description"></div>
+                                        <div class="px-2 mb-3"><img src="assets/img/pic-13.jpg" srcset="assets/img/pic-13@2x.jpg 2x, assets/img/pic-13@3x.jpg 3x" height="80" width="126" alt="image description"></div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-7">
+                                    <form class="mb-4" action="#">
+                                        <div class="row">
+                                            <div class="col-md-4 col-sm-12 mb-4">
+                                                <input class="form-control" type="text" placeholder="Ваше имя">
+                                            </div>
+                                            <div class="col-md-4 col-sm-12 mb-4">
+                                                <input class="form-control" type="email" placeholder="E-mail адрес">
+                                            </div>
+                                            <div class="col-md-4 col-sm-12 mb-4">
+                                                <input class="form-control" type="text" placeholder="Номер телефона">
+                                            </div>
+                                        </div>
+                                        <div class="textarea-container mb-4">
+                                            <textarea class="form-control" rows="3" placeholder="Ваш вопрос"></textarea>
+                                            <div class="textarea-row row">
+                                                <div class="col-sm-6 col-xs-12">
+                                                    <label class="custom-file">
+                                                      <input type="file" id="file" class="custom-file-input">
+                                                      <span class="custom-file-control"><i class="ico-pin mt-1 mr-2"></i> <span class="text-dashed">Прикрепить файл</span></span>
+                                                    </label>
+                                                </div>
+                                                <div class="col-sm-6 col-xs-12 text-right">
+                                                    <a href="#" class="more mr-4">политика конфиденциальности</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-primary btn-lg w-100 mb-4" type="submit">Отправить</button>
+                                        <div class="text-center text-wrap">
+                                            <p class="m-0">Нужен срочный ответ ? <br><a data-toggle="modal" data-target="#modalFeedback" class="dashed" href="#">Закажите обратный звонок</a></p>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-cover">
+                            <span data-srcset="assets/img/pattern.svg"></span>
+                        </div>
+                    </section>
+                    <section class="main py-8">
+                        <div class="container-fluid">
+                            <div class="mb-5 mb-xl-9 mb-lg-9 mb-md-9">
+                                <h2>Подписаться на рассылку</h2>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <div class="img-box">
+                                        <img src="assets/img/home-ask-book.jpg" height="220" width="220" srcset="assets/img/home-ask-book@2x.jpg 2x, assets/img/home-ask-book@3x.jpg 3x" alt="image description">
+                                    </div>
+                                </div>
+                                <div class="col-sm-9">
+                                    <div class="text-area pt-0 pt-xl-6 pt-lg-6 pt-md-0">
+                                        <p class="mb-4">Оформление подписки позволит получить мини-книгу 10 неочевидных способов экономии при лечении зарубежом + забронировать скидку до 13% на лечение в зарубежных медицинских центрах.</p>
+                                        <div class="sign-up d-flex mb-4">
+                                            <div class="form-group mb-0 mr-3 input-wrap">
+                                                <input type="email" class="form-control" placeholder="E-mail адрес">
+                                            </div>
+                                            <button type="submit" class="btn btn-success px-3">Подписаться</button>
+                                        </div>
+                                        <div class="social-holder">
+                                            <span class="strong d-inline-block">Мы в социальных сетях:</span>
+                                            <ul class="d-inline-block list-unstyled mb-0 ml-2 social-networks">
+                                                <li class="mx-1"><a class="icon-youtube text-success" href="#"></a></li>
+                                                <li class="mx-1"><a class="icon-twitter text-success" href="#"></a></li>
+                                                <li class="mx-1"><a class="icon-facebook text-success" href="#"></a></li>
+                                                <li class="mx-1"><a class="icon-vkontakte text-success" href="#"></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class="area py-8">
+                        <div class="container-fluid">
+                            <article class="text-container">
+                                <div class="mb-3">
+                                    <h2>Заголовок SEO блока</h2>
+                                </div>
+                                <div class="pb-5">
+                                    <p>Что такое seo? SEO – это поисковая оптимизация, английский вариант звучит так (Search Engine Optimization), а если простыми словами, то это метод продвинуть вашу страницу по какому – либо запросу. Другими словами, сделать какую – нибудь страницу релевантную запросу.</p>
+                                    <p>Но правильно – оптимизированная страница еще не гарантирует выхода в ТОП поисковых систем. ТОП – это первая десятка в выдачи. Когда вы набираете запрос в поисковую строчку браузера, вам Гугл или Яндекс выдает 10 ответов, плюс миллионы других страниц, вот эти первые 10 ответов и есть ТОП – вершина выдачи.</p>
+                                </div>
+                                <p>На самом деле, вокруг seo ходит много негатива, по сути, сео – это наука, как обмануть поисковую систему, чтобы ваша страница, не важно, какого она качества, была заточена под нужный запрос и выдавалась в первой десятке, даже в первой пятёрке поисковой выдачи. О том, какую злую шутку могут сыграть за обман, почитайте здесь «Накрутка поведенческих факторов».</p>
+                                <p>Люди, которые занимаются сео продвижением, подразделяются на 2 типа.</p>
+                                <ol>
+                                    <li>Оптимизаторы, которые любыми путями продвигают свои страницы, невзирая на качество и потребность пользователей. По-научному – черное seo.</li>
+                                    <li>Это обычные вебмастера и оптимизаторы, которые естественным путем развивают свои ресурсы, и стараются сделать их более доступными для поисковых систем, чтобы в итоге дать пользу людям. По-научному – белое seo.</li>
+                                </ol>
+                                <p>Именно на второй вариант нужно ориентироваться и вам, если вы ведете сайт для людей и хотите вести его еще долгое время.</p>
+                                <p>Чуть ниже, я приведу примеры, которые позволят облегчить продвижение, закрепиться в поисковой выдачи, и получать неплохой целевой трафик. Алгоритмы и формулы мы, конечно, разбирать не будем, во-первых, я сам их не знаю, а во-вторых, они в день меняются по несколько раз. Будем руководствоваться, можно так сказать, логикой и восприятием людей.</p>
+                            </article>
+                        </div>
+                    </section>
+                </main>
+            </div>
+            <footer id="footer">
+                <div class="footer-holder py-6">
+                    <div class="container-fluid d-flex flex-row justify-content-between">
+                        <div class="logo align-top mr-5 align-self-center">
+                            <a href="#"><img src="assets/img/logo.svg" width="179" height="28" alt="hospitalstravel"></a>
+                        </div>
+                        <ul class="list-unstyled ml-5 list-inline m-0 social-networks">
+                            <li>
+                                <a href="#">
+                                    <img src="assets/icon/svg/youtube.svg" alt="youtube">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="assets/icon/svg/twitter.svg" alt="twitter">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="assets/icon/svg/facebook.svg" alt="facebook">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <img src="assets/icon/svg/vk.svg" alt="vk">
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="footer-wrap align-self-center">
+                            <ul class="footer-nav list-unstyled d-flex space justify-content-around w-100 m-0 align-self-center">
+                                <li><a href="#">О компании</a></li>
+                                <li><a href="#">Клиники</a></li>
+                                <li><a href="#">Страны</a></li>
+                                <li><a href="#">Заболевания</a></li>
+                                <li><a href="#">Информация</a></li>
+                                <li><a href="#">Отзывы</a></li>
+                                <li><a href="#">Контакты</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid footer-frame py-3">
+                    <div class="row">
+                        <div class="col-lg-2 col-md-6">
+                            <span class="text-muted d-inline-block mr-1">Язык сайта:</span>
+                            <ul class="list-unstyled list-inline d-inline-block m-0">
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <img width="16" height="12" src="assets/icon/svg/flag-5.svg" alt="image description">
+                                    </a>
+                                </li>
+                                <li class="list-inline-item">
+                                    <a href="#">
+                                        <img width="16" height="12" src="assets/icon/svg/flag-2.svg" alt="image description">
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <span class="text-muted mr-1 mobile-block">Бесплатная горячая линия:</span>
+                            <a href="tel:080025000475">0-800-25000-475</a>
+                        </div>
+                        <div class="col-lg-3 col-md-6">
+                            <span class="text-muted">Email:</span>
+                            <a href="mailto:&#105;&#110;&#102;&#111;&#064;&#104;&#111;&#115;&#112;&#105;&#116;&#097;&#108;&#115;&#046;&#116;&#114;&#097;&#118;&#101;&#108;">&#105;&#110;&#102;&#111;&#064;&#104;&#111;&#115;&#112;&#105;&#116;&#097;&#108;&#115;&#046;&#116;&#114;&#097;&#118;&#101;&#108;</a>
+                        </div>
+                        <div class="col-lg-3 col-md-6 text-lg-right">
+                            <span class="text-muted mr-1">Разработка сайта:</span>
+                            <a href="#" class="copyright">ADLABS</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <nav class="mobile-nav py-4 px-5">
+                <a href="#" class="menu-close mb-3">Закрыть</a>
+                <div class="mobile-holder visible-md-down py-4 lead">
+                    <a data-toggle="modal" data-target="#modalLogin" href="#" class="login d-inline-block align-top align-self-center ml-xl-4 ml-lg-3"><i class="icon-arrow-inside align-self-center mr-1"></i> Вход</a>
+                </div>
+                <ul class="list-unstyled">
+                    <li><a class="py-3" href="#">О компании</a></li>
+                    <li><a class="py-3" href="#">Клиники</a></li>
+                    <li><a class="py-3" href="#">Страны</a></li>
+                    <li><a class="py-3" href="#">Заболевания</a></li>
+                    <li><a class="py-3" href="#">Информация</a></li>
+                    <li><a class="py-3" href="#">Отзывы</a></li>
+                    <li><a class="py-3" href="#">Контакты</a></li>
+                </ul>
+                <form class="search-inline form-inline">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Поиск">
+                        <button type="submit" class="input-group-addon justify-content-center flex-row btn-search"><i class="icon-search"></i></button>
+                    </div>
+                </form>
+            </nav>
+        </div>
+        <app>
+            Loading...
+        </app>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="modalMap" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Месторосположение центра</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="map-holder"><img src="assets/img/img-map.jpg" height="686" width="925" alt="map"></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal modal-login fade" id="modalLogin" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Вход в аккаунт</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="email">Электронная почта (e-mail):</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Пароль:</label>
+                            <input type="password" class="form-control" id="password" required>
+                        </div>
+                        <div class="form-check">
+                            <label class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" checked>
+                                <span class="custom-control-indicator"></span>
+                                <span class="custom-control-description">Запомнить пароль</span>
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success w-100">Войти</button>
+                        </div>
+                        <div class="text-right forgot"><a href="#">Забыли пароль?</a></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalFeedback" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Получить программу лечения</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="#">
+                        <div class="row">
+                            <div class="form-group col">
+                                <label for="name">Имя*</label>
+                                <input type="text" class="form-control" id="name" required>
+                            </div>
+                            <div class="form-group col">
+                                <label for="tel">Телефон*</label>
+                                <input type="tel" class="form-control" id="tel" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="city">Город*</label>
+                            <input type="text" class="form-control" id="city" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Предпочтительное время звонка:</label>
+                            <input type="text" class="form-control" id="time">
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success w-100">Заказать обратный звонок</button>
+                        </div>
+                        <div class="text-right small text-danger">Поля отмеченные знаком * обязательные к заполнению.</div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal modal-request fade" id="modal-connect" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Получить программу лечения</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body pt-5">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="img-holder mt-2 mb-4">
+                                <img src="assets/img/img-14.jpg" srcset="assets/img/img-14@2x.jpg 2x, assets/img/img-14@3x.jpg 3x" alt="image description" width="257" height="171">
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <span class="heading d-block h6 mb-4">Медицинский центр им. Сураски (Ихилов)</span>
+                        </div>
+                    </div>
+                    <form action="#">
+                        <div class="row">
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <label for="fio">ФИО*</label>
+                                <input type="text" class="form-control" id="fio" required>
+                            </div>
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <label for="tel-01">Телефон*</label>
+                                <input type="tel" class="form-control" id="tel-01" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <label for="city-01">Город*</label>
+                                <input type="text" class="form-control" id="city-01" required>
+                            </div>
+                            <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <label for="email-01">Email*</label>
+                                <input type="email" class="form-control" id="email-01" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message-01">Опишите медицинскую проблему*</label>
+                            <textarea id="message-01" class="form-control" cols="30" rows="10" required></textarea>
+                        </div>
+                        <div class="row mb-4">
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <label class="custom-file">
+                                  <input type="file" id="file-01" class="custom-file-input">
+                                  <span class="custom-file-control"><span class="text-dashed">Прикрепить файл</span></span>
+                                </label>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                <div class="text-right small text-danger">* Поля обязательные к заполнению</div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success w-100">Получить программу</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-bottom pt-4 pb-5 px-5 area">
+                    <span class="heading h3 mb-3 d-block">Что вы получаете?</span>
+                    <div class="media mb-7">
+                      <img width="38" height="53" class="d-flex ml-0 mr-3 mt-md-3 ml-md-5 mr-md-7" src="assets/icon/svg/icon-note1.svg" alt="Generic placeholder image">
+                      <div class="media-body align-self-center">
+                        <ul class="default-list">
+                            <li>Программу лечения от ведущих зарубежных врачей</li>
+                            <li>Полный пакет поддержки</li>
+                            <li>Бронирование скидки от клиники</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                        <a class="dashed" href="#">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal modal-request fade" id="modal-choose" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Получить программу лечения</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body pt-5">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="pr-0 pr-lg-3 pr-md-3 pr-sm-3">
+                                <div class="cols-holder mb-2">
+                                    <div class="custom-col-4 img-holder"><img src="assets/img/pic-14.jpg" srcset="assets/img/pic-14@2x.jpg 2x, assets/img/pic-14@3x.jpg 3x" alt="image description" width="80" height="80"></div>
+                                    <div class="custom-col-4 img-holder"><img src="assets/img/pic-14.jpg" srcset="assets/img/pic-14@2x.jpg 2x, assets/img/pic-14@3x.jpg 3x" alt="image description" width="80" height="80"></div>
+                                    <div class="custom-col-4 img-holder"><img src="assets/img/pic-14.jpg" srcset="assets/img/pic-14@2x.jpg 2x, assets/img/pic-14@3x.jpg 3x" alt="image description" width="80" height="80"></div>
+                                </div>
+                                <div class="cols-holder mb-2">
+                                    <div class="custom-col-4 img-holder"><img src="assets/img/pic-14.jpg" srcset="assets/img/pic-14@2x.jpg 2x, assets/img/pic-14@3x.jpg 3x" alt="image description" width="80" height="80"></div>
+                                    <div class="custom-col-4 img-holder"><img src="assets/img/pic-14.jpg" srcset="assets/img/pic-14@2x.jpg 2x, assets/img/pic-14@3x.jpg 3x" alt="image description" width="80" height="80"></div>
+                                    <div class="custom-col-4 img-holder"><img src="assets/img/pic-14.jpg" srcset="assets/img/pic-14@2x.jpg 2x, assets/img/pic-14@3x.jpg 3x" alt="image description" width="80" height="80"></div>
+                                </div>
+                                <div class="cols-holder mb-2">
+                                    <div class="custom-col-4 img-holder"><img src="assets/img/pic-14.jpg" srcset="assets/img/pic-14@2x.jpg 2x, assets/img/pic-14@3x.jpg 3x" alt="image description" width="80" height="80"></div>
+                                    <div class="custom-col-4 img-holder"><img src="assets/img/pic-14.jpg" srcset="assets/img/pic-14@2x.jpg 2x, assets/img/pic-14@3x.jpg 3x" alt="image description" width="80" height="80"></div>
+                                    <div class="custom-col-4 img-holder"><img src="assets/img/pic-14.jpg" srcset="assets/img/pic-14@2x.jpg 2x, assets/img/pic-14@3x.jpg 3x" alt="image description" width="80" height="80"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <form action="#">
+                                <div class="form-group">
+                                    <label for="fio-02">ФИО*</label>
+                                    <input type="text" class="form-control" id="fio-02" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="city-02">Город*</label>
+                                    <input type="text" class="form-control" id="city-02" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tel-02">Телефон*</label>
+                                    <input type="tel" class="form-control" id="tel-02" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email-02">Email*</label>
+                                    <input type="email" class="form-control" id="email-02" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-02">Опишите медицинскую проблему*</label>
+                                    <textarea id="message-02" class="form-control" cols="30" rows="10" required></textarea>
+                                </div>
+                                <label class="custom-file">
+                                  <input type="file" id="file-02" class="custom-file-input">
+                                  <span class="custom-file-control"><span class="text-dashed">Прикрепить файл</span></span>
+                                </label>
+                                <div class="small d-block text-danger w-100 mb-6">* Поля обязательные к заполнению</div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success w-100">Получить программу</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-bottom pt-4 pb-5 px-5 area">
+                    <span class="heading h3 mb-3 d-block">Что вы получаете?</span>
+                    <div class="media mb-7">
+                      <img width="38" height="53" class="d-flex ml-0 mr-3 mt-md-3 ml-md-5 mr-md-7" src="assets/icon/svg/icon-note1.svg" alt="Generic placeholder image">
+                      <div class="media-body align-self-center">
+                        <ul class="default-list">
+                            <li>Программу лечения от ведущих зарубежных врачей</li>
+                            <li>Полный пакет поддержки</li>
+                            <li>Бронирование скидки от клиники</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                        <a class="dashed" href="#">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal modal-request fade" id="modal-clinics" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Получить программу лечения</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body pt-5">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <div class="pr-3">
+                                <div class="img-holder mb-1">
+                                    <img class="mb-1" src="assets/img/img-01.jpg" srcset="assets/img/img-01@2x.jpg 2x, assets/img/img-01@3x.jpg 3x" alt="image description" width="653" height="435">
+                                    <p class="small"><a href="#" class="text-blue">Медицинский центр им. Сураски (Ихилов)</a></p>
+                                </div>
+                                <div class="img-holder">
+                                    <img class="mb-1" src="assets/img/img-01.jpg" srcset="assets/img/img-01@2x.jpg 2x, assets/img/img-01@3x.jpg 3x" alt="image description" width="653" height="435">
+                                    <p class="small"><a href="#" class="text-blue">Медицинский центр им. Сураски (Ихилов)</a></p>
+                                </div>
+                                <p class="mt-4"><a class="text-blue" href="#">Еще 10 клиник</a></p>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                            <form action="#">
+                                <div class="form-group">
+                                    <label for="fio-02">ФИО*</label>
+                                    <input type="text" class="form-control" id="fio-02" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="city-02">Город*</label>
+                                    <input type="text" class="form-control" id="city-02" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="tel-02">Телефон*</label>
+                                    <input type="tel" class="form-control" id="tel-02" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email-02">Email*</label>
+                                    <input type="email" class="form-control" id="email-02" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="message-02">Опишите медицинскую проблему*</label>
+                                    <textarea id="message-02" class="form-control" cols="30" rows="10" required></textarea>
+                                </div>
+                                <label class="custom-file">
+                                  <input type="file" id="file-02" class="custom-file-input">
+                                  <span class="custom-file-control"><span class="text-dashed">Прикрепить файл</span></span>
+                                </label>
+                                <div class="small d-block text-danger w-100 mb-6">* Поля обязательные к заполнению</div>
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-success w-100">Получить программу</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-bottom pt-4 pb-5 px-5 area">
+                    <span class="heading h3 mb-3 d-block">Что вы получаете?</span>
+                    <div class="media mb-7">
+                      <img width="38" height="53" class="d-flex ml-0 mr-3 mt-md-3 ml-md-5 mr-md-7" src="assets/icon/svg/icon-note1.svg" alt="Generic placeholder image">
+                      <div class="media-body align-self-center">
+                        <ul class="default-list">
+                            <li>Программу лечения от ведущих зарубежных врачей</li>
+                            <li>Полный пакет поддержки</li>
+                            <li>Бронирование скидки от клиники</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="text-center">
+                        <a class="dashed" href="#">Политика конфиденциальности</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+<script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
+
+</html>

@@ -1,0 +1,51 @@
+{% extends 'main/main.html.twig' %}
+
+{% form_theme form _self %}
+
+{% block form_row %}
+    <div class="form-field form-field-margin-flow text center big">
+        {{ form_label(form) }}
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+        <span class="svg icon"></span>
+    </div>
+{% endblock form_row %}
+
+{% block body %}
+<div class="site-page-content">
+    <h1 class="mb-20">Регистрация</h1>
+    <p class="center mt-0">Уже есть аккаунт? &nbsp; <a href="{{ path('user_login') }}">Войти</a></p>
+    <section class="site-default-form mxw-550">
+{{ form_start(form) }}
+    {{ form_row(form.name, {'label': 'Name:'}) }}
+    {{ form_row(form.city, {'label': 'City:'}) }}
+    {{ form_row(form.login, {'label': 'E-mail (login):'}) }}
+    {{ form_row(form.plainPassword.first, {'label': 'Password:'}) }}
+    {{ form_row(form.plainPassword.second, {'label': 'Repeat Password:'}) }}
+    {#
+    <div class="form-field form-field-margin-flow radio-group center">
+        {{ form_errors(form.userType) }}
+        {%- for child in form.userType %}
+            <div class="form-field radio box-to-left">
+                <label for="{{ child.vars.id }}">
+                    {{- form_widget(child) -}}
+                    <span class="icon"></span>
+                    <span class="text">{{ child.vars.label }}</span>
+                </label>
+            </div>
+        {% endfor -%}
+    </div>
+    #}
+    <div class="form-field form-field-margin-flow checkbox box-to-left small mt-50 mb-0">
+        <label for="user_termsAccepted">
+            {{ form_errors(form.termsAccepted) }}
+            {{ form_widget(form.termsAccepted) }}
+            <span class="icon"></span>
+            <span class="text">{{ form_label(form.termsAccepted) }}</span>
+        </label>
+    </div>
+    <button class="site-button yellow w-full big form-field-margin-flow"><span class="text">ОТПРАВИТЬ ЗАЯВКУ</span></button>
+{{ form_end(form) }}
+    </section>
+</div>
+{% endblock body %}

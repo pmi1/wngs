@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 24 18" style="enable-background:new 0 0 24 18;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{fill:#FFFFFF;}
+	.st2{mask:url(#mask-2);}
+	.st3{opacity:0.15;}
+	.st4{fill:#2A4086;}
+</style>
+<title>F322DA93-F230-4816-A5BF-AE5298DF90A8</title>
+<desc>Created with sketchtool.</desc>
+<g id="Final-Design">
+	<g id="_x30_.-Style" transform="translate(-741.000000, -1787.000000)">
+		<g id="Icon_x2F_Flag_x2F_IL" transform="translate(741.000000, 1787.000000)">
+			<defs>
+				<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="-1" y="-1" width="26" height="20">
+					<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+				</filter>
+			</defs>
+			<mask maskUnits="userSpaceOnUse" x="-1" y="-1" width="26" height="20" id="mask-2">
+				<g class="st0">
+					<polygon id="path-1" class="st1" points="0,18 24,18 24,0 0,0 					"/>
+				</g>
+			</mask>
+			<g class="st2">
+				<g id="Fill-1">
+					<g>
+						<polygon id="path-1_2_" class="st1" points="0,18 24,18 24,0 0,0 						"/>
+						<path class="st3" d="M25,19H-1V-1h26V19z M1,17h22V1H1V17z"/>
+					</g>
+				</g>
+				<polygon id="Fill-3" class="st4" points="0,4 24,4 24,2 0,2 				"/>
+				<polygon id="Fill-3-Copy" class="st4" points="0,16 24,16 24,14 0,14 				"/>
+				<path id="Fill-6" class="st1" d="M12,11.8l-0.6-1.1h1.3L12,11.8 M10.3,8.7L9.6,7.6h1.3L10.3,8.7 M13.7,8.7l-0.6-1.1h1.3
+					L13.7,8.7"/>
+				<polyline id="Fill-7" class="st4" points="12,12.3 12.2,12.4 15.3,7.1 8.7,7.1 12,12.8 12.2,12.4 12,12.3 12.2,12.1 9.6,7.6 
+					14.4,7.6 11.8,12.1 12,12.3 12.2,12.1 12,12.3 				"/>
+				<path id="Fill-8" class="st1" d="M14.8,10.6h-1.6L14,9.3L14.8,10.6 M10.8,10.6H9.2L10,9.3L10.8,10.6 M12.8,7.1h-1.6L12,5.7
+					L12.8,7.1"/>
+				<polyline id="Fill-9" class="st1" points="12.6,10.6 11.4,10.6 10.3,8.7 10.9,7.6 13.1,7.6 13.7,8.7 12.6,10.6 				"/>
+				<path id="Fill-10" class="st4" d="M13.2,10.6h-0.6l1.1-1.9L14,9.3L13.2,10.6 M11.4,10.6h-0.6L10,9.3l0.3-0.5L11.4,10.6
+					 M13.1,7.6h-2.2l0.3-0.5h1.6L13.1,7.6"/>
+				<polyline id="Fill-11" class="st4" points="12,5.7 11.8,5.6 8.7,10.9 15.3,10.9 12,5.2 11.8,5.6 12,5.7 11.8,5.9 14.4,10.4 
+					9.6,10.4 12.2,5.9 12,5.7 11.8,5.9 12,5.7 				"/>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

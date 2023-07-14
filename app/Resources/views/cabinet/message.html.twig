@@ -1,0 +1,91 @@
+{#
+
+Шаблон страницы 'Лента событий'
+
+#}
+
+{% extends 'cabinet/main.html.twig' %}
+
+{% block cabinetbody %}
+<hr class="hr">
+<section class="site-messages">
+    {% for key, message in messages %}
+        {% set t = ((key == 0) or (message.cdate|date("d.m.y") != messages.currentPageResults[key-1].cdate|date("d.m.y"))) %}
+        {% if t %}
+            {% if key != 0 %}
+                    </div>
+                </section>
+            {% endif %}
+            <section class="site-message">
+                <div class="message-date">{{ message.cdate|date("d.m.y") }}</div>
+                <div class="message-icon">
+                    <span class="svg calendar"><!-- svg `calendar.svg` begin --><svg id="Group_75" data-name="Group 75" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.06 24.432">
+      
+      <path id="Path_54" data-name="Path 54" class="cls-1" d="M21.988,27.721H18.731v-.814a.814.814,0,1,0-1.629,0v.814H8.958v-.814a.769.769,0,0,0-.814-.814.769.769,0,0,0-.814.814v.814H4.072A4.032,4.032,0,0,0,0,31.793V46.452a4.032,4.032,0,0,0,4.072,4.072H21.988a4.032,4.032,0,0,0,4.072-4.072V31.793a4.032,4.032,0,0,0-4.072-4.072ZM1.629,31.793A2.505,2.505,0,0,1,4.072,29.35H7.329v.814a.769.769,0,0,0,.814.814.769.769,0,0,0,.814-.814V29.35H17.1v.814a.814.814,0,0,0,1.629,0V29.35h3.258a2.505,2.505,0,0,1,2.443,2.443v2.443H1.629V31.793Zm22.8,14.659a2.505,2.505,0,0,1-2.443,2.443H4.072a2.505,2.505,0,0,1-2.443-2.443V35.865h22.8Z" transform="translate(0 -26.092)"></path>
+      <path id="Path_55" data-name="Path 55" class="cls-1" d="M132.1,577.323a1.479,1.479,0,0,0,1.14-.489,1.575,1.575,0,0,0,0-2.28,1.575,1.575,0,0,0-2.28,0,1.479,1.479,0,0,0-.489,1.14,1.76,1.76,0,0,0,.489,1.14A1.479,1.479,0,0,0,132.1,577.323Z" transform="translate(-126.397 -556.963)"></path>
+      <path id="Path_56" data-name="Path 56" class="cls-1" d="M132.1,420.759a1.479,1.479,0,0,0,1.14-.489,1.575,1.575,0,0,0,0-2.28,1.575,1.575,0,0,0-2.28,0,1.629,1.629,0,0,0,1.14,2.769Z" transform="translate(-126.397 -405.286)"></path>
+      <path id="Path_57" data-name="Path 57" class="cls-1" d="M288.661,577.323a1.479,1.479,0,0,0,1.14-.489,1.575,1.575,0,0,0,0-2.28,1.575,1.575,0,0,0-2.28,0,1.575,1.575,0,0,0,0,2.28A1.479,1.479,0,0,0,288.661,577.323Z" transform="translate(-278.074 -556.963)"></path>
+      <path id="Path_58" data-name="Path 58" class="cls-1" d="M288.661,420.759a1.479,1.479,0,0,0,1.14-.489,1.575,1.575,0,0,0,0-2.28,1.575,1.575,0,0,0-2.28,0,1.575,1.575,0,0,0,0,2.28A1.479,1.479,0,0,0,288.661,420.759Z" transform="translate(-278.074 -405.286)"></path>
+      <path id="Path_59" data-name="Path 59" class="cls-1" d="M445.222,577.323a1.613,1.613,0,0,0,1.14-2.769,1.575,1.575,0,0,0-2.28,0,1.575,1.575,0,0,0,0,2.28A1.479,1.479,0,0,0,445.222,577.323Z" transform="translate(-429.749 -556.963)"></path>
+      <path id="Path_60" data-name="Path 60" class="cls-1" d="M445.222,420.759a1.67,1.67,0,0,0,1.629-1.629,1.759,1.759,0,0,0-.489-1.14,1.575,1.575,0,0,0-2.28,0,1.575,1.575,0,0,0,0,2.28A1.479,1.479,0,0,0,445.222,420.759Z" transform="translate(-429.749 -405.286)"></path>
+      <path id="Path_61" data-name="Path 61" class="cls-1" d="M601.786,577.323a1.479,1.479,0,0,0,1.14-.489,1.575,1.575,0,0,0,0-2.28,1.575,1.575,0,0,0-2.28,0,1.478,1.478,0,0,0-.489,1.14,1.759,1.759,0,0,0,.489,1.14A1.479,1.479,0,0,0,601.786,577.323Z" transform="translate(-581.426 -556.963)"></path>
+      <path id="Path_62" data-name="Path 62" class="cls-1" d="M601.786,420.759a1.67,1.67,0,0,0,1.629-1.629,1.76,1.76,0,0,0-.489-1.14,1.575,1.575,0,0,0-2.28,0,1.575,1.575,0,0,0,0,2.28A1.479,1.479,0,0,0,601.786,420.759Z" transform="translate(-581.426 -405.286)"></path>
+    </svg>
+    <!-- svg `calendar.svg` end --></span>
+                </div>
+                <div class="message-list">
+            {% endif %}
+            <section class="message gray">
+                <div class="time"><span class="mobile">{{ message.cdate|date("d.m.y") }} в </span>{{ message.cdate|date("H:i") }}</div>
+                <div class="content">
+                    {% if message.from.image %}
+                        {% set img2 %}{% path message.from.image, 'user_120' %}{% endset %}
+                    {% else %}
+                        {% set img2 = webpack_asset('@web/images/no-avatar.png') %}
+                    {% endif %}
+                    <div class="author"><div class="image" style="background-image: url({{ img2 }});"></div></div>
+                    <div class="wrapper">
+                        <a href="{{ path( message.order.user == app.user ? 'cabinet_order_item' : 'cabinet_designer_order_item', {'id': message.order.id}) }}">
+                        <b>{{ message.from.name }}</b> 
+                        {% include "cabinet/message.common.html.twig" with {'message': message} %}
+                        <p>Заказ № {{message.order.id}}</p>
+                    </a>
+                    </div>
+                </div>
+            </section>
+    {% endfor %}
+    {% if messages %}
+            </div>
+        </section>
+    {% endif %}
+    <section class="catalog-pagination">
+        <section class="content">
+            {{ pagerfanta(messages, 'default', {'omitFirstPage': true, 'prev_message': '←','next_message': '→', 'css_current_class': 'active', 'page_template': '<a class="pagination-item" href="%href%"%rel%>%text%</a>', 'span_template': '<span class="pagination-item active">%text%</span>'}) }}
+        </section>
+    </section>
+</section>
+{% endblock %}
+
+{% block add_modal %}
+    {% for message in messages %}
+        <section class="site-popup-window popup-main-content js--site-popup-window" data-no-effect id="popup-main-content-{{ message.id }}">
+            <div class="site-w site-default-text">
+               <div class="site-page-content wm-600">
+                <h1>{{ message.name }}</h1>
+                {% autoescape %}
+                    {{ message.description }}
+                {% endautoescape %}
+            </div>
+            </div>
+            <div class="popup-main-close js--popup-main-close"><span class="svg close"><!-- svg `cross.svg` begin -->
+
+            <svg  version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+                 width="11" height="10" viewBox="-0.982 -0.4 11 10" enable-background="new -0.982 -0.4 11 10" xml:space="preserve">
+
+            <polygon points="0.54,0 0,0.54 4.26,4.74 0,9 0.54,9.54 4.74,5.28 9,9.54 9.54,9 5.28,4.74 9.54,0.54 9,0 4.74,4.26 
+                "/>
+            </svg>
+            <!-- svg `cross.svg` end --></span></div>
+        </section>
+    {% endfor %}
+{% endblock %}

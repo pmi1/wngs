@@ -1,0 +1,36 @@
+{#
+
+Шаблон страницы рубрики
+
+#}
+
+{% extends 'catalogue/show.html.twig' %}
+
+{% block meta %}
+    <title>{{ metaTitle }}</title>
+    <meta name="Keywords" content="{{ metaKeywords }}"/>
+    <meta name="Description" content="{{ metaDescription }}"/>
+{% endblock %}
+
+{% block body %}
+<div class="site-page-content">
+</div>
+<!-- site-catalog begin -->
+<section class="site-flex site-flow site-flow-bottom site-catalog">
+    <section class="site-flex-column site-flex-main x4 m10">
+        <!-- site-filters begin -->
+        <section class="site-filters">
+            <form method="get">
+                <input type="hidden" name="q" value="{{ filter.value.q }}"/>
+                {{ block('itemFilter') }}
+                <section class="site-filter">
+                    <button class="site-button yellow w-150 small"><span class="text">ОБНОВИТЬ</span></button>
+                </section>
+            </form>
+        </section>
+        <!-- site-filters end -->
+
+    </section>
+    {{ block('itemList') }}
+</section>
+{% endblock %}

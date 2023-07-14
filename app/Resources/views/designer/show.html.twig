@@ -1,0 +1,124 @@
+{#
+
+Шаблон страницы дизайнера
+
+#}
+
+{% extends 'main/main.html.twig' %}
+
+{% block meta %}
+    <title>{{ designer.metaTitle ? designer.metaTitle : designer.brand }}</title>
+    <meta name="Keywords" content="{{ designer.metaKeywords }}"/>
+    <meta name="Description" content="{{ designer.metaDescription }}"/>
+{% endblock %}
+
+{% block body %}
+    <h1 class="h1">{{ designer.brand }}</h1>
+</section>
+<!-- designer-details begin -->
+<section class="designer-details">
+    <section class="site-flex">
+        {% if designer.brandImage %}
+            {% set img %}{% path designer.brandImage, 'brand_680' %}{% endset %}
+        {% else %}
+            {% set img = webpack_asset('@web/images/notfound.svg') %}
+        {% endif %}
+        <section class="site-flex-column x2 designer-image m0" style="background-image: url({{ img }});"></section>
+        <section class="site-flex-column x2 designer-info m0">
+            <div class="wrapper">
+
+                <div class="author">
+                    <div class="avatar" style="background-image: url({% path designer.image, 'user_120' %});"></div>
+                    <div class="text">
+                        <span class="fullname superbig">{{ designer.name }} <span class="site-button yellow"><span class="button-text">{{ designer.brand }}</span></span></span>
+                        <span class="map"><span class="dib svg map"><!-- svg `map.svg` begin --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12.482 15.456"><g transform="translate(-76)"><g transform="translate(80.161 4.161)"><path d="M198.08,120a2.08,2.08,0,1,0,2.08,2.08A2.082,2.082,0,0,0,198.08,120Z" transform="translate(-196 -120)"/></g><g transform="translate(76)"><g transform="translate(0)"><path d="M82.241,0a6.243,6.243,0,0,0-5.31,9.523l4.955,5.687a.52.52,0,0,0,.889-.007L87.6,9.439A6.243,6.243,0,0,0,82.241,0Zm0,9.369a3.128,3.128,0,1,1,3.128-3.128A3.129,3.129,0,0,1,82.241,9.369Z" transform="translate(-76)"/></g></g></g></svg><!-- svg `map.svg` end --></span> {{ designer.country }}{{designer.country and designer.city ? ' , ' : ''}}{{ designer.city }}</span>
+                    </div>
+                </div>
+
+                <div class="text site-default-text">
+                   {{ designer.textFormatted|raw }}
+                </div>
+                {#<div class="more-link"><a href>Подробнее</a></div>#}
+            </div>
+        </section>
+    </section>
+</section>
+<!-- designer-details end -->
+<section class="site-w">
+    {% if designer.selections|length and designer.activeCatalogue %}
+        <section class="site-div">
+            <div class="h1">Коллекции дизайнера</div>
+            <section class="site-carousel-products site-flow site-flow-bottom">
+                <section class="site-carousel-items js--site-carousel js--carousel-products">
+                    {% for key, value in designer.selections %}
+                        {% if value.status and value.itemSelections|length %}
+                            <section class="site-carousel-product site-flex-item x3 m20 mb60 site-product site-collection-item">
+                                <a href="{{ path('collection_show', {'slug': value.link}) }}" class="title small center">{{ value.name }}</a>
+                                {% if value.image %}
+                                    {% set img %}{% path value.image, 'selection_217' %}{% endset %}
+                                {% else %}
+                                    {% set img = webpack_asset('@web/images/notfound.svg') %}
+                                {% endif %}
+                                <div class="image h180" style="background-image: url({{ img }});">
+                                    <a href="{{ path('collection_show', {'slug': value.link}) }}" class="link"></a>
+                                </div>
+                            </section>
+                        {% endif %}
+                    {% endfor %}
+                </section>
+            </section>
+        </section>
+    {% endif %}
+    {{ designer.promoFormatted|raw }}
+    {% if articles|length %}
+        <div class="h1">Статьи {{ designer.brand }} / {{ designer.name }} в Live</div>
+        <hr class="hr">
+        <section class="site-flex site-flow site-designers">
+            {% for key, value in articles %}
+                {% include "includes/article-minicard.html.twig" with {'article': value} %}
+            {% endfor %}
+        </section>
+    {% endif %}
+    {% if reviews|length %}
+        <div class="h1">Отзывы о {{ designer.name }} / <i class="f24">Все отзывы</i></div>
+        <hr class="hr">
+        <section class="site-flex site-flow site-designers">
+            {% for key, value in reviews %}
+                {% include "includes/review-minicard.html.twig" with {'review': value} %}
+            {% endfor %}
+        </section>
+    {% endif %}
+    {% if designer.instagram or designer.vk or designer.facebook or designer.behance %}
+        <div class="h1">Ссылки</div>
+        <hr class="hr">
+        <section class="site-flow site-socnet-list">
+            {% if designer.site %}
+                <div class="site-socnet-item">
+                    <a href="{{ designer.site }}"><img src="{{ webpack_asset('@web/images/svg/si-www.svg') }}" alt=""></a>
+                </div>
+            {% endif %}
+            {% if designer.instagram %}
+                <div class="site-socnet-item">
+                    <a href="{{ designer.instagram }}"><img src="{{ webpack_asset('@web/images/svg/si-inst.svg') }}" alt=""></a>
+                </div>
+            {% endif %}
+            {% if designer.vk %}
+                <div class="site-socnet-item">
+                    <a href="{{ designer.vk }}"><img src="{{ webpack_asset('@web/images/svg/si-vk.svg') }}" alt=""></a>
+                </div>
+            {% endif %}
+            {% if designer.behance %}
+                <div class="site-socnet-item">
+                    <a href="{{ designer.behance }}"><img src="{{ webpack_asset('@web/images/svg/si-be.svg') }}" alt=""></a>
+                </div>
+            {% endif %}
+            {% if designer.facebook %}
+                <div class="site-socnet-item">
+                    <a href="{{ designer.facebook }}"><img src="{{ webpack_asset('@web/images/svg/si-fb.svg') }}" alt=""></a>
+                </div>
+            {% endif %}
+        </section>
+        <!-- socnets end -->
+    {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,24 @@
+.tree tr td:first-child {
+	width: 40px;
+}
+
+.tree tr td:last-child {
+	width: 15%;
+}
+
+.admin-user-menu {
+    min-height: 50px;
+    display: inline-block;
+    padding: 15px;
+}
+
+.admin-user-menu a {
+    color: #666666;
+    border-left: 1px solid #ddd;
+    margin-left: 5px;
+    padding-left: 5px;
+}
+
+.sidebar-menu .current_ancestor ul.active {
+    display:block
+}

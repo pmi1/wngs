@@ -1,0 +1,25 @@
+{#
+
+Шаблон баннера 1 в ряд
+
+#}
+{% if banners is defined and banners|length %}
+    <section class="site-ban">
+        {% if banners[0] is defined %}
+            {% set banner = banners[0] %}
+            {% if banner.image %}
+                <a href="{{ banner.link }}" {{ banner.isNewWin == 1 ? ' target="_blank" ' : '' }} class="desktop"><img src="{% path banner.image, 'page_1120' %}" alt=""></a>
+            {% else %}
+                <a href="{{ banner.link }}" {{ banner.isNewWin == 1 ? ' target="_blank" ' : '' }} class="desktop"><img src="{{ webpack_asset('@web/images/notfound.svg') }}" alt=""></a>
+            {% endif %}
+        {% endif %}
+        {% if banners[1] is defined %}
+            {% set banner = banners[1] %}
+            {% if banner.image %}
+                <a href="{{ banner.link }}" {{ banner.isNewWin == 1 ? ' target="_blank" ' : '' }} class="mobile"><img src="{% path banner.image, 'page_692' %}" alt=""></a>
+            {% else %}
+                <a href="{{ banner.link }}" {{ banner.isNewWin == 1 ? ' target="_blank" ' : '' }} class="mobile"><img src="{{ webpack_asset('@web/images/notfound.svg') }}" alt=""></a>
+            {% endif %}
+        {% endif %}
+    </section>
+{% endif %}

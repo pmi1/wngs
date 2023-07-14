@@ -1,0 +1,49 @@
+{#
+
+Шаблон формы авторизации для клиентской части
+
+#}
+
+{% extends 'main/main.html.twig' %}
+
+{% block body %}
+<div class="site-page-content">
+    <p class="center f14 gray">
+        Войти с помощью социальных сетей:
+    </p>
+    <div class="btn-socials">
+        <a href="{{ path('hwi_oauth_service_redirect', {'service': 'facebook' }) }}" class="site-btn-social fb"><span class="text">Sign in with Facebook</span></a>
+        <a href="{{ path('hwi_oauth_service_redirect', {'service': 'google' }) }}" class="site-btn-social g"><span class="text">Sign in with Google+</span></a>
+    </div>
+    {% if error %}
+        <div>{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+    {% endif %}
+    <section class="site-default-form mxw-550 js-auth-container">
+        <form action="{{ path("user_login") }}" method="post" role="form">
+            <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" />
+            <div class="form-field form-field-margin-flow text center big">
+                <label>Логин:</label>
+                <input type="text"  name="_username" value="{{ last_username }}" required="required">
+                <span class="svg icon"></span>
+            </div>
+
+            <div class="form-field form-field-margin-flow text center big">
+                <label>Пароль:</label>
+                <input type="password" name="_password" required="required">
+                <span class="svg icon"></span>
+            </div>
+
+            <div class="form-field form-field-margin-flow checkbox box-to-left small mt-50 mb-0">
+                <label for="i_agree_1">
+                    <input type="checkbox" name="_remember_me" value="1" id="i_agree_1">
+                    <span class="icon"></span>
+                    <span class="text">{{ 'security.login.remember_me'|trans({}, 'SonataAdminBundle') }}</span>
+                </label>
+            </div>
+
+            <button class="site-button yellow w-full big form-field-margin-flow"><span class="text">{{ 'security.login.submit'|trans({}, 'SonataAdminBundle') }}</span></button>
+        </form>
+        <a href="{{ path('user_registration') }}" class="site-button black-yellow w-full big form-field-margin-flow"><span class="text">Регистрация</span></a>
+    </section>
+</div>
+{% endblock body %}

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="SonataAdminBundle.en.xliff">
+        <body>
+            <trans-unit id="user.password.mismatch">
+                <source>user.password.mismatch</source>
+                <target>Введенные пароли не совпадают</target>
+            </trans-unit>
+            <trans-unit id="select.city">
+                <source>select.city</source>
+                <target>К клинике должен быть привязан город</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

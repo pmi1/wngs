@@ -1,0 +1,33 @@
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('PlayfairDisplay-Regular.eot');
+    src: url('PlayfairDisplay-Regular.eot?#iefix') format('embedded-opentype'),
+         url('PlayfairDisplay-Regular.woff') format('woff'), 
+         url('PlayfairDisplay-Regular.ttf') format('truetype'), 
+         url('PlayfairDisplay-Regular.svg#PlayfairDisplay-Regular') format('svg');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('PlayfairDisplay-Italic.eot');
+    src: url('PlayfairDisplay-Italic.eot?#iefix') format('embedded-opentype'),
+         url('PlayfairDisplay-Italic.woff') format('woff'), 
+         url('PlayfairDisplay-Italic.ttf') format('truetype'), 
+         url('PlayfairDisplay-Italic.svg#PlayfairDisplay-Italic') format('svg');
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('PlayfairDisplay-BoldItalic.eot');
+    src: url('PlayfairDisplay-BoldItalic.eot?#iefix') format('embedded-opentype'),
+         url('PlayfairDisplay-BoldItalic.woff') format('woff'), 
+         url('PlayfairDisplay-BoldItalic.ttf') format('truetype'), 
+         url('PlayfairDisplay-BoldItalic.svg#PlayfairDisplay-BoldItalic') format('svg');
+    font-weight: 700;
+    font-style: normal;
+}

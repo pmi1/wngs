@@ -1,0 +1,218 @@
+{#
+
+Шаблон заказа страницы кабинета
+
+#}
+
+{% extends 'cabinet/main.html.twig' %}
+
+{% block cabinetbody %}
+<hr class="hr">
+<div class="page-title first">Страница заказа {{order.name}} №{{order.id}}
+<div class="order-head-date">Дата заказа: {{order.cdate|date("d.m.y")}}</div>
+</div>
+<!-- table-order begin -->
+<div class="site-table-container">
+    <section class="table table-order">
+        {% block order %}
+        <section class="table-row">
+            <div class="table-cell th">ЗАКАЗЧИК</div>
+            <div class="table-cell th">СТАТУС</div>
+            <div class="table-cell th">ТОВАР</div>
+            <div class="table-cell th">ТИП ЗАКАЗА</div>
+            <div class="table-cell th">СКИДКА</div>
+            <div class="table-cell th">ЦЕНА</div>
+            <div class="table-cell th">ДОСТАВКА</div>
+            <div class="table-cell th">НАПИСАТЬ <br>ЗАКАЗЧИКУ</div>
+        </section>
+        <section class="table-row">
+            <div class="table-cell td">{{order.name}}</div>
+            <div class="table-cell td"><b class="order-status-{{order.status}}">{{ ('order-status-' ~ order.status) | trans }}</b></div>
+            <div class="table-cell td">{{order.item ? order.item.name : ''}}</div>
+            <div class="table-cell td"><div class="order-type-{{order.formType}} js--site-extra-tooltip site-centered-icon" title="{{ ('order_type_' ~ order.formType) | trans }}"></div></div>
+            <div class="table-cell td">{{order.discount ? order.discount ~ ' %' : ''}}</div>
+            <div class="table-cell td">
+                {% if order.discount>0 %}
+                    <div class="discount-price">{{order.price}} руб.</div>
+                    {{order.price*(1-order.discount/100)}} руб.
+                {%else%}
+                    {{order.price}} руб.
+                {% endif %}
+                <span class="site-centered-container"><a href class="svg edit js-scroll-focus" data-target="#formOrder_discount"><!-- svg `edit.svg` begin --><svg id="Group_314" data-name="Group 314" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17.664">
+
+<path id="Path_114" data-name="Path 114" class="cls-1" d="M23.043,114.3H6.326a.629.629,0,0,0-.626.626.64.64,0,0,0,.626.626H23.058a.629.629,0,0,0,.626-.626A.643.643,0,0,0,23.043,114.3Z" transform="translate(-5.685 -97.889)"/>
+<path id="Path_115" data-name="Path 115" class="cls-1" d="M5.615,17.764,5.6,20.744a.647.647,0,0,0,.183.458.612.612,0,0,0,.443.183l2.964-.015a.612.612,0,0,0,.443-.183L19.872,10.949a.646.646,0,0,0,0-.9L16.938,7.083a.646.646,0,0,0-.9,0L13.989,9.146,5.8,17.321A.681.681,0,0,0,5.615,17.764ZM16.495,8.428l2.063,2.063L17.4,11.652,15.333,9.589l1.161-1.161ZM6.884,18.039l7.548-7.548,2.063,2.063L8.946,20.087,6.868,20.1l.015-2.063Z" transform="translate(-5.6 -6.9)"/>
+</svg>
+<!-- svg `edit.svg` end --></a></span></div>
+            <div class="table-cell td">{% if order.delivery %}{{order.delivery}} руб.{% endif %}<span class="site-centered-container"><a href class="svg edit js-scroll-focus" data-target="#formOrder_delivery"><!-- svg `edit.svg` begin --><svg id="Group_314" data-name="Group 314" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17.664">
+
+<path id="Path_114" data-name="Path 114" class="cls-1" d="M23.043,114.3H6.326a.629.629,0,0,0-.626.626.64.64,0,0,0,.626.626H23.058a.629.629,0,0,0,.626-.626A.643.643,0,0,0,23.043,114.3Z" transform="translate(-5.685 -97.889)"/>
+<path id="Path_115" data-name="Path 115" class="cls-1" d="M5.615,17.764,5.6,20.744a.647.647,0,0,0,.183.458.612.612,0,0,0,.443.183l2.964-.015a.612.612,0,0,0,.443-.183L19.872,10.949a.646.646,0,0,0,0-.9L16.938,7.083a.646.646,0,0,0-.9,0L13.989,9.146,5.8,17.321A.681.681,0,0,0,5.615,17.764ZM16.495,8.428l2.063,2.063L17.4,11.652,15.333,9.589l1.161-1.161ZM6.884,18.039l7.548-7.548,2.063,2.063L8.946,20.087,6.868,20.1l.015-2.063Z" transform="translate(-5.6 -6.9)"/>
+</svg>
+<!-- svg `edit.svg` end --></a></span></div>
+            <div class="table-cell td"><a href class="svg envelope js-scroll-focus" data-target="#form_description"><!-- svg `envelope.svg` begin --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 22.831"><g transform="translate(0 -57.75)"><g transform="translate(0 57.75)"><path d="M26.338,57.75H3.669A3.672,3.672,0,0,0,0,61.419V76.912a3.672,3.672,0,0,0,3.669,3.669H26.331A3.672,3.672,0,0,0,30,76.912V61.425A3.668,3.668,0,0,0,26.338,57.75ZM28.33,76.912A2,2,0,0,1,26.338,78.9H3.669a2,2,0,0,1-1.993-1.993V61.425a2,2,0,0,1,1.993-1.993H26.331a2,2,0,0,1,1.993,1.993V76.912Z" transform="translate(0 -57.75)"/><path d="M71.212,116.95l7.337-6.58a.839.839,0,1,0-1.124-1.248L67.307,118.2l-1.974-1.763c-.006-.006-.012-.012-.012-.019a1.241,1.241,0,0,0-.137-.118l-8.032-7.188a.84.84,0,1,0-1.117,1.254l7.424,6.636-7.393,6.921a.841.841,0,0,0-.037,1.186.857.857,0,0,0,.615.267.84.84,0,0,0,.571-.223l7.5-7.02,2.036,1.819a.836.836,0,0,0,1.117-.006l2.092-1.875,7.461,7.089a.84.84,0,0,0,1.186-.031.841.841,0,0,0-.031-1.186Z" transform="translate(-52.292 -105.727)"/></g></g></svg><!-- svg `envelope.svg` end --></a></div>
+        </section>
+        {% endblock %}
+    </section>
+</div>
+{% block orderButton %}
+{% if order.status < 3 %}
+    <section class="text-right"><span class="site-tag yellow default js-order-done"><span class="text">ВЫПОЛНЕН</span></span></section>
+{% endif %}
+{% endblock %}
+<!-- table-order end -->
+
+
+<!-- order-description begin -->
+<section class="order-description">
+    <section class="site-flex">
+        <section class="site-flex-column x3">
+            {% block formOrder %}
+            <div class="page-title">Статус</div>
+            {{ form_start(formOrder) }}
+            <section class="order-status">
+                <div class="site-form">
+                    {{ form_row(formOrder.status, {'label': ' '}) }}
+                </div>
+            </section>
+
+            <div class="page-title">Стоимость доставки</div>
+            <div class="page-text">
+                {{order.item ? order.item.delivery : ''}}
+                <div class="site-form">
+                    <div class="form-field text">
+                        {{ form_row(formOrder.delivery, {'label': ' ', 'attr': {'placeholder': 'Сумма доставки'}}) }}
+                        <span class="svg icon edit"><!-- svg `edit.svg` begin --><svg id="Group_314" data-name="Group 314" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17.664">
+
+<path id="Path_114" data-name="Path 114" class="cls-1" d="M23.043,114.3H6.326a.629.629,0,0,0-.626.626.64.64,0,0,0,.626.626H23.058a.629.629,0,0,0,.626-.626A.643.643,0,0,0,23.043,114.3Z" transform="translate(-5.685 -97.889)"/>
+<path id="Path_115" data-name="Path 115" class="cls-1" d="M5.615,17.764,5.6,20.744a.647.647,0,0,0,.183.458.612.612,0,0,0,.443.183l2.964-.015a.612.612,0,0,0,.443-.183L19.872,10.949a.646.646,0,0,0,0-.9L16.938,7.083a.646.646,0,0,0-.9,0L13.989,9.146,5.8,17.321A.681.681,0,0,0,5.615,17.764ZM16.495,8.428l2.063,2.063L17.4,11.652,15.333,9.589l1.161-1.161ZM6.884,18.039l7.548-7.548,2.063,2.063L8.946,20.087,6.868,20.1l.015-2.063Z" transform="translate(-5.6 -6.9)"/>
+</svg>
+<!-- svg `edit.svg` end --></span>
+                    </div>
+                </div>
+            </div>
+            <div class="page-title">Предложить скидку</div>
+            <div class="page-text">
+                <div class="site-form">
+                    <div class="form-field text">
+                        {{ form_row(formOrder.discount, {'label': ' ', 'attr': {'placeholder': '% скидки'}}) }}
+                        <span class="svg icon edit"><!-- svg `edit.svg` begin --><svg id="Group_314" data-name="Group 314" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17.664">
+
+<path id="Path_114" data-name="Path 114" class="cls-1" d="M23.043,114.3H6.326a.629.629,0,0,0-.626.626.64.64,0,0,0,.626.626H23.058a.629.629,0,0,0,.626-.626A.643.643,0,0,0,23.043,114.3Z" transform="translate(-5.685 -97.889)"/>
+<path id="Path_115" data-name="Path 115" class="cls-1" d="M5.615,17.764,5.6,20.744a.647.647,0,0,0,.183.458.612.612,0,0,0,.443.183l2.964-.015a.612.612,0,0,0,.443-.183L19.872,10.949a.646.646,0,0,0,0-.9L16.938,7.083a.646.646,0,0,0-.9,0L13.989,9.146,5.8,17.321A.681.681,0,0,0,5.615,17.764ZM16.495,8.428l2.063,2.063L17.4,11.652,15.333,9.589l1.161-1.161ZM6.884,18.039l7.548-7.548,2.063,2.063L8.946,20.087,6.868,20.1l.015-2.063Z" transform="translate(-5.6 -6.9)"/>
+</svg>
+<!-- svg `edit.svg` end --></span>
+                    </div>
+                    <div class="form-field buttons">
+                        <button type="submit" class="site-button white w-150"><span class="text">СОХРАНИТЬ</span></button>
+                    </div>
+                </div>
+            </div>
+            {{ form_end(formOrder) }}
+
+
+            <hr class="hr special">
+            {% if order.deliveryType %}
+                <div class="page-title">{{ 'Delivery Type'| trans }}</div>
+                <div class="page-text">
+                    {{order.deliveryType.name}}
+                </div>
+                <br/>
+            {% endif %}
+
+            <div class="page-title">Адрес доставки</div>
+            {% set addrFields = ['zip', 'country', 'city', 'street', 'building', 'apartment'] %}
+            {% set addr = [] %}
+            <div class="page-text">
+                {% for v in addrFields %}
+                    {% if attribute(order, v) %}
+                        {% set addr = addr|merge([attribute(order, v)]) %}
+                    {% endif %}
+                {% endfor %}
+                {% if addr is empty %}
+                    <div class="form-field text d-red">
+                        <label>{{ 'Address is empty'|trans }}</labal>
+                    </div>
+                {% else %}
+                    {{ addr|join(', ') }}
+                {% endif %}
+            </div>
+            <br/>
+            <div class="page-title">Комментарий</div>
+            <div class="page-text">
+                {{order.comment}}
+            </div>
+            {% endblock %}
+        </section>
+        <section class="site-flex-column x2-3 site-user-messages">
+
+            <div class="page-title">Общение</div>
+
+            <!-- site-messages begin -->
+            <section class="site-messages small">
+                {% if order.messages|length > 3 %}
+                    <section class="site-pagination">
+                        <a href class="site-pages-loader js-more-message"><span class="svg dib"><!-- svg `loader.svg` begin -->
+
+    <svg  version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+    width="19" height="18" viewBox="-0.73 -0.147 19 18" enable-background="new -0.73 -0.147 19 18" xml:space="preserve">
+
+    <path d="M0,0v0.36l0.06-0.3L0.36,0H0z M17.399,0l0.24,0.06L17.7,0.3V0H17.399z M8.88,1.38
+    c-2.16,0-4.2,0.96-5.64,2.58v0.48l0.42,0.48l0.6,0.06l0,0C5.4,3.6,7.08,2.82,8.88,2.82c3.36,0,6.06,2.7,6.06,6.06
+    c0,3.3-2.699,6-6.06,6c-3,0-5.58-2.22-6-5.22h0.06c0,0,0.42,0.36,0.72,0.18C3.96,9.66,4.2,9.36,4.14,9.12
+    c-0.06-0.3-0.06-0.42-0.3-0.66C3.72,8.34,3.36,7.98,3,7.62l0,0L2.46,7.14L2.1,7.08L1.62,7.26v0.06l0,0L0.9,7.98L0.24,8.64
+    c0,0-0.18,0.24-0.12,0.48c0.06,0.181,0.06,0.42,0.3,0.601c0.3,0.24,0.78,0.06,0.78,0.06L1.44,9.6l0,0
+    c0.42,3.78,3.6,6.721,7.439,6.721c4.14,0,7.439-3.36,7.439-7.44C16.319,4.74,13.02,1.38,8.88,1.38L8.88,1.38z M0,17.4v0.3h0.3
+    l-0.24-0.06L0,17.4z M17.64,17.641l-0.18,0.06h0.24v-0.24L17.64,17.641z"/>
+    </svg>
+    <!-- svg `loader.svg` end --></span> Загрузить еще</a>
+                    </section>
+                {% endif %}
+                <div class="message-list">
+                    {% for message in order.messages %}
+                    {#% for message in messages %#}
+                        {% set user = message.from %}
+                        <section class="message{{ message.from == app.user ? ' gray' : ''}}{{loop.revindex > 3 ? ' hide' : ''}}">
+                            <div class="time"><span class="mobile">{{message.cdate|date("d.m.Y")}} в </span>{{message.cdate|date("H:i")}}</div>
+                            <div class="content">
+                                {% if user %}
+                                    {% if user.image %}
+                                        {% set img2 %}{% path user.image, 'user_120' %}{% endset %}
+                                    {% else %}
+                                        {% set img2 = webpack_asset('@web/images/no-avatar.png') %}
+                                    {% endif %}
+                                    <div class="author"><div class="image" style="background-image: url({{ img2 }});"></div></div>
+                                {% endif %}
+                                <div class="wrapper">
+                                    {{user ? ('<b>' ~ user.name ~ '</b>')|raw : '' }}
+                                    {% include "cabinet/message.common.html.twig" with {'message': message} %}
+                                </div>
+                            </div>
+                        </section>
+                    {% endfor %}
+                </div>
+            </section>
+            <!-- site-messages end -->
+
+
+            <!-- send-message begin -->
+            <section class="send-message">
+                <section class="site-form">
+                {{ form_start(form) }}
+                    <div class="site-form-title">Написать сообщение <span class="svg dib envelope"><!-- svg `envelope.svg` begin --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 22.831"><g transform="translate(0 -57.75)"><g transform="translate(0 57.75)"><path d="M26.338,57.75H3.669A3.672,3.672,0,0,0,0,61.419V76.912a3.672,3.672,0,0,0,3.669,3.669H26.331A3.672,3.672,0,0,0,30,76.912V61.425A3.668,3.668,0,0,0,26.338,57.75ZM28.33,76.912A2,2,0,0,1,26.338,78.9H3.669a2,2,0,0,1-1.993-1.993V61.425a2,2,0,0,1,1.993-1.993H26.331a2,2,0,0,1,1.993,1.993V76.912Z" transform="translate(0 -57.75)"/><path d="M71.212,116.95l7.337-6.58a.839.839,0,1,0-1.124-1.248L67.307,118.2l-1.974-1.763c-.006-.006-.012-.012-.012-.019a1.241,1.241,0,0,0-.137-.118l-8.032-7.188a.84.84,0,1,0-1.117,1.254l7.424,6.636-7.393,6.921a.841.841,0,0,0-.037,1.186.857.857,0,0,0,.615.267.84.84,0,0,0,.571-.223l7.5-7.02,2.036,1.819a.836.836,0,0,0,1.117-.006l2.092-1.875,7.461,7.089a.84.84,0,0,0,1.186-.031.841.841,0,0,0-.031-1.186Z" transform="translate(-52.292 -105.727)"/></g></g></svg><!-- svg `envelope.svg` end --></span></div>
+
+                    <div class="form-field textarea">
+                        {{ form_row(form.description, {'label': ' '}) }}
+                    </div>
+                    <div class="form-field submit">
+                        <button type="submit" class="site-button white w-150"><span class="text">ОТПРАВИТЬ</span></button>
+                    </div>
+                {{ form_end(form) }}
+                </section>
+            </section>
+            <!-- send-message end -->
+        </section>
+    </section>
+</section>
+
+{% endblock %}

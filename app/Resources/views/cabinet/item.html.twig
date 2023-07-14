@@ -1,0 +1,410 @@
+{#
+
+Шаблон товара страницы кабинета
+
+#}
+
+{% extends 'cabinet/catalogue.html.twig' %}
+
+
+{% block cabinetbody %}
+<hr class="hr">
+
+<div class="panel-buttons">
+    {{ block('bottons') }}
+</div>
+{{ form_start(form) }}
+    <div class="hide">
+        {{ form_row(form.media) }}
+    </div>
+    <!-- images-product begin -->
+    <section class="site-form-panel sfp-font-size">
+        <div class="form-panel-title">
+            Добавить фото товара (до 5 шт.)
+            {{ form_errors(form.media) }}
+        </div>
+        <div class="form-panel-list">
+            <section class="images-product-list">
+                {% for el in [0,1,2,3,4] %}
+                    {% set img = (form.vars.data.gallery and form.vars.data.gallery.getGalleryHasMedias 
+                        and form.vars.data.gallery.getGalleryHasMedias[el] is defined ? (form.vars.data.gallery.getGalleryHasMedias[el]).media : null) %}
+
+                    <div class="images-product-item js--ipi {{form.vars.data.gallery and form.vars.data.gallery.getGalleryHasMedias and form.vars.data.gallery.getGalleryHasMedias[el] is defined ? 'active' : '' }}">
+                        <div class="images-product-item-value">
+                            {% if img %}
+                                {% thumbnail img, 'item_246' %}
+                            {% else %}
+                                <img src="" alt="">
+                            {% endif %}
+                            <a href="javascript:void(0);" class="images-product-item-remove js--ipi-remove"></a>
+                        </div>
+                        <div class="images-product-item-input">
+                            <div class="form-field image-input">
+                                <span class="ii-label">+Добавить <br>фото</span>
+                                <input type="file" name="{{ img ? 'media[' ~ img.id ~ ']' : 'image[]' }}"{{form.media.vars.errors|length and el == 0 ? ' autofocus' : ''}}{{el == 0 and not(img) ? ' required ' : ''}}>
+                            </div>
+                        </div>
+                        <div class="soi-top-b"></div><div class="soi-bottom-b"></div>
+                        <div class="soi-right-b"></div><div class="soi-left-b"></div>
+                    </div>
+                {% endfor %}
+            </section>
+        </div>
+    </section>
+    <!-- images-product end -->
+    <div class="form-field select form-field-margin-flow text center big">
+        {{ form_row(form.name) }}
+        <span class="svg icon"></span>
+    </div>
+    <div class="form-field select form-field-margin-flow text center big">
+        {{ form_row(form.textRaw, {'label': 'Text Type'}) }}
+        <span class="svg icon"></span>
+    </div>
+    <div class="form-field select form-field-margin-flow text center big">
+        {{ form_row(form.delivery) }}
+        <span class="svg icon"></span>
+    </div>
+    <div class="form-field select form-field-margin-flow text center big">
+        {{ form_row(form.payment) }}
+        <span class="svg icon"></span>
+    </div>
+    <div class="form-field select form-field-margin-flow text center big">
+        {{ form_row(form.condition) }}
+        <span class="svg icon"></span>
+    </div>
+    <div class="form-field select form-field-margin-flow text center big">
+        {{ form_row(form.price) }}
+        <span class="svg icon"></span>
+    </div>
+    <section class="site-form-panel sfp-font-size">
+        <div class="form-panel-title">
+            {{ form_errors(form.selections) }}
+            {{ form_label(form.selections) }}
+        </div>
+        <div class="form-panel-list">
+            <section class="form-panel-list-row" id="product-collection-chooser-id">
+                {% for el in form.selections %}
+                    {% if el.vars.attr.checked is defined %}
+                        <div class="site-tag-element js--site-tag-element">
+                            <a href="javascript:void(0);" class="site-tag-element-close js--ste-close"></a>
+                            <input type="hidden" name="form[selections]" value="{{el.vars.value}}"/>
+                            {{ el.vars.label == 'None' ? 'нет коллекции' : el.vars.label}}
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </section>
+            <section class="form-panel-list-row">
+                Выбрать коллекцию:
+                <div class="dropdown-link" data-open-popup-form href="#collection-window">Выбрать</div>
+                <div class="site-popup-window-form-list hide js-selections">
+                    {% for k, el in form.selections %}
+                        <div class="form-field radio box-to-right">
+                            <label for="{{el.vars.id}}">
+                                {{ form_widget(el, { 'attr': {'data-value': el.vars.label == 'None' ? 'нет коллекции' : el.vars.label} }) }}
+                                <span class="icon"></span>
+                                <span class="text">{{ el.vars.label == 'None' ? 'нет коллекции' : el.vars.label }}</span>
+                            </label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </section>
+            {#<section class="form-panel-list-row">
+                Новая коллекция:
+                <div class="form-field text ff-border-small ff-width-220 ff-top-10 ff-inline-block ff-margin-left-40 ff-margin-right-10 ff-svg-icon-top-20 ff-svg-icon-height-18">
+                    <input type="text" name="new_collection" value="" placeholder="">
+                    <span class="svg icon edit"><!-- svg `edit.svg` begin --><svg id="Group_314" data-name="Group 314" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17.664">
+
+<path id="Path_114" data-name="Path 114" class="cls-1" d="M23.043,114.3H6.326a.629.629,0,0,0-.626.626.64.64,0,0,0,.626.626H23.058a.629.629,0,0,0,.626-.626A.643.643,0,0,0,23.043,114.3Z" transform="translate(-5.685 -97.889)"/>
+<path id="Path_115" data-name="Path 115" class="cls-1" d="M5.615,17.764,5.6,20.744a.647.647,0,0,0,.183.458.612.612,0,0,0,.443.183l2.964-.015a.612.612,0,0,0,.443-.183L19.872,10.949a.646.646,0,0,0,0-.9L16.938,7.083a.646.646,0,0,0-.9,0L13.989,9.146,5.8,17.321A.681.681,0,0,0,5.615,17.764ZM16.495,8.428l2.063,2.063L17.4,11.652,15.333,9.589l1.161-1.161ZM6.884,18.039l7.548-7.548,2.063,2.063L8.946,20.087,6.868,20.1l.015-2.063Z" transform="translate(-5.6 -6.9)"/>
+</svg>
+<!-- svg `edit.svg` end --></span>
+                </div>
+                <button type="submit" class="site-button white save-item js--new-selection" data-action="{{ path('cabinet_new_selection') }}"><span class="text">СОЗДАТЬ</span></button>
+
+            </section>#}
+        </div>
+    </section>
+    <section class="site-flex site-flow flex-wrap form-flow-vertical">
+        <section class="site-form-panel sfp-font-size">
+            <div class="form-panel-title">
+                {{ form_errors(form.catalogues) }}
+                {{ form_label(form.catalogues) }}
+            </div>
+            <div class="form-panel-list">
+                <section class="form-panel-list-row" id="product-section-chooser-id">
+                    {% set f = 0 %}
+                    {% for k, el in form.catalogues %}
+                        {% if el.vars.attr.checked is defined %}
+                            {% set f = f + 1 %}
+                            <div class="site-tag-element js--site-tag-element">
+                                <a href="javascript:void(0);" class="site-tag-element-close js--ste-close"></a>
+                                <input type="hidden" name="form[catalogues][]" value="{{el.vars.value}}"/>
+                                {{ el.vars.label }}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                </section>
+                <section class="form-panel-list-row">
+                    Новый раздел:
+                    <div class="dropdown-link" data-open-popup-form href="#section-window">Выбрать раздел</div>
+                    <input id="catalogChecker" type="text" name="form[catalogues_ent][]" style="width: 0;height: 0;position: relative;z-index: -1;"{{f==0 ? '' : ' disabled="disabled" '}} required />
+                </section>
+                <div class="site-popup-tabs-content hide js-catalogue-tree">
+                    {% for k, elt in form.catalogues %}
+                        {% if elt.vars.attr.depth == 1 %}
+                        <div class="site-popup-tab-item {{ k ? '' : 'active'}} js--site-popup-tab-item" id="site-popup-tab-{{k}}">
+                            <!-- tab content begin -->
+                            <div class="site-accordion-vertical">
+                                {{ form_widget(elt, { 'attr': {'class': 'hide'} }) }}
+                                {% for el in form.catalogues %}
+                                    {% if el.vars.attr.depth == 2 and el.vars.attr.parent == elt.vars.attr.id %}
+                                        <div class="site-accordion-vertical-item js--sav-item {{ k ? '' : 'active'}}">
+                                            {{ form_widget(el, { 'attr': {'class': 'hide'} }) }}
+                                            <div class="site-accordion-vertical-item-title js--savi-title">{{ el.vars.label }}</div>
+                                            <section class="site-accordion-vertical-item-content">
+                                                <div class="site-popup-window-form-list">
+                                                {% for elp in form.catalogues %}
+                                                    {% if elp.vars.attr.depth == 3 and elp.vars.attr.parent == el.vars.attr.id %}
+                                                    <div class="form-field checkbox box-to-right">
+                                                        <label for="{{elp.vars.id}}">
+                                                            {{ form_widget(elp, { 'attr': {'data-value': elp.vars.label} }) }}
+                                                            <span class="icon"></span>
+                                                            <span class="text">{{ elp.vars.label }}</span>
+                                                        </label>
+                                                    </div>
+                                                    {% endif %}
+                                                {% endfor %}
+                                                </div>
+                                            </section>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                            <!-- tab content end -->
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+        <section class="site-form-panel sfp-discount">
+            <div class="form-panel-title">
+                {{ 'Discount'|trans }}
+            </div>
+            <div class="form-panel-list js-discount">
+                {{ form_errors(form.discount) }}
+                <div class="form-field radio">
+                    <label for="rd_1">
+                        <input type="radio" name="discount" value="5" id="rd_1">
+                        <span class="icon"></span>
+                        <span class="text">5%</span>
+                    </label>
+                </div>
+
+                <div class="form-field radio">
+                    <label for="rd_2">
+                        <input type="radio" name="discount" value="10" id="rd_2">
+                        <span class="icon"></span>
+                        <span class="text">10%</span>
+                    </label>
+                </div>
+
+                <div class="form-field radio">
+                    <label for="rd_3">
+                        <input type="radio" name="discount" value="15" id="rd_3">
+                        <span class="icon"></span>
+                        <span class="text">15%</span>
+                    </label>
+                </div>
+
+                <div class="form-field text ff-border-small ff-width-140 ff-top-10">
+                    {{ form_widget(form.discount) }}
+                    <span class="svg icon edit"><!-- svg `edit.svg` begin --><svg id="Group_314" data-name="Group 314" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17.664">
+
+<path id="Path_114" data-name="Path 114" class="cls-1" d="M23.043,114.3H6.326a.629.629,0,0,0-.626.626.64.64,0,0,0,.626.626H23.058a.629.629,0,0,0,.626-.626A.643.643,0,0,0,23.043,114.3Z" transform="translate(-5.685 -97.889)"></path>
+<path id="Path_115" data-name="Path 115" class="cls-1" d="M5.615,17.764,5.6,20.744a.647.647,0,0,0,.183.458.612.612,0,0,0,.443.183l2.964-.015a.612.612,0,0,0,.443-.183L19.872,10.949a.646.646,0,0,0,0-.9L16.938,7.083a.646.646,0,0,0-.9,0L13.989,9.146,5.8,17.321A.681.681,0,0,0,5.615,17.764ZM16.495,8.428l2.063,2.063L17.4,11.652,15.333,9.589l1.161-1.161ZM6.884,18.039l7.548-7.548,2.063,2.063L8.946,20.087,6.868,20.1l.015-2.063Z" transform="translate(-5.6 -6.9)"></path>
+</svg>
+<!-- svg `edit.svg` end --></span>
+                </div>
+
+            </div>
+        </section>
+        <!-- request-best end -->
+
+
+        <!-- offers begin -->
+        <section class="site-form-panel sfp-font-size">
+            <div class="form-panel-title">
+                Акции
+            </div>
+            {{ form_errors(form.sale) }}
+            <div class="form-panel-list">
+                <section class="spec-offer-list">
+                {% for attr in form.sale %}
+                    {{ form_errors(attr) }}
+                    <div class="spec-offer-item">
+                        <div class="soi-title">{{ attr.vars.label }}</div>
+                        <div class="soi-text">{{ attr.vars.attr['desc']|raw }}</div>
+                        <div class="soi-input">
+                            <div class="form-field checkbox">
+                                <label for="{{ attr.vars.id }}">
+                                    {{ form_widget(attr) }}
+                                    <span class="icon"></span>
+                                    <span class="text"></span>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="soi-top-b"></div><div class="soi-bottom-b"></div>
+                        <div class="soi-right-b"></div><div class="soi-left-b"></div>
+                    </div>
+                {% endfor %}
+                </section>
+            </div>
+        </section>
+        <!-- offers end -->
+
+        <section class="site-form-panel sfp-font-size">
+            <div class="form-panel-title">
+                {{ form_errors(form.canAskDiscount) }}
+                {{ 'Can Ask Discount'|trans }}
+            </div>
+            <div class="form-panel-list">
+
+                <div class="form-field checkbox">
+                    <label for="form_canAskDiscount">
+                        {{ form_widget(form.canAskDiscount) }}
+                        <span class="icon"></span>
+                        <span class="text">Разрешить запрашивать скидку на этот товар?</span>
+                    </label>
+                </div>
+
+                <div class="form-field-checkbox-hint">
+                    Заказчик сможет запросить скидку на товар, если он ему очень понравится
+                </div>
+
+            </div>
+        </section>
+        <!-- request-best begin -->
+        <section class="site-form-panel sfp-font-size">
+            <div class="form-panel-title">
+                Запрос на размещение этого товара в разделе "Лучшее (Promo)"
+            </div>
+            <div class="form-panel-list">
+                <div class="form-field checkbox">
+                    <label for="form_promo">
+                        {{ form_errors(form.promo) }}
+                        {{ form_widget(form.promo) }}
+                        <span class="icon"></span>
+                        <span class="text">{{ form_label(form.promo) }}</span>
+                    </label>
+                </div>
+            </div>
+        </section>
+
+        <!-- settings begin -->
+        <section class="site-form-panel sfp-settings sfp-font-size">
+            <div class="form-panel-title">
+                Характеристики
+            </div>
+            <div class="form-panel-list">
+                <div class="form-field checkbox">
+                    <label for="form_isAvailabile">
+                        {{ form_errors(form.isAvailabile) }}
+                        {{ form_widget(form.isAvailabile) }}
+                        <span class="icon"></span>
+                        <span class="text">{{ 'Is Availabile'|trans }}</span>
+                    </label>
+                </div>
+            </div>
+            {% for attr in form.itemAttributes %}
+                <div class="form-field text ff-border-small">
+                    {{ form_errors(attr) }}
+                    {{ form_widget(attr) }}
+                    <span class="svg icon"></span>
+                </div>
+            {% endfor %}
+
+            <div class="form-field colors">
+                <div class="form-panel-title form-panel-title-small">
+                    Цвет (можно выбрать до 2-х цветов):
+                    <a href="javascript:void(0);" class="site-link-disable float-right" id="form-colors-reset-id">Сбросить цвета</a>
+                </div>
+                <div class="form-panel-list js--form-colors" id="form-colors-id">
+                    {% for attr in form.colors %}
+                        <div class="form-field form-field-color-checkbox checkbox box-to-right f12">
+                            <label for="{{attr.vars.id}}">
+                                {{ form_errors(attr) }}
+                                {{ form_widget(attr) }}
+                                <span class="icon"></span>
+                                <span class="color" style="background-image: url({% path attr.vars.attr.img, 'color_16' %});"></span>
+                                <span class="text">{{ attr.vars.label }}</span>
+                            </label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </section>
+    </section>
+    <button class="site-button yellow w-full big form-field-margin-flow"><span class="text">{{ form.vars.data.name  ? 'СОХРАНИТЬ' : 'ДОБАВИТЬ' }}</span></button>
+    {% for label, flashes in app.session.flashbag.all %}
+        {% for flash in flashes %}
+            <div class="alert alert-{{ label }}">
+                {{ flash|trans }}
+            </div>
+        {% endfor %}
+    {% endfor %}
+{{ form_end(form) }}
+{% endblock %}
+
+{% block modal %}
+    {% if cat_banners is defined %}
+        {% for v in cat_banners %}
+        <section class="site-popup-window popup-main-content js--site-popup-window" data-no-effect id="popup-main-content-{{ v.id }}">
+            <div class="site-w site-default-text">
+                {{ v.text.raw|raw }}
+            </div>
+            <div class="popup-main-close js--popup-main-close"><span class="svg close"><!-- svg `cross.svg` begin -->
+
+            <svg  version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+                 width="11" height="10" viewBox="-0.982 -0.4 11 10" enable-background="new -0.982 -0.4 11 10" xml:space="preserve">
+
+            <polygon points="0.54,0 0,0.54 4.26,4.74 0,9 0.54,9.54 4.74,5.28 9,9.54 9.54,9 5.28,4.74 9.54,0.54 9,0 4.74,4.26 
+                "/>
+            </svg>
+            <!-- svg `cross.svg` end --></span></div>
+        </section>
+        {% endfor %}
+    {% endif %}
+<section class="site-popup-window popup-collection-window" id="collection-window">
+    <div class="site-popup-wrapper">
+        <div class="spw-title">Выбор коллекции</div>
+
+        <form name="product-collection-chooser-popup" data-popup-form-chooser="product-collection-chooser-id" data-input-name="form[selections]">
+
+            <button type="submit" class="site-button white save-item site-btn-width-full"><span class="text">ДОБАВИТЬ</span></button>
+        </form>
+    </div>
+</section>
+<section class="site-popup-window popup-section-window" id="section-window">
+    <div class="site-popup-wrapper first">
+        <div class="spw-title">Выбор раздела</div>
+    </div>
+
+    <form name="product-section-chooser-popup" data-popup-form-chooser="product-section-chooser-id" data-input-name="form[catalogues][]">
+
+        <div class="site-popup-tabs-control">
+            {% for k, el in form.catalogues %}
+                {% if el.vars.attr.depth == 1 %}
+                    <div class="site-popup-tab-title js--site-popup-tab-title {{ k ? '' : 'active'}}" href="#site-popup-tab-{{ k }}">{{ el.vars.label }}</div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+
+        <div class="site-popup-wrapper last">
+            <button type="submit" class="site-button white save-item site-btn-width-full"><span class="text">ДОБАВИТЬ</span></button>
+        </div>
+    </form>
+    <!--div class="popup-main-close js--popup-main-close"><span class="svg close">x</span></div-->
+</section>
+{% endblock %}

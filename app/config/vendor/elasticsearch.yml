@@ -1,0 +1,40 @@
+#fos_elastica:
+#    clients:
+#        default: { host: localhost, port: 9200 }
+#    indexes:
+#        %elastic_index_titles%:
+#            finder: ~
+#            types:
+#                item:
+#                    indexable_callback: getStatus
+#                    properties:
+#                        name:
+#                            type: text
+#                            fielddata: true
+#                        priceWithDiscount: 
+#                            type: double
+#                        popularity:
+#                            type: integer
+#                        user:
+#                            type: "object"
+#                            properties:
+#                                id:
+#                                    fielddata: true
+#                                name: ~
+#                        allCatalogues:
+#                            type: "object"
+#                            properties:
+#                                id:
+#                                    fielddata: true
+#                        selections:
+#                            type: "object"
+#                            properties:
+#                                id:
+#                                    fielddata: true
+#                    persistence:
+#                        driver: orm
+#                        model: AppBundle\Entity\Item
+#                        provider: ~
+#                        listener:
+#                            defer: true
+#

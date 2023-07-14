@@ -1,0 +1,73 @@
+{#
+
+Шаблон  страницы кабинета статей
+
+#}
+
+{% extends 'cabinet/main.html.twig' %}
+
+{% block cabinettitle %}
+    <a href="{{ path('cabinet_article_item') }}" class="site-button yellow"><span class="text">ДОБАВИТЬ СТАТЬЮ</span></a>
+{% endblock %}
+
+{% block cabinetbody %}
+<hr class="hr">
+<section class="site-flex site-flow flex-wrap site-designers mt-60 mb-20">
+    {% for key, value in articles %}
+        {% include "includes/article-minicard.html.twig" with {'article': value, 'show_tags': 1, 'class': 'site-flex-column site-designer x3 m25', 'url': '#popup-main-content-' ~ value.id ~ '" data-open-popup="" class="link'} %}
+    {% endfor %}
+    <section class="catalog-pagination">
+        <section class="content">
+            {{ pagerfanta(articles, 'default', {'omitFirstPage': true, 'prev_message': '←','next_message': '→', 'css_current_class': 'active', 'page_template': '<a class="pagination-item" href="%href%"%rel%>%text%</a>', 'span_template': '<span class="pagination-item active">%text%</span>'}) }}
+        </section>
+    </section>
+</section>
+{% endblock %}
+
+{% block add_modal %}
+    {% for article in articles %}
+        <section class="site-popup-window popup-main-content js--site-popup-window" data-no-effect id="popup-main-content-{{ article.id }}">
+            <div class="site-w site-default-text">
+               <div class="site-page-content wm-600">
+                <h1>{{ article.name }}</h1>
+                {% if article.gallery and article.gallery.enabled and article.gallery.getGalleryHasMedias and article.gallery.getGalleryHasMedias.count %}
+                    {% set img = (article.gallery.getGalleryHasMedias | main) %}
+                    <p class="image">
+                        <img src="{% path img.media, 'reference' %}" alt="">
+                    </p>
+                {% endif %}
+                {% autoescape %}
+                    {{ article.textFormatted | raw }}
+                {% endautoescape %}
+                {% if article.gallery and article.gallery.enabled %}
+                    <section class="site-article-slider">
+                        <div class="site-article-slider-items js--popup-article-slider">
+                        {% for key, value in article.gallery.getGalleryHasMedias %}
+                            {% if value.enabled and value.media.enabled is defined and value.media.enabled and value.media.enabled and value != img  %}
+                                <div class="site-article-slider-item">
+                                    <div class="article-slider-item-image">
+                                        {% thumbnail value.media, 'article_740' with {'title': ''} %}
+                                    </div>
+                                    <div class="article-slider-item-content">
+                                        <span class="title"><span>Фото:</span> {{ value.media.name }}</span>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                        </div>
+                    </section>
+                {% endif %}
+            </div>
+            </div>
+            <div class="popup-main-close js--popup-main-close"><span class="svg close"><!-- svg `cross.svg` begin -->
+
+            <svg  version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+                 width="11" height="10" viewBox="-0.982 -0.4 11 10" enable-background="new -0.982 -0.4 11 10" xml:space="preserve">
+
+            <polygon points="0.54,0 0,0.54 4.26,4.74 0,9 0.54,9.54 4.74,5.28 9,9.54 9.54,9 5.28,4.74 9.54,0.54 9,0 4.74,4.26 
+                "/>
+            </svg>
+            <!-- svg `cross.svg` end --></span></div>
+        </section>
+    {% endfor %}
+{% endblock %}

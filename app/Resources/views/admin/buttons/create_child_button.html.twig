@@ -1,0 +1,19 @@
+{#
+
+Часть шаблона админки для древовидных сущностей: вывод кнопки создания потомка в шапке
+
+#}
+
+{% if admin.hasAccess('create') and admin.hasRoute('create') and admin.hasRoute('create_child') %}
+    <li>
+        {% if admin.rootNodeId > 0 %}
+            <a class="sonata-action-element" href="{{ admin.generateUrl('create_child', {'pid': admin.rootNodeId}) }}">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                {{ 'link_action_create_child'|trans({}, 'SonataAdminBundle') }}</a>
+        {% else %}
+            <a class="sonata-action-element" href="{{ admin.generateUrl('create')}}">
+                <i class="fa fa-plus-circle" aria-hidden="true"></i>
+                {{ 'link_action_create'|trans({}, 'SonataAdminBundle') }}</a>
+        {% endif %}
+    </li>
+{% endif %}

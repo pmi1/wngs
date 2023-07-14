@@ -1,0 +1,29 @@
+{#
+
+Шаблон баннера 3 в ряд
+
+#}
+{% if banners %}
+    <section class="site-flex site-flow site-materials">
+        {% for banner in banners %}
+            <section class="site-flex-column site-materials-item x3 m10">
+                <div class="wrapper">
+                    {% if banner.image %}
+                        {% set img %}{% path banner.image, 'page_360' %}{% endset %}
+                    {% else %}
+                        {% set img = webpack_asset('@web/images/notfound.svg') %}
+                    {% endif %}
+                    <a href="{{ banner.link }}" {{ banner.isNewWin == 1 ? ' target="_blank" ' : '' }} class="link">
+                        <div class="image" style="background-image: url({{ img }});">
+                            
+                        </div>
+                        <div class="content">
+                            <div class="title">{{ banner.name }}</div>
+                            <div class="text">{{ banner.text.raw|raw }}</div>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        {% endfor %}
+    </section>
+{% endif %}

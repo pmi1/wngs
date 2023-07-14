@@ -1,0 +1,148 @@
+{#
+
+Шаблон  страницы кабинета статей
+
+#}
+
+{% extends 'cabinet/main.html.twig' %}
+
+{% block cabinetbody %}
+<hr class="hr">
+<section class="panel-top-filters">
+                            <form method="get">
+                               <div class="form-field dib date small-text form-flow-horizontal form-flow-vertical-default w-sm std-black">
+                                    <input type="text" name="date" value="{{ filter.value.date }}" placeholder="ПО ДАТЕ" data-datepicker>
+                                    <span class="svg icon calendar"><!-- svg `calendar.svg` begin --><svg id="Group_75" data-name="Group 75" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26.06 24.432">
+  
+  <path id="Path_54" data-name="Path 54" class="cls-1" d="M21.988,27.721H18.731v-.814a.814.814,0,1,0-1.629,0v.814H8.958v-.814a.769.769,0,0,0-.814-.814.769.769,0,0,0-.814.814v.814H4.072A4.032,4.032,0,0,0,0,31.793V46.452a4.032,4.032,0,0,0,4.072,4.072H21.988a4.032,4.032,0,0,0,4.072-4.072V31.793a4.032,4.032,0,0,0-4.072-4.072ZM1.629,31.793A2.505,2.505,0,0,1,4.072,29.35H7.329v.814a.769.769,0,0,0,.814.814.769.769,0,0,0,.814-.814V29.35H17.1v.814a.814.814,0,0,0,1.629,0V29.35h3.258a2.505,2.505,0,0,1,2.443,2.443v2.443H1.629V31.793Zm22.8,14.659a2.505,2.505,0,0,1-2.443,2.443H4.072a2.505,2.505,0,0,1-2.443-2.443V35.865h22.8Z" transform="translate(0 -26.092)"/>
+  <path id="Path_55" data-name="Path 55" class="cls-1" d="M132.1,577.323a1.479,1.479,0,0,0,1.14-.489,1.575,1.575,0,0,0,0-2.28,1.575,1.575,0,0,0-2.28,0,1.479,1.479,0,0,0-.489,1.14,1.76,1.76,0,0,0,.489,1.14A1.479,1.479,0,0,0,132.1,577.323Z" transform="translate(-126.397 -556.963)"/>
+  <path id="Path_56" data-name="Path 56" class="cls-1" d="M132.1,420.759a1.479,1.479,0,0,0,1.14-.489,1.575,1.575,0,0,0,0-2.28,1.575,1.575,0,0,0-2.28,0,1.629,1.629,0,0,0,1.14,2.769Z" transform="translate(-126.397 -405.286)"/>
+  <path id="Path_57" data-name="Path 57" class="cls-1" d="M288.661,577.323a1.479,1.479,0,0,0,1.14-.489,1.575,1.575,0,0,0,0-2.28,1.575,1.575,0,0,0-2.28,0,1.575,1.575,0,0,0,0,2.28A1.479,1.479,0,0,0,288.661,577.323Z" transform="translate(-278.074 -556.963)"/>
+  <path id="Path_58" data-name="Path 58" class="cls-1" d="M288.661,420.759a1.479,1.479,0,0,0,1.14-.489,1.575,1.575,0,0,0,0-2.28,1.575,1.575,0,0,0-2.28,0,1.575,1.575,0,0,0,0,2.28A1.479,1.479,0,0,0,288.661,420.759Z" transform="translate(-278.074 -405.286)"/>
+  <path id="Path_59" data-name="Path 59" class="cls-1" d="M445.222,577.323a1.613,1.613,0,0,0,1.14-2.769,1.575,1.575,0,0,0-2.28,0,1.575,1.575,0,0,0,0,2.28A1.479,1.479,0,0,0,445.222,577.323Z" transform="translate(-429.749 -556.963)"/>
+  <path id="Path_60" data-name="Path 60" class="cls-1" d="M445.222,420.759a1.67,1.67,0,0,0,1.629-1.629,1.759,1.759,0,0,0-.489-1.14,1.575,1.575,0,0,0-2.28,0,1.575,1.575,0,0,0,0,2.28A1.479,1.479,0,0,0,445.222,420.759Z" transform="translate(-429.749 -405.286)"/>
+  <path id="Path_61" data-name="Path 61" class="cls-1" d="M601.786,577.323a1.479,1.479,0,0,0,1.14-.489,1.575,1.575,0,0,0,0-2.28,1.575,1.575,0,0,0-2.28,0,1.478,1.478,0,0,0-.489,1.14,1.759,1.759,0,0,0,.489,1.14A1.479,1.479,0,0,0,601.786,577.323Z" transform="translate(-581.426 -556.963)"/>
+  <path id="Path_62" data-name="Path 62" class="cls-1" d="M601.786,420.759a1.67,1.67,0,0,0,1.629-1.629,1.76,1.76,0,0,0-.489-1.14,1.575,1.575,0,0,0-2.28,0,1.575,1.575,0,0,0,0,2.28A1.479,1.479,0,0,0,601.786,420.759Z" transform="translate(-581.426 -405.286)"/>
+</svg>
+<!-- svg `calendar.svg` end --></span>
+                                </div>
+
+                                <div class="form-field select form-flow-horizontal form-flow-vertical-default w-sm std-black">
+                                    {% block filteruser %}
+                                    <select class="selectpicker" name="executor">
+                                        <option value="0">ПО ДИЗАЙНЕРАМ</option>
+                                        {% for key, value in filter.executor %}
+                                            <option value="{{ value.id }}"{{ value.id == filter.value.executor ? ' selected' :'' }}>{{ value.brand }}</option>
+                                        {% endfor %}
+                                    </select>
+                                    {% endblock %}
+                                </div>
+
+                                <div class="form-field select form-flow-horizontal form-flow-vertical-default w-sm std-black">
+                                    <select class="selectpicker" name="item">
+                                        <option value="0">ПО ТОВАРУ</option>
+                                        {% for key, value in filter.item %}
+                                            <option value="{{ value.id }}"{{ value.id == filter.value.item ? ' selected' :'' }}>{{ value.name }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="form-field select form-flow-horizontal form-flow-vertical-default w-sm std-black">
+                                    <select class="selectpicker" name="fstatus">
+                                        <option value="0">ПО СТАТУСАМ</option>
+                                        {% for key, value in filter.fstatus %}
+                                            <option value="{{ value.status }}"{{ value.status == filter.value.fstatus ? ' selected' :'' }}>{{ ('order-status-' ~ value.status) | trans }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <!--div class="form-field select form-flow-horizontal form-flow-vertical-default w-sm std-black">
+                                    <select class="selectpicker" name="sort_2">
+                                        <option value="0">ПО НАЗВАНИЮ</option>
+                                        <option value="1">ПО ДАТЕ</option>
+                                        <option value="2">ПО НАЗВАНИЮ</option>
+                                        <option value="3">ПО ЦЕНЕ</option>
+                                    </select>
+                                </div-->
+
+                                <button type="submit" class="site-filter-update"><span class="svg loader"><!-- svg `loader.svg` begin -->
+
+<svg  version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+     width="19" height="18" viewBox="-0.73 -0.147 19 18" enable-background="new -0.73 -0.147 19 18" xml:space="preserve">
+
+<path d="M0,0v0.36l0.06-0.3L0.36,0H0z M17.399,0l0.24,0.06L17.7,0.3V0H17.399z M8.88,1.38
+    c-2.16,0-4.2,0.96-5.64,2.58v0.48l0.42,0.48l0.6,0.06l0,0C5.4,3.6,7.08,2.82,8.88,2.82c3.36,0,6.06,2.7,6.06,6.06
+    c0,3.3-2.699,6-6.06,6c-3,0-5.58-2.22-6-5.22h0.06c0,0,0.42,0.36,0.72,0.18C3.96,9.66,4.2,9.36,4.14,9.12
+    c-0.06-0.3-0.06-0.42-0.3-0.66C3.72,8.34,3.36,7.98,3,7.62l0,0L2.46,7.14L2.1,7.08L1.62,7.26v0.06l0,0L0.9,7.98L0.24,8.64
+    c0,0-0.18,0.24-0.12,0.48c0.06,0.181,0.06,0.42,0.3,0.601c0.3,0.24,0.78,0.06,0.78,0.06L1.44,9.6l0,0
+    c0.42,3.78,3.6,6.721,7.439,6.721c4.14,0,7.439-3.36,7.439-7.44C16.319,4.74,13.02,1.38,8.88,1.38L8.88,1.38z M0,17.4v0.3h0.3
+    l-0.24-0.06L0,17.4z M17.64,17.641l-0.18,0.06h0.24v-0.24L17.64,17.641z"/>
+</svg>
+<!-- svg `loader.svg` end --></span></button>
+</form>
+                            </section>
+
+
+<section class="site-flex site-flow flex-wrap site-designers mb-20">
+    <div class="site-table-container">
+        <section class="table table-order">
+
+            <section class="table-row">
+                {% block orderlist %}
+                <div class="table-cell th">ДАТА <br>СОЗДАНИЯ</div>
+                <div class="table-cell th">ДИЗАЙНЕР</div>
+                <div class="table-cell th">СТАТУС</div>
+                <div class="table-cell th">ТОВАР</div>
+                <div class="table-cell th price">ЦЕНА</div>
+                <div class="table-cell th">ДОСТАВКА</div>
+                <div class="table-cell th">НАПИСАТЬ <br>ДИЗАЙНЕРУ</div>
+                {% endblock %}
+            </section>
+            {% for order in orders %}
+                <section class="table-row">
+                    <div class="table-cell td"><a href="{% block orderItemLink %}{{ path('cabinet_order_item', {'id': order.id}) }}{% endblock %}">{{order.cdate|date("d.m.y")}}</a></div>
+                    <div class="table-cell td"><a href="{{ block('orderItemLink') }}">{% block orderlistuser %}{{order.executor.brand}}{% endblock %}</a></div>
+                    <div class="table-cell td">
+                        <div class="dropdown">
+                            <a href="{{ block('orderItemLink') }}">
+                                <b class="order-status-{{order.status}}">
+                                    {{ ('order-status-' ~ order.status) | trans }}
+                                </b>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="table-cell td"><a href="{{ block('orderItemLink') }}">{{order.item ? order.item.name : ''}}</a></div>
+                    <div class="table-cell td td-price"><a href="{{ block('orderItemLink') }}">{{order.price}}</a></div>
+                    <div class="table-cell td"><a href="{{ block('orderItemLink') }}">{{order.delivery}}</a></div>
+                    <div class="table-cell td">
+                        <a href="{{ block('orderItemLink') }}#form_description" class="svg envelope"><!-- svg `envelope.svg` begin --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 22.831"><g transform="translate(0 -57.75)"><g transform="translate(0 57.75)"><path d="M26.338,57.75H3.669A3.672,3.672,0,0,0,0,61.419V76.912a3.672,3.672,0,0,0,3.669,3.669H26.331A3.672,3.672,0,0,0,30,76.912V61.425A3.668,3.668,0,0,0,26.338,57.75ZM28.33,76.912A2,2,0,0,1,26.338,78.9H3.669a2,2,0,0,1-1.993-1.993V61.425a2,2,0,0,1,1.993-1.993H26.331a2,2,0,0,1,1.993,1.993V76.912Z" transform="translate(0 -57.75)"></path><path d="M71.212,116.95l7.337-6.58a.839.839,0,1,0-1.124-1.248L67.307,118.2l-1.974-1.763c-.006-.006-.012-.012-.012-.019a1.241,1.241,0,0,0-.137-.118l-8.032-7.188a.84.84,0,1,0-1.117,1.254l7.424,6.636-7.393,6.921a.841.841,0,0,0-.037,1.186.857.857,0,0,0,.615.267.84.84,0,0,0,.571-.223l7.5-7.02,2.036,1.819a.836.836,0,0,0,1.117-.006l2.092-1.875,7.461,7.089a.84.84,0,0,0,1.186-.031.841.841,0,0,0-.031-1.186Z" transform="translate(-52.292 -105.727)"></path></g></g></svg><!-- svg `envelope.svg` end --></a>
+                    </div>
+                </section>
+            {% endfor %}
+        </section>
+    </div>
+    <section class="catalog-pagination">
+        <section class="content">
+            {{ pagerfanta(orders, 'default', {'omitFirstPage': true, 'prev_message': '←','next_message': '→', 'css_current_class': 'active', 'page_template': '<a class="pagination-item" href="%href%"%rel%>%text%</a>', 'span_template': '<span class="pagination-item active">%text%</span>'}) }}
+        </section>
+    </section>
+    {% if app.request.get('archive') != 1 %}
+        <section class="site-pagination">
+            <a href="{% block archiveLink %}{{ path('cabinet_order', {'archive': 1}) }}{% endblock %}" class="site-pages-loader"><span class="svg dib"><!-- svg `loader.svg` begin -->
+
+    <svg version="1.1" xmlns="&amp;ns_svg;" xmlns:xlink="&amp;ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" width="19" height="18" viewBox="-0.73 -0.147 19 18" enable-background="new -0.73 -0.147 19 18" xml:space="preserve">
+
+    <path d="M0,0v0.36l0.06-0.3L0.36,0H0z M17.399,0l0.24,0.06L17.7,0.3V0H17.399z M8.88,1.38
+        c-2.16,0-4.2,0.96-5.64,2.58v0.48l0.42,0.48l0.6,0.06l0,0C5.4,3.6,7.08,2.82,8.88,2.82c3.36,0,6.06,2.7,6.06,6.06
+        c0,3.3-2.699,6-6.06,6c-3,0-5.58-2.22-6-5.22h0.06c0,0,0.42,0.36,0.72,0.18C3.96,9.66,4.2,9.36,4.14,9.12
+        c-0.06-0.3-0.06-0.42-0.3-0.66C3.72,8.34,3.36,7.98,3,7.62l0,0L2.46,7.14L2.1,7.08L1.62,7.26v0.06l0,0L0.9,7.98L0.24,8.64
+        c0,0-0.18,0.24-0.12,0.48c0.06,0.181,0.06,0.42,0.3,0.601c0.3,0.24,0.78,0.06,0.78,0.06L1.44,9.6l0,0
+        c0.42,3.78,3.6,6.721,7.439,6.721c4.14,0,7.439-3.36,7.439-7.44C16.319,4.74,13.02,1.38,8.88,1.38L8.88,1.38z M0,17.4v0.3h0.3
+        l-0.24-0.06L0,17.4z M17.64,17.641l-0.18,0.06h0.24v-0.24L17.64,17.641z"></path>
+    </svg>
+    <!-- svg `loader.svg` end --></span> Архив заказов</a>
+            </section>
+        {% endif %}
+</section>
+{% endblock %}
+

@@ -1,0 +1,64 @@
+security:
+    access_control:
+        - { path: ^/admin/login, roles: [IS_AUTHENTICATED_ANONYMOUSLY] }
+        - { path: ^/admin/core, roles: [IS_AUTHENTICATED_FULLY] }
+        - { path: ^/admin, roles: [ROLE_1, ROLE_2, ROLE_3, ROLE_4] }
+        - { path: ^/admin/dashboard, roles: [ROLE_1, ROLE_2, ROLE_3, ROLE_4] }
+        - { path: ^/specialities/, roles: [ROLE_4] }
+        - { path: ^/search/, roles: [ROLE_4] }
+        - { path: ^/information/, roles: [ROLE_4] }
+        - { path: ^/feedbacks/, roles: [ROLE_4] }
+        - { path: ^/countries/, roles: [ROLE_4] }
+        - { path: ^/contacts/, roles: [ROLE_4] }
+        - { path: ^/compare/, roles: [ROLE_4] }
+        - { path: ^/admin/sonata/media/media/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/sonata/media/galleryhasmedia/, roles: [ROLE_2, ROLE_1] }
+        - { path: ^/admin/sonata/media/gallery/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/script/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/cmfscript/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/user/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/serviceclinictype/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/rolegroup/, roles: [ROLE_2, ROLE_1] }
+        - { path: ^/admin/app/role/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/relatedclinic/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/promomain/, roles: [ROLE_2, ROLE_1] }
+        - { path: ^/admin/app/promo/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/pricesegment/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/page/, roles: [ROLE_2, ROLE_1] }
+        - { path: ^/admin/app/opinion/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/meddirection/, roles: [ROLE_2, ROLE_1] }
+        - { path: ^/admin/app/manipulation/, roles: [ROLE_2, ROLE_1] }
+        - { path: ^/admin/app/lastrequest/, roles: [ROLE_2, ROLE_1] }
+        - { path: ^/admin/app/langsupport/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/formanswer/, roles: [ROLE_2, ROLE_1] }
+        - { path: ^/admin/app/doctorspecialisation/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/doctordegree/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/doctor/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/diseasevideo/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/diseaseimage/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/disease/, roles: [ROLE_2, ROLE_1] }
+        - { path: ^/admin/app/curator/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/countrymeddirection/, roles: [ROLE_2, ROLE_1] }
+        - { path: ^/admin/app/countrydisease/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/countryarticle/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/country/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/costexample/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/clinicvideo/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/clinicparamval/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/clinicparam/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/clinicmanipulation/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/clinicimage/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/clinicdisease/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/clinicattrval/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/clinicattrlink/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/clinicattrgroup/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/clinicattr/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/admin/app/clinic/, roles: [ROLE_2, ROLE_1] }
+        - { path: ^/admin/app/city/, roles: [ROLE_2, ROLE_1] }
+        - { path: ^/admin/app/certificate/, roles: [ROLE_1, ROLE_2] }
+        - { path: ^/about/, roles: [ROLE_4] }
+        - { path: ^/, roles: [ROLE_4] }
+        - { path: ^/thankyou/, roles: [ROLE_2, ROLE_1] }
+        - { path: ^/80/, roles: [ROLE_4] }
+        - { path: ^/76/, roles: [ROLE_4] }
+        - { path: ^/admin/, roles: [ROLE_NO_ACCESS] }

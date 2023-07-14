@@ -1,0 +1,10 @@
+{#
+
+Часть шаблона админки для стран: вывод ссылки на страны фронт-части
+
+#}
+<li>
+<a class="sonata-action-element" href="{{ path('country_list')}}" target="_blank">
+    <i class="fa fa-info-circle" aria-hidden="true"></i>
+    {{ 'link_countries_front'|trans({}, 'SonataAdminBundle') }}</a>
+</li>

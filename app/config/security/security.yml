@@ -1,0 +1,92 @@
+# To get started with security, check out the documentation:
+# http://symfony.com/doc/current/book/security.html
+security:
+
+    encoders:
+        AppBundle\Entity\User: 
+            algorithm: bcrypt
+            cost: 12
+
+    # http://symfony.com/doc/current/book/security.html#where-do-users-come-from-user-providers
+    providers:
+        db_provider:
+            entity:
+                class: AppBundle:User
+        hwi:
+            id: app.oauth_aware.user_provider.service
+            
+    firewalls:
+        # disables authentication for assets and the profiler, adapt it according to your needs
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+            context: static
+            
+        admin:
+            pattern:   ^/admin/
+            anonymous: ~
+            provider: db_provider
+            context: admin_context
+
+            form_login:
+                check_path: /admin/login
+                login_path: /admin/login
+
+                use_forward: false
+                always_use_default_target_path: false
+                default_target_path: /admin/dashboard
+                target_path_parameter: _target_path
+                use_referer: false
+                
+                username_parameter: _username
+                password_parameter: _password
+                
+                csrf_token_generator: security.csrf.token_manager
+                post_only:      true
+                remember_me:    true
+                require_previous_session: false
+            
+            logout:
+                path:   /admin/logout
+                target: /admin/login
+            
+        main:
+            pattern:   ^/
+            anonymous: ~
+            provider: db_provider
+            context: client_context
+
+            form_login:
+                check_path: /login
+                login_path: /login
+
+                use_forward: false
+                always_use_default_target_path: true
+                default_target_path: /cabinet
+                target_path_parameter: _target_path
+                use_referer: false
+                
+                username_parameter: _username
+                password_parameter: _password
+                
+                csrf_token_generator: security.csrf.token_manager
+                post_only:      true
+                remember_me:    true
+                require_previous_session: false
+            
+            logout:
+                path:   /logout
+                target: /login
+
+            oauth:
+                resource_owners:
+                    facebook:           "/login-oauth/check-facebook"
+                    google:             "/login-oauth/check-google"
+                login_path:        /login
+                use_forward:       false
+                failure_path:      /login
+
+                oauth_user_provider:
+                    service: app.oauth_aware.user_provider.service #hwi_oauth.user.provider
+imports:
+    - { resource: access_control_tree.yml, ignore_errors: true }

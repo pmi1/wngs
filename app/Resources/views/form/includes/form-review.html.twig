@@ -1,0 +1,43 @@
+{% if done is defined %}
+    <div class="done">{{'Thank you for review'|trans}}</div>
+    <script>var element = document.getElementById('review');
+    element.parentNode.removeChild(element);</script>
+{% else %}
+
+    {% form_theme form _self %}
+
+    <section class="site-popup-window popup-main-content js--site-popup-window">
+        <div class="site-w site-default-text">
+            <div class="site-flex site-flow site-flow-bottom mb40">
+                <div class="site-flex-column m10">
+                {{ form_start(form) }}
+                    {{ form_row(form.name) }}
+                    {{ form_row(form.comment) }}
+                    <button class="site-button yellow w-full big form-field-margin-flow"><span class="text">ОТПРАВИТЬ ОТЗЫВ</span></button>
+                {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+        <div class="popup-main-close js--popup-main-close"><span class="svg close"><!-- svg `cross.svg` begin -->
+
+    <svg  version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+         width="11" height="10" viewBox="-0.982 -0.4 11 10" enable-background="new -0.982 -0.4 11 10" xml:space="preserve">
+
+    <polygon points="0.54,0 0,0.54 4.26,4.74 0,9 0.54,9.54 4.74,5.28 9,9.54 9.54,9 5.28,4.74 9.54,0.54 9,0 4.74,4.26 
+        "/>
+    </svg>
+    <!-- svg `cross.svg` end --></span></div>
+    </section>
+
+    {% block form_row %}
+        <div class="form-field form-field-margin-flow text center big">
+            {{ form_label(form) }}
+            {{ form_errors(form) }}
+            {{ form_widget(form) }}
+            <span class="svg icon"></span>
+        </div>
+    {% endblock form_row %}
+
+
+{% endif %}
+

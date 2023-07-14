@@ -1,0 +1,52 @@
+maba_webpack:
+    enabled_bundles:
+        - AppBundle
+    twig:
+        additional_directories:
+            - %kernel.root_dir%/Resources/partials
+        suppress_errors:      true              # whether files not found or twig parse errors should be ignored
+                                                # defaults to true in dev environment
+                                                # defaults to "ignore_unkwowns" in prod - this option ignores
+                                                #     unknown functions etc., but fails on syntax errors
+                                                # set to false to always fail on any twig error
+    config:
+        path:                 '%kernel.root_dir%/../webpack/webpack.config.js'
+        parameters:           []        # additional parameters passed to webpack config file
+                                        # for example, set dev_server_public_path and public_path to overwrite
+                                            # //localhost:8080/compiled/ and /compiled/
+                                            # see inside your webpack.config.js for more info
+        # set location of cached manifests. Useful for deploy, when you don't want to include your cache directory
+        manifest_file_path:        '%kernel.root_dir%/../app/config/vendor/webpack_manifest.php'
+
+    aliases:                            # allows to set aliases inside require() in your JS files
+        path_in_bundle:       'webpack/src/assets'     # this means that require('@acme_hello/a.js')
+                                                    # will include something like
+                                                    # src/Acme/Bundles/AcmeHelloBundle/Resources/assets/a.js
+                                                    # see "Aliases" for more information
+        additional:
+                npm: %kernel.root_dir%/../webpack/node_modules
+                web: %kernel.root_dir%/../webpack/src # provide any other aliases, prefix (@) is always added automatically
+
+    bin:
+        webpack:
+            executable: # how maba:webpack:compile executes webpack
+                        # should be array, for example ['/usr/bin/node', 'node_modules/webpack/bin/webpack.js']
+                - '%kernel.root_dir%/../webpack/node_modules/.bin/webpack'
+            arguments:            []    # additional parameters to pass to webpack
+                                        # --config with configuration path is always passed
+        dev_server:
+            executable: # how maba:webpack:dev-server executes webpack-dev-server
+                - '%kernel.root_dir%/../webpack/node_modules/.bin/webpack-dev-server'
+            arguments:  # additional parameters to pass to webpack-dev-server; these are default ones
+                - --hot
+                - --history-api-fallback
+                - --inline
+        disable_tty: false      # disables TTY setting. Defaults to false in dev environment, true in others.
+                                # TTY is needed to run dashboard and/or to display colors, but does not work
+                                # in some environments like AWS
+        working_directory: %kernel.root_dir%/../webpack
+        
+    dashboard:                  # configuration for dashboard plugin - only works when TTY available
+        enabled: dev_server     # `always` for both compile and dev-server, `false` to disable
+        executable:
+            - '%kernel.root_dir%/../webpack/node_modules/.bin/webpack-dashboard'

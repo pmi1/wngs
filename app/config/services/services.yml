@@ -1,0 +1,61 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/book/service_container.html
+parameters:
+    application_sonata_media.svg_class: Application\Sonata\MediaBundle\Provider\SVGProvider
+    sonata.media.admin.gallery_has_media.class: Application\Sonata\MediaBundle\Admin\GalleryHasMediaAdmin
+    sonata.media.admin.gallery_has_media.entity: Application\Sonata\MediaBundle\Entity\GalleryHasMedia
+    sonata.media.admin.media.class: Application\Sonata\MediaBundle\Admin\MediaAdmin
+
+services:
+    app.security.handler.role:
+        class: AppBundle\Security\Handler\RoleSecurityHandler
+        public: false
+        arguments: ['@security.authorization_checker', []]
+
+    app.oauth_aware.user_provider.service:
+        class: AppBundle\Security\CqauthProvider
+        arguments:
+            - '@session'
+            - '@doctrine'
+            - '@service_container'
+
+    hwi_oauth.user.provider.entity:
+        class: HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider
+
+    sonata.media.provider.svg:
+        class: %application_sonata_media.svg_class%
+        tags:
+            - { name: sonata.media.provider }
+        arguments:
+            - sonata.media.provider.svg
+            - '@sonata.media.filesystem.local'
+            - '@sonata.media.cdn.server'
+            - '@sonata.media.generator.default'
+            - '@sonata.media.thumbnail.format'
+            - ['svg']
+            - ['image/svg+xml']
+        calls:
+            - [setTemplates, [{ helper_thumbnail: 'SonataMediaBundle:Provider:thumbnail.html.twig', helper_view: 'SonataMediaBundle:Provider:view_svg.html.twig' }]]
+    sonata.media.admin.media:
+        class: %sonata.media.admin.media.class%
+        tags:
+            - { name: sonata.admin, manager_type: orm, show_in_dashboard: false, label_catalogue: %sonata.media.admin.media.translation_domain% , label_translator_strategy: sonata.admin.label.strategy.underscore }
+        arguments:
+            - ~
+            - %sonata.media.admin.media.entity%
+            - %sonata.media.admin.media.controller%
+            - "@sonata.media.pool"
+        calls:
+            - [setModelManager, ["@sonata.media.admin.media.manager"]]
+            - [setTranslationDomain, [%sonata.media.admin.media.translation_domain%]]
+            - [setTemplates, [{list: SonataMediaBundle:MediaAdmin:list_custom.html.twig , edit: SonataMediaBundle:MediaAdmin:edit.html.twig }]]
+
+    acme.listener.custom_property:
+        class: AppBundle\EventListener\ElasticPropertyListener
+        arguments: ['@service_container']
+        tags:
+            - { name: kernel.event_subscriber }
+
+    sonata.media.resizer.custom:
+        class: Application\Sonata\MediaBundle\Resizer\CustomResizer
+        arguments: ['@sonata.media.adapter.image.Gd', 'outbound', '@sonata.media.metadata.proxy', '@service_container']

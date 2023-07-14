@@ -1,0 +1,11 @@
+{#
+
+Часть шаблона админки для древовидных сущностей: вывод кнопки удаления записи
+
+#}
+
+{% if admin.isGranted('DELETE', object) and admin.hasRoute('delete') %}
+    <a href="{{ admin.generateObjectUrl('delete', object) }}" class="btn btn-sm btn-default delete_link" title="{{ 'action_delete'|trans({}, 'SonataAdminBundle') }}">
+        <i class="fa fa-times" aria-hidden="true"></i>
+    </a>
+{% endif %}

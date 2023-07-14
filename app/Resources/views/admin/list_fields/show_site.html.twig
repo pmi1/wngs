@@ -1,0 +1,19 @@
+{#
+
+Часть шаблона админки для ссылок
+
+#}
+
+{% set url = admin.getClientUrl(object) %}
+
+<td class="sonata-ba-list-field sonata-ba-list-field-url" objectid="1">
+    {% if url and object.getStatus() %}
+        <a href="{{ url }}" target="_blank" title="{{ 'action_show_site'|trans({}, 'SonataAdminBundle') }}">
+            {{ object.getLink() }}
+        </a>
+    {% else %}
+        <span>
+            {{ object.getLink() }}
+        </span>
+    {% endif %}
+</td>

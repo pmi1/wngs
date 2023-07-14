@@ -1,0 +1,11 @@
+<!--admin/includes/tree-branch.twig-->
+{% for branch in tree %}
+    <tr class="treegrid-{{ branch.id }} {% if branch.parent_id > 0 %}treegrid-parent-{{ branch.parent_id }}{% endif %}">
+        {% for col in columns %}
+            <td>{{ branch[col.key] }}</td>
+        {% endfor %}
+    </tr>
+    {% if branch.sub_items is defined %}
+        {% include "form/includes/tree-branch.twig" with {'tree':branch.sub_items, 'columns':columns} %}
+    {% endif %}
+{% endfor %}

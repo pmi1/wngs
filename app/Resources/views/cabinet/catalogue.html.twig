@@ -1,0 +1,165 @@
+{#
+
+Шаблон каталожной страницы кабинета
+
+#}
+
+{% extends 'cabinet/main.html.twig' %}
+
+{% block cabinetbody %}
+<hr class="hr">
+
+<div class="panel-buttons">
+    {% block bottons %}
+        {% if cat_banners is defined %}
+            {% for v in cat_banners %}
+                {% if v.text.raw %}
+                    <a href="#popup-main-content-{{ v.id }}" class="site-button yellow small" data-open-popup data-tooltip="{{ v.link }}">
+                        <span class="text">{{ v.name }}</span>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endblock %}
+    <span class="dib float-right vam">
+        <a href="{{ path('cabinet_item') }}" class="site-button yellow small"><span class="text"><span class="f19 vab">+</span> ДОБАВИТЬ ТОВАР</span></a>
+    </span>
+
+</div>
+
+<!-- site-tabs begin -->
+<section class="site-tabs small">
+    <ul class="site-tabs-ul">
+        <li><a href="#site-tab-1" class="site-tab-selector js--tab-selector active">Редактировать</a></li>
+        <li><a href="{{ path('designer_show', {'id': app.user.id}) }}" class="site-tab-selector js--tab-selector">В магазин</a></li>
+    </ul>
+
+    <div class="site-tab-content js--site-tab-content active" id="site-tab-1">
+        <form method="get">
+            <section class="panel-top-filters-title">Фильтр</section>
+
+            <section class="panel-top-filters">
+                 <div class="form-field select form-flow-horizontal w-sm std-black">
+                    <select class="selectpicker" name="selection[]" multiple="multiple">
+                        <option value="" selected disabled>ПО КОЛЛЕКЦИЯМ</option>
+                        {% if filter.selection is defined %}
+                            {% for v in filter.selection %}
+                                <option value="{{v.id}}" {{ v.id in filter.value.selection ? 'selected' :'' }}>{{v.name}}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+                </div>
+
+                <div class="form-field select form-flow-horizontal w-sm std-black">
+                    <select class="selectpicker" name="cats[]" multiple="multiple">
+                        <option value="" selected disabled>ПО КАТЕГОРИЯМ</option>
+                        {% if filter.cats is defined %}
+                            {% for v in filter.cats %}
+                                <option value="{{v.id}}" {{ v.id in filter.value.cats ? 'selected' :'' }}>{{v.name}}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+                </div>
+
+                <div class="form-field dib text std-black form-flow-horizontal w-sm">
+                    <input type="text" name="q" value="{{ filter.value.q }}" placeholder="ПО НАЗВАНИЮ">
+                </div>
+
+                <span class="dib float-right vam">
+                    <button href class="site-button yellow"><span class="text">ИСКАТЬ</span></button>
+                </span>
+            </section>
+        </form>
+        <div class="site-table-container">
+            <section class="table table-order">
+
+                <section class="table-row">
+                    <div class="table-cell th">ПРОСМОТРЕТЬ <br>ИЗОБРАЖЕНИЯ</div>
+                    <div class="table-cell th">ДАТА <br>СОЗДАНИЯ</div>
+                    <div class="table-cell th">НАЗВАНИЕ <br>КОЛЛЕКЦИИ</div>
+                    <div class="table-cell th">PROMO</div>
+                    <div class="table-cell th">АКЦИЯ</div>
+                    <div class="table-cell th">ТОВАР</div>
+                    <div class="table-cell th">УДАЛ./ <br>РЕД.</div>
+                </section>
+                {% for item in items %}
+                    {% if item.gallery and item.gallery.enabled and item.gallery.getGalleryHasMedias and item.gallery.getGalleryHasMedias.count %}
+                        {% set img %}{% path (item.gallery.getGalleryHasMedias | main).media, 'item_246' %}{% endset %}
+                    {% else %}
+                        {% set img = webpack_asset('@web/images/notfound.svg') %}
+                    {% endif %}
+                    {% set inPromo = 0 %}
+                    <section class="table-row">
+                        <div class="table-cell td"><a href="{{ path('item_show', {'slug': item.link|trim('/')}) }}" class="product-small-image" style="background-image: url({{ img }});"></a></div>
+                        <div class="table-cell td"><a href="{{ path('item_show', {'slug': item.link|trim('/')}) }}">{{ item.cdate ? item.cdate|date("d.m.y") : '' }}</a></div>
+                        <div class="table-cell td"><a href="{{ path('item_show', {'slug': item.link|trim('/')}) }}">
+                            {% for itemSelection in item.itemSelections %}
+                                {% if itemSelection.selection.user %}
+                                    {{ itemSelection.selection.name }}
+                                {% endif %}
+                                {% if not(itemSelection.selection.user) and itemSelection.selection.id == promo_id %}
+                                    {% set inPromo = 1 %}
+                                {% endif %}
+                            {% endfor %}
+                        </a>
+                        </div>
+                        <div class="table-cell td"><a href="{{ path('item_show', {'slug': item.link|trim('/')}) }}">{{ inPromo ? 'Да' : 'Нет' }}</a></div>
+                        <div class="table-cell td"><a href="{{ path('item_show', {'slug': item.link|trim('/')}) }}">
+                            {% for itemSelection in item.itemSelections %}
+                                {% if not(itemSelection.selection.user) and 
+                                        (itemSelection.selection.id == sale_id or itemSelection.selection.id == flash_sale_id
+                                            or itemSelection.selection.id == sale_predictor_id) %}
+                                    {{ itemSelection.selection.name }}
+                                {% endif %}
+                            {% endfor %}
+                        </a>
+                        </div>
+                        <div class="table-cell td"><a href="{{ path('item_show', {'slug': item.link|trim('/')}) }}">{{ item.name }}</a></div>
+                        <div class="table-cell td">
+                            <a href="{{ path('cabinet_item_delete', {'id': item.id}) }}" class="svg cancel js-modal" data-title="Удалить товар"><!-- svg `cancel.svg` begin --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18"><g transform="translate(-6.4 -6.4)"><g transform="translate(6.4 6.4)"><path d="M15.4,24.4a9,9,0,1,0-9-9A9.007,9.007,0,0,0,15.4,24.4Zm0-16.73A7.73,7.73,0,1,1,7.67,15.4,7.742,7.742,0,0,1,15.4,7.67Z" transform="translate(-6.4 -6.4)"/><path d="M41.686,47.84a.636.636,0,0,0,.9,0l2.478-2.478,2.478,2.478a.636.636,0,0,0,.9,0,.636.636,0,0,0,0-.9l-2.478-2.478,2.478-2.478a.635.635,0,0,0-.9-.9l-2.478,2.478-2.478-2.478a.635.635,0,1,0-.9.9l2.478,2.478-2.478,2.478A.636.636,0,0,0,41.686,47.84Z" transform="translate(-36.063 -35.556)"/></g></g></svg><!-- svg `cancel.svg` end --></a>
+                            <br>
+                            <a href="{{ path('cabinet_item', {'id': item.id}) }}" class="svg edit"><!-- svg `edit.svg` begin --><svg id="Group_314" data-name="Group 314" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17.664">
+
+            <path id="Path_114" data-name="Path 114" class="cls-1" d="M23.043,114.3H6.326a.629.629,0,0,0-.626.626.64.64,0,0,0,.626.626H23.058a.629.629,0,0,0,.626-.626A.643.643,0,0,0,23.043,114.3Z" transform="translate(-5.685 -97.889)"/>
+            <path id="Path_115" data-name="Path 115" class="cls-1" d="M5.615,17.764,5.6,20.744a.647.647,0,0,0,.183.458.612.612,0,0,0,.443.183l2.964-.015a.612.612,0,0,0,.443-.183L19.872,10.949a.646.646,0,0,0,0-.9L16.938,7.083a.646.646,0,0,0-.9,0L13.989,9.146,5.8,17.321A.681.681,0,0,0,5.615,17.764ZM16.495,8.428l2.063,2.063L17.4,11.652,15.333,9.589l1.161-1.161ZM6.884,18.039l7.548-7.548,2.063,2.063L8.946,20.087,6.868,20.1l.015-2.063Z" transform="translate(-5.6 -6.9)"/>
+            </svg>
+            <!-- svg `edit.svg` end --></a>
+                        </div>
+                    </section>
+                {% endfor %}
+            </section>
+        </div>
+    </div>
+</section>
+<!-- catalog-product-list end -->
+{% if items.count() %}
+    <!-- catalog-pagination begin -->
+    <section class="catalog-pagination">
+        <section class="content">
+            {{ pagerfanta(items, 'default', {'omitFirstPage': true, 'prev_message': '←','next_message': '→', 'css_current_class': 'active', 'page_template': '<a class="pagination-item" href="%href%"%rel%>%text%</a>', 'span_template': '<span class="pagination-item active">%text%</span>'}) }}
+        </section>
+    </section>
+    <!-- catalog-pagination end -->
+{% endif %}
+{% endblock %}
+
+{% block add_modal %}
+    {% if cat_banners is defined %}
+        {% for v in cat_banners %}
+        <section class="site-popup-window popup-main-content js--site-popup-window" data-no-effect id="popup-main-content-{{ v.id }}">
+            <div class="site-w site-default-text">
+                {{ v.text.raw|raw }}
+            </div>
+            <div class="popup-main-close js--popup-main-close"><span class="svg close"><!-- svg `cross.svg` begin -->
+
+            <svg  version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+                 width="11" height="10" viewBox="-0.982 -0.4 11 10" enable-background="new -0.982 -0.4 11 10" xml:space="preserve">
+
+            <polygon points="0.54,0 0,0.54 4.26,4.74 0,9 0.54,9.54 4.74,5.28 9,9.54 9.54,9 5.28,4.74 9.54,0.54 9,0 4.74,4.26 
+                "/>
+            </svg>
+            <!-- svg `cross.svg` end --></span></div>
+        </section>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

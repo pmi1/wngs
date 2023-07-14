@@ -1,0 +1,9 @@
+{% extends 'SonataAdminBundle:CRUD:base_list_field.html.twig' %}
+
+{% block field %}
+    <div>
+        {% if object.gallery and object.gallery.getGalleryHasMedias and object.gallery.getGalleryHasMedias.count %}
+            {% thumbnail (object.gallery.getGalleryHasMedias | main).media, 'admin' with {'height': 90} %}
+        {% endif %}
+    </div>
+{% endblock %}

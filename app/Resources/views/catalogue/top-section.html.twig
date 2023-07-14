@@ -1,0 +1,39 @@
+{#
+
+Шаблон текстовой страницы
+
+#}
+
+{% extends 'main/main.html.twig' %}
+
+{% block meta %}
+    <title>{{ catalogue.metaTitle ? catalogue.metaTitle : catalogue.name }}</title>
+    <meta name="Keywords" content="{{ catalogue.metaKeywords }}"/>
+    <meta name="Description" content="{{ catalogue.metaDescription }}"/>
+{% endblock %}
+
+{% block body %}
+    {{ catalogue.textFormatted|raw }}
+    <section class="site-flex site-flow site-sections dev-br">
+        {% for row in catalogues %}
+            <section class="site-flex-column site-sections-item x3 m10">
+                <div class="wrapper">
+                    {% if row.image %}
+                        {% set img %}{% path row.image, 'catalogue_360' %}{% endset %}
+                    {% else %}
+                        {% set img = webpack_asset('@web/images/notfound.svg') %}
+                    {% endif %}
+                    <div class="image" style="background-image: url({{ img }});">
+                        <a href="{{ path('cat_show', {'slug': row.realcatname|trim('/')}) }}" class="link"></a>
+                    </div>
+                    <div class="content">
+                        <div class="wrapper">
+                            <a href="{{ path('cat_show', {'slug': row.realcatname|trim('/')}) }}" class="title">{{ row.name }}</a>
+                            <div class="text">{{ row.previewFormatted|raw }}</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
+    </section>
+{% endblock %}

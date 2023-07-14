@@ -1,0 +1,13 @@
+{#
+
+Часть шаблона админки для ссылок
+
+#}
+
+<td class="sonata-ba-list-field sonata-ba-list-field-url" objectid="1">
+    {% for clinic in object.getClinic() %}
+        <a href="{{ clinic.getLink() }}" target="_blank" title="{{ 'action_show_site'|trans({}, 'SonataAdminBundle') }}">
+            {{ clinic.getLink() }}
+        </a><br/>
+    {% endfor %}
+</td>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 19.2.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 35.4 35" style="enable-background:new 0 0 35.4 35;" xml:space="preserve">
+<style type="text/css">
+	.st0{filter:url(#Adobe_OpacityMaskFilter);}
+	.st1{fill:#FFFFFF;}
+	.st2{mask:url(#mask-2);}
+</style>
+<title>4EA4729C-29B7-42DC-B64D-BCC8A161B5B3</title>
+<desc>Created with sketchtool.</desc>
+<g id="Final-Design">
+	<g id="_x30_.-Style" transform="translate(-621.000000, -1821.000000)">
+		<g id="Icon_x2F_Social_x2F_i_x5F_facebook" transform="translate(621.000000, 1821.000000)">
+			<defs>
+				<filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="0" y="0" width="35" height="35">
+					<feColorMatrix  type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 1 0"/>
+				</filter>
+			</defs>
+			<mask maskUnits="userSpaceOnUse" x="0" y="0" width="35" height="35" id="mask-2">
+				<g class="st0">
+					<circle id="path-1" class="st1" cx="17.5" cy="17.5" r="16"/>
+				</g>
+			</mask>
+			<g class="st2">
+				<path id="XMLID_835_" d="M13.7,17.9h1.5v6.2c0,0.1,0.1,0.2,0.2,0.2H18c0.1,0,0.2-0.1,0.2-0.2v-6.2H20c0.1,0,0.2-0.1,0.2-0.2
+					l0.3-2.3c0-0.1,0-0.1-0.1-0.2c0,0-0.1-0.1-0.2-0.1h-2v-1.4c0-0.4,0.2-0.7,0.7-0.7h1.3c0.1,0,0.2-0.1,0.2-0.2v-2.1
+					c0-0.1-0.1-0.2-0.2-0.2h-1.8c0,0,0,0-0.1,0c-0.3,0-1.4,0.1-2.3,0.9c-1,0.9-0.8,1.9-0.8,2.1v1.7h-1.6c-0.1,0-0.2,0.1-0.2,0.2v2.3
+					C13.5,17.8,13.6,17.9,13.7,17.9z"/>
+				<g id="Oval-4">
+					<path d="M17.5,35C7.9,35,0,27.1,0,17.5S7.9,0,17.5,0S35,7.9,35,17.5S27.1,35,17.5,35z M17.5,3C9.5,3,3,9.5,3,17.5
+						S9.5,32,17.5,32S32,25.5,32,17.5S25.5,3,17.5,3z"/>
+				</g>
+			</g>
+		</g>
+	</g>
+</g>
+</svg>

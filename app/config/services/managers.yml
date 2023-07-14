@@ -1,0 +1,16 @@
+services:
+    app.script_manager:
+        class: AppBundle\Manager\ScriptManager
+        calls:
+            - [setContainer, ["@service_container"]]
+
+    app.catalogue:
+        class: AppBundle\Manager\CatalogueManager
+        calls:
+            - [setContainer, ["@service_container"]]
+
+    app.form_manager:
+        class: AppBundle\Manager\FormManager
+        calls:
+            - [setContainer, ["@service_container"]]
+        arguments: ["@mailer", "%admin_mail%", "%sender_mail%"]

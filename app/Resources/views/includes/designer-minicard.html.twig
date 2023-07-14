@@ -1,0 +1,21 @@
+<section class="{{ mode is defined ? mode : 'site-flex-column site-designer x4 m10' }}">
+    <div class="wrapper">
+        <a href="{{ path('designer_show', {'id': item.id}) }}">
+            <div class="title">{{ item.brand }}</div>
+            {% if item.brandImage %}
+                {% set img %}{% path item.brandImage, 'brand_256' %}{% endset %}
+            {% else %}
+                {% set img = webpack_asset('@web/images/notfound.svg') %}
+            {% endif %}
+            <div class="image" style="background-image: url({{ img }});">
+            </div>
+            <div class="author">
+                <div class="avatar" style="background-image: url({% path item.image, 'user_120' %});"></div>
+                <div class="text">
+                    <span class="fullname">{{ item.name ? item.name : item.brand }}</span>
+                </div>
+            </div>
+            <div class="text">{{ item.preview.formatted|raw }}</div>
+        </a>
+    </div>
+</section>

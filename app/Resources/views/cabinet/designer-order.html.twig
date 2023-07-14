@@ -1,0 +1,35 @@
+{#
+
+Шаблон  страницы заказов дизайнера
+
+#}
+
+{% extends 'cabinet/order.html.twig' %}
+
+{% block filteruser %}
+<select class="selectpicker" name="user">
+    <option value="0">ПО ЗАКАЗЧИКАМ</option>
+    {% for key, value in filter.user %}
+        <option value="{{ value.id }}"{{ value.id == filter.value.user ? ' selected' :'' }}>{{ value.name }}</option>
+    {% endfor %}
+</select>
+{% endblock %}
+
+{% block orderlist %}
+<div class="table-cell th">ДАТА <br>СОЗДАНИЯ</div>
+<div class="table-cell th">ЗАКАЗЧИК</div>
+<div class="table-cell th">СТАТУС</div>
+<div class="table-cell th">ТОВАР</div>
+<div class="table-cell th price">ЦЕНА</div>
+<div class="table-cell th">ДОСТАВКА</div>
+<div class="table-cell th">НАПИСАТЬ <br>ЗАКАЗЧИКУ</div>
+{% endblock %}
+
+
+{% block orderlistuser %}
+{{order.name}}
+{% endblock %}
+
+{% block orderItemLink %}{{ path('cabinet_designer_order_item', {'id': order.id}) }}{% endblock %}
+
+{% block archiveLink %}{{ path('cabinet_designer_order', {'archive': 1}) }}{% endblock %}

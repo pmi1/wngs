@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+    <file source-language="en" datatype="plaintext" original="SonataAdminBundle.en.xliff">
+        <body>            
+            <trans-unit id="Gallery">
+                <source>Gallery</source>
+                <target>Галереи</target>
+            </trans-unit>
+            <trans-unit id="Options">
+                <source>Options</source>
+                <target>Настройки</target>
+            </trans-unit>
+            <trans-unit id="media_context_default">
+                <source>media_context_default</source>
+                <target>Визуальный редактор</target>
+            </trans-unit>
+            <trans-unit id="media_context_brand_image">
+                <source>media_context_brand_image</source>
+                <target>Бренды</target>
+            </trans-unit>
+            <trans-unit id="media_context_certificate">
+                <source>media_context_certificate</source>
+                <target>Сертификаты</target>
+            </trans-unit>
+            <trans-unit id="media_context_curator">
+                <source>media_context_curator</source>
+                <target>Кураторы</target>
+            </trans-unit>
+            <trans-unit id="media_context_doctor">
+                <source>media_context_doctor</source>
+                <target>Врачи</target>
+            </trans-unit>
+            <trans-unit id="media_context_doctor_degree">
+                <source>media_context_doctor_degree</source>
+                <target>Ученые степени врачей</target>
+            </trans-unit>
+            <trans-unit id="media_context_doctor_specialisation">
+                <source>media_context_doctor_specialisation</source>
+                <target>Специализации врачей</target>
+            </trans-unit>
+            <trans-unit id="media_context_lang_support">
+                <source>media_context_lang_support</source>
+                <target>Языковая поддержка</target>
+            </trans-unit>
+            <trans-unit id="media_context_price_segment">
+                <source>media_context_price_segment</source>
+                <target>Ценовые сегменты</target>
+            </trans-unit>
+            <trans-unit id="media_context_service_clinic_type">
+                <source>media_context_service_clinic_type</source>
+                <target>Типы услуг клиники</target>
+            </trans-unit>
+            <trans-unit id="media_context_clinic_attr">
+                <source>media_context_clinic_attr</source>
+                <target>Группы услуг клиники</target>
+            </trans-unit>
+            <trans-unit id="media_context_med_direction_icon">
+                <source>media_context_med_direction_icon</source>
+                <target>Направления медицины: иконка</target>
+            </trans-unit>
+            <trans-unit id="media_context_country_image">
+                <source>media_context_country_image</source>
+                <target>Страны: изображения</target>
+            </trans-unit>
+            <trans-unit id="media_context_page_image">
+                <source>media_context_page_image</source>
+                <target>Статика / Баннеры</target>
+            </trans-unit>
+            <trans-unit id="media_context_selection_image">
+                <source>media_context_selection_image</source>
+                <target>Выборки / Коллекции</target>
+            </trans-unit>
+            <trans-unit id="media_context_catalogue_image">
+                <source>media_context_catalogue_image</source>
+                <target>Разделы каталога</target>
+            </trans-unit>
+            <trans-unit id="media_context_item_image">
+                <source>media_context_item_image</source>
+                <target>Товары</target>
+            </trans-unit>
+            <trans-unit id="media_context_article_image">
+                <source>media_context_article_image</source>
+                <target>Статьи</target>
+            </trans-unit>
+            <trans-unit id="media_context_user_image">
+                <source>media_context_user_image</source>
+                <target>Пользователь</target>
+            </trans-unit>
+            <trans-unit id="sonata.media.provider.svg">
+                <source>sonata.media.provider.svg</source>
+                <target>Векторное изображение (SVG)</target>
+            </trans-unit>
+            <trans-unit id="sonata.media.provider.image.description">
+                <source>sonata.media.provider.image.description</source>
+                <target>Изображение</target>
+            </trans-unit>
+            <trans-unit id="sonata.media.provider.svg.description">
+                <source>sonata.media.provider.svg.description</source>
+                <target>Векторное изображение (SVG)</target>
+            </trans-unit>
+            <trans-unit id="form.label_main">
+                <source>form.label_main</source>
+                <target>Основное</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

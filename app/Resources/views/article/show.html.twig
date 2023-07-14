@@ -1,0 +1,40 @@
+{#
+
+Шаблон страницы отдельной статьи
+
+#}
+
+{% extends 'main/main.html.twig' %}
+
+{% block body %}
+<div class="site-page-content wm-600">
+    <h1>{{ article.name }}</h1>
+    {% if article.gallery and article.gallery.enabled and article.gallery.getGalleryHasMedias and article.gallery.getGalleryHasMedias.count %}
+        {% set img = (article.gallery.getGalleryHasMedias | main) %}
+        <p class="image">
+            <img src="{% path img.media, 'reference' %}" alt="">
+        </p>
+    {% endif %}
+    {% autoescape %}
+        {{ article.textFormatted | raw }}
+    {% endautoescape %}
+    {% if article.gallery and article.gallery.enabled %}
+        <section class="site-article-slider">
+            <div class="site-article-slider-items js--site-article-slider">
+            {% for key, value in article.gallery.getGalleryHasMedias %}
+                {% if value.enabled and value.media.enabled is defined and value.media.enabled and value != img %}
+                    <div class="site-article-slider-item">
+                        <div class="article-slider-item-image">
+                            {% thumbnail value.media, 'article_740' with {'title': ''} %}
+                        </div>
+                        <div class="article-slider-item-content">
+                            <span class="title"><span>Фото:</span> {{ value.media.name }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,65 @@
+{#
+
+Шаблон миникарточки товара
+
+#}
+<section class="{{ mode is defined ? mode : '' }}{{ class is defined ? class : 'site-flex-item x3 m20 mb60 site-product small js-data' }}" data-id="{{ item.id }}">
+    {% if item.gallery and item.gallery.enabled and item.gallery.getGalleryHasMedias and item.gallery.getGalleryHasMedias.count %}
+        {% set img %}{% path (item.gallery.getGalleryHasMedias | main).media, 'item_246' %}{% endset %}
+    {% else %}
+        {% set img = webpack_asset('@web/images/notfound.svg') %}
+    {% endif %}
+    <div class="image" style="background-image: url({{ img }});">
+        <a href="{{ path('item_show', {'slug': item.link|trim('/')}) }}" class="link"></a>
+        {% for itemSelection in item.itemSelections %}
+            {% if not(itemSelection.selection.user) and 
+                    (itemSelection.selection.id == sale_id or itemSelection.selection.id == flash_sale_id
+                        or itemSelection.selection.id == sale_predictor_id) %}
+                <div class="tags">
+                    <span class="site-tag yellow dib">
+                        <b class="text">
+                            {{ (itemSelection.selection.name~'-')|trans }}
+                        </b>
+                    </span>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="title"><a href="{{ path('item_show', {'slug': item.link|trim('/')}) }}">{{ item.name }}{{ item.user and item.user.brand ? ' ' ~ item.user.brand : '' }}</a></div>
+    {% set d = 0 %}
+    {% for itemSelection in item.itemSelections %}
+        {% if not(itemSelection.selection.user) and (itemSelection.selection.id == flash_sale_id or itemSelection.selection.id == sale_id) %}
+            {%set d = 1%}
+        {% endif %}
+    {% endfor %}
+    {% if item.discount > 0 and d > 0 %}
+        <div class="discount-price">{{ item.price }} руб.</div>
+        <div class="product-line">
+            <span class="default-price dib">{{ (item.price * (100 - item.discount) / 100)|round }} руб.</span>
+    {% else %}
+        <div class="product-line">
+            <span class="default-price dib">{{ item.price }} руб.</span>
+    {% endif %}
+    <a href="{{ path('item_show', {'slug': item.link|trim('/')}) }}" class="link">
+        <span class="dib svg action-icon plus"><!-- svg `plus.svg` begin -->
+
+<svg  version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+width="15" height="15" viewBox="-0.565 -0.982 15 15" enable-background="new -0.565 -0.982 15 15" xml:space="preserve">
+
+<path d="M6.84,0C3.06,0,0,3.06,0,6.84c0,3.721,3.06,6.78,6.84,6.78c3.72,0,6.779-3.06,6.779-6.78
+C13.619,3.06,10.56,0,6.84,0L6.84,0z M6.84,0.9c3.24,0,5.88,2.64,5.88,5.94c0,3.24-2.64,5.88-5.88,5.88c-3.3,0-5.94-2.64-5.94-5.88
+C0.9,3.54,3.54,0.9,6.84,0.9L6.84,0.9z M6.3,2.82v3.66H2.64v0.781H6.3v3.779h0.779V7.261h3.78V6.48h-3.78V2.82H6.3z"/>
+</svg>
+<!-- svg `plus.svg` end --></span></a>
+
+        <span class="dib svg action-icon heart js-add-to-favorite{{item.inFavoriteForUser(app.user) ? ' in-favorite' : ''}}"><!-- svg `heart.svg` begin -->
+
+<svg  version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+width="101" height="86" viewBox="-0.919 -0.094 101 86" enable-background="new -0.919 -0.094 101 86" xml:space="preserve">
+
+<path d="M94.167,9.972C79.286-9.35,50.001,2.055,50.001,21.674c0-19.619-29.29-31.019-44.17-11.702
+c-15.382,19.975-0.222,54.965,44.17,75.063C94.389,64.937,109.549,29.95,94.167,9.972z"/>
+</svg>
+<!-- svg `heart.svg` end --></span>
+    </div>
+</section>

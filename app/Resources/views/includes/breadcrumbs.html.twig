@@ -1,0 +1,17 @@
+{#
+
+Шаблон блока "Хлебные крошки"
+
+#}
+
+{% if breadcrumbs|length > 1 %}
+    <section class="site-breadcrumbs">
+        {% for breadcrumb in breadcrumbs %}
+            {% if loop.last %}
+                <div class="site-breadcrumbs-item active"><span>{{ breadcrumb.name }}</span></div>
+            {% else %}
+                <div class="site-breadcrumbs-item"><a href="{{ breadcrumb.url }}">{{ breadcrumb.name }}</a></div>
+            {% endif %}
+        {% endfor %}
+    </section>
+{% endif %}

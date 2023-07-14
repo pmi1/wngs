@@ -1,0 +1,213 @@
+{#
+
+Шаблон страницы рубрики
+
+#}
+
+{% extends 'main/main.html.twig' %}
+
+{% block meta %}
+    <title>{{ item.metaTitle ? item.metaTitle : item.name }}</title>
+    <meta name="Keywords" content="{{ item.metaKeywords }}"/>
+    <meta name="Description" content="{{ item.metaDescription }}"/>
+{% endblock %}
+
+{% block body %}
+
+<!-- site-product begin -->
+<section class="site-product site-flex js-data" data-id="{{item.id}}">
+    <section class="site-flex-column x2 m0">
+
+        <div class="product-images">
+            {% if item.gallery and item.gallery.enabled %}
+            <div class="product-images-line">
+                {% for key, value in item.gallery.getGalleryHasMedias %}
+                    {% if value.enabled and value.media.enabled is defined and value.media.enabled  %}
+                        {% set img %}{% path value.media, 'item_100' %}{% endset %}
+                        {% set img2 %}{% path value.media, 'item_440' %}{% endset %}
+                        <div href="{{ img2 }}" data-gallery data-main-image="#product-main-image-id" class="product-image" style="background-image: url({{ img }});"><a href class="link"></a></div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+            {% endif %}
+            <div class="product-main-image" id="product-main-image-id">
+                {% if item.gallery and item.gallery.enabled and item.gallery.getGalleryHasMedias and item.gallery.getGalleryHasMedias.count %}
+                    {% set img %}{% path (item.gallery.getGalleryHasMedias | main).media, 'item_440' %}{% endset %}
+                {% else %}
+                    {% set img = webpack_asset('@web/images/notfound.svg') %}
+                {% endif %}
+                <img src="{{ img }}" alt="" class="image">
+            </div>
+        </div>
+
+    </section>
+    <section class="site-flex-column x2 m0 product-information">
+
+        <div class="product-name">{{ item.name }} от <a href="{{path('designer_show', {'id': item.user.id})}}">{{ item.user.brand }}</a></div>
+        {% if item.user %}
+            <div class="author">
+                {% if item.user.image %}
+                    {% set img %}{% path item.user.image, 'user_120' %}{% endset %}
+                {% else %}
+                    {% set img = webpack_asset('@web/images/notfound.svg') %}
+                {% endif %}
+                <div class="avatar" style="background-image: url({{ img }});"></div>
+                <div class="text">
+                    <span class="fullname big">{{ item.user.name }}</span>
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="product-text">
+            {{ item.textFormatted|raw }}
+        </div>
+
+        <hr class="hr">
+
+        <div class="product-prices">
+            {% set d = 0 %}
+            {% for itemSelection in item.itemSelections %}
+                {% if not(itemSelection.selection.user) and (itemSelection.selection.id == flash_sale_id or itemSelection.selection.id == sale_id) %}
+                    {%set d = 1%}
+                {% endif %}
+            {% endfor %}
+            {% if item.discount > 0 and d > 0 %}
+                <div class="default-price dib">{{ (item.price * (100 - item.discount) / 100)|round }} руб.</div>
+                <div class="discount-price">{{ item.price }} руб.</div>
+            {% else %}
+                <div class="default-price dib">{{ item.price }} руб.</div>
+            {% endif %}
+        </div>
+        {% if item.discount > 0 %}
+            {% for itemSelection in item.itemSelections %}
+                {% if not(itemSelection.selection.user) and (itemSelection.selection.id == flash_sale_id or itemSelection.selection.id == sale_id) %}
+                    <div class="discount-response"><span class="text"><b>Скидка {{ item.discount }}%</b></span></div>
+                {% endif %}
+                <p>
+                    <i>
+                        {% if not(itemSelection.selection.user) and itemSelection.selection.id == flash_sale_id%}
+                            {% trans with ({'%date%': itemSelection.createdAt|date("d.m.Y"), '%edate%': itemSelection.createdAt|date_modify("+3 day")|date("d.m.Y")}) %}discount-29{% endtrans %}
+                        {% elseif not(itemSelection.selection.user) and itemSelection.selection.id == sale_predictor_id %}
+                            {% trans with ({'%date%': itemSelection.createdAt|date("d.m.Y"), '%edate%': itemSelection.createdAt|date_modify("+3 day")|date("d.m.Y")}) %}discount-30{% endtrans %}
+                        {% endif %}
+                    </i>
+                </p>
+            {% endfor %}
+        {% endif %}
+        <div class="product-buttons">
+            <a class="site-button yellow dib mw-140 small js-modal" href="{{ path('request', {'request[formType]': 1, 'request[itemId]': item.id}) }}" data-title="КУПИТЬ">КУПИТЬ</a>
+            <span class="site-button white dib mw-140 small js-add-to-favorite">В ИЗБРАННОЕ</span>
+            {% if item.canAskDiscount > 0 %}
+                <a href="{{ path('request', {'request[formType]': 3, 'request[itemId]': item.id}) }}" class="dib discount-request js-modal" data-title="ЗАПРОСИТЬ СКИДКУ!">
+                    <span class="discount-big">
+                        <span class="svg discount"><!-- svg `loader.svg` begin -->
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="40" viewBox="0 0 44 40" style="max-width: 100%; max-height: 100%;">
+  <g id="percentage" transform="translate(0 -20.113)">
+    <g id="Group_139" data-name="Group 139" transform="translate(0 20.113)">
+      <path id="Path_92" data-name="Path 92" d="M38.088,25.972a20.3,20.3,0,0,0-28.716.179,1.079,1.079,0,0,0,.018,1.525,1.1,1.1,0,0,0,1.539-.018A17.81,17.81,0,1,1,5.814,40.113v-.224l1.793,1.777a1.1,1.1,0,0,0,.77.314,1.111,1.111,0,0,0,.77-.314,1.071,1.071,0,0,0,0-1.525L5.507,36.524a1.094,1.094,0,0,0-1.539,0L.319,40.14a1.071,1.071,0,0,0,0,1.525,1.094,1.094,0,0,0,1.539,0l1.793-1.777v.224A19.784,19.784,0,0,0,9.562,54.254a20.3,20.3,0,0,0,28.535,0,19.879,19.879,0,0,0-.009-28.282Z" transform="translate(0 -20.113)"/>
+    </g>
+  </g>
+</svg>
+<!-- svg `loader.svg` end --></span>
+                        <span class="svg percent-symbol"><!-- svg `percent-symbol.svg` begin -->
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="40" viewBox="0 0 44 40">
+  <g id="percentage" transform="translate(0 -20.113)">
+    <g id="Group_139" data-name="Group 139" transform="translate(0 20.113)">
+      <path id="Path_93" data-name="Path 93" d="M189.663,158.693l-13.344,13.217a1.071,1.071,0,0,0,0,1.525,1.1,1.1,0,0,0,.77.314,1.111,1.111,0,0,0,.77-.314L191.2,160.209a1.071,1.071,0,0,0,0-1.525A1.1,1.1,0,0,0,189.663,158.693Z" transform="translate(-160.067 -145.97)"/>
+      <path id="Path_94" data-name="Path 94" d="M276.934,249.644a3.837,3.837,0,0,0,0,5.446,3.915,3.915,0,0,0,5.5,0,3.837,3.837,0,0,0,0-5.446,3.915,3.915,0,0,0-5.5,0Zm3.965,3.93a1.7,1.7,0,0,1-1.213.494,1.735,1.735,0,0,1-1.213-.494,1.7,1.7,0,0,1,1.213-2.9,1.735,1.735,0,0,1,1.213.494A1.69,1.69,0,0,1,280.9,253.574Z" transform="translate(-250.832 -228.02)"/>
+      <path id="Path_95" data-name="Path 95" d="M168.818,151.213a3.887,3.887,0,0,0-2.752,1.131,3.832,3.832,0,0,0,0,5.455,3.915,3.915,0,0,0,5.5,0,3.832,3.832,0,0,0,0-5.455A3.9,3.9,0,0,0,168.818,151.213Zm1.213,5.061a1.7,1.7,0,0,1-1.213.494,1.736,1.736,0,0,1-1.213-.494,1.667,1.667,0,0,1-.5-1.2,1.693,1.693,0,0,1,1.711-1.7,1.736,1.736,0,0,1,1.213.493,1.7,1.7,0,0,1,0,2.4Z" transform="translate(-149.994 -139.45)"/>
+    </g>
+  </g>
+</svg>
+<!-- svg `percent-symbol.svg` end --></span>
+                    </span>
+                    <span class="text" style="margin-left: 7px;">ЗАПРОСИТЬ <br>СКИДКУ!</span>
+                </a>
+            {% endif %}
+        </div>
+
+        <a href="{{ path('request', {'request[formType]': 2, 'request[itemId]': item.id}) }}" class="message-button js-modal" data-title="СООБЩЕНИЕ ДИЗАЙНЕРУ"><span class="svg email"><!-- svg `envelope.svg` begin --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 22.831"><g transform="translate(0 -57.75)"><g transform="translate(0 57.75)"><path d="M26.338,57.75H3.669A3.672,3.672,0,0,0,0,61.419V76.912a3.672,3.672,0,0,0,3.669,3.669H26.331A3.672,3.672,0,0,0,30,76.912V61.425A3.668,3.668,0,0,0,26.338,57.75ZM28.33,76.912A2,2,0,0,1,26.338,78.9H3.669a2,2,0,0,1-1.993-1.993V61.425a2,2,0,0,1,1.993-1.993H26.331a2,2,0,0,1,1.993,1.993V76.912Z" transform="translate(0 -57.75)"/><path d="M71.212,116.95l7.337-6.58a.839.839,0,1,0-1.124-1.248L67.307,118.2l-1.974-1.763c-.006-.006-.012-.012-.012-.019a1.241,1.241,0,0,0-.137-.118l-8.032-7.188a.84.84,0,1,0-1.117,1.254l7.424,6.636-7.393,6.921a.841.841,0,0,0-.037,1.186.857.857,0,0,0,.615.267.84.84,0,0,0,.571-.223l7.5-7.02,2.036,1.819a.836.836,0,0,0,1.117-.006l2.092-1.875,7.461,7.089a.84.84,0,0,0,1.186-.031.841.841,0,0,0-.031-1.186Z" transform="translate(-52.292 -105.727)"/></g></g></svg><!-- svg `envelope.svg` end --></span> СООБЩЕНИЕ ДИЗАЙНЕРУ</a>
+
+        <div class="product-text">
+            {% if item.itemAttributes | length %}
+                <p><b>ХАРАКТЕРИСТИКИ:</b></p>
+                <i>{{ item.isAvailabile ? 'Is Availabile'|trans : 'На заказ'}}</i>
+                {% for key, value in item.itemAttributes %}
+                    {%if value.value %}
+                        <p><b>{{ value.attribute.name }}:</b> {{ value.value }}</p>
+                    {%endif%}
+                {% endfor %}
+                {%if item.colors|length %}
+                    <div class="form-panel-list">
+                        <b>{{ 'Color'|trans }}:</b>
+                        {% for i in item.colors %}
+                            <div class="attr">
+                                <span class="color" style="background-image: url({% path i.color.image, 'color_16' %});"></span>
+                                <span class="text"></span>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {%endif%}
+            {% endif %}
+        </div>
+    </section>
+</section>
+<!-- site-product end -->
+<!-- site-tabs begin -->
+<section class="site-tabs">
+    <ul class="site-tabs-ul">
+        <li><a href="#site-tab-1" class="site-tab-selector js--tab-selector active">Доставка</a></li>
+        <li><a href="#site-tab-2" class="site-tab-selector js--tab-selector">Оплата</a></li>
+        <li><a href="#site-tab-3" class="site-tab-selector js--tab-selector">Условия</a></li>
+        <li><a href="#site-tab-4" class="site-tab-selector js--tab-selector">Отзывы</a></li>
+    </ul>
+    <div class="site-tab-content js--site-tab-content active" id="site-tab-1">
+        {{ item.delivery }}
+    </div>
+    <div class="site-tab-content js--site-tab-content" id="site-tab-2">
+        {{ item.payment }}
+    </div>
+    <div class="site-tab-content js--site-tab-content" id="site-tab-3">
+        {{ item.condition }}
+    </div>
+    <div class="site-tab-content js--site-tab-content" id="site-tab-4">
+        {% if reviews|length %}
+            <section class="site-flex site-flow site-designers">
+                {% for key, value in reviews %}
+                    {% include "includes/review-minicard.html.twig" with {'review': value} %}
+                {% endfor %}
+            </section>
+        {% endif %}
+    </div>
+</section>
+<!-- site-tabs end -->
+{% endblock %}
+
+{% block bodygray %}
+{% if selection %}
+    <section class="site-gray mb-60">
+        <section class="site-w">
+            <div class="h1 site-gray-bottom">{{ selection.user.brand ? selection.user.brand ~ ' / '  : ''}}{{ selection.user.name }} / <i class="f24"><a href="{{ path('collection_show', {'slug': selection.link}) }}">Смотреть всю коллекцию</a></i></div>
+            <div class="site-badge std">
+                {% if selection.user.image %}
+                    {% set img %}{% path selection.user.image, 'user_120' %}{% endset %}
+                {% else %}
+                    {% set img = webpack_asset('@web/images/no-avatar.png') %}
+                {% endif %}
+                <div class="avatar dib" style="background-image: url({{ img }});"></div>
+                <div class="quote dib">
+                    {{ selection.textFormatted|raw }}
+                </div>
+            </div>
+            <!-- site carousel begin -->
+            <section class="site-carousel-products site-flow site-flow-bottom">
+                <section class="site-carousel-items js--site-carousel js--carousel-products">
+                {% for key, value in selection.itemSelections %}
+                    {% include "includes/item-minicard.html.twig" with {'item': value.item, 'mode': 'site-carousel-product '} %}
+                {% endfor %}
+                </section>
+            </section>
+        </section>
+    </section>
+{% endif %}
+{% endblock %}

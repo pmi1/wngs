@@ -1,0 +1,7 @@
+services:
+    sonata.admin.menu_builder:
+        class: AppBundle\Menu\MenuBuilder
+        arguments: ["@sonata.admin.pool", "@knp_menu.factory", '@doctrine.orm.entity_manager', '@router', '@security.token_storage', '@service_container']
+        tags:
+            - { name: knp_menu.menu_builder, method: createSidebarMenu, alias: sonata_admin_sidebar }
+            - { name: knp_menu.menu_builder, method: createClientMenu, alias: client_menu }

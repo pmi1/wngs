@@ -1,0 +1,23 @@
+<section class="site-article">
+    <div class="author">
+        {% if article.user %}
+            <div class="avatar" style="background-image: url({% path article.user.image, 'user_120' %});"></div>
+        {% endif %}
+        <div class="text">
+            {% if article.user %}
+                <span class="fullname">{{ article.user.name }}</span>
+            {% endif %}
+            <span class="date">{{ article.cdate|date('d.m.Y') }}</span>
+        </div>
+    </div>
+    <div class="content">
+        {% if article.gallery and article.gallery.enabled and article.gallery.getGalleryHasMedias and article.gallery.getGalleryHasMedias.count %}
+            {% set img %}{% path (article.gallery.getGalleryHasMedias | main).media, 'article_256' %}{% endset %}
+        {% else %}
+            {% set img = webpack_asset('@web/images/notfound.svg') %}
+        {% endif %}
+        <div class="image" style="background-image: url({{ img }});"><a href="{{ path('article_show', {'slug': article.link|trim('/')}) }}" class="link"></a></div>
+        <div class="title"><a href="{{ path('article_show', {'slug': article.link|trim('/')}) }}" class="link">{{ article.name }}</a></div>
+        <div class="text"><a href="{{ path('article_show', {'slug': article.link|trim('/')}) }}" class="link">{{ article.previewFormatted|raw }}</a></div>
+    </div>
+</section>

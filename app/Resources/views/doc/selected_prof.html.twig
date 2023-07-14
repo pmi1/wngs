@@ -1,0 +1,57 @@
+{#
+
+Шаблон главной страницы
+
+#}
+
+{% extends 'main/main.html.twig' %}
+
+{% block body %}
+    <h1 class="h1">Selected Professional / <i class="f24">Для профессионалов индустрии моды</i></h1>
+    {% if (body_banners is defined) and (body_banners[19] is defined) %}
+        {% include "includes/banner-0.html.twig" with {'banners': body_banners[19]} %}
+    {% endif %}
+    {% if (body_banners is defined) and (body_banners[21] is defined) %}
+        <section class="site-flex site-flow site-materials">
+            {% for banner in body_banners[21] %}
+                {% include "includes/banner-8.html.twig" with {'banner': banner} %}
+            {% endfor %}
+        </section>
+    {% endif %}
+    {% if (body_banners is defined) and (body_banners[20] is defined) %}
+        {% include "includes/banner-3.html.twig" with {'banners': body_banners[20]} %}
+    {% endif %}
+    </section>
+
+    <section class="site-w">
+        <!-- site flex begin -->
+        <section class="site-flex site-flow site-flow-bottom mb40">
+            <section class="site-flex-column x3 site-flex-main m30">
+
+                <section class="site-orange-container">
+                    <div class="h1">
+                        Live
+                        <a href="{{ path('article_list') }}" class="all-posts">Вся лента</a>
+                    </div>
+                    <hr class="hr">
+                    {% for key, value in articles %}
+                        {% include "includes/article-main-minicard.html.twig" with {'article': value} %}
+                    {% endfor %}
+                </section>
+            </section>
+            <section class="site-flex-column x2-3 m10">
+                <section class="site-flex flex-wrap">
+                {% if (body_banners is defined) and (body_banners[22] is defined) %}
+                    {% for banner in body_banners[22] %}
+                        {% include "includes/banner-7.html.twig" with {'banner': banner} %}
+                    {% endfor %}
+                {% endif %}
+                </section>
+            </section>
+        </section>
+
+    {% if (body_banners is defined) and (body_banners[23] is defined) %}
+        {% include "includes/banner-3.html.twig" with {'banners': body_banners[23]} %}
+    {% endif %}
+
+{% endblock %}

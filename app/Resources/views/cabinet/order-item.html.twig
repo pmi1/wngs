@@ -1,0 +1,115 @@
+{#
+
+Шаблон заказа страницы кабинета
+
+#}
+
+{% extends 'cabinet/designer-order-item.html.twig' %}
+
+{% block order %}
+<section class="table-row">
+    <div class="table-cell th">ДИЗАЙНЕР</div>
+    <div class="table-cell th">СТАТУС</div>
+    <div class="table-cell th">ТОВАР</div>
+    <div class="table-cell th">ТИП ЗАКАЗА</div>
+    <div class="table-cell th">СКИДКА</div>
+    <div class="table-cell th">ЦЕНА</div>
+    <div class="table-cell th">ДОСТАВКА</div>
+    <div class="table-cell th">НАПИСАТЬ <br>ДИЗАЙНЕРУ</div>
+</section>
+<section class="table-row">
+    <div class="table-cell td">{{order.executor.brand}}</div>
+    <div class="table-cell td"><b class="order-status-{{order.status}}">{{ ('order-status-' ~ order.status) | trans }}</b></div>
+    <div class="table-cell td">{{order.item ? order.item.name : ''}}</div>
+    <div class="table-cell td"><div class="order-type-{{order.formType}} js--site-extra-tooltip site-centered-icon" title="{{ ('order_type_' ~ order.formType) | trans }}"></div></div>
+    <div class="table-cell td">{{order.discount ? order.discount ~ ' %' : ''}}</div>
+    <div class="table-cell td">
+        {% if order.discount>0 %}
+            <div class="discount-price">{{order.price}} руб.</div>
+            {{order.price*(1-order.discount/100)}} руб.
+        {%else%}
+            {{order.price}} руб.
+        {% endif %}
+    </div>
+    <div class="table-cell td"><span class="dib text-center">{% if order.delivery %}{{order.delivery}} руб.{% endif %}</span></div>
+    <div class="table-cell td"><a href class="svg envelope js-scroll-focus" data-target="#form_description"><!-- svg `envelope.svg` begin --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 22.831"><g transform="translate(0 -57.75)"><g transform="translate(0 57.75)"><path d="M26.338,57.75H3.669A3.672,3.672,0,0,0,0,61.419V76.912a3.672,3.672,0,0,0,3.669,3.669H26.331A3.672,3.672,0,0,0,30,76.912V61.425A3.668,3.668,0,0,0,26.338,57.75ZM28.33,76.912A2,2,0,0,1,26.338,78.9H3.669a2,2,0,0,1-1.993-1.993V61.425a2,2,0,0,1,1.993-1.993H26.331a2,2,0,0,1,1.993,1.993V76.912Z" transform="translate(0 -57.75)"/><path d="M71.212,116.95l7.337-6.58a.839.839,0,1,0-1.124-1.248L67.307,118.2l-1.974-1.763c-.006-.006-.012-.012-.012-.019a1.241,1.241,0,0,0-.137-.118l-8.032-7.188a.84.84,0,1,0-1.117,1.254l7.424,6.636-7.393,6.921a.841.841,0,0,0-.037,1.186.857.857,0,0,0,.615.267.84.84,0,0,0,.571-.223l7.5-7.02,2.036,1.819a.836.836,0,0,0,1.117-.006l2.092-1.875,7.461,7.089a.84.84,0,0,0,1.186-.031.841.841,0,0,0-.031-1.186Z" transform="translate(-52.292 -105.727)"/></g></g></svg><!-- svg `envelope.svg` end --></a></div>
+</section>
+{% endblock %}
+
+{% block formOrder %}
+{{ form_start(formOrder) }}
+<div class="page-text">
+    <div class="site-form">
+        <div class="page-title">{{ 'Delivery Type'|trans }}</div>
+        {% for k, el in formOrder.deliveryType %}
+            <div class="form-field radio">
+                <label for="{{el.vars.id}}">
+                    {{ form_widget(el, { 'attr': {'data-value': el.vars.label == 'None' ? 'Не выбран' : el.vars.label} }) }}
+                    <span class="icon"></span>
+                    <span class="text">{{ el.vars.label == 'None' ? 'Не выбран' : el.vars.label }}</span>
+                </label>
+            </div>
+        {% endfor %}
+        <div class="page-title">Адрес</div>
+        <div class="form-field text">
+            {{ form_row(formOrder.city) }}
+            <span class="svg icon"></span>
+        </div>
+        <div class="form-field text">
+            {{ form_row(formOrder.street) }}
+            <span class="svg icon"></span>
+        </div>
+        <div class="form-field text">
+            {{ form_row(formOrder.building) }}
+            <span class="svg icon"></span>
+        </div>
+        <div class="form-field text">
+            {{ form_row(formOrder.apartment) }}
+            <span class="svg icon"></span>
+        </div>
+        <div class="form-field text">
+            {{ form_row(formOrder.country) }}
+            <span class="svg icon"></span>
+        </div>
+        <div class="form-field text">
+            {{ form_row(formOrder.zip) }}
+            <span class="svg icon"></span>
+        </div>
+    </div>
+</div>
+
+<div class="page-title"></div>
+<div class="page-text">
+    <div class="site-form">
+        <div class="form-field text">
+            {{ form_row(formOrder.comment, {'label': ' ', 'attr': {'placeholder': 'Комментарий'}}) }}
+            <span class="svg icon edit"><!-- svg `edit.svg` begin --><svg id="Group_314" data-name="Group 314" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17.664">
+
+<path id="Path_114" data-name="Path 114" class="cls-1" d="M23.043,114.3H6.326a.629.629,0,0,0-.626.626.64.64,0,0,0,.626.626H23.058a.629.629,0,0,0,.626-.626A.643.643,0,0,0,23.043,114.3Z" transform="translate(-5.685 -97.889)"/>
+<path id="Path_115" data-name="Path 115" class="cls-1" d="M5.615,17.764,5.6,20.744a.647.647,0,0,0,.183.458.612.612,0,0,0,.443.183l2.964-.015a.612.612,0,0,0,.443-.183L19.872,10.949a.646.646,0,0,0,0-.9L16.938,7.083a.646.646,0,0,0-.9,0L13.989,9.146,5.8,17.321A.681.681,0,0,0,5.615,17.764ZM16.495,8.428l2.063,2.063L17.4,11.652,15.333,9.589l1.161-1.161ZM6.884,18.039l7.548-7.548,2.063,2.063L8.946,20.087,6.868,20.1l.015-2.063Z" transform="translate(-5.6 -6.9)"/>
+</svg>
+<!-- svg `edit.svg` end --></span>
+        </div>
+        <div class="form-field buttons">
+            <button type="submit" class="site-button white w-150"><span class="text">СОХРАНИТЬ</span></button>
+            {% for label, flashes in app.session.flashbag.all %}
+                {% for flash in flashes %}
+                    <div class="alert alert-{{ label }}">
+                        {{ flash|trans }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{{ form_end(formOrder) }}
+{% endblock %}
+
+
+{% block orderButton %}
+{% if (order.status == 4) and (order.review is null) %}
+    <section class="text-right">
+        <a id="review" class="site-button yellow small js-modal" href="{{ path('review', {'id': order.id}) }}" data-title="НАПИСАТЬ ОТЗЫВ">НАПИСАТЬ ОТЗЫВ</a>
+    </section>
+{% endif %}
+{% endblock %}

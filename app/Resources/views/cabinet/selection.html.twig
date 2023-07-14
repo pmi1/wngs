@@ -1,0 +1,79 @@
+{#
+
+Шаблон каталожной страницы кабинета
+
+#}
+
+{% extends 'cabinet/main.html.twig' %}
+
+{% block cabinetbody %}
+<hr class="hr">
+
+
+<div class="panel-subtitle">
+    <span class="dib vam">{{ pageInfo.name }}</span>
+    <span class="dib float-right vam">
+        <a href="{{ path('cabinet_selection_item') }}" class="site-button yellow small"><span class="text"><span class="f19 vab">+</span> ДОБАВИТЬ КОЛЛЕКЦИЮ</span></a>
+    </span>
+</div>
+
+<section class="site-flex site-flow flex-wrap mt-60 mb-20">
+    {% if selection is defined %}
+        {% for item in selection %}
+            <section class="site-flex-column site-sale-offer small x5 m5">
+                <div class="wrapper">
+                    {% if item.image %}
+                        {% set img %}{% path item.image, 'selection_217' %}{% endset %}
+                    {% else %}
+                        {% set img = webpack_asset('@web/images/notfound.svg') %}
+                    {% endif %}
+                    {% set _count = item.getItemCount() %}
+                    <div class="image" style="background-image: url({{ img  }});">
+                        <a href="{{ path('cabinet_cat', {'selection[]': item.id}) }}" class="link"></a>
+                    </div>
+                    <div class="content">
+                        <a href="" class="title">{{ item.name }} {{ _count ? '(' ~ _count ~ ')' : ''}}</a>
+                        <div class="buttons">
+                            <a href="{{ path('cabinet_selection_delete', {'id': item.id}) }}" class="js-modal svg cancel" data-title="Удалить коллекцию"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 18"><g transform="translate(-6.4 -6.4)"><g transform="translate(6.4 6.4)"><path d="M15.4,24.4a9,9,0,1,0-9-9A9.007,9.007,0,0,0,15.4,24.4Zm0-16.73A7.73,7.73,0,1,1,7.67,15.4,7.742,7.742,0,0,1,15.4,7.67Z" transform="translate(-6.4 -6.4)"/><path d="M41.686,47.84a.636.636,0,0,0,.9,0l2.478-2.478,2.478,2.478a.636.636,0,0,0,.9,0,.636.636,0,0,0,0-.9l-2.478-2.478,2.478-2.478a.635.635,0,0,0-.9-.9l-2.478,2.478-2.478-2.478a.635.635,0,1,0-.9.9l2.478,2.478-2.478,2.478A.636.636,0,0,0,41.686,47.84Z" transform="translate(-36.063 -35.556)"/></g></g></svg></a>
+
+                            <a href="{{ path('cabinet_selection_item', {'id': item.id}) }}" class="svg edit"><svg id="Group_314" data-name="Group 314" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 18 17.664">
+
+        <path id="Path_114" data-name="Path 114" class="cls-1" d="M23.043,114.3H6.326a.629.629,0,0,0-.626.626.64.64,0,0,0,.626.626H23.058a.629.629,0,0,0,.626-.626A.643.643,0,0,0,23.043,114.3Z" transform="translate(-5.685 -97.889)"></path>
+        <path id="Path_115" data-name="Path 115" class="cls-1" d="M5.615,17.764,5.6,20.744a.647.647,0,0,0,.183.458.612.612,0,0,0,.443.183l2.964-.015a.612.612,0,0,0,.443-.183L19.872,10.949a.646.646,0,0,0,0-.9L16.938,7.083a.646.646,0,0,0-.9,0L13.989,9.146,5.8,17.321A.681.681,0,0,0,5.615,17.764ZM16.495,8.428l2.063,2.063L17.4,11.652,15.333,9.589l1.161-1.161ZM6.884,18.039l7.548-7.548,2.063,2.063L8.946,20.087,6.868,20.1l.015-2.063Z" transform="translate(-5.6 -6.9)"></path>
+        </svg></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
+    {% endif %}
+</section>
+
+<hr class="hr small">
+
+<div class="panel-subtitle">
+    <span class="dib vam">Мои акции</span>
+</div>
+
+<section class="site-flex site-flow flex-wrap mt-60 mb-20">
+    {% if sale is defined %}
+        {% for item in sale %}
+            <section class="site-flex-column site-sale-offer x3 m10">
+                <div class="wrapper">
+                    {% if item.image %}
+                        {% set img %}{% path item.image, 'selection_217' %}{% endset %}
+                    {% else %}
+                        {% set img = webpack_asset('@web/images/notfound.svg') %}
+                    {% endif %}
+                    <div class="image" style="background-image: url({{ img  }});">
+                        <a href="{{ path('cabinet_cat', {'selection[]': item.id}) }}" class="link"></a>
+                    </div>
+                    <div class="content">
+                        <a href="{{ path('cabinet_cat', {'selection[]': item.id}) }}" class="title">{{ item.name }}</a>
+                    </div>
+                </div>
+            </section>
+        {% endfor %}
+    {% endif %}
+</section>
+{% endblock %}

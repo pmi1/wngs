@@ -1,0 +1,234 @@
+services:
+    admin.user:
+        class: AppBundle\Admin\UserAdmin
+        arguments: [~, AppBundle\Entity\User, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: User List, show_mosaic_button: false }
+
+#    admin.usersite:
+#        class: AppBundle\Admin\UserSiteAdmin
+#        arguments: [~, AppBundle\Entity\User, ~]
+#        tags:
+#            - { name: sonata.admin, manager_type: orm, label: User List, show_mosaic_button: false }
+
+    admin.role:
+        class: AppBundle\Admin\RoleAdmin
+        arguments: [~, AppBundle\Entity\Role, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Role List, show_mosaic_button: false }
+
+    admin.roles_group:
+        class: AppBundle\Admin\RoleGroupAdmin
+        arguments: [~, AppBundle\Entity\RoleGroup, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Role Group List, show_mosaic_button: false }
+    admin.page:
+        class: AppBundle\Admin\PageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Page List, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\Page
+            - AppBundle:Backend\ListCommon
+    admin.cmfscript:
+        class: AppBundle\Admin\CmfScriptAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: CmfScript }
+        arguments:
+            - ~
+            - AppBundle\Entity\CmfScript
+            - AppBundle:Backend\CmfScript
+
+    admin.script:
+        class: AppBundle\Admin\ScriptAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Script }
+        arguments:
+            - ~
+            - AppBundle\Entity\CmfScript
+            - AppBundle:Backend\Script
+    admin.form_answer:
+        class: AppBundle\Admin\FormAnswerAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Form Answer List, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\FormAnswer
+            - AppBundle:Backend\ListCommon
+
+    admin.privilegie.select:
+        class: AppBundle\Admin\PrivilegeAdmin
+        arguments: [~, AppBundle\Entity\Privilege, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, show_in_dashboard: false, label: Редактирование привилегий }
+
+    admin.catalogue:
+        class: AppBundle\Admin\CatalogueAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Catalogue }
+        arguments:
+            - ~
+            - AppBundle\Entity\Catalogue
+            - AppBundle:Backend\Tree
+
+    admin.article:
+        class: AppBundle\Admin\ArticleAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Article List, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\Article
+            - AppBundle:Backend\ListCommon
+
+    admin.attribute:
+        class: AppBundle\Admin\AttributeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Attribute List, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\Attribute
+            - AppBundle:Backend\ListCommon
+
+    admin.item:
+        class: AppBundle\Admin\ItemAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Item List, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\Item
+            - AppBundle:Backend\ListCommon
+
+    admin.item_attribute:
+        class: AppBundle\Admin\ItemAttributeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Item Attribute List, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\ItemAttribute
+            - AppBundle:Backend\ListCommon
+
+    admin.selection:
+        class: AppBundle\Admin\SelectionAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Selection List, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\Selection
+            - AppBundle:Backend\Selection
+
+    admin.item_selection:
+        class: AppBundle\Admin\ItemSelectionAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Item Selection List, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\ItemSelection
+            - AppBundle:Backend\ListCommon
+
+    admin.cmf_script_selection:
+        class: AppBundle\Admin\CmfScriptSelectionAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Item Selection List, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\CmfScriptSelection
+            - AppBundle:Backend\ListCommon
+
+    admin.banner_place:
+        class: AppBundle\Admin\BannerPlaceAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Banner Place List, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\BannerPlace
+            - AppBundle:Backend\ListCommon
+
+    admin.user_type:
+        class: AppBundle\Admin\UserTypeAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: User Type List, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\UserType
+            - AppBundle:Backend\ListCommon
+
+    admin.user_favorite:
+        class: AppBundle\Admin\UserFavoriteAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Favorites, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\UserFavorite
+            - AppBundle:Backend\ListCommon
+
+    admin.item_catalogue:
+        class: AppBundle\Admin\ItemCatalogueAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Catalogues, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\ItemCatalogue
+            - AppBundle:Backend\ListCommon
+
+    admin.maillist_template:
+        class: AppBundle\Admin\MaillistTemplateAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Mail list Template, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\MaillistTemplate
+            - AppBundle:Backend\ListCommon
+
+    admin.order:
+        class: AppBundle\Admin\OrderAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Order, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\Order
+            - AppBundle:Backend\ListCommon
+
+    admin.message:
+        class: AppBundle\Admin\MessageAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Messages, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\Message
+            - AppBundle:Backend\ListCommon
+
+    admin.item_color:
+        class: AppBundle\Admin\ItemColorAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Colors, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\ItemColor
+            - AppBundle:Backend\ListCommon
+
+    admin.color:
+        class: AppBundle\Admin\ColorAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Colors, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\Color
+            - AppBundle:Backend\ListCommon
+
+    admin.delivery:
+        class: AppBundle\Admin\DeliveryAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Delivery, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\Delivery
+            - AppBundle:Backend\ListCommon
+
+    admin.review:
+        class: AppBundle\Admin\ReviewAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Review, show_mosaic_button: false }
+        arguments:
+            - ~
+            - AppBundle\Entity\Review
+            - AppBundle:Backend\ListCommon

@@ -1,0 +1,88 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+{% extends 'SonataAdminBundle:CRUD:base_list.html.twig' %}
+
+{% import _self as tree %}
+
+{% macro navigate_child(collection, admin, root, current_category_id, depth) %}
+    {% import _self as tree %}
+
+    {% if root and collection|length == 0 %}
+        <div>
+            <p class="bg-warning">{{ 'warning_no_category'|trans({}, admin.translationdomain) }}</p>
+        </div>
+    {% endif %}
+    <ul{% if root %} class="sonata-tree sonata-tree--small js-treeview sonata-tree--toggleable"{% endif %}>
+        {% for element in collection if element is not null %}
+            <li>
+                <div class="sonata-tree__item{% if element.id == current_category_id %} is-active{% endif %}"{% if depth < 2 %} data-treeview-toggled{% endif %}>
+                    {% if element.parent or root %}<i class="fa fa-caret-right" data-treeview-toggler></i>{% endif %}
+                    <a class="sonata-tree__item__edit" href="{{ url(app.request.attributes.get('_route'), app.request.query.all|merge({category: element.id})) }}">{{ element.name }}</a>
+                </div>
+
+                {% if element.children|length %}
+                    {{ tree.navigate_child(element.children, admin, false, current_category_id, depth + 1) }}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endmacro %}
+
+{% block list_table %}
+    {% if datagrid.values['category']['value'] is defined %}
+        <div class="col-xs-6 col-md-3">
+            {{ tree.navigate_child([root_category], admin, true, datagrid.values['category']['value'], 1) }}
+        </div>
+        <div class="col-xs-12 col-md-9 no-padding">
+            {{ parent() }}
+        </div>
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+{% block table_header %}
+    <thead>
+        <tr class="sonata-ba-list-field-header">
+            {% for field_description in admin.list.elements %}
+                {% if admin.hasRoute('batch') and field_description.getOption('code') == '_batch' and batchactions|length > 0 %}
+                    <th class="sonata-ba-list-field-header sonata-ba-list-field-header-batch">
+                      <input type="checkbox" id="list_batch_checkbox">
+                    </th>
+                {% elseif field_description.getOption('code') == '_select' or app.request.get('_list_mode') != 'list' %}
+                    <th class="sonata-ba-list-field-header sonata-ba-list-field-header-select"></th>
+                {% elseif field_description.name == '_action' and app.request.isXmlHttpRequest %}
+                    {# Action buttons disabled in ajax view! #}
+                {% elseif field_description.getOption('ajax_hidden') == true and app.request.isXmlHttpRequest %}
+                    {# Disable fields with 'ajax_hidden' option set to true #}
+                {% else %}
+                    {% set sortable = false %}
+                    {% if field_description.options.sortable is defined and field_description.options.sortable %}
+                        {% set sortable             = true %}
+                        {% set sort_parameters      = admin.modelmanager.sortparameters(field_description, admin.datagrid) %}
+                        {% set current              = admin.datagrid.values._sort_by == field_description or admin.datagrid.values._sort_by.fieldName == sort_parameters.filter._sort_by %}
+                        {% set sort_active_class    = current ? 'sonata-ba-list-field-order-active' : '' %}
+                        {% set sort_by              = current ? admin.datagrid.values._sort_order : field_description.options._sort_order %}
+                    {% endif %}
+
+                    {% spaceless %}
+                        <th class="sonata-ba-list-field-header-{{ field_description.type}} {% if sortable %} sonata-ba-list-field-header-order-{{ sort_by|lower }} {{ sort_active_class }}{% endif %}{% if field_description.options.header_class is defined %} {{ field_description.options.header_class }}{% endif %}"{% if field_description.options.header_style is defined %} style="{{ field_description.options.header_style }}"{% endif %}>
+                            {% if sortable %}<a href="{{ admin.generateUrl('list', sort_parameters) }}">{% endif %}
+                            {{ field_description.label|trans({}, field_description.translationDomain) }}
+                            {% if sortable %}</a>{% endif %}
+                        </th>
+                    {% endspaceless %}
+                {% endif %}
+            {% endfor %}
+        </tr>
+    </thead>
+{% endblock %}

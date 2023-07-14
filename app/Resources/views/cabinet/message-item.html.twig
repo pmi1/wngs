@@ -1,0 +1,18 @@
+{#
+
+Шаблон страницы отдельного сообщения
+
+#}
+
+{% extends 'cabinet/main.html.twig' %}
+
+{% block cabinetbody %}
+
+<div class="site-page-content wm-600">
+    <h1>{{ message.name }}</h1>
+    {% autoescape %}
+
+    {% endautoescape %}
+    <p>{{ message.description }}</p>
+</div>
+{% endblock %}

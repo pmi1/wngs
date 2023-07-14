@@ -1,0 +1,23 @@
+{#
+
+Шаблон баннера 1 на главной
+
+#}
+{% for banner in banners %}
+    <section class="site-flex-column site-shop-item x3 m20 full">
+        <div class="wrapper">
+            {% if banner.image %}
+                {% set img %}{% path banner.image, 'page_360' %}{% endset %}
+            {% else %}
+                {% set img = webpack_asset('@web/images/notfound.svg') %}
+            {% endif %}
+            <div class="image" style="background-image: url({{ img }});">
+                <div class="image-content">
+                    <div class="dib"><span class="svg star"><!-- svg `star.svg` begin --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 22 22"><path d="M22,8.526q0-.513-.741-.638L14.622,6.876,11.648.568Q11.4,0,11,0t-.648.568L7.377,6.876.74,7.888Q0,8.012,0,8.526a1.075,1.075,0,0,0,.33.665L5.143,14.1,4.006,21.029a2.384,2.384,0,0,0-.026.278.844.844,0,0,0,.139.492.469.469,0,0,0,.416.2,1.084,1.084,0,0,0,.529-.166L11,18.562l5.936,3.272a1.041,1.041,0,0,0,.529.166.458.458,0,0,0,.4-.2.85.85,0,0,0,.139-.492,2.217,2.217,0,0,0-.013-.278L16.857,14.1l4.8-4.908A1.019,1.019,0,0,0,22,8.526Z"/></svg><!-- svg `star.svg` end --></span></div>
+                    <div class="dib title gold">{{ banner.name }}</div>
+                </div>
+                <a href="{{ banner.link }}" {{ banner.isNewWin == 1 ? ' target="_blank" ' : '' }} class="link"></a>
+            </div>
+        </div>
+    </section>
+{% endfor %}

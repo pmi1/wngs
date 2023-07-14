@@ -1,0 +1,55 @@
+{#
+
+Шаблон текстовой страницы
+
+#}
+
+{% extends 'main/main.html.twig' %}
+
+{% block сatalogueMenu %}
+    {% if script.parentId == 167 %}
+        {% set menu = knp_menu_get('client_menu', [], {menu_type: 'cabinet_top'}) %}
+        {{ knp_menu_render(menu, {'template': 'menu/cabinet_top_menu.html.twig'}) }}
+    {% else %}
+        {{ parent() }}
+    {% endif %}
+{% endblock %}
+
+
+{% block body %}
+    {% if body_banners is defined %}
+        <h1 class="h1">{{ script.name }}</h1>
+        {{ script.textFormatted|raw }}
+        {% for k, i in body_banners %}
+            {% include "includes/banner-" ~ k ~ ".html.twig" with {'banners': i} %}
+        {% endfor %}
+    {% else %}
+        <div class="site-page-content wm-600">
+            <h1>{{ script.name }}</h1>
+            {{ script.textFormatted|raw }}
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block bodygray %}
+{% for k, i in script.getActiveCmfScriptSelections %}
+    <section class="{{ (k % 2) ? '' : 'site-gray mb-60' }}">
+        <section class="site-w">
+            <section class="site-div">
+                <div class="title">{{ i.selection.name }}</div>
+                <div class="text">
+                    {{ i.selection.textFormatted|raw }}
+                </div>
+                <!-- site carousel begin -->
+                <section class="site-carousel-products site-flow site-flow-bottom">
+                    <section class="site-carousel-items js--site-carousel js--carousel-products">
+                    {% for key, value in i.selection.getActiveItemSelections %}
+                        {% include "includes/item-minicard.html.twig" with {'item': value.item, 'mode': 'site-carousel-product '} %}
+                    {% endfor %}
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+{% endfor %}
+{% endblock %}

@@ -1,0 +1,29 @@
+{#
+
+Шаблон коллекции страницы кабинета
+
+#}
+
+{% extends 'cabinet/selection.html.twig' %}
+
+
+{% block cabinetbody %}
+<hr class="hr">
+
+{{ form_start(form) }}
+    <div class="form-field select form-field-margin-flow text center big">
+        {{ form_row(form.name) }}
+        <span class="svg icon"></span>
+    </div>
+    <div class="form-field select form-field-margin-flow text center big">
+        {{ form_row(form.textRaw, {'label': 'Text Type'}) }}
+        <span class="svg icon"></span>
+    </div>
+    <div class="site-flex site-flow flex-wrap site-form form-flow-vertical">
+        {{ form_errors(form) }}
+        {{ form_row(form.image, {'label': ' '}) }}
+        <span class="svg icon"></span>
+    </div>
+    <button class="site-button yellow w-full big form-field-margin-flow"><span class="text">СОХРАНИТЬ</span></button>
+{{ form_end(form) }}
+{% endblock %}

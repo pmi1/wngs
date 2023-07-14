@@ -1,0 +1,31 @@
+services:
+    app.form.type.MultipleTreeType:
+        class: AppBundle\Form\Type\MultipleTreeType
+        arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - { name: form.type, alias: app_multiple_tree }
+
+    app.form.type.PrivilegeType:
+        class: AppBundle\Form\Type\PrivilegeType
+        arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - { name: form.type, alias: app_privilege }
+
+    app.form.type.AjaxCascadeSelectType:
+        class: AppBundle\Form\Type\AjaxCascadeSelectType
+        arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - { name: form.type, alias: app_ajax_cascade_select }
+
+    app.form.type.ClinicAttributeType:
+        class: AppBundle\Form\Type\ClinicAttributeType
+        arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - { name: form.type, alias: clinic_attribute_type }
+
+
+    app.form.type.CatalogueSelectorType:
+        class: AppBundle\Form\Type\CatalogueSelectorType
+        arguments: ['@doctrine.orm.entity_manager']
+        tags:
+            - { name: form.type, alias: sonata_catalogue_selector }

@@ -1,0 +1,16 @@
+{#
+
+Шаблон миникарточки коллекции
+
+#}
+<section class="{{ class is defined ? class : 'site-carousel-product site-flex-item x3 m20 mb60 site-product site-collection-item' }}">
+    <a href="{{ path('collection_show', {'slug': value.link}) }}" class="title small center">{{ value.name }}</a>
+    {% if value.image %}
+        {% set img %}{% path value.image, 'selection_217' %}{% endset %}
+    {% else %}
+        {% set img = webpack_asset('@web/images/notfound.svg') %}
+    {% endif %}
+    <div class="image h180" style="background-image: url({{ img }});">
+        <a href="{{ path('collection_show', {'slug': value.link}) }}" class="link"></a>
+    </div>
+</section>

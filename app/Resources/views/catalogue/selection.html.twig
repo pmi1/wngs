@@ -1,0 +1,77 @@
+{#
+
+Шаблон страницы рубрики
+
+#}
+
+{% extends 'catalogue/show.html.twig' %}
+
+{% block meta %}
+    <title>{{ selection.metaTitle ? selection.metaTitle : selection.name }}</title>
+    <meta name="Keywords" content="{{ selection.metaKeywords }}"/>
+    <meta name="Description" content="{{ selection.metaDescription }}"/>
+{% endblock %}
+
+{% block body %}
+<h1>{{ selection.name }}</h1>
+<!-- site-catalog begin -->
+<section class="site-flex site-flow site-flow-bottom site-catalog">
+    <section class="site-flex-column site-flex-main x4 m10">
+        <!-- site-filters begin -->
+        <section class="site-filters">
+            <form method="get">
+                {{ block('itemFilter') }}
+                <section class="site-filter">
+                    <button class="site-button yellow w-150 small"><span class="text">ОБНОВИТЬ</span></button>
+                </section>
+            </form>
+        </section>
+        <!-- site-filters end -->
+
+
+    </section>
+    <section class="site-flex-column x3-4 m10">
+
+        <!-- catalog-top begin -->
+        <section class="catalog-navigation">
+            <div class="catalog-navigation-item left">
+                Показано: <span class="pages">{{ items.currentPageOffsetStart() ~ '-' ~ items.currentPageOffsetEnd() ~ ' из ' ~ items.count() }}</span>
+            </div>
+            {% if items.count() > 12 %}
+                <div class="catalog-navigation-item page-counter">
+                    Показать:
+                    {% set ps = items.count() > 29 ? [12, 30, 5000] : [12, 5000] %}
+                    {% for item in ps %}
+                        <a href="{{ path(app.request.attributes.get('_route'), app.request.query.all|merge({'slug': catalogue.realcatname, 'pagesize': item, 'page' : null})) }}" class="pages{{ items.getMaxPerPage() == item ? ' active' : ''}}">{{item == 5000 ? 'Все' : item}}</a>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </section>
+        <!-- catalog-top end -->
+        <!-- catalog-product-list begin -->
+        <section class="site-flex flex-wrap catalog-product-list">
+            {% for key, value in items %}
+                {% include "includes/item-minicard.html.twig" with {'item': value} %}
+            {% endfor %}
+        </section>
+        <!-- catalog-product-list end -->
+
+        <!-- catalog-pagination begin -->
+        <section class="catalog-pagination">
+            <section class="content">
+                {{ pagerfanta(items, 'default', {'omitFirstPage': true, 'prev_message': '←','next_message': '→', 'css_current_class': 'active', 'page_template': '<a class="pagination-item" href="%href%"%rel%>%text%</a>', 'span_template': '<span class="pagination-item active">%text%</span>'}) }}
+            </section>
+        </section>
+        <!-- catalog-pagination end -->
+
+    </section>
+</section>
+<!-- site-catalog end -->
+{% if items.getCurrentPage() == 1 %}
+    <!-- seo-text begin -->
+    <section class="seo-text">
+        {{ selection.textFormatted|raw }}
+    </section>
+    <!-- seo-text end -->
+{% endif %}
+{% endblock %}

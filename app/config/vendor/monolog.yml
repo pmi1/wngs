@@ -1,0 +1,112 @@
+monolog:
+    channels: ['subscribe']
+    use_microseconds: false
+    handlers:
+        all:
+            level:    debug
+            type:     rotating_file
+            path:     "%kernel.logs_dir%/%kernel.environment%/all.log"
+            channels: ~
+            max_files: 365
+        # Levels
+        info:
+            level:    info
+            type:     rotating_file
+            path:     "%kernel.logs_dir%/%kernel.environment%/levels/info/info.log"
+            channels: ~
+            max_files: 365
+        alert:
+            level:    alert
+            type:     rotating_file
+            path:     "%kernel.logs_dir%/%kernel.environment%/levels/alert/alert.log"
+            channels: ~
+            max_files: 365
+        emergency:
+            level:    emergency
+            type:     rotating_file
+            path:     "%kernel.logs_dir%/%kernel.environment%/levels/emergency/emergency.log"
+            channels: ~
+            max_files: 365
+        warning:
+            level:    warning
+            type:     rotating_file
+            path:     "%kernel.logs_dir%/%kernel.environment%/levels/warning/warning.log"
+            channels: ~
+            max_files: 365
+        error:
+            level:    error
+            type:     rotating_file
+            path:     "%kernel.logs_dir%/%kernel.environment%/levels/error/error.log"
+            channels: ~
+            max_files: 365
+        debugs:
+            level:    debug
+            type:     rotating_file
+            path:     "%kernel.logs_dir%/%kernel.environment%/levels/debug/debug.log"
+            channels: ~
+            max_files: 365
+        critical:
+            level:    critical
+            type:     rotating_file
+            path:     "%kernel.logs_dir%/%kernel.environment%/levels/critical/critical.log"
+            channels: ~
+            max_files: 365
+        notice:
+            level:    notice
+            type:     rotating_file
+            path:     "%kernel.logs_dir%/%kernel.environment%/levels/notice/notice.log"
+            channels: ~
+            max_files: 365
+        # Services
+        security:
+            level:    debug
+            type:     rotating_file
+            path:     "%kernel.logs_dir%/%kernel.environment%/channels/security/security.log"
+            channels: security
+            max_files: 365
+        doctrine:
+            level:    debug
+            type:     rotating_file
+            path:     "%kernel.logs_dir%/%kernel.environment%/channels/doctrine/doctrine.log"
+            channels: doctrine
+            max_files: 365
+        request:
+            level:    debug
+            type:     rotating_file
+            path:     "%kernel.logs_dir%/%kernel.environment%/channels/request/request.log"
+            channels: request
+            max_files: 365
+        translation:
+            level:    debug
+            type:     rotating_file
+            path:     "%kernel.logs_dir%/%kernel.environment%/channels/translation/translation.log"
+            channels: translation
+            max_files: 365
+        php:
+            level:    debug
+            type:     rotating_file
+            path:     "%kernel.logs_dir%/%kernel.environment%/channels/php/php.log"
+            channels: php
+            max_files: 365
+        subscribe:
+            level:    info
+            type:     rotating_file
+            path:     "%kernel.logs_dir%/%kernel.environment%/channels/subscribe/php.log"
+            channels: subscribe
+            max_files: 365
+        rest:
+            level: debug
+            type: rotating_file
+            path: "%kernel.logs_dir%/%kernel.environment%/channels/rest.log"
+            channels:
+                - !security
+                - !doctrine
+                - !event
+                - !request
+                - !translation
+                - !templating
+                - !php
+                - !subscribe
+            max_files: 365
+        # Errors to email
+        # TODO: http://symfony.com/doc/current/logging/monolog_email.html

@@ -1,0 +1,22 @@
+{#
+
+Шаблон баннера для личного кабинета дизайнера
+
+#}
+{% if banner is defined %}
+    <section class="site-flex-column x2 site-news-item">
+        {% if banner.image %}
+            {% set img %}{% path banner.image, 'page_360' %}{% endset %}
+        {% else %}
+            {% set img = webpack_asset('@web/images/notfound.svg') %}
+        {% endif %}
+        <div class="image" style="background-image: url({{ img }});">
+            <a href="{{ banner.link }}" class="link" {{ banner.isNewWin == 1 ? ' target="_blank" ' : '' }}></a>
+        </div>
+        <div class="wrapper">
+            <a href="{{ banner.link }}" {{ banner.isNewWin == 1 ? ' target="_blank" ' : '' }} class="title">{{ banner.name }}</a>
+            <div class="description">{{ banner.text.raw|raw }}</div>
+        </div>
+        <a class="block-link" href="{{ banner.link }}" {{ banner.isNewWin == 1 ? ' target="_blank" ' : '' }}></a>
+    </section>
+{% endif %}

@@ -1,0 +1,17 @@
+{#
+
+This file is part of the Sonata package.
+
+(c) Thomas Rabaix <thomas.rabaix@sonata-project.org>
+
+For the full copyright and license information, please view the LICENSE
+file that was distributed with this source code.
+
+#}
+
+<img 
+    class="{% if options.class is defined %}{{options.class}}{% else %}img-responsive img-rounded{% endif %}" 
+    src="/uploads/media/{{ options.file }}" 
+    width="{% if options.width is defined %}{{options.width}}{% else %}100{% endif %}"
+    alt="{% if options.alt is defined %}{{options.alt}}{% endif %}"
+    title="{% if options.title is defined %}{{options.title}}{% endif %}"/>

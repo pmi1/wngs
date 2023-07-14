@@ -1,0 +1,11 @@
+{#
+
+Часть шаблона админки для древовидных сущностей: вывод кнопки отображения записи на клиентской части
+
+#}
+
+{% if admin.isGranted('VIEW', object) and admin.hasRoute('show') and admin.getClientUrl(object) %}
+    <a href="{{ admin.getClientUrl(object) }}" class="btn btn-sm btn-default view_site_link" title="{{ 'action_show_site'|trans({}, 'SonataAdminBundle') }}">
+        <i class="fa fa-info-circle" aria-hidden="true"></i>
+    </a>
+{% endif %}

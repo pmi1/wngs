@@ -1,0 +1,11 @@
+{#
+
+Шаблон баннера для личного кабинета дизайнера
+
+#}
+{% if banner is defined %}
+    <section class="news-item">
+        <a href="{{ banner.link }}" {{ banner.isNewWin == 1 ? ' target="_blank" ' : '' }} class="title">{{ banner.name }}</a>
+        <div class="description">{{ banner.text.raw|raw }}</div>
+    </section>
+{% endif %}

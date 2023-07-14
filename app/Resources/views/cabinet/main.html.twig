@@ -1,0 +1,142 @@
+{#
+
+Базовый шаблон кабинета
+
+#}
+
+{% extends 'main/main.html.twig' %}
+
+{% block сatalogueMenu %}
+    {% set menu = knp_menu_get('client_menu', [], {menu_type: 'cabinet_top'}) %}
+    {{ knp_menu_render(menu, {'template': 'menu/cabinet_top_menu.html.twig'}) }}
+{% endblock %}
+
+{% block content %}
+<section class="site-members-area">
+    <section class="site-w">
+        <section class="site-flex site-flow site-members-structure">
+            <section class="site-flex-column site-flex-main x4 m10">
+                <!-- left side begin -->
+                {% if app.user.designer == 1 %}
+                    <section class="site-panel">
+                        <div class="image">
+                            {% if app.user.brandImage %}
+                                {% set img %}{% path app.user.brandImage, 'brand_256' %}{% endset %}
+                            {% else %}
+                                {% set img = webpack_asset('@web/images/notfound.svg') %}
+                            {% endif %}
+                            <a href=""><img src="{{ img }}" alt="" class="img"></a>
+                        </div>
+                        <div class="text center">
+                            <a href="">{{ app.user.brand }}</a>
+                        </div>
+                    </section>
+                {% endif %}
+                <section class="site-panel user-info">
+                    <div class="content">
+                        {% if app.user.image %}
+                            {% set img2 %}{% path app.user.image, 'user_120' %}{% endset %}
+                        {% else %}
+                            {% set img2 = webpack_asset('@web/images/no-avatar.png') %}
+                        {% endif %}
+                        <div class="author">
+                            <div class="avatar" style="background-image: url({{ img2 }});"></div>
+                            <div class="text">
+                                <span class="fullname">{{ app.user.name }}</span>
+                                <span class="map">{{ app.user.country }}{{ app.user.country and app.user.city ? ', ' : '' }}{{ app.user.city }}</span>
+                            </div>
+                        </div>
+
+                        <section class="user-extra dib ml-{{ fh is defined ? '30' : '10' }}">
+                            <a href="{{ path('cabinet_profile', {'d': 1}) }}" class="site-button yellow small"><span class="text">ОТКРЫТЬ МАГАЗИН</span></a>
+                        </section>
+
+                        <div class="user-menu">
+                            {% set menu = knp_menu_get('client_menu', [], {menu_type: 'cabinet'}) %}
+                            {{ knp_menu_render(menu, {'template': 'menu/cabinet_menu.html.twig'}) }}
+                        </div>
+
+                        <div class="user-extra">
+                            <a href="{{ path('cabinet_new_message_list') }}" class="site-icon-std dib">
+                                <span class="svg envelope"><!-- svg `envelope.svg` begin --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 22.831"><g transform="translate(0 -57.75)"><g transform="translate(0 57.75)"><path d="M26.338,57.75H3.669A3.672,3.672,0,0,0,0,61.419V76.912a3.672,3.672,0,0,0,3.669,3.669H26.331A3.672,3.672,0,0,0,30,76.912V61.425A3.668,3.668,0,0,0,26.338,57.75ZM28.33,76.912A2,2,0,0,1,26.338,78.9H3.669a2,2,0,0,1-1.993-1.993V61.425a2,2,0,0,1,1.993-1.993H26.331a2,2,0,0,1,1.993,1.993V76.912Z" transform="translate(0 -57.75)"/><path d="M71.212,116.95l7.337-6.58a.839.839,0,1,0-1.124-1.248L67.307,118.2l-1.974-1.763c-.006-.006-.012-.012-.012-.019a1.241,1.241,0,0,0-.137-.118l-8.032-7.188a.84.84,0,1,0-1.117,1.254l7.424,6.636-7.393,6.921a.841.841,0,0,0-.037,1.186.857.857,0,0,0,.615.267.84.84,0,0,0,.571-.223l7.5-7.02,2.036,1.819a.836.836,0,0,0,1.117-.006l2.092-1.875,7.461,7.089a.84.84,0,0,0,1.186-.031.841.841,0,0,0-.031-1.186Z" transform="translate(-52.292 -105.727)"/></g></g></svg><!-- svg `envelope.svg` end --></span>
+                                <span class="site-counter">{{newMessageCount}}</span>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- left side end -->
+            </section>
+            <section class="site-flex-column x3-4 m10">
+                <section class="site-panel site-default-text">
+                    <section class="main-content">
+                        <div class="h3">{{ pageInfo.name }}{% block cabinettitle %}{% endblock %}
+                            {% if pageInfo.textFormatted %}
+                                <div class="title-tooltips" data-mfp-src="#popup-main-content-tooltip" data-open-popup>
+                                    Подсказки:
+                                    <span class="svg tooltips"><!-- svg `tooltips.svg` begin -->
+
+                                <svg version="1.1" xmlns="&amp;ns_svg;" xmlns:xlink="&amp;ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/" width="31" height="31" viewBox="-0.062 -0.478 31 31" enable-background="new -0.062 -0.478 31 31" xml:space="preserve">
+
+                            <path d="M14.999,0C6.72,0,0,6.72,0,15s6.72,15,14.999,15c8.28,0,15-6.72,15-15S23.279,0,14.999,0L14.999,0z
+                            M14.999,0.78c7.86,0,14.22,6.36,14.22,14.22s-6.359,14.28-14.22,14.28C7.14,29.281,0.72,22.861,0.72,15S7.14,0.78,14.999,0.78
+                            L14.999,0.78z M14.999,4.92c-0.24,0-0.359,0.12-0.359,0.36v1.5c0,0.18,0.18,0.36,0.359,0.36c0.181,0,0.36-0.18,0.36-0.36v-1.5
+                            C15.359,5.04,15.18,4.86,14.999,4.92L14.999,4.92z M21.359,7.5c-0.12,0-0.18,0.06-0.3,0.12l0,0L20.039,8.7
+                            c-0.42,0.36,0.181,0.96,0.54,0.54L21.6,8.16C21.839,7.92,21.72,7.5,21.359,7.5L21.359,7.5z M8.64,7.56c-0.3,0-0.48,0.36-0.24,0.6
+                            l1.02,1.08c0.36,0.36,0.96-0.18,0.54-0.54L8.88,7.62C8.82,7.56,8.76,7.56,8.64,7.56L8.64,7.56z M14.999,7.86
+                            c-7.079,0-8.879,9.84-2.22,12.36v3.42c0,0.181,0.12,0.36,0.36,0.36h0.36v0.72c0,0.24,0.18,0.42,0.36,0.42h2.28
+                            c0.18,0,0.359-0.18,0.359-0.42V24h0.36c0.24,0,0.36-0.18,0.36-0.36v-3.42C23.879,17.701,22.079,7.86,14.999,7.86L14.999,7.86z
+                            M14.879,8.64L14.879,8.64L14.879,8.64c6.42-0.18,8.04,8.94,1.86,10.92c-0.119,0.061-0.24,0.24-0.24,0.36v0.72h-3v-0.72
+                            c0-0.12-0.12-0.3-0.24-0.36C7.26,17.64,8.58,8.76,14.879,8.64L14.879,8.64z M14.999,9.78c-2.459,0-4.5,1.98-4.5,4.5
+                            c0,0.48,0.78,0.48,0.78,0c0-2.1,1.68-3.78,3.719-3.78C15.479,10.5,15.479,9.78,14.999,9.78L14.999,9.78z M6,13.86
+                            c-0.48,0-0.48,0.78,0,0.78h1.5c0.54,0,0.54-0.78,0-0.78H6z M22.499,13.86c-0.54,0-0.54,0.78,0,0.78h1.5c0.48,0,0.48-0.78,0-0.78
+                            H22.499z M9.72,19.14c-0.12,0-0.18,0.061-0.3,0.12l0,0l-1.02,1.08c-0.36,0.36,0.18,0.9,0.48,0.54l1.08-1.08
+                            C10.2,19.56,10.08,19.14,9.72,19.14L9.72,19.14z M20.279,19.14c-0.36,0.061-0.479,0.42-0.24,0.66l1.021,1.08
+                            c0.359,0.36,0.899-0.18,0.54-0.54l-1.021-1.08C20.459,19.201,20.339,19.14,20.279,19.14L20.279,19.14z M13.5,21.361h3v1.859H16.14
+                            c-0.24,0-0.42,0.18-0.42,0.42v0.721h-1.5V23.64c0-0.24-0.12-0.42-0.36-0.42H13.5V21.361z"></path>
+                            </svg>
+                            <!-- svg `tooltips.svg` end --></span>
+                                </div>
+                        {% endif %}
+                        </div>
+                        {% block cabinetbody %}{% endblock %}
+                    </section>
+                </section>
+            </section>
+        </section>
+    </section>
+</section>
+{% if shownItems[0] is defined %}
+    <section class="site-default-text">
+        <section class="site-w">
+            <div class="h3 mt-60">Просмотренные</div>
+            <section class="site-flex site-flow site-viewed">
+                {% for key, value in shownItems %}
+                    {% include "includes/item-minicard.html.twig" with {'item': value, 'class': 'site-flex-item x4 m10 mb60 site-product small js-data'} %}
+                {% endfor %}
+            </section>
+        </section>
+    </section>
+{% endif %}
+{% endblock %}
+
+
+{% block modal %}
+    {% if pageInfo.textFormatted %}
+        <section class="site-popup-window popup-main-content js--site-popup-window" data-no-effect id="popup-main-content-tooltip">
+            <div class="site-w site-default-text">
+                {{ pageInfo.textFormatted|raw }}
+            </div>
+            <div class="popup-main-close js--popup-main-close"><span class="svg close"><!-- svg `cross.svg` begin -->
+
+            <svg  version="1.1" xmlns="&ns_svg;" xmlns:xlink="&ns_xlink;" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+                 width="11" height="10" viewBox="-0.982 -0.4 11 10" enable-background="new -0.982 -0.4 11 10" xml:space="preserve">
+
+            <polygon points="0.54,0 0,0.54 4.26,4.74 0,9 0.54,9.54 4.74,5.28 9,9.54 9.54,9 5.28,4.74 9.54,0.54 9,0 4.74,4.26 
+                "/>
+            </svg>
+            <!-- svg `cross.svg` end --></span></div>
+        </section>
+    {% endif %}
+    {% block add_modal %}{% endblock %}
+{% endblock %}

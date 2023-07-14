@@ -1,0 +1,65 @@
+{#
+
+Шаблон статьи страницы кабинета
+
+#}
+
+{% extends 'cabinet/main.html.twig' %}
+
+
+{% block cabinetbody %}
+<hr class="hr">
+
+{{ form_start(form) }}
+    <div class="hide">
+        {{ form_row(form.media) }}
+    </div>
+    <!-- images-product begin -->
+    <section class="site-form-panel sfp-font-size">
+        <div class="form-panel-title">
+            Добавить фото (до 5 шт.)
+            {{ form_errors(form.media) }}
+        </div>
+        <div class="form-panel-list">
+            <section class="images-product-list">
+                {% for el in [0,1,2,3,4] %}
+                    {% set img = (form.vars.data.gallery and form.vars.data.gallery.getGalleryHasMedias 
+                        and form.vars.data.gallery.getGalleryHasMedias[el] is defined ? (form.vars.data.gallery.getGalleryHasMedias[el]).media : null) %}
+
+                    <div class="images-product-item js--ipi {{form.vars.data.gallery and form.vars.data.gallery.getGalleryHasMedias and form.vars.data.gallery.getGalleryHasMedias[el] is defined ? 'active' : '' }}">
+                        <div class="images-product-item-value">
+                            {% if img %}
+                                {% thumbnail img, 'article_256' %}
+                            {% else %}
+                                <img src="" alt="">
+                            {% endif %}
+                            <a href="javascript:void(0);" class="images-product-item-remove js--ipi-remove"></a>
+                        </div>
+                        <div class="images-product-item-input">
+                            <div class="form-field image-input">
+                                <span class="ii-label">+Добавить <br>фото</span>
+                                <input type="file" name="{{ img ? 'media[' ~ img.id ~ ']' : 'image[]' }}">
+                            </div>
+                        </div>
+                        <div class="soi-top-b"></div><div class="soi-bottom-b"></div>
+                        <div class="soi-right-b"></div><div class="soi-left-b"></div>
+                    </div>
+                {% endfor %}
+            </section>
+        </div>
+    </section>
+    <div class="form-field select form-field-margin-flow text center big">
+        {{ form_row(form.name) }}
+        <span class="svg icon"></span>
+    </div>
+    <div class="form-field select form-field-margin-flow text center big">
+        {{ form_row(form.previewRaw, {'label': 'Краткое описание (будет отображаться на странице Live)'}) }}
+        <span class="svg icon"></span>
+    </div>
+    <div class="form-field select form-field-margin-flow text center big">
+        {{ form_row(form.textRaw, {'label': 'Подробное описание (текст статьи)'}) }}
+        <span class="svg icon"></span>
+    </div>
+    <button class="site-button yellow w-full big form-field-margin-flow"><span class="text">СОХРАНИТЬ</span></button>
+{{ form_end(form) }}
+{% endblock %}

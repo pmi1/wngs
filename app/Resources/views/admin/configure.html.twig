@@ -1,0 +1,14 @@
+{#
+
+Шаблон формы настроек списка полей для админки
+
+#}
+{% extends 'SonataAdminBundle::standard_layout.html.twig' %}
+{% block sonata_admin_content %}
+    {{ parent() }}
+    <div class="configure-form">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
